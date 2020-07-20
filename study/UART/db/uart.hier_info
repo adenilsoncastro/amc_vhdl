@@ -20,19 +20,19 @@ tx_data[4] => ~NO_FANOUT~
 tx_data[5] => ~NO_FANOUT~
 tx_data[6] => ~NO_FANOUT~
 tx_data[7] => ~NO_FANOUT~
-o_tx_active <= uart_tx:transmitter.o_tx_active
-o_tx_serial <= uart_tx:transmitter.o_tx_serial
-o_tx_done <= uart_tx:transmitter.o_tx_done
+o_tx_active << uart_tx:transmitter.o_tx_active
+o_tx_serial << uart_tx:transmitter.o_tx_serial
+o_tx_done << uart_tx:transmitter.o_tx_done
 i_rx_serial => uart_rx:receiver.i_rx_serial
-o_rx_dv <= uart_rx:receiver.o_rx_dv
-rx_data[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
-rx_data[1] <= rx_data[1].DB_MAX_OUTPUT_PORT_TYPE
-rx_data[2] <= rx_data[2].DB_MAX_OUTPUT_PORT_TYPE
-rx_data[3] <= rx_data[3].DB_MAX_OUTPUT_PORT_TYPE
-rx_data[4] <= rx_data[4].DB_MAX_OUTPUT_PORT_TYPE
-rx_data[5] <= rx_data[5].DB_MAX_OUTPUT_PORT_TYPE
-rx_data[6] <= rx_data[6].DB_MAX_OUTPUT_PORT_TYPE
-rx_data[7] <= rx_data[7].DB_MAX_OUTPUT_PORT_TYPE
+o_rx_dv << uart_rx:receiver.o_rx_dv
+rx_data[0] << comb.DB_MAX_OUTPUT_PORT_TYPE
+rx_data[1] << rx_data[1].DB_MAX_OUTPUT_PORT_TYPE
+rx_data[2] << rx_data[2].DB_MAX_OUTPUT_PORT_TYPE
+rx_data[3] << rx_data[3].DB_MAX_OUTPUT_PORT_TYPE
+rx_data[4] << rx_data[4].DB_MAX_OUTPUT_PORT_TYPE
+rx_data[5] << rx_data[5].DB_MAX_OUTPUT_PORT_TYPE
+rx_data[6] << rx_data[6].DB_MAX_OUTPUT_PORT_TYPE
+rx_data[7] << rx_data[7].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |uart|uart_rx:receiver

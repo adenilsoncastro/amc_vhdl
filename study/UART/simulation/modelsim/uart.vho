@@ -17,7 +17,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition"
 
--- DATE "07/16/2020 17:39:29"
+-- DATE "07/16/2020 18:52:59"
 
 -- 
 -- Device: Altera EP4CE115F29C7 Package FBGA780
@@ -83,12 +83,12 @@ ENTITY 	uart IS
 	rst : IN std_logic;
 	i_tx_dv : IN std_logic;
 	tx_data : IN std_logic_vector(7 DOWNTO 0);
-	o_tx_active : OUT std_logic;
-	o_tx_serial : OUT std_logic;
-	o_tx_done : OUT std_logic;
+	o_tx_active : BUFFER std_logic;
+	o_tx_serial : BUFFER std_logic;
+	o_tx_done : BUFFER std_logic;
 	i_rx_serial : IN std_logic;
-	o_rx_dv : OUT std_logic;
-	rx_data : OUT std_logic_vector(7 DOWNTO 0)
+	o_rx_dv : BUFFER std_logic;
+	rx_data : BUFFER std_logic_vector(7 DOWNTO 0)
 	);
 END uart;
 

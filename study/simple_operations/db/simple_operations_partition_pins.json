@@ -1,0 +1,33 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "o_tx_active",
+					"strict" : false
+				},
+				{
+					"name" : "o_tx_serial",
+					"strict" : false
+				},
+				{
+					"name" : "o_tx_done",
+					"strict" : false
+				},
+				{
+					"name" : "o_rx_dv",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "i_rx_serial",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
