@@ -25,14 +25,14 @@ o_tx_serial << uart_tx:transmitter.o_tx_serial
 o_tx_done << uart_tx:transmitter.o_tx_done
 i_rx_serial => uart_rx:receiver.i_rx_serial
 o_rx_dv << uart_rx:receiver.o_rx_dv
-rx_data[0] << comb.DB_MAX_OUTPUT_PORT_TYPE
-rx_data[1] << rx_data[1].DB_MAX_OUTPUT_PORT_TYPE
-rx_data[2] << rx_data[2].DB_MAX_OUTPUT_PORT_TYPE
-rx_data[3] << rx_data[3].DB_MAX_OUTPUT_PORT_TYPE
-rx_data[4] << rx_data[4].DB_MAX_OUTPUT_PORT_TYPE
-rx_data[5] << rx_data[5].DB_MAX_OUTPUT_PORT_TYPE
-rx_data[6] << rx_data[6].DB_MAX_OUTPUT_PORT_TYPE
-rx_data[7] << rx_data[7].DB_MAX_OUTPUT_PORT_TYPE
+rx_data[0] << uart_rx:receiver.o_rx_byte[0]
+rx_data[1] << uart_rx:receiver.o_rx_byte[1]
+rx_data[2] << uart_rx:receiver.o_rx_byte[2]
+rx_data[3] << uart_rx:receiver.o_rx_byte[3]
+rx_data[4] << uart_rx:receiver.o_rx_byte[4]
+rx_data[5] << uart_rx:receiver.o_rx_byte[5]
+rx_data[6] << uart_rx:receiver.o_rx_byte[6]
+rx_data[7] << uart_rx:receiver.o_rx_byte[7]
 
 
 |uart|uart_rx:receiver

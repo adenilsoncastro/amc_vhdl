@@ -1,12 +1,12 @@
-Fitter Status : Successful - Thu Jul 16 18:52:51 2020
+Fitter Status : Successful - Thu Jul 30 22:02:12 2020
 Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : uart
 Top-level Entity Name : uart
 Family : Cyclone IV E
 Device : EP4CE115F29C7
 Timing Models : Final
-Total logic elements : 114 / 114,480 ( < 1 % )
-    Total combinational functions : 100 / 114,480 ( < 1 % )
+Total logic elements : 111 / 114,480 ( < 1 % )
+    Total combinational functions : 99 / 114,480 ( < 1 % )
     Dedicated logic registers : 73 / 114,480 ( < 1 % )
 Total registers : 73
 Total pins : 24 / 529 ( 5 % )

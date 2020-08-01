@@ -1,5 +1,5 @@
 Analysis & Synthesis report for uart
-Thu Jul 16 18:52:39 2020
+Thu Jul 30 22:02:00 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -50,13 +50,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Jul 16 18:52:39 2020       ;
+; Analysis & Synthesis Status        ; Successful - Thu Jul 30 22:02:00 2020       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; uart                                        ;
 ; Top-level Entity Name              ; uart                                        ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 118                                         ;
-;     Total combinational functions  ; 100                                         ;
+; Total logic elements               ; 117                                         ;
+;     Total combinational functions  ; 99                                          ;
 ;     Dedicated logic registers      ; 73                                          ;
 ; Total registers                    ; 73                                          ;
 ; Total pins                         ; 24                                          ;
@@ -188,16 +188,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 118       ;
+; Estimated Total logic elements              ; 117       ;
 ;                                             ;           ;
-; Total combinational functions               ; 100       ;
+; Total combinational functions               ; 99        ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 51        ;
+;     -- 4 input functions                    ; 50        ;
 ;     -- 3 input functions                    ; 14        ;
 ;     -- <=2 input functions                  ; 35        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 76        ;
+;     -- normal mode                          ; 75        ;
 ;     -- arithmetic mode                      ; 24        ;
 ;                                             ;           ;
 ; Total registers                             ; 73        ;
@@ -210,8 +210,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 73        ;
-; Total fan-out                               ; 556       ;
-; Average fan-out                             ; 2.52      ;
+; Total fan-out                               ; 560       ;
+; Average fan-out                             ; 2.55      ;
 +---------------------------------------------+-----------+
 
 
@@ -220,8 +220,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name       ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------+-------------+--------------+
-; |uart                      ; 100 (1)             ; 73 (9)                    ; 0           ; 0            ; 0       ; 0         ; 24   ; 0            ; |uart                     ; uart        ; work         ;
-;    |uart_rx:receiver|      ; 57 (57)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |uart|uart_rx:receiver    ; uart_rx     ; work         ;
+; |uart                      ; 99 (1)              ; 73 (9)                    ; 0           ; 0            ; 0       ; 0         ; 24   ; 0            ; |uart                     ; uart        ; work         ;
+;    |uart_rx:receiver|      ; 56 (56)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |uart|uart_rx:receiver    ; uart_rx     ; work         ;
 ;    |uart_tx:transmitter|   ; 42 (42)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |uart|uart_tx:transmitter ; uart_tx     ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -323,15 +323,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA               ; 16                          ;
 ;     ENA SCLR          ; 26                          ;
 ;     plain             ; 31                          ;
-; cycloneiii_lcell_comb ; 101                         ;
+; cycloneiii_lcell_comb ; 99                          ;
 ;     arith             ; 24                          ;
 ;         2 data inputs ; 24                          ;
-;     normal            ; 77                          ;
-;         0 data inputs ; 1                           ;
+;     normal            ; 75                          ;
 ;         1 data inputs ; 2                           ;
 ;         2 data inputs ; 9                           ;
 ;         3 data inputs ; 14                          ;
-;         4 data inputs ; 51                          ;
+;         4 data inputs ; 50                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 6.00                        ;
 ; Average LUT depth     ; 2.96                        ;
@@ -359,7 +358,7 @@ The equations can be found in C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/U
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Thu Jul 16 18:52:29 2020
+    Info: Processing started: Thu Jul 30 22:01:51 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off uart -c uart
 Info (20032): Parallel compilation is enabled and will use up to 6 processors
 Info (12021): Found 2 design units, including 1 entities, in source file uart_rx.vhd
@@ -372,18 +371,8 @@ Info (12021): Found 2 design units, including 1 entities, in source file uart.vh
     Info (12022): Found design unit 1: uart-bhv File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/UART/uart.vhd Line: 25
     Info (12023): Found entity 1: uart File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/UART/uart.vhd Line: 6
 Info (12127): Elaborating entity "uart" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at uart.vhd(22): used implicit default value for signal "rx_data" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/UART/uart.vhd Line: 22
 Info (12128): Elaborating entity "uart_rx" for hierarchy "uart_rx:receiver" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/UART/uart.vhd Line: 57
 Info (12128): Elaborating entity "uart_tx" for hierarchy "uart_tx:transmitter" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/UART/uart.vhd Line: 58
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "rx_data[0]" is stuck at GND File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/UART/uart.vhd Line: 22
-    Warning (13410): Pin "rx_data[1]" is stuck at GND File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/UART/uart.vhd Line: 22
-    Warning (13410): Pin "rx_data[2]" is stuck at GND File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/UART/uart.vhd Line: 22
-    Warning (13410): Pin "rx_data[3]" is stuck at GND File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/UART/uart.vhd Line: 22
-    Warning (13410): Pin "rx_data[4]" is stuck at GND File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/UART/uart.vhd Line: 22
-    Warning (13410): Pin "rx_data[5]" is stuck at GND File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/UART/uart.vhd Line: 22
-    Warning (13410): Pin "rx_data[6]" is stuck at GND File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/UART/uart.vhd Line: 22
-    Warning (13410): Pin "rx_data[7]" is stuck at GND File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/UART/uart.vhd Line: 22
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
@@ -398,14 +387,14 @@ Warning (21074): Design contains 10 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "tx_data[5]" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/UART/uart.vhd Line: 15
     Warning (15610): No output dependent on input pin "tx_data[6]" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/UART/uart.vhd Line: 15
     Warning (15610): No output dependent on input pin "tx_data[7]" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/UART/uart.vhd Line: 15
-Info (21057): Implemented 143 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 142 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 12 input pins
     Info (21059): Implemented 12 output pins
-    Info (21061): Implemented 119 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 21 warnings
-    Info: Peak virtual memory: 4816 megabytes
-    Info: Processing ended: Thu Jul 16 18:52:39 2020
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:21
+    Info (21061): Implemented 118 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 11 warnings
+    Info: Peak virtual memory: 4802 megabytes
+    Info: Processing ended: Thu Jul 30 22:02:00 2020
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:20
 
 

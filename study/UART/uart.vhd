@@ -71,4 +71,5 @@ begin
 		end if;
 	end process p_communicate;
 	
+	rx_data <= r_rx_data;
 end bhv;	

@@ -401,35 +401,35 @@ o_rx_dv = OUTPUT(B1_r_rx_dv);
 
 
 --rx_data[0] is rx_data[0]
-rx_data[0] = OUTPUT(A1L38);
+rx_data[0] = OUTPUT(B1_r_rx_byte[0]);
 
 
 --rx_data[1] is rx_data[1]
-rx_data[1] = OUTPUT(A1L38);
+rx_data[1] = OUTPUT(B1_r_rx_byte[1]);
 
 
 --rx_data[2] is rx_data[2]
-rx_data[2] = OUTPUT(A1L38);
+rx_data[2] = OUTPUT(B1_r_rx_byte[2]);
 
 
 --rx_data[3] is rx_data[3]
-rx_data[3] = OUTPUT(A1L38);
+rx_data[3] = OUTPUT(B1_r_rx_byte[3]);
 
 
 --rx_data[4] is rx_data[4]
-rx_data[4] = OUTPUT(A1L38);
+rx_data[4] = OUTPUT(B1_r_rx_byte[4]);
 
 
 --rx_data[5] is rx_data[5]
-rx_data[5] = OUTPUT(A1L38);
+rx_data[5] = OUTPUT(B1_r_rx_byte[5]);
 
 
 --rx_data[6] is rx_data[6]
-rx_data[6] = OUTPUT(A1L38);
+rx_data[6] = OUTPUT(B1_r_rx_byte[6]);
 
 
 --rx_data[7] is rx_data[7]
-rx_data[7] = OUTPUT(A1L38);
+rx_data[7] = OUTPUT(B1_r_rx_byte[7]);
 
 
 --C1_o_tx_active is uart_tx:transmitter|o_tx_active
@@ -453,7 +453,55 @@ C1_r_tx_done = DFFEAS(C1L80, clk,  ,  ,  ,  ,  ,  ,  );
 --B1_r_rx_dv is uart_rx:receiver|r_rx_dv
 --register power-up is low
 
-B1_r_rx_dv = DFFEAS(B1L94, clk,  ,  ,  ,  ,  ,  ,  );
+B1_r_rx_dv = DFFEAS(B1L93, clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--B1_r_rx_byte[0] is uart_rx:receiver|r_rx_byte[0]
+--register power-up is low
+
+B1_r_rx_byte[0] = DFFEAS(B1L67, clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--B1_r_rx_byte[1] is uart_rx:receiver|r_rx_byte[1]
+--register power-up is low
+
+B1_r_rx_byte[1] = DFFEAS(B1L69, clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--B1_r_rx_byte[2] is uart_rx:receiver|r_rx_byte[2]
+--register power-up is low
+
+B1_r_rx_byte[2] = DFFEAS(B1L71, clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--B1_r_rx_byte[3] is uart_rx:receiver|r_rx_byte[3]
+--register power-up is low
+
+B1_r_rx_byte[3] = DFFEAS(B1L73, clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--B1_r_rx_byte[4] is uart_rx:receiver|r_rx_byte[4]
+--register power-up is low
+
+B1_r_rx_byte[4] = DFFEAS(B1L75, clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--B1_r_rx_byte[5] is uart_rx:receiver|r_rx_byte[5]
+--register power-up is low
+
+B1_r_rx_byte[5] = DFFEAS(B1L77, clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--B1_r_rx_byte[6] is uart_rx:receiver|r_rx_byte[6]
+--register power-up is low
+
+B1_r_rx_byte[6] = DFFEAS(B1L79, clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--B1_r_rx_byte[7] is uart_rx:receiver|r_rx_byte[7]
+--register power-up is low
+
+B1_r_rx_byte[7] = DFFEAS(B1L81, clk,  ,  ,  ,  ,  ,  ,  );
 
 
 --C1_r_sm_main.s_tx_start_bit is uart_tx:transmitter|r_sm_main.s_tx_start_bit
@@ -619,31 +667,123 @@ B1L14 = ((!B1_r_clk_count[5] & ((!B1_r_clk_count[4]) # (!B1_r_clk_count[3])))) #
 --B1_r_sm_main.s_rx_stop_bit is uart_rx:receiver|r_sm_main.s_rx_stop_bit
 --register power-up is low
 
-B1_r_sm_main.s_rx_stop_bit = DFFEAS(B1L91, clk,  ,  ,  ,  ,  ,  ,  );
+B1_r_sm_main.s_rx_stop_bit = DFFEAS(B1L90, clk,  ,  ,  ,  ,  ,  ,  );
 
 
---B1L92 is uart_rx:receiver|r_sm_main~7
-B1L92 = (B1L16 & B1_r_sm_main.s_rx_stop_bit);
+--B1L91 is uart_rx:receiver|r_sm_main~7
+B1L91 = (B1L16 & B1_r_sm_main.s_rx_stop_bit);
 
 
 --B1_r_sm_main.s_rx_start_bit is uart_rx:receiver|r_sm_main.s_rx_start_bit
 --register power-up is low
 
-B1_r_sm_main.s_rx_start_bit = DFFEAS(B1L103, clk,  ,  ,  ,  ,  ,  ,  );
+B1_r_sm_main.s_rx_start_bit = DFFEAS(B1L102, clk,  ,  ,  ,  ,  ,  ,  );
 
 
 --B1_r_sm_main.s_rx_data_bits is uart_rx:receiver|r_sm_main.s_rx_data_bits
 --register power-up is low
 
-B1_r_sm_main.s_rx_data_bits = DFFEAS(B1L105, clk,  ,  ,  ,  ,  ,  ,  );
+B1_r_sm_main.s_rx_data_bits = DFFEAS(B1L104, clk,  ,  ,  ,  ,  ,  ,  );
 
 
---B1L93 is uart_rx:receiver|Selector0~0
-B1L93 = (!B1_r_sm_main.s_rx_stop_bit & !B1_r_sm_main.s_rx_data_bits);
+--B1L92 is uart_rx:receiver|Selector0~0
+B1L92 = (!B1_r_sm_main.s_rx_stop_bit & !B1_r_sm_main.s_rx_data_bits);
 
 
---B1L94 is uart_rx:receiver|Selector0~1
-B1L94 = (B1L92) # ((B1_r_rx_dv & ((B1_r_sm_main.s_rx_start_bit) # (!B1L93))));
+--B1L93 is uart_rx:receiver|Selector0~1
+B1L93 = (B1L91) # ((B1_r_rx_dv & ((B1_r_sm_main.s_rx_start_bit) # (!B1L92))));
+
+
+--B1_r_rx_data is uart_rx:receiver|r_rx_data
+--register power-up is low
+
+B1_r_rx_data = DFFEAS(B1_r_rx_data_r, clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--B1_r_bit_index[0] is uart_rx:receiver|r_bit_index[0]
+--register power-up is low
+
+B1_r_bit_index[0] = DFFEAS(B1L100, clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--B1_r_bit_index[1] is uart_rx:receiver|r_bit_index[1]
+--register power-up is low
+
+B1_r_bit_index[1] = DFFEAS(B1L99, clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--B1_r_bit_index[2] is uart_rx:receiver|r_bit_index[2]
+--register power-up is low
+
+B1_r_bit_index[2] = DFFEAS(B1L97, clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--B1L1 is uart_rx:receiver|Decoder0~0
+B1L1 = (B1L16 & B1_r_sm_main.s_rx_data_bits);
+
+
+--B1L2 is uart_rx:receiver|Decoder0~1
+B1L2 = (!B1_r_bit_index[0] & (!B1_r_bit_index[1] & (!B1_r_bit_index[2] & B1L1)));
+
+
+--B1L67 is uart_rx:receiver|r_rx_byte[0]~0
+B1L67 = (B1L2 & (B1_r_rx_data)) # (!B1L2 & ((B1_r_rx_byte[0])));
+
+
+--B1L3 is uart_rx:receiver|Decoder0~2
+B1L3 = (B1_r_bit_index[0] & (!B1_r_bit_index[1] & (!B1_r_bit_index[2] & B1L1)));
+
+
+--B1L69 is uart_rx:receiver|r_rx_byte[1]~1
+B1L69 = (B1L3 & (B1_r_rx_data)) # (!B1L3 & ((B1_r_rx_byte[1])));
+
+
+--B1L4 is uart_rx:receiver|Decoder0~3
+B1L4 = (!B1_r_bit_index[0] & (B1_r_bit_index[1] & (!B1_r_bit_index[2] & B1L1)));
+
+
+--B1L71 is uart_rx:receiver|r_rx_byte[2]~2
+B1L71 = (B1L4 & (B1_r_rx_data)) # (!B1L4 & ((B1_r_rx_byte[2])));
+
+
+--B1L5 is uart_rx:receiver|Decoder0~4
+B1L5 = (B1_r_bit_index[0] & (B1_r_bit_index[1] & (!B1_r_bit_index[2] & B1L1)));
+
+
+--B1L73 is uart_rx:receiver|r_rx_byte[3]~3
+B1L73 = (B1L5 & (B1_r_rx_data)) # (!B1L5 & ((B1_r_rx_byte[3])));
+
+
+--B1L6 is uart_rx:receiver|Decoder0~5
+B1L6 = (!B1_r_bit_index[0] & (!B1_r_bit_index[1] & (B1_r_bit_index[2] & B1L1)));
+
+
+--B1L75 is uart_rx:receiver|r_rx_byte[4]~4
+B1L75 = (B1L6 & (B1_r_rx_data)) # (!B1L6 & ((B1_r_rx_byte[4])));
+
+
+--B1L7 is uart_rx:receiver|Decoder0~6
+B1L7 = (B1_r_bit_index[0] & (!B1_r_bit_index[1] & (B1_r_bit_index[2] & B1L1)));
+
+
+--B1L77 is uart_rx:receiver|r_rx_byte[5]~5
+B1L77 = (B1L7 & (B1_r_rx_data)) # (!B1L7 & ((B1_r_rx_byte[5])));
+
+
+--B1L8 is uart_rx:receiver|Decoder0~7
+B1L8 = (!B1_r_bit_index[0] & (B1_r_bit_index[1] & (B1_r_bit_index[2] & B1L1)));
+
+
+--B1L79 is uart_rx:receiver|r_rx_byte[6]~6
+B1L79 = (B1L8 & (B1_r_rx_data)) # (!B1L8 & ((B1_r_rx_byte[6])));
+
+
+--B1L9 is uart_rx:receiver|Decoder0~8
+B1L9 = (B1_r_bit_index[0] & (B1_r_bit_index[1] & (B1_r_bit_index[2] & B1L1)));
+
+
+--B1L81 is uart_rx:receiver|r_rx_byte[7]~7
+B1L81 = (B1L9 & (B1_r_rx_data)) # (!B1L9 & ((B1_r_rx_byte[7])));
 
 
 --r_tx_dv is r_tx_dv
@@ -763,7 +903,7 @@ C1L44 = (!C1L4) # (!C1_r_sm_main.s_idle);
 --B1_r_sm_main.s_idle is uart_rx:receiver|r_sm_main.s_idle
 --register power-up is low
 
-B1_r_sm_main.s_idle = DFFEAS(B1L102, clk,  ,  ,  ,  ,  ,  ,  );
+B1_r_sm_main.s_idle = DFFEAS(B1L101, clk,  ,  ,  ,  ,  ,  ,  );
 
 
 --B1L10 is uart_rx:receiver|Equal0~0
@@ -787,125 +927,37 @@ B1L44 = (B1L10 & (B1L11 & (B1L12 & B1L43)));
 
 
 --B1L45 is uart_rx:receiver|r_clk_count[6]~41
-B1L45 = B1_r_sm_main.s_idle $ (B1L44 $ (((B1L93) # (!B1L16))));
+B1L45 = B1_r_sm_main.s_idle $ (B1L44 $ (((B1L92) # (!B1L16))));
 
 
 --B1L13 is uart_rx:receiver|Equal0~3
 B1L13 = (B1_r_clk_count[2] & (B1L10 & (B1L11 & B1L12)));
 
 
---B1_r_rx_data is uart_rx:receiver|r_rx_data
---register power-up is low
-
-B1_r_rx_data = DFFEAS(B1_r_rx_data_r, clk,  ,  ,  ,  ,  ,  ,  );
-
-
 --B1_r_sm_main.s_cleanup is uart_rx:receiver|r_sm_main.s_cleanup
 --register power-up is low
 
-B1_r_sm_main.s_cleanup = DFFEAS(B1L92, clk,  ,  ,  ,  ,  ,  ,  );
+B1_r_sm_main.s_cleanup = DFFEAS(B1L91, clk,  ,  ,  ,  ,  ,  ,  );
 
 
 --B1L46 is uart_rx:receiver|r_clk_count[6]~42
-B1L46 = (!B1_r_sm_main.s_cleanup & (((!B1_r_rx_data) # (!B1L13)) # (!B1_r_sm_main.s_rx_start_bit)));
-
-
---B1_r_bit_index[0] is uart_rx:receiver|r_bit_index[0]
---register power-up is low
-
-B1_r_bit_index[0] = DFFEAS(B1L101, clk,  ,  ,  ,  ,  ,  ,  );
-
-
---B1L1 is uart_rx:receiver|Decoder0~0
-B1L1 = (B1L16 & B1_r_sm_main.s_rx_data_bits);
-
-
---B1_r_bit_index[1] is uart_rx:receiver|r_bit_index[1]
---register power-up is low
-
-B1_r_bit_index[1] = DFFEAS(B1L100, clk,  ,  ,  ,  ,  ,  ,  );
-
-
---B1_r_bit_index[2] is uart_rx:receiver|r_bit_index[2]
---register power-up is low
-
-B1_r_bit_index[2] = DFFEAS(B1L98, clk,  ,  ,  ,  ,  ,  ,  );
+B1L46 = (!B1_r_sm_main.s_cleanup & (((!B1L13) # (!B1_r_rx_data)) # (!B1_r_sm_main.s_rx_start_bit)));
 
 
 --B1L90 is uart_rx:receiver|r_sm_main.s_rx_stop_bit~0
-B1L90 = (B1_r_bit_index[0] & (B1L1 & (B1_r_bit_index[1] & B1_r_bit_index[2])));
+B1L90 = (B1L9) # ((B1_r_sm_main.s_rx_stop_bit & !B1L16));
 
 
---B1L91 is uart_rx:receiver|r_sm_main.s_rx_stop_bit~1
-B1L91 = (B1L90) # ((B1_r_sm_main.s_rx_stop_bit & !B1L16));
+--B1L102 is uart_rx:receiver|Selector18~0
+B1L102 = (B1_r_sm_main.s_rx_start_bit & (((!B1_r_rx_data & !B1_r_sm_main.s_idle)) # (!B1L13))) # (!B1_r_sm_main.s_rx_start_bit & (!B1_r_rx_data & (!B1_r_sm_main.s_idle)));
 
 
---B1L103 is uart_rx:receiver|Selector18~0
-B1L103 = (B1_r_sm_main.s_rx_start_bit & (((!B1_r_sm_main.s_idle & !B1_r_rx_data)) # (!B1L13))) # (!B1_r_sm_main.s_rx_start_bit & (!B1_r_sm_main.s_idle & (!B1_r_rx_data)));
+--B1L103 is uart_rx:receiver|Selector19~0
+B1L103 = (B1L16 & (B1_r_bit_index[0] & (B1_r_bit_index[1] & B1_r_bit_index[2])));
 
 
---B1L104 is uart_rx:receiver|Selector19~0
-B1L104 = (B1L16 & (B1_r_bit_index[0] & (B1_r_bit_index[1] & B1_r_bit_index[2])));
-
-
---B1L105 is uart_rx:receiver|Selector19~1
-B1L105 = (B1_r_sm_main.s_rx_data_bits & (((B1L44 & !B1_r_rx_data)) # (!B1L104))) # (!B1_r_sm_main.s_rx_data_bits & (B1L44 & (!B1_r_rx_data)));
-
-
---A1L18 is r_tx_dv~0
-A1L18 = (B1_r_rx_dv) # ((r_tx_dv & !C1_r_tx_done));
-
-
---B1_r_rx_byte[6] is uart_rx:receiver|r_rx_byte[6]
---register power-up is low
-
-B1_r_rx_byte[6] = DFFEAS(B1L79, clk,  ,  ,  ,  ,  ,  ,  );
-
-
---B1_r_rx_byte[5] is uart_rx:receiver|r_rx_byte[5]
---register power-up is low
-
-B1_r_rx_byte[5] = DFFEAS(B1L77, clk,  ,  ,  ,  ,  ,  ,  );
-
-
---B1_r_rx_byte[4] is uart_rx:receiver|r_rx_byte[4]
---register power-up is low
-
-B1_r_rx_byte[4] = DFFEAS(B1L75, clk,  ,  ,  ,  ,  ,  ,  );
-
-
---B1_r_rx_byte[7] is uart_rx:receiver|r_rx_byte[7]
---register power-up is low
-
-B1_r_rx_byte[7] = DFFEAS(B1L81, clk,  ,  ,  ,  ,  ,  ,  );
-
-
---B1_r_rx_byte[2] is uart_rx:receiver|r_rx_byte[2]
---register power-up is low
-
-B1_r_rx_byte[2] = DFFEAS(B1L71, clk,  ,  ,  ,  ,  ,  ,  );
-
-
---B1_r_rx_byte[1] is uart_rx:receiver|r_rx_byte[1]
---register power-up is low
-
-B1_r_rx_byte[1] = DFFEAS(B1L69, clk,  ,  ,  ,  ,  ,  ,  );
-
-
---B1_r_rx_byte[0] is uart_rx:receiver|r_rx_byte[0]
---register power-up is low
-
-B1_r_rx_byte[0] = DFFEAS(B1L67, clk,  ,  ,  ,  ,  ,  ,  );
-
-
---B1_r_rx_byte[3] is uart_rx:receiver|r_rx_byte[3]
---register power-up is low
-
-B1_r_rx_byte[3] = DFFEAS(B1L73, clk,  ,  ,  ,  ,  ,  ,  );
-
-
---B1L102 is uart_rx:receiver|Selector17~0
-B1L102 = (!B1_r_sm_main.s_cleanup & (((!B1L44 & B1_r_sm_main.s_idle)) # (!B1_r_rx_data)));
+--B1L104 is uart_rx:receiver|Selector19~1
+B1L104 = (B1_r_sm_main.s_rx_data_bits & (((B1L44 & !B1_r_rx_data)) # (!B1L103))) # (!B1_r_sm_main.s_rx_data_bits & (B1L44 & (!B1_r_rx_data)));
 
 
 --B1_r_rx_data_r is uart_rx:receiver|r_rx_data_r
@@ -914,100 +966,44 @@ B1L102 = (!B1_r_sm_main.s_cleanup & (((!B1L44 & B1_r_sm_main.s_idle)) # (!B1_r_r
 B1_r_rx_data_r = DFFEAS(i_rx_serial, clk,  ,  ,  ,  ,  ,  ,  );
 
 
---B1L101 is uart_rx:receiver|Selector16~0
-B1L101 = (B1_r_sm_main.s_rx_data_bits & (B1_r_bit_index[0] $ (((B1L16))))) # (!B1_r_sm_main.s_rx_data_bits & (B1_r_bit_index[0] & (B1_r_sm_main.s_idle)));
+--B1L100 is uart_rx:receiver|Selector16~0
+B1L100 = (B1_r_sm_main.s_rx_data_bits & (B1_r_bit_index[0] $ (((B1L16))))) # (!B1_r_sm_main.s_rx_data_bits & (B1_r_bit_index[0] & (B1_r_sm_main.s_idle)));
 
 
---B1L99 is uart_rx:receiver|Selector15~2
-B1L99 = (B1_r_sm_main.s_rx_data_bits & (B1_r_bit_index[1] $ (((B1L16 & B1_r_bit_index[0])))));
+--B1L98 is uart_rx:receiver|Selector15~2
+B1L98 = (B1_r_sm_main.s_rx_data_bits & (B1_r_bit_index[1] $ (((B1L16 & B1_r_bit_index[0])))));
 
 
---B1L95 is uart_rx:receiver|Selector14~0
-B1L95 = (B1_r_sm_main.s_idle & !B1_r_sm_main.s_rx_data_bits);
+--B1L94 is uart_rx:receiver|Selector14~0
+B1L94 = (B1_r_sm_main.s_idle & !B1_r_sm_main.s_rx_data_bits);
 
 
---B1L96 is uart_rx:receiver|Selector14~1
-B1L96 = (B1_r_bit_index[0] & (B1L1 & (B1_r_bit_index[1] $ (B1_r_bit_index[2]))));
+--B1L95 is uart_rx:receiver|Selector14~1
+B1L95 = (B1_r_bit_index[0] & (B1L1 & (B1_r_bit_index[1] $ (B1_r_bit_index[2]))));
 
 
---B1L97 is uart_rx:receiver|Selector14~2
-B1L97 = (B1_r_sm_main.s_rx_data_bits & (B1_r_bit_index[2] & ((!B1_r_bit_index[0]) # (!B1L16))));
+--B1L96 is uart_rx:receiver|Selector14~2
+B1L96 = (B1_r_sm_main.s_rx_data_bits & (B1_r_bit_index[2] & ((!B1_r_bit_index[0]) # (!B1L16))));
 
 
---B1L98 is uart_rx:receiver|Selector14~3
-B1L98 = (B1L96) # ((B1L97) # ((B1_r_bit_index[2] & B1L95)));
+--B1L97 is uart_rx:receiver|Selector14~3
+B1L97 = (B1L95) # ((B1L96) # ((B1_r_bit_index[2] & B1L94)));
 
 
---B1L2 is uart_rx:receiver|Decoder0~1
-B1L2 = (!B1_r_bit_index[0] & (B1_r_bit_index[1] & (B1_r_bit_index[2] & B1L1)));
+--A1L18 is r_tx_dv~0
+A1L18 = (B1_r_rx_dv) # ((r_tx_dv & !C1_r_tx_done));
 
 
---B1L79 is uart_rx:receiver|r_rx_byte[6]~0
-B1L79 = (B1L2 & (B1_r_rx_data)) # (!B1L2 & ((B1_r_rx_byte[6])));
-
-
---B1L3 is uart_rx:receiver|Decoder0~2
-B1L3 = (B1_r_bit_index[0] & (!B1_r_bit_index[1] & (B1_r_bit_index[2] & B1L1)));
-
-
---B1L77 is uart_rx:receiver|r_rx_byte[5]~1
-B1L77 = (B1L3 & (B1_r_rx_data)) # (!B1L3 & ((B1_r_rx_byte[5])));
-
-
---B1L4 is uart_rx:receiver|Decoder0~3
-B1L4 = (!B1_r_bit_index[0] & (!B1_r_bit_index[1] & (B1_r_bit_index[2] & B1L1)));
-
-
---B1L75 is uart_rx:receiver|r_rx_byte[4]~2
-B1L75 = (B1L4 & (B1_r_rx_data)) # (!B1L4 & ((B1_r_rx_byte[4])));
-
-
---B1L5 is uart_rx:receiver|Decoder0~4
-B1L5 = (B1_r_bit_index[0] & (B1_r_bit_index[1] & (B1_r_bit_index[2] & B1L1)));
-
-
---B1L81 is uart_rx:receiver|r_rx_byte[7]~3
-B1L81 = (B1L5 & (B1_r_rx_data)) # (!B1L5 & ((B1_r_rx_byte[7])));
-
-
---B1L6 is uart_rx:receiver|Decoder0~5
-B1L6 = (!B1_r_bit_index[0] & (B1_r_bit_index[1] & (!B1_r_bit_index[2] & B1L1)));
-
-
---B1L71 is uart_rx:receiver|r_rx_byte[2]~4
-B1L71 = (B1L6 & (B1_r_rx_data)) # (!B1L6 & ((B1_r_rx_byte[2])));
-
-
---B1L7 is uart_rx:receiver|Decoder0~6
-B1L7 = (B1_r_bit_index[0] & (!B1_r_bit_index[1] & (!B1_r_bit_index[2] & B1L1)));
-
-
---B1L69 is uart_rx:receiver|r_rx_byte[1]~5
-B1L69 = (B1L7 & (B1_r_rx_data)) # (!B1L7 & ((B1_r_rx_byte[1])));
-
-
---B1L8 is uart_rx:receiver|Decoder0~7
-B1L8 = (!B1_r_bit_index[0] & (!B1_r_bit_index[1] & (!B1_r_bit_index[2] & B1L1)));
-
-
---B1L67 is uart_rx:receiver|r_rx_byte[0]~6
-B1L67 = (B1L8 & (B1_r_rx_data)) # (!B1L8 & ((B1_r_rx_byte[0])));
-
-
---B1L9 is uart_rx:receiver|Decoder0~8
-B1L9 = (B1_r_bit_index[0] & (B1_r_bit_index[1] & (!B1_r_bit_index[2] & B1L1)));
-
-
---B1L73 is uart_rx:receiver|r_rx_byte[3]~7
-B1L73 = (B1L9 & (B1_r_rx_data)) # (!B1L9 & ((B1_r_rx_byte[3])));
+--B1L101 is uart_rx:receiver|Selector17~0
+B1L101 = (!B1_r_sm_main.s_cleanup & (((!B1L44 & B1_r_sm_main.s_idle)) # (!B1_r_rx_data)));
 
 
 --i_rx_serial is i_rx_serial
 i_rx_serial = INPUT();
 
 
---B1L100 is uart_rx:receiver|Selector15~3
-B1L100 = (B1L99) # ((B1_r_sm_main.s_idle & (!B1_r_sm_main.s_rx_data_bits & B1_r_bit_index[1])));
+--B1L99 is uart_rx:receiver|Selector15~3
+B1L99 = (B1L98) # ((B1_r_sm_main.s_idle & (!B1_r_sm_main.s_rx_data_bits & B1_r_bit_index[1])));
 
 
 --B1L15 is uart_rx:receiver|LessThan1~1
@@ -1016,9 +1012,5 @@ B1L15 = (B1_r_clk_count[9]) # ((B1_r_clk_count[8]) # ((B1_r_clk_count[7]) # (!B1
 
 --B1L16 is uart_rx:receiver|LessThan1~2
 B1L16 = (B1_r_clk_count[12] & ((B1_r_clk_count[11]) # ((B1_r_clk_count[10] & B1L15))));
-
-
---A1L38 is ~GND
-A1L38 = GND;
 
 
