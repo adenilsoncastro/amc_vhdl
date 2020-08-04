@@ -17,7 +17,10 @@
 
 		
 	port(
-		clk, rst				: in std_logic;
+		i_clk					: in std_logic;
+		i_rst					: in std_logic;
+		i_rst_sync			: in std_logic;
+		o_status				: out std_logic_vector(3 downto 0);
 		
 		--FIFO RX Write
 		i_fifo_rx_wr_en	: in std_logic;
@@ -63,11 +66,11 @@ architecture bhv of simple_operations is
 	
 	
 	signal r_fifo_rx_wr_en		: std_logic;
-	signal r_fifo_rx_wr_data	: std_logic_vector(g_bits-1 downto 0);
+	signal r_fifo_rx_wr_data	: std_logic_vector(g_bits-1 downto 0)	 := (others => '0');
 	signal r_fifo_rx_rd_en		: std_logic;
 	
 	signal r_fifo_tx_wr_en		: std_logic;
-	signal r_fifo_tx_wr_data	: std_logic_vector(g_bits-1 downto 0);
+	signal r_fifo_tx_wr_data	: std_logic_vector(g_bits-1 downto 0)	 := (others => '0');
 	signal r_fifo_tx_rd_en		: std_logic;
 	
 	signal r_fifo_data_in		: std_logic_vector(g_bits - 1 downto 0) := (others => '0');
@@ -75,55 +78,60 @@ architecture bhv of simple_operations is
 	
 	signal r_data_in				: std_logic_vector(g_bits - 1 downto 0) := (others => '0');
 	signal r_data_out				: std_logic_vector(g_bits - 1 downto 0) := (others => '0');
-
+	signal r_status				: std_logic_vector(3 downto 0)			 := (others => '0');
 
 	
 begin
 	
-	receiver 	: uart_rx generic map(g_clks_per_bit) port map(clk, i_rx_serial, o_rx_dv, r_rx_data);
-	transmitter : uart_tx generic map(g_clks_per_bit) port map(clk, r_tx_dv, r_tx_data, o_tx_active, o_tx_serial, o_tx_done);
+	receiver 	: uart_rx generic map(g_clks_per_bit) port map(i_clk, i_rx_serial, o_rx_dv, r_rx_data);
+	transmitter : uart_tx generic map(g_clks_per_bit) port map(i_clk, r_tx_dv, r_tx_data, o_tx_active, o_tx_serial, o_tx_done);
 	
-	fifo_rx		: fifo	 generic map(g_bits, g_depth) port map (rst, clk, r_fifo_rx_wr_en, r_fifo_rx_wr_data, o_fifo_rx_full,
-																					 r_fifo_rx_rd_en, o_fifo_rx_rd_data,o_fifo_rx_empty);
-	fifo_tx		: fifo	 generic map(g_bits, g_depth) port map (rst, clk, r_fifo_tx_wr_en, r_fifo_tx_wr_data, o_fifo_tx_full,
-																					 r_fifo_tx_rd_en, o_fifo_tx_rd_data,o_fifo_tx_empty);
+	fifo_rx		: fifo	 generic map(g_bits, g_depth) port map (i_rst_sync, i_clk, r_fifo_rx_wr_en, r_fifo_rx_wr_data, o_fifo_rx_full,
+																					 r_fifo_rx_rd_en, o_fifo_rx_rd_data, o_fifo_rx_empty);
+	fifo_tx		: fifo	 generic map(g_bits, g_depth) port map (i_rst_sync, i_clk, r_fifo_tx_wr_en, r_fifo_tx_wr_data, o_fifo_tx_full,
+																					 r_fifo_tx_rd_en, o_fifo_tx_rd_data, o_fifo_tx_empty);
 	
-	p_uart_receive : process(clk)
+	p_uart_receive : process(i_clk)
 	begin
-		if rising_edge(clk) then
+		if rising_edge(i_clk) then
 			if o_rx_dv = '1' then
 				if o_fifo_rx_full = '0' then
-					r_fifo_rx_wr_en <= '1';
 					r_fifo_rx_wr_data <= r_rx_data;
-					r_fifo_rx_wr_en <= '0';
+					r_fifo_rx_wr_en <= '1';		
 				end if;
+			else 
+				r_fifo_rx_wr_en <= '0';
 			end if;		
 		end if;
 	end process p_uart_receive;
 	
-	p_uart_transmit : process(clk)
+	p_uart_transmit : process(i_clk)
 	begin
-		if rising_edge(clk) then
+		if rising_edge(i_clk) then
 			if o_fifo_tx_empty = '0' then
-				r_fifo_tx_rd_en <= '1';				
-				r_tx_dv <= '1';
-				r_tx_data <= o_fifo_tx_rd_data;
+				r_fifo_tx_rd_en <= '1';
+				r_tx_data <= o_fifo_tx_rd_data;				
+				r_tx_dv <= '1';				
 				if o_tx_done = '1' then
 					r_tx_dv <= '0';
 					r_fifo_tx_rd_en <= '0';
 				end if;
+			else
+				r_tx_dv <= '0';
+				r_fifo_tx_rd_en <= '0';
 			end if;
 		end if;
 	end process p_uart_transmit;	
 	
-	
-	p_calculus_fsm : process(clk, rst)
+	p_calculus_fsm : process(i_clk, i_rst)
 	variable aux : ufixed(0 downto -7);
 	
 	begin		
-		if rst = '1' then
+		if not i_rst = '1' then
 			r_sm_main <= s_idle;
-		elsif rising_edge(clk) then
+			r_status  <= "1111";
+			
+		elsif rising_edge(i_clk) then
 		
 			case r_sm_main is				
 				when s_idle =>
@@ -132,12 +140,12 @@ begin
 					else
 						r_sm_main <= s_idle;
 					end if;
+					r_status <= "0001";
 				
 				when s_get_fifo_data =>
-					if o_fifo_rx_empty = '0' then
 						r_fifo_rx_rd_en <= '1';
-						r_fifo_data_in <= o_fifo_rx_rd_data;
-						
+						r_fifo_data_in <= o_fifo_rx_rd_data;					
+											
 						if r_fifo_data_in = x"48" then
 							r_data_in(r_bit_index) <= '0';
 						elsif r_fifo_data_in = x"49" then
@@ -146,51 +154,51 @@ begin
 							r_data_in(r_bit_index) <= 'X';
 						end if;
 						
-						if r_bit_index < 7 then
-							r_bit_index <= r_bit_index + 1;
-							r_fifo_rx_rd_en <= '0';
-							r_sm_main <= s_get_fifo_data;
+						if r_bit_index < g_bits then
+							r_bit_index 	 <= r_bit_index + 1;
+							r_sm_main 		 <= s_get_fifo_data;
 						else
-							r_bit_index    <= 0;
+							r_bit_index     <= 0;
 							r_fifo_rx_rd_en <= '0';
 							r_sm_main 	 	 <= s_calculus;
 						end if;
-					else
-						r_sm_main <= s_idle;
-					end if;
+						r_status <= "0010";			
 				
 				when s_calculus =>					
-					aux := to_ufixed(r_data_in, aux'high, aux'low);
-					
-					
-					
+					aux := to_ufixed(r_data_in, aux'high, aux'low);				
 					r_sm_main <= s_put_fifo_data;
+					r_status <= "0011";
 					
 				when s_put_fifo_data =>
 					r_fifo_data_out <= to_slv(aux);
 					
 					if o_fifo_tx_full = '0' then
-						r_fifo_tx_wr_en <= '1';
 						r_fifo_tx_wr_data <= r_fifo_data_out;
-						r_fifo_tx_wr_en <= '0';
-						
+						r_fifo_tx_wr_en <= '1';						
 						r_sm_main <= s_clear;
 					else
 						r_sm_main <= s_put_fifo_data;
-					end if;					
+						r_fifo_tx_wr_en <= '0';
+					end if;
+					r_status <= "0100";
 					
 				when s_clear =>
 					aux := (others => '0');
 					r_fifo_data_out <= (others => '0');
 					r_fifo_data_in  <= (others => '0');
-					r_sm_main <= s_idle;
+					r_fifo_tx_wr_en <= '0';
+					r_fifo_rx_rd_en <= '0';
+					r_sm_main 		 <= s_idle;
+					r_status 		 <= "0101";
 				
 				when others =>
-						r_sm_main <= s_idle;				
+						r_sm_main <= s_idle;
+						r_status	 <= "0111";
 			end case;
 		end if;	
 	end process p_calculus_fsm;
 	
-	rx_data <= r_rx_data; -- Serial data assigned to RLeds
+	rx_data <= r_data_in; -- Serial data assigned to RLeds
+	o_status <= r_status;
 	
 end bhv;

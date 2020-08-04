@@ -36,7 +36,7 @@ architecture bhv of fifo is
 		p_control : process(i_clk) is
 		begin
 			if rising_edge(i_clk) then
-				if i_rst_sync = '1' then
+				if not i_rst_sync = '1' then
 					r_fifo_count <= 0;
 					r_wr_index	 <= 0;
 					r_rd_index	 <= 0;

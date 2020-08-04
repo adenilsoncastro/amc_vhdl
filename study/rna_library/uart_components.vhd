@@ -8,7 +8,7 @@ package uart_components is
 			g_clks_per_bit : integer := 5209);
 			
 		port(
-			i_clk			: in std_logic;
+			i_clk		: in std_logic;
 			i_tx_dv		: in std_logic;
 			i_tx_byte	: in std_logic_vector(7 downto 0);
 			o_tx_active	: out std_logic;
@@ -21,7 +21,7 @@ package uart_components is
 			g_clks_per_bit : integer := 5209);
 			
 		port(
-			i_clk			: in std_logic;
+			i_clk		: in std_logic;
 			i_rx_serial	: in std_logic;
 			o_rx_dv		: out std_logic;
 			o_rx_byte	: out std_logic_vector(7 downto 0));
@@ -34,7 +34,7 @@ package uart_components is
 		
 		port(
 			i_rst_sync	: in std_logic;
-			i_clk			: in std_logic;
+			i_clk		: in std_logic;
 			
 			i_wr_en		: in std_logic;
 			i_wr_data	: in std_logic_vector(g_width-1 downto 0);
