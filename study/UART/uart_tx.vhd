@@ -7,7 +7,7 @@ entity uart_tx is
 		g_clks_per_bit : integer := 5209);--50000000/9600
 	
 	port(
-		i_clk			: in std_logic;
+		i_clk		: in std_logic;
 		i_tx_dv		: in std_logic;
 		i_tx_byte	: in std_logic_vector(7 downto 0);
 		o_tx_active	: out std_logic;

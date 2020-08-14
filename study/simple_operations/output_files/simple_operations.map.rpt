@@ -1,5 +1,5 @@
 Analysis & Synthesis report for simple_operations
-Mon Aug 03 22:42:47 2020
+Mon Aug 10 22:57:41 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -18,25 +18,24 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
  10. State Machine - |simple_operations|uart_tx:transmitter|r_sm_main
  11. State Machine - |simple_operations|uart_rx:receiver|r_sm_main
  12. Registers Removed During Synthesis
- 13. Removed Registers Triggering Further Register Optimizations
- 14. General Register Statistics
- 15. Inverted Register Statistics
- 16. Registers Added for RAM Pass-Through Logic
- 17. Multiplexer Restructuring Statistics (Restructuring Performed)
- 18. Source assignments for fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_noh1:auto_generated
- 19. Source assignments for fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_r3h1:auto_generated
- 20. Parameter Settings for User Entity Instance: Top-level Entity: |simple_operations
- 21. Parameter Settings for User Entity Instance: uart_rx:receiver
- 22. Parameter Settings for User Entity Instance: uart_tx:transmitter
- 23. Parameter Settings for User Entity Instance: fifo:fifo_rx
- 24. Parameter Settings for User Entity Instance: fifo:fifo_tx
- 25. Parameter Settings for Inferred Entity Instance: fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0
- 26. Parameter Settings for Inferred Entity Instance: fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0
- 27. altsyncram Parameter Settings by Entity Instance
- 28. Post-Synthesis Netlist Statistics for Top Partition
- 29. Elapsed Time Per Partition
- 30. Analysis & Synthesis Equations
- 31. Analysis & Synthesis Messages
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Registers Added for RAM Pass-Through Logic
+ 16. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 17. Source assignments for fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_noh1:auto_generated
+ 18. Source assignments for fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_noh1:auto_generated
+ 19. Parameter Settings for User Entity Instance: Top-level Entity: |simple_operations
+ 20. Parameter Settings for User Entity Instance: uart_rx:receiver
+ 21. Parameter Settings for User Entity Instance: uart_tx:transmitter
+ 22. Parameter Settings for User Entity Instance: fifo:fifo_rx
+ 23. Parameter Settings for User Entity Instance: fifo:fifo_tx
+ 24. Parameter Settings for Inferred Entity Instance: fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0
+ 25. Parameter Settings for Inferred Entity Instance: fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0
+ 26. altsyncram Parameter Settings by Entity Instance
+ 27. Post-Synthesis Netlist Statistics for Top Partition
+ 28. Elapsed Time Per Partition
+ 29. Analysis & Synthesis Equations
+ 30. Analysis & Synthesis Messages
 
 
 
@@ -63,15 +62,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Aug 03 22:42:47 2020       ;
+; Analysis & Synthesis Status        ; Successful - Mon Aug 10 22:57:41 2020       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; simple_operations                           ;
 ; Top-level Entity Name              ; simple_operations                           ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 250                                         ;
-;     Total combinational functions  ; 197                                         ;
-;     Dedicated logic registers      ; 162                                         ;
-; Total registers                    ; 162                                         ;
+; Total logic elements               ; 456                                         ;
+;     Total combinational functions  ; 373                                         ;
+;     Dedicated logic registers      ; 317                                         ;
+; Total registers                    ; 317                                         ;
 ; Total pins                         ; 69                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 160                                         ;
@@ -208,7 +207,6 @@ https://fpgasoftware.intel.com/eula.
 ; altdpram.inc                                    ; yes             ; Megafunction                                          ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altdpram.inc                                                ;         ;
 ; db/altsyncram_noh1.tdf                          ; yes             ; Auto-Generated Megafunction                           ; C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/db/altsyncram_noh1.tdf                          ;         ;
 ; db/simple_operations.ram0_fifo_1ff8f9ef.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/db/simple_operations.ram0_fifo_1ff8f9ef.hdl.mif ;         ;
-; db/altsyncram_r3h1.tdf                          ; yes             ; Auto-Generated Megafunction                           ; C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/db/altsyncram_r3h1.tdf                          ;         ;
 +-------------------------------------------------+-----------------+-------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+---------+
 
 
@@ -217,20 +215,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 250         ;
+; Estimated Total logic elements              ; 456         ;
 ;                                             ;             ;
-; Total combinational functions               ; 197         ;
+; Total combinational functions               ; 373         ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 106         ;
-;     -- 3 input functions                    ; 29          ;
-;     -- <=2 input functions                  ; 62          ;
+;     -- 4 input functions                    ; 131         ;
+;     -- 3 input functions                    ; 72          ;
+;     -- <=2 input functions                  ; 170         ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 165         ;
-;     -- arithmetic mode                      ; 32          ;
+;     -- normal mode                          ; 241         ;
+;     -- arithmetic mode                      ; 132         ;
 ;                                             ;             ;
-; Total registers                             ; 162         ;
-;     -- Dedicated logic registers            ; 162         ;
+; Total registers                             ; 317         ;
+;     -- Dedicated logic registers            ; 317         ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
 ; I/O pins                                    ; 69          ;
@@ -239,9 +237,9 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; i_clk~input ;
-; Maximum fan-out                             ; 178         ;
-; Total fan-out                               ; 1281        ;
-; Average fan-out                             ; 2.50        ;
+; Maximum fan-out                             ; 333         ;
+; Total fan-out                               ; 2349        ;
+; Average fan-out                             ; 2.78        ;
 +---------------------------------------------+-------------+
 
 
@@ -250,15 +248,15 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                         ; Entity Name       ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------+-------------------+--------------+
-; |simple_operations                        ; 197 (34)            ; 162 (43)                  ; 160         ; 0            ; 0       ; 0         ; 69   ; 0            ; |simple_operations                                                                          ; simple_operations ; work         ;
-;    |fifo:fifo_rx|                         ; 38 (38)             ; 38 (38)                   ; 80          ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple_operations|fifo:fifo_rx                                                             ; fifo              ; work         ;
+; |simple_operations                        ; 373 (193)           ; 317 (177)                 ; 160         ; 0            ; 0       ; 0         ; 69   ; 0            ; |simple_operations                                                                          ; simple_operations ; work         ;
+;    |fifo:fifo_rx|                         ; 40 (40)             ; 38 (38)                   ; 80          ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple_operations|fifo:fifo_rx                                                             ; fifo              ; work         ;
 ;       |altsyncram:r_fifo_data_rtl_0|      ; 0 (0)               ; 0 (0)                     ; 80          ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple_operations|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0                                ; altsyncram        ; work         ;
 ;          |altsyncram_noh1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 80          ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple_operations|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_noh1:auto_generated ; altsyncram_noh1   ; work         ;
-;    |fifo:fifo_tx|                         ; 27 (27)             ; 17 (17)                   ; 80          ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple_operations|fifo:fifo_tx                                                             ; fifo              ; work         ;
+;    |fifo:fifo_tx|                         ; 40 (40)             ; 38 (38)                   ; 80          ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple_operations|fifo:fifo_tx                                                             ; fifo              ; work         ;
 ;       |altsyncram:r_fifo_data_rtl_0|      ; 0 (0)               ; 0 (0)                     ; 80          ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple_operations|fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0                                ; altsyncram        ; work         ;
-;          |altsyncram_r3h1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 80          ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple_operations|fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_r3h1:auto_generated ; altsyncram_r3h1   ; work         ;
-;    |uart_rx:receiver|                     ; 57 (57)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple_operations|uart_rx:receiver                                                         ; uart_rx           ; work         ;
-;    |uart_tx:transmitter|                  ; 41 (41)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple_operations|uart_tx:transmitter                                                      ; uart_tx           ; work         ;
+;          |altsyncram_noh1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 80          ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple_operations|fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_noh1:auto_generated ; altsyncram_noh1   ; work         ;
+;    |uart_rx:receiver|                     ; 58 (58)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple_operations|uart_rx:receiver                                                         ; uart_rx           ; work         ;
+;    |uart_tx:transmitter|                  ; 42 (42)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple_operations|uart_tx:transmitter                                                      ; uart_tx           ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -269,7 +267,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Name                                                                                ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                             ;
 +-------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+-------------------------------------------------+
 ; fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_noh1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 10           ; 8            ; 10           ; 8            ; 80   ; db/simple_operations.ram0_fifo_1ff8f9ef.hdl.mif ;
-; fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_r3h1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 10           ; 8            ; 10           ; 8            ; 80   ; db/simple_operations.ram0_fifo_1ff8f9ef.hdl.mif ;
+; fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_noh1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 10           ; 8            ; 10           ; 8            ; 80   ; db/simple_operations.ram0_fifo_1ff8f9ef.hdl.mif ;
 +-------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+-------------------------------------------------+
 
 
@@ -315,48 +313,14 @@ Encoding Type:  One-Hot
 +--------------------------+---------------------+-------------------------+--------------------------+--------------------------+------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                          ;
-+---------------------------------------------------------------+---------------------------------------------+
-; Register name                                                 ; Reason for Removal                          ;
-+---------------------------------------------------------------+---------------------------------------------+
-; r_fifo_tx_rd_en                                               ; Merged with r_tx_dv                         ;
-; r_sm_main.s_calculus                                          ; Stuck at GND due to stuck port data_in      ;
-; r_fifo_tx_wr_data[1..7]                                       ; Merged with r_fifo_tx_wr_data[0]            ;
-; r_fifo_data_out[1..7]                                         ; Merged with r_fifo_data_out[0]              ;
-; \p_calculus_fsm:aux[-2]                                       ; Merged with \p_calculus_fsm:aux[-1]         ;
-; \p_calculus_fsm:aux[-3]                                       ; Merged with \p_calculus_fsm:aux[-1]         ;
-; \p_calculus_fsm:aux[-4]                                       ; Merged with \p_calculus_fsm:aux[-1]         ;
-; \p_calculus_fsm:aux[-5]                                       ; Merged with \p_calculus_fsm:aux[-1]         ;
-; \p_calculus_fsm:aux[-6]                                       ; Merged with \p_calculus_fsm:aux[-1]         ;
-; \p_calculus_fsm:aux[-7]                                       ; Merged with \p_calculus_fsm:aux[-1]         ;
-; \p_calculus_fsm:aux[0]                                        ; Merged with \p_calculus_fsm:aux[-1]         ;
-; r_sm_main.s_put_fifo_data                                     ; Stuck at GND due to stuck port data_in      ;
-; \p_calculus_fsm:aux[-1]                                       ; Stuck at GND due to stuck port data_in      ;
-; r_fifo_tx_wr_data[0]                                          ; Stuck at GND due to stuck port clock_enable ;
-; r_sm_main.s_clear                                             ; Stuck at GND due to stuck port data_in      ;
-; fifo:fifo_tx|r_fifo_data_rtl_0_bypass[9,11,13,15,17,19,21,23] ; Stuck at GND due to stuck port data_in      ;
-; r_fifo_tx_wr_en                                               ; Stuck at GND due to stuck port data_in      ;
-; r_fifo_data_out[0]                                            ; Stuck at GND due to stuck port data_in      ;
-; fifo:fifo_tx|r_fifo_data_rtl_0_bypass[0]                      ; Stuck at GND due to stuck port data_in      ;
-; r_fifo_rx_rd_en                                               ; Stuck at VCC due to stuck port data_in      ;
-; fifo:fifo_tx|r_wr_index[0..3]                                 ; Stuck at GND due to stuck port data_in      ;
-; Total Number of Removed Registers = 43                        ;                                             ;
-+---------------------------------------------------------------+---------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                            ;
-+----------------------+---------------------------+-------------------------------------------------------------------------------------+
-; Register name        ; Reason for Removal        ; Registers Removed due to This Register                                              ;
-+----------------------+---------------------------+-------------------------------------------------------------------------------------+
-; r_sm_main.s_calculus ; Stuck at GND              ; r_sm_main.s_put_fifo_data, \p_calculus_fsm:aux[-1], r_fifo_tx_wr_data[0],           ;
-;                      ; due to stuck port data_in ; r_sm_main.s_clear, fifo:fifo_tx|r_fifo_data_rtl_0_bypass[9],                        ;
-;                      ;                           ; fifo:fifo_tx|r_fifo_data_rtl_0_bypass[23], r_fifo_tx_wr_en, r_fifo_data_out[0],     ;
-;                      ;                           ; fifo:fifo_tx|r_fifo_data_rtl_0_bypass[0], r_fifo_rx_rd_en,                          ;
-;                      ;                           ; fifo:fifo_tx|r_wr_index[0], fifo:fifo_tx|r_wr_index[1], fifo:fifo_tx|r_wr_index[2], ;
-;                      ;                           ; fifo:fifo_tx|r_wr_index[3]                                                          ;
-+----------------------+---------------------------+-------------------------------------------------------------------------------------+
++-------------------------------------------------------------+
+; Registers Removed During Synthesis                          ;
++---------------------------------------+---------------------+
+; Register name                         ; Reason for Removal  ;
++---------------------------------------+---------------------+
+; r_fifo_tx_rd_en                       ; Merged with r_tx_dv ;
+; Total Number of Removed Registers = 1 ;                     ;
++---------------------------------------+---------------------+
 
 
 +------------------------------------------------------+
@@ -364,12 +328,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 162   ;
+; Total registers                              ; 317   ;
 ; Number of registers using Synchronous Clear  ; 36    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 6     ;
+; Number of registers using Asynchronous Clear ; 125   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 64    ;
+; Number of registers using Clock Enable       ; 217   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -466,12 +430,16 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |simple_operations|fifo:fifo_rx|r_fifo_count[0]        ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |simple_operations|fifo:fifo_tx|r_fifo_count[0]        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |simple_operations|fifo:fifo_rx|r_wr_index[3]          ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |simple_operations|fifo:fifo_tx|r_wr_index[3]          ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |simple_operations|fifo:fifo_rx|r_fifo_count[1]        ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |simple_operations|fifo:fifo_tx|r_fifo_count[2]        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |simple_operations|fifo:fifo_rx|r_wr_index[1]          ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |simple_operations|fifo:fifo_tx|r_wr_index[1]          ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |simple_operations|r_fifo_data_in[6]                   ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |simple_operations|\p_calculus_fsm:aux[0]              ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |simple_operations|r_fifo_data_out[2]                  ;
 ; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |simple_operations|uart_tx:transmitter|r_clk_count[12] ;
-; 7:1                ; 13 bits   ; 52 LEs        ; 13 LEs               ; 39 LEs                 ; Yes        ; |simple_operations|uart_rx:receiver|r_clk_count[9]     ;
+; 7:1                ; 13 bits   ; 52 LEs        ; 13 LEs               ; 39 LEs                 ; Yes        ; |simple_operations|uart_rx:receiver|r_clk_count[0]     ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |simple_operations|r_status[3]                         ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |simple_operations|uart_tx:transmitter|r_bit_index     ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |simple_operations|uart_rx:receiver|r_bit_index        ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |simple_operations|fifo:fifo_rx|r_rd_index             ;
@@ -489,7 +457,7 @@ Encoding Type:  One-Hot
 
 
 +-------------------------------------------------------------------------------------------------+
-; Source assignments for fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_r3h1:auto_generated ;
+; Source assignments for fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_noh1:auto_generated ;
 +---------------------------------+--------------------+------+-----------------------------------+
 ; Assignment                      ; Value              ; From ; To                                ;
 +---------------------------------+--------------------+------+-----------------------------------+
@@ -668,7 +636,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                           ; Untyped        ;
 ; WIDTH_ECCSTATUS                    ; 3                                               ; Untyped        ;
 ; DEVICE_FAMILY                      ; Cyclone IV E                                    ; Untyped        ;
-; CBXI_PARAMETER                     ; altsyncram_r3h1                                 ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_noh1                                 ; Untyped        ;
 +------------------------------------+-------------------------------------------------+----------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -710,24 +678,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 69                          ;
-; cycloneiii_ff         ; 162                         ;
-;     CLR               ; 6                           ;
-;     ENA               ; 28                          ;
+; cycloneiii_ff         ; 317                         ;
+;     CLR               ; 9                           ;
+;     ENA               ; 65                          ;
+;     ENA CLR           ; 116                         ;
 ;     ENA SCLR          ; 36                          ;
-;     plain             ; 92                          ;
-; cycloneiii_lcell_comb ; 202                         ;
-;     arith             ; 32                          ;
-;         2 data inputs ; 32                          ;
-;     normal            ; 170                         ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 10                          ;
-;         2 data inputs ; 24                          ;
-;         3 data inputs ; 29                          ;
-;         4 data inputs ; 106                         ;
+;     plain             ; 91                          ;
+; cycloneiii_lcell_comb ; 378                         ;
+;     arith             ; 132                         ;
+;         2 data inputs ; 122                         ;
+;         3 data inputs ; 10                          ;
+;     normal            ; 246                         ;
+;         1 data inputs ; 12                          ;
+;         2 data inputs ; 41                          ;
+;         3 data inputs ; 62                          ;
+;         4 data inputs ; 131                         ;
 ; cycloneiii_ram_block  ; 16                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 6.00                        ;
-; Average LUT depth     ; 2.63                        ;
+; Average LUT depth     ; 2.95                        ;
 +-----------------------+-----------------------------+
 
 
@@ -736,7 +705,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -752,7 +721,7 @@ The equations can be found in C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/s
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Mon Aug 03 22:42:37 2020
+    Info: Processing started: Mon Aug 10 22:57:31 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off simple_operations -c simple_operations
 Info (20032): Parallel compilation is enabled and will use up to 6 processors
 Info (12021): Found 2 design units, including 0 entities, in source file /users/adeni/documents/mestrado/amc_vhdl/study/ieee_proposed/fixed_pkg_c.vhdl
@@ -769,18 +738,19 @@ Info (12127): Elaborating entity "simple_operations" for the top level hierarchy
 Warning (10445): VHDL Subtype or Type Declaration warning at fixed_pkg_c.vhdl(1470): subtype or type has null range File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/ieee_proposed/fixed_pkg_c.vhdl Line: 1470
 Warning (10445): VHDL Subtype or Type Declaration warning at fixed_pkg_c.vhdl(1471): subtype or type has null range File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/ieee_proposed/fixed_pkg_c.vhdl Line: 1471
 Warning (10445): VHDL Subtype or Type Declaration warning at fixed_pkg_c.vhdl(1472): subtype or type has null range File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/ieee_proposed/fixed_pkg_c.vhdl Line: 1472
+Warning (10631): VHDL Process Statement warning at simple_operations.vhd(132): inferring latch(es) for signal or variable "delay_5", which holds its previous value in one or more paths through the process File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/simple_operations.vhd Line: 132
 Warning (12125): Using design file /users/adeni/documents/mestrado/amc_vhdl/study/rna_library/uart_rx.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
     Info (12022): Found design unit 1: uart_rx-rtl File: c:/users/adeni/documents/mestrado/amc_vhdl/study/rna_library/uart_rx.vhd Line: 16
     Info (12023): Found entity 1: uart_rx File: c:/users/adeni/documents/mestrado/amc_vhdl/study/rna_library/uart_rx.vhd Line: 5
-Info (12128): Elaborating entity "uart_rx" for hierarchy "uart_rx:receiver" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/simple_operations.vhd Line: 86
+Info (12128): Elaborating entity "uart_rx" for hierarchy "uart_rx:receiver" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/simple_operations.vhd Line: 92
 Warning (12125): Using design file /users/adeni/documents/mestrado/amc_vhdl/study/rna_library/uart_tx.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
     Info (12022): Found design unit 1: uart_tx-rtl File: c:/users/adeni/documents/mestrado/amc_vhdl/study/rna_library/uart_tx.vhd Line: 18
     Info (12023): Found entity 1: uart_tx File: c:/users/adeni/documents/mestrado/amc_vhdl/study/rna_library/uart_tx.vhd Line: 5
-Info (12128): Elaborating entity "uart_tx" for hierarchy "uart_tx:transmitter" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/simple_operations.vhd Line: 87
+Info (12128): Elaborating entity "uart_tx" for hierarchy "uart_tx:transmitter" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/simple_operations.vhd Line: 93
 Warning (12125): Using design file /users/adeni/documents/mestrado/amc_vhdl/study/rna_library/fifo.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
     Info (12022): Found design unit 1: fifo-bhv File: c:/users/adeni/documents/mestrado/amc_vhdl/study/rna_library/fifo.vhd Line: 23
     Info (12023): Found entity 1: fifo File: c:/users/adeni/documents/mestrado/amc_vhdl/study/rna_library/fifo.vhd Line: 5
-Info (12128): Elaborating entity "fifo" for hierarchy "fifo:fifo_rx" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/simple_operations.vhd Line: 89
+Info (12128): Elaborating entity "fifo" for hierarchy "fifo:fifo_rx" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/simple_operations.vhd Line: 95
 Warning (113028): 6 out of 16 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/db/simple_operations.ram0_fifo_1ff8f9ef.hdl.mif Line: 1
     Warning (113027): Addresses ranging from 10 to 15 are not initialized File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/db/simple_operations.ram0_fifo_1ff8f9ef.hdl.mif Line: 1
 Warning (276020): Inferred RAM node "fifo:fifo_rx|r_fifo_data_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
@@ -837,33 +807,14 @@ Info (12133): Instantiated megafunction "fifo:fifo_rx|altsyncram:r_fifo_data_rtl
     Info (12134): Parameter "INIT_FILE" = "db/simple_operations.ram0_fifo_1ff8f9ef.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_noh1.tdf
     Info (12023): Found entity 1: altsyncram_noh1 File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/db/altsyncram_noh1.tdf Line: 28
-Info (12130): Elaborated megafunction instantiation "fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0"
-Info (12133): Instantiated megafunction "fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0" with the following parameter:
-    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
-    Info (12134): Parameter "WIDTH_A" = "8"
-    Info (12134): Parameter "WIDTHAD_A" = "4"
-    Info (12134): Parameter "NUMWORDS_A" = "10"
-    Info (12134): Parameter "WIDTH_B" = "8"
-    Info (12134): Parameter "WIDTHAD_B" = "4"
-    Info (12134): Parameter "NUMWORDS_B" = "10"
-    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
-    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
-    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
-    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
-    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
-    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
-    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
-    Info (12134): Parameter "INIT_FILE" = "db/simple_operations.ram0_fifo_1ff8f9ef.hdl.mif"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_r3h1.tdf
-    Info (12023): Found entity 1: altsyncram_r3h1 File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/db/altsyncram_r3h1.tdf Line: 28
-Info (13000): Registers with preset signals will power-up high File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/simple_operations.vhd Line: 130
+Info (13000): Registers with preset signals will power-up high File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/simple_operations.vhd Line: 136
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
 Critical Warning (18061): Ignored Power-Up Level option on the following registers
-    Critical Warning (18010): Register r_status[0] will power up to High File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/simple_operations.vhd Line: 130
-    Critical Warning (18010): Register r_status[1] will power up to High File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/simple_operations.vhd Line: 130
-    Critical Warning (18010): Register r_status[2] will power up to High File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/simple_operations.vhd Line: 130
-    Critical Warning (18010): Register r_status[3] will power up to High File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/simple_operations.vhd Line: 130
+    Critical Warning (18010): Register r_status[0] will power up to High File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/simple_operations.vhd Line: 136
+    Critical Warning (18010): Register r_status[1] will power up to High File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/simple_operations.vhd Line: 136
+    Critical Warning (18010): Register r_status[2] will power up to High File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/simple_operations.vhd Line: 136
+    Critical Warning (18010): Register r_status[3] will power up to High File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/simple_operations.vhd Line: 136
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 29 input pin(s) that do not drive logic
@@ -896,15 +847,15 @@ Warning (21074): Design contains 29 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "tx_data[5]" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/simple_operations.vhd Line: 47
     Warning (15610): No output dependent on input pin "tx_data[6]" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/simple_operations.vhd Line: 47
     Warning (15610): No output dependent on input pin "tx_data[7]" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/simple_operations.vhd Line: 47
-Info (21057): Implemented 353 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 560 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 33 input pins
     Info (21059): Implemented 36 output pins
-    Info (21061): Implemented 268 logic cells
+    Info (21061): Implemented 475 logic cells
     Info (21064): Implemented 16 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 45 warnings
-    Info: Peak virtual memory: 4830 megabytes
-    Info: Processing ended: Mon Aug 03 22:42:47 2020
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 46 warnings
+    Info: Peak virtual memory: 4825 megabytes
+    Info: Processing ended: Mon Aug 10 22:57:41 2020
     Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:21
+    Info: Total CPU time (on all processors): 00:00:22
 
 
