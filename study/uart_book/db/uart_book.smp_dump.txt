@@ -1,0 +1,14 @@
+
+State Machine - |uart|uart_tx:transmitter|r_state_reg
+Name r_state_reg.s_stop r_state_reg.s_data r_state_reg.s_start r_state_reg.s_idle 
+r_state_reg.s_idle 0 0 0 0 
+r_state_reg.s_start 0 0 1 1 
+r_state_reg.s_data 0 1 0 1 
+r_state_reg.s_stop 1 0 0 1 
+
+State Machine - |uart|uart_rx:receiver|r_state_reg
+Name r_state_reg.s_stop r_state_reg.s_data r_state_reg.s_start r_state_reg.s_idle 
+r_state_reg.s_idle 0 0 0 0 
+r_state_reg.s_start 0 0 1 1 
+r_state_reg.s_data 0 1 0 1 
+r_state_reg.s_stop 1 0 0 1 
