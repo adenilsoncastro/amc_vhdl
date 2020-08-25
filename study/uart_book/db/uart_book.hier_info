@@ -12,16 +12,6 @@ i_rst => fifo:fifo_tx.i_rst
 i_rd_uart => fifo:fifo_rx.i_rd
 i_wr_uart => fifo:fifo_tx.i_wr
 i_rx => uart_rx:receiver.i_rx_serial
-i_w_data[0] => fifo:fifo_tx.i_wr_data[0]
-i_w_data[1] => fifo:fifo_tx.i_wr_data[1]
-i_w_data[2] => fifo:fifo_tx.i_wr_data[2]
-i_w_data[3] => fifo:fifo_tx.i_wr_data[3]
-i_w_data[4] => fifo:fifo_tx.i_wr_data[4]
-i_w_data[5] => fifo:fifo_tx.i_wr_data[5]
-i_w_data[6] => fifo:fifo_tx.i_wr_data[6]
-i_w_data[7] => fifo:fifo_tx.i_wr_data[7]
-o_tx_full << fifo:fifo_tx.o_full
-o_tx_empty << fifo:fifo_tx.o_empty
 o_rx_full << fifo:fifo_rx.o_full
 o_rx_empty << fifo:fifo_rx.o_empty
 o_r_data[0] << fifo:fifo_rx.o_rd_data[0]
@@ -33,6 +23,24 @@ o_r_data[5] << fifo:fifo_rx.o_rd_data[5]
 o_r_data[6] << fifo:fifo_rx.o_rd_data[6]
 o_r_data[7] << fifo:fifo_rx.o_rd_data[7]
 o_tx << uart_tx:transmitter.o_tx
+o_tx_full << fifo:fifo_tx.o_full
+o_tx_empty << fifo:fifo_tx.o_empty
+i_w_data[0] => fifo:fifo_tx.i_wr_data[0]
+i_w_data[1] => fifo:fifo_tx.i_wr_data[1]
+i_w_data[2] => fifo:fifo_tx.i_wr_data[2]
+i_w_data[3] => fifo:fifo_tx.i_wr_data[3]
+i_w_data[4] => fifo:fifo_tx.i_wr_data[4]
+i_w_data[5] => fifo:fifo_tx.i_wr_data[5]
+i_w_data[6] => fifo:fifo_tx.i_wr_data[6]
+i_w_data[7] => fifo:fifo_tx.i_wr_data[7]
+o_data_test[0] << uart_rx:receiver.o_dout[0]
+o_data_test[1] << uart_rx:receiver.o_dout[1]
+o_data_test[2] << uart_rx:receiver.o_dout[2]
+o_data_test[3] << uart_rx:receiver.o_dout[3]
+o_data_test[4] << uart_rx:receiver.o_dout[4]
+o_data_test[5] << uart_rx:receiver.o_dout[5]
+o_data_test[6] << uart_rx:receiver.o_dout[6]
+o_data_test[7] << uart_rx:receiver.o_dout[7]
 
 
 |uart|mod_m_counter:baud_generator

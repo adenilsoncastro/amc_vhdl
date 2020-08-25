@@ -9,7 +9,7 @@ entity fifo is
 	
 	port(
 		i_rst_sync	: in std_logic;
-		i_clk		: in std_logic;
+		i_clk			: in std_logic;
 		
 		i_wr_en		: in std_logic;
 		i_wr_data	: in std_logic_vector(g_width-1 downto 0);

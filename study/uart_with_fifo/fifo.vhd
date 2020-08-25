@@ -27,7 +27,7 @@ architecture bhv of fifo is
 	signal r_wr_index  : integer range 0 to g_depth-1 := 0;
 	signal r_rd_index  : integer range 0 to g_depth-1 := 0;
 	
-	signal r_fifo_count: integer range -1 to g_depth+1:= 0;
+	signal r_fifo_count: integer range 0 to g_depth+1:= 0;
 	
 	signal w_full 		 : std_logic;
 	signal w_empty	 	 : std_logic;
@@ -36,7 +36,7 @@ architecture bhv of fifo is
 		p_control : process(i_clk) is
 		begin
 			if rising_edge(i_clk) then
-				if i_rst_sync = '1' then
+				if not i_rst_sync = '1' then
 					r_fifo_count <= 0;
 					r_wr_index	 <= 0;
 					r_rd_index	 <= 0;

@@ -80,13 +80,6 @@ architecture bhv of simple_operations is
 	signal r_data_out				: std_logic_vector(g_bits - 1 downto 0) := (others => '0');
 	signal r_status				: std_logic_vector(3 downto 0)			 := (others => '0');
 	
-	signal delay_1 : integer range 0 to 100000000;
-	signal delay_2 : integer range 0 to 100000000;
-	signal delay_3 : integer range 0 to 100000000;
-	signal delay_4 : integer range 0 to 100000000;
-	signal delay_5 : integer range 0 to 100000000;
-
-	
 begin
 	
 	receiver 	: uart_rx generic map(g_clks_per_bit) port map(i_clk, i_rx_serial, o_rx_dv, r_rx_data);
@@ -129,7 +122,7 @@ begin
 		end if;
 	end process p_uart_transmit;	
 	
-	p_calculus_fsm : process(i_clk, i_rst)
+	p_calculus_fsm : process(i_clk, i_rst, o_fifo_rx_empty, r_fifo_data_in, r_bit_index, r_fifo_rx_rd_en,o_fifo_tx_full,r_fifo_tx_wr_en)
 	variable aux : ufixed(0 downto -7);
 	
 	begin		
@@ -137,11 +130,6 @@ begin
 			r_sm_main <= s_idle;
 			r_status  <= "1111";
 			r_data_in <= (others => '0');
-			delay_1 <=0;
-			delay_2 <=0;
-			delay_3 <=0;
-			delay_4 <=0;
-			delay_5 <=0;
 			
 		elsif rising_edge(i_clk) then
 		
@@ -158,80 +146,52 @@ begin
 						r_fifo_rx_rd_en <= '1';
 						r_fifo_data_in <= o_fifo_rx_rd_data;				
 						
---						if r_fifo_data_in = x"30" then
---							r_data_in(r_bit_index) <= '0';
---						elsif r_fifo_data_in = x"31" then
---							r_data_in(r_bit_index) <= '1';
---						else
---							r_data_in(r_bit_index) <= 'X';
---						end if;
+						if r_fifo_data_in = x"30" then
+							r_data_in(r_bit_index) <= '0';
+						elsif r_fifo_data_in = x"31" then
+							r_data_in(r_bit_index) <= '1';
+						else
+							r_data_in(r_bit_index) <= 'X';
+						end if;
 						
---						if r_bit_index < g_bits-1 then
---							r_bit_index 	 <= r_bit_index + 1;
---							r_sm_main 		 <= s_get_fifo_data;
---						else
---							r_bit_index     <= 0;
---							r_fifo_rx_rd_en <= '0';
---							r_sm_main 	 	 <= s_calculus;
---						end if;
-						
-						if delay_1 < 99000000 then
-							delay_1 <= delay_1 + 1;
-							r_sm_main <= s_get_fifo_data;
-						else						
-							r_data_in <= r_fifo_data_in;
-							r_sm_main <= s_calculus;
-							r_status  <= "0010";
+						if r_bit_index < g_bits-1 then
+							r_bit_index 	 <= r_bit_index + 1;
+							r_sm_main 		 <= s_get_fifo_data;
+						else
+							r_bit_index     <= 0;
+							r_fifo_rx_rd_en <= '0';
+							r_sm_main 	 	 <= s_calculus;
 						end if;
 				
 				when s_calculus =>
 					r_fifo_rx_rd_en <= '0';
-					if delay_2 < 99000000 then
-						delay_2 <= delay_2 + 1;
-						r_sm_main <= s_calculus;
-					else
-						aux := to_ufixed(r_data_in, aux'high, aux'low);
-						r_sm_main <= s_put_fifo_data;
-						r_status <= "0011";
-					end if;
+					aux := to_ufixed(r_data_in, aux'high, aux'low);
+					r_sm_main <= s_put_fifo_data;
+					r_status <= "0011";
 					
 				when s_put_fifo_data =>
-					if delay_3 < 99000000 then
-						delay_3 <= delay_3 + 1;
-						r_sm_main <= s_put_fifo_data;
-					else
-						r_fifo_data_out <= to_slv(aux);
-						
-						if o_fifo_tx_full = '0' then
-							r_fifo_tx_wr_data <= r_fifo_data_out;
-							r_fifo_tx_wr_en <= '1';
-							r_sm_main <= s_clear;
-						else
-							r_sm_main <= s_put_fifo_data;
-						end if;
-						r_status <= "0100";
-					end if;
-				
-				when s_clear =>
-					if delay_4 < 99000000 then
-						delay_4 <= delay_4 + 1;
+					r_fifo_data_out <= to_slv(aux);
+					
+					if o_fifo_tx_full = '0' then
+						r_fifo_tx_wr_data <= r_fifo_data_out;
+						r_fifo_tx_wr_en <= '1';
 						r_sm_main <= s_clear;
 					else
-						aux := (others => '0');
-						r_fifo_data_out <= (others => '0');
-						r_fifo_data_in  <= (others => '0');
-						r_fifo_tx_wr_en <= '0';
-						r_fifo_rx_rd_en <= '0';
-						r_sm_main 		 <= s_idle;
-						r_status 		 <= "0000";
+						r_sm_main <= s_put_fifo_data;
 					end if;
-				when others =>
-					if delay_5 < 99000000 then
-						delay_5 <= delay_5 + 1;
-					else	
-						r_sm_main <= s_idle;
-						r_status	 <= "0111";
-					end if;
+					r_status <= "0100";
+				
+				when s_clear =>
+					aux := (others => '0');
+					r_fifo_data_out <= (others => '0');
+					r_fifo_data_in  <= (others => '0');
+					r_fifo_tx_wr_en <= '0';
+					r_fifo_rx_rd_en <= '0';
+					r_sm_main 		 <= s_idle;
+					r_status 		 <= "0000";
+				when others =>	
+					r_sm_main <= s_idle;
+					r_status	 <= "0111";
 			end case;
 		end if;
 	end process p_calculus_fsm;

@@ -4,21 +4,21 @@
  
  entity uart_rx is
 	generic(
-		g_dbit		: integer := 8;
-		g_sb_tick	: integer := 16);
+		g_dbit			: integer := 8;
+		g_sb_tick		: integer := 16);
 	port(
-		i_clk			: in std_logic;
-		i_rst			: in std_logic;
-		i_rx_serial : in std_logic;
-		i_s_tick		: in std_logic;
-		o_rx_done_tick: out std_logic;
-		o_dout		: out std_logic_vector(g_dbit-1 downto 0));
+		i_clk				: in std_logic;
+		i_rst				: in std_logic;
+		i_rx_serial 	: in std_logic;
+		i_s_tick			: in std_logic;
+		o_rx_done_tick	: out std_logic;
+		o_dout			: out std_logic_vector(g_dbit-1 downto 0));
  end uart_rx;
  
  architecture arch of uart_rx is
 	type t_sm_main is (s_idle, s_start, s_data, s_stop);
-	signal r_state_reg	: t_sm_main;
-	signal r_state_next	: t_sm_main;
+	signal r_state_reg	: t_sm_main := s_idle;
+	signal r_state_next	: t_sm_main := s_idle;
 	
 	signal r_s_reg			: unsigned (3 downto 0);
 	signal r_s_next		: unsigned (3 downto 0);
@@ -32,14 +32,14 @@
 		begin
 			if not i_rst='1' then
 				r_state_reg <= s_idle;
-				r_s_reg <= (others => '0');
-				r_n_reg <= (others => '0');
-				r_b_reg <= (others => '0');
+				r_s_reg 		<= (others => '0');
+				r_n_reg 		<= (others => '0');
+				r_b_reg 		<= (others => '0');
 			elsif rising_edge(i_clk) then
 				r_state_reg <= r_state_next;
-				r_s_reg <= r_s_next;
-				r_n_reg <= r_n_next;
-				r_b_reg <= r_b_next;
+				r_s_reg 		<= r_s_next;
+				r_n_reg 		<= r_n_next;
+				r_b_reg 		<= r_b_next;
 			end if;
 		end process p_fsmd;
 	

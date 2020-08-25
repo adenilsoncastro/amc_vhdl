@@ -12,534 +12,1716 @@
 -- Intel and sold by Intel or its authorized distributors.  Please
 -- refer to the applicable agreement for further details, at
 -- https://fpgasoftware.intel.com/eula.
---C1_r_fifo_count[3] is fifo:fifo_rx|r_fifo_count[3] at FF_X77_Y70_N13
+--C1_r_fifo_count[1] is fifo:fifo_rx|r_fifo_count[1] at FF_X82_Y68_N9
 --register power-up is low
 
-C1_r_fifo_count[3] = DFFEAS(C1L16, GLOBAL(A1L5),  ,  , C1L8,  ,  , A1L8,  );
+C1_r_fifo_count[1] = DFFEAS(C1L16, GLOBAL(A1L6),  ,  , C1L11,  ,  , !A1L9,  );
 
 
---C1_r_fifo_count[1] is fifo:fifo_rx|r_fifo_count[1] at FF_X77_Y70_N9
+--C1_r_fifo_count[3] is fifo:fifo_rx|r_fifo_count[3] at FF_X82_Y68_N13
 --register power-up is low
 
-C1_r_fifo_count[1] = DFFEAS(C1L10, GLOBAL(A1L5),  ,  , C1L8,  ,  , A1L8,  );
+C1_r_fifo_count[3] = DFFEAS(C1L22, GLOBAL(A1L6),  ,  , C1L11,  ,  , !A1L9,  );
 
 
---C1_r_fifo_count[0] is fifo:fifo_rx|r_fifo_count[0] at FF_X77_Y70_N7
+--C1_r_fifo_count[2] is fifo:fifo_rx|r_fifo_count[2] at FF_X82_Y68_N11
 --register power-up is low
 
-C1_r_fifo_count[0] = DFFEAS(C1L6, GLOBAL(A1L5),  ,  , C1L8,  ,  , A1L8,  );
+C1_r_fifo_count[2] = DFFEAS(C1L19, GLOBAL(A1L6),  ,  , C1L11,  ,  , !A1L9,  );
 
 
---C1_r_fifo_count[2] is fifo:fifo_rx|r_fifo_count[2] at FF_X77_Y70_N11
+--C2_r_fifo_count[1] is fifo:fifo_tx|r_fifo_count[1] at FF_X83_Y71_N21
 --register power-up is low
 
-C1_r_fifo_count[2] = DFFEAS(C1L13, GLOBAL(A1L5),  ,  , C1L8,  ,  , A1L8,  );
+C2_r_fifo_count[1] = DFFEAS(C2L11, GLOBAL(A1L6),  ,  , C2L13,  ,  , !A1L9,  );
 
 
---C1_r_fifo_count[4] is fifo:fifo_rx|r_fifo_count[4] at FF_X77_Y70_N15
+--C2_r_fifo_count[3] is fifo:fifo_tx|r_fifo_count[3] at FF_X83_Y71_N25
 --register power-up is low
 
-C1_r_fifo_count[4] = DFFEAS(C1L19, GLOBAL(A1L5),  ,  , C1L8,  ,  , A1L8,  );
+C2_r_fifo_count[3] = DFFEAS(C2L18, GLOBAL(A1L6),  ,  , C2L13,  ,  , !A1L9,  );
 
 
---C1L6 is fifo:fifo_rx|r_fifo_count[0]~5 at LCCOMB_X77_Y70_N6
-C1L6 = C1_r_fifo_count[0] $ (VCC);
-
---C1L7 is fifo:fifo_rx|r_fifo_count[0]~6 at LCCOMB_X77_Y70_N6
-C1L7 = CARRY(C1_r_fifo_count[0]);
-
-
---C1L10 is fifo:fifo_rx|r_fifo_count[1]~7 at LCCOMB_X77_Y70_N8
-C1L10 = (C1_r_fifo_count[1] & ((D1_r_rx_dv & (!C1L7)) # (!D1_r_rx_dv & (C1L7 & VCC)))) # (!C1_r_fifo_count[1] & ((D1_r_rx_dv & ((C1L7) # (GND))) # (!D1_r_rx_dv & (!C1L7))));
-
---C1L11 is fifo:fifo_rx|r_fifo_count[1]~8 at LCCOMB_X77_Y70_N8
-C1L11 = CARRY((C1_r_fifo_count[1] & (D1_r_rx_dv & !C1L7)) # (!C1_r_fifo_count[1] & ((D1_r_rx_dv) # (!C1L7))));
-
-
---C1L13 is fifo:fifo_rx|r_fifo_count[2]~9 at LCCOMB_X77_Y70_N10
-C1L13 = ((C1_r_fifo_count[2] $ (D1_r_rx_dv $ (C1L11)))) # (GND);
-
---C1L14 is fifo:fifo_rx|r_fifo_count[2]~10 at LCCOMB_X77_Y70_N10
-C1L14 = CARRY((C1_r_fifo_count[2] & ((!C1L11) # (!D1_r_rx_dv))) # (!C1_r_fifo_count[2] & (!D1_r_rx_dv & !C1L11)));
-
-
---C1L16 is fifo:fifo_rx|r_fifo_count[3]~11 at LCCOMB_X77_Y70_N12
-C1L16 = (C1_r_fifo_count[3] & ((D1_r_rx_dv & (!C1L14)) # (!D1_r_rx_dv & (C1L14 & VCC)))) # (!C1_r_fifo_count[3] & ((D1_r_rx_dv & ((C1L14) # (GND))) # (!D1_r_rx_dv & (!C1L14))));
-
---C1L17 is fifo:fifo_rx|r_fifo_count[3]~12 at LCCOMB_X77_Y70_N12
-C1L17 = CARRY((C1_r_fifo_count[3] & (D1_r_rx_dv & !C1L14)) # (!C1_r_fifo_count[3] & ((D1_r_rx_dv) # (!C1L14))));
-
-
---C1L19 is fifo:fifo_rx|r_fifo_count[4]~14 at LCCOMB_X77_Y70_N14
-C1L19 = C1_r_fifo_count[4] $ (C1L17 $ (D1_r_rx_dv));
-
-
---D1_r_clk_count[12] is uart_rx:receiver|r_clk_count[12] at FF_X66_Y70_N29
+--C2_r_fifo_count[2] is fifo:fifo_tx|r_fifo_count[2] at FF_X83_Y71_N23
 --register power-up is low
 
-D1_r_clk_count[12] = DFFEAS(D1L63, GLOBAL(A1L5),  ,  , D1L28,  ,  , D1L27,  );
+C2_r_fifo_count[2] = DFFEAS(C2L15, GLOBAL(A1L6),  ,  , C2L13,  ,  , !A1L9,  );
 
 
---D1_r_clk_count[3] is uart_rx:receiver|r_clk_count[3] at FF_X66_Y70_N11
+--C1L15 is fifo:fifo_rx|r_fifo_count[1]~4 at LCCOMB_X82_Y68_N6
+C1L15 = CARRY(C1_r_fifo_count[0]);
+
+
+--C1L16 is fifo:fifo_rx|r_fifo_count[1]~5 at LCCOMB_X82_Y68_N8
+C1L16 = (C1_r_fifo_count[1] & ((C1L7 & (!C1L15)) # (!C1L7 & (C1L15 & VCC)))) # (!C1_r_fifo_count[1] & ((C1L7 & ((C1L15) # (GND))) # (!C1L7 & (!C1L15))));
+
+--C1L17 is fifo:fifo_rx|r_fifo_count[1]~6 at LCCOMB_X82_Y68_N8
+C1L17 = CARRY((C1_r_fifo_count[1] & (C1L7 & !C1L15)) # (!C1_r_fifo_count[1] & ((C1L7) # (!C1L15))));
+
+
+--C1L19 is fifo:fifo_rx|r_fifo_count[2]~8 at LCCOMB_X82_Y68_N10
+C1L19 = ((C1_r_fifo_count[2] $ (C1L7 $ (C1L17)))) # (GND);
+
+--C1L20 is fifo:fifo_rx|r_fifo_count[2]~9 at LCCOMB_X82_Y68_N10
+C1L20 = CARRY((C1_r_fifo_count[2] & ((!C1L17) # (!C1L7))) # (!C1_r_fifo_count[2] & (!C1L7 & !C1L17)));
+
+
+--C1L22 is fifo:fifo_rx|r_fifo_count[3]~10 at LCCOMB_X82_Y68_N12
+C1L22 = C1_r_fifo_count[3] $ (C1L20 $ (!C1L7));
+
+
+--D1_r_clk_count[12] is uart_rx:receiver|r_clk_count[12] at FF_X72_Y71_N27
 --register power-up is low
 
-D1_r_clk_count[3] = DFFEAS(D1L36, GLOBAL(A1L5),  ,  , D1L28,  ,  , D1L27,  );
+D1_r_clk_count[12] = DFFEAS(D1L63, GLOBAL(A1L6),  ,  , D1L49,  ,  , D1L48,  );
 
 
---D1_r_clk_count[4] is uart_rx:receiver|r_clk_count[4] at FF_X66_Y70_N13
+--D1_r_clk_count[3] is uart_rx:receiver|r_clk_count[3] at FF_X72_Y71_N9
 --register power-up is low
 
-D1_r_clk_count[4] = DFFEAS(D1L39, GLOBAL(A1L5),  ,  , D1L28,  ,  , D1L27,  );
+D1_r_clk_count[3] = DFFEAS(D1L31, GLOBAL(A1L6),  ,  , D1L49,  ,  , D1L48,  );
 
 
---D1_r_clk_count[5] is uart_rx:receiver|r_clk_count[5] at FF_X66_Y70_N15
+--D1_r_clk_count[4] is uart_rx:receiver|r_clk_count[4] at FF_X72_Y71_N11
 --register power-up is low
 
-D1_r_clk_count[5] = DFFEAS(D1L42, GLOBAL(A1L5),  ,  , D1L28,  ,  , D1L27,  );
+D1_r_clk_count[4] = DFFEAS(D1L34, GLOBAL(A1L6),  ,  , D1L49,  ,  , D1L48,  );
 
 
---D1_r_clk_count[6] is uart_rx:receiver|r_clk_count[6] at FF_X66_Y70_N17
+--D1_r_clk_count[5] is uart_rx:receiver|r_clk_count[5] at FF_X72_Y71_N13
 --register power-up is low
 
-D1_r_clk_count[6] = DFFEAS(D1L45, GLOBAL(A1L5),  ,  , D1L28,  ,  , D1L27,  );
+D1_r_clk_count[5] = DFFEAS(D1L37, GLOBAL(A1L6),  ,  , D1L49,  ,  , D1L48,  );
 
 
---D1_r_clk_count[11] is uart_rx:receiver|r_clk_count[11] at FF_X66_Y70_N27
+--D1_r_clk_count[6] is uart_rx:receiver|r_clk_count[6] at FF_X72_Y71_N15
 --register power-up is low
 
-D1_r_clk_count[11] = DFFEAS(D1L60, GLOBAL(A1L5),  ,  , D1L28,  ,  , D1L27,  );
+D1_r_clk_count[6] = DFFEAS(D1L40, GLOBAL(A1L6),  ,  , D1L49,  ,  , D1L48,  );
 
 
---D1_r_clk_count[7] is uart_rx:receiver|r_clk_count[7] at FF_X66_Y70_N19
+--D1_r_clk_count[11] is uart_rx:receiver|r_clk_count[11] at FF_X72_Y71_N25
 --register power-up is low
 
-D1_r_clk_count[7] = DFFEAS(D1L48, GLOBAL(A1L5),  ,  , D1L28,  ,  , D1L27,  );
+D1_r_clk_count[11] = DFFEAS(D1L60, GLOBAL(A1L6),  ,  , D1L49,  ,  , D1L48,  );
 
 
---D1_r_clk_count[8] is uart_rx:receiver|r_clk_count[8] at FF_X66_Y70_N21
+--D1_r_clk_count[7] is uart_rx:receiver|r_clk_count[7] at FF_X72_Y71_N17
 --register power-up is low
 
-D1_r_clk_count[8] = DFFEAS(D1L51, GLOBAL(A1L5),  ,  , D1L28,  ,  , D1L27,  );
+D1_r_clk_count[7] = DFFEAS(D1L43, GLOBAL(A1L6),  ,  , D1L49,  ,  , D1L48,  );
 
 
---D1_r_clk_count[9] is uart_rx:receiver|r_clk_count[9] at FF_X66_Y70_N23
+--D1_r_clk_count[8] is uart_rx:receiver|r_clk_count[8] at FF_X72_Y71_N19
 --register power-up is low
 
-D1_r_clk_count[9] = DFFEAS(D1L54, GLOBAL(A1L5),  ,  , D1L28,  ,  , D1L27,  );
+D1_r_clk_count[8] = DFFEAS(D1L51, GLOBAL(A1L6),  ,  , D1L49,  ,  , D1L48,  );
 
 
---D1_r_clk_count[10] is uart_rx:receiver|r_clk_count[10] at FF_X66_Y70_N25
+--D1_r_clk_count[9] is uart_rx:receiver|r_clk_count[9] at FF_X72_Y71_N21
 --register power-up is low
 
-D1_r_clk_count[10] = DFFEAS(D1L57, GLOBAL(A1L5),  ,  , D1L28,  ,  , D1L27,  );
+D1_r_clk_count[9] = DFFEAS(D1L54, GLOBAL(A1L6),  ,  , D1L49,  ,  , D1L48,  );
 
 
---D1_r_clk_count[2] is uart_rx:receiver|r_clk_count[2] at FF_X66_Y70_N9
+--D1_r_clk_count[10] is uart_rx:receiver|r_clk_count[10] at FF_X72_Y71_N23
 --register power-up is low
 
-D1_r_clk_count[2] = DFFEAS(D1L33, GLOBAL(A1L5),  ,  , D1L28,  ,  , D1L27,  );
+D1_r_clk_count[10] = DFFEAS(D1L57, GLOBAL(A1L6),  ,  , D1L49,  ,  , D1L48,  );
 
 
---D1_r_clk_count[1] is uart_rx:receiver|r_clk_count[1] at FF_X66_Y70_N7
+--C2L10 is fifo:fifo_tx|r_fifo_count[1]~4 at LCCOMB_X83_Y71_N18
+C2L10 = CARRY(C2_r_fifo_count[0]);
+
+
+--C2L11 is fifo:fifo_tx|r_fifo_count[1]~5 at LCCOMB_X83_Y71_N20
+C2L11 = (r_fifo_tx_wr_en & ((C2_r_fifo_count[1] & (!C2L10)) # (!C2_r_fifo_count[1] & ((C2L10) # (GND))))) # (!r_fifo_tx_wr_en & ((C2_r_fifo_count[1] & (C2L10 & VCC)) # (!C2_r_fifo_count[1] & (!C2L10))));
+
+--C2L12 is fifo:fifo_tx|r_fifo_count[1]~6 at LCCOMB_X83_Y71_N20
+C2L12 = CARRY((r_fifo_tx_wr_en & ((!C2L10) # (!C2_r_fifo_count[1]))) # (!r_fifo_tx_wr_en & (!C2_r_fifo_count[1] & !C2L10)));
+
+
+--C2L15 is fifo:fifo_tx|r_fifo_count[2]~8 at LCCOMB_X83_Y71_N22
+C2L15 = ((C2_r_fifo_count[2] $ (r_fifo_tx_wr_en $ (C2L12)))) # (GND);
+
+--C2L16 is fifo:fifo_tx|r_fifo_count[2]~9 at LCCOMB_X83_Y71_N22
+C2L16 = CARRY((C2_r_fifo_count[2] & ((!C2L12) # (!r_fifo_tx_wr_en))) # (!C2_r_fifo_count[2] & (!r_fifo_tx_wr_en & !C2L12)));
+
+
+--C2L18 is fifo:fifo_tx|r_fifo_count[3]~10 at LCCOMB_X83_Y71_N24
+C2L18 = r_fifo_tx_wr_en $ (C2L16 $ (!C2_r_fifo_count[3]));
+
+
+--D1_r_clk_count[2] is uart_rx:receiver|r_clk_count[2] at FF_X72_Y71_N7
 --register power-up is low
 
-D1_r_clk_count[1] = DFFEAS(D1L30, GLOBAL(A1L5),  ,  , D1L28,  ,  , D1L27,  );
+D1_r_clk_count[2] = DFFEAS(D1L28, GLOBAL(A1L6),  ,  , D1L49,  ,  , D1L48,  );
 
 
---D1_r_clk_count[0] is uart_rx:receiver|r_clk_count[0] at FF_X66_Y70_N5
+--D1_r_clk_count[1] is uart_rx:receiver|r_clk_count[1] at FF_X72_Y71_N5
 --register power-up is low
 
-D1_r_clk_count[0] = DFFEAS(D1L23, GLOBAL(A1L5),  ,  , D1L28,  ,  , D1L27,  );
+D1_r_clk_count[1] = DFFEAS(D1L25, GLOBAL(A1L6),  ,  , D1L49,  ,  , D1L48,  );
 
 
---D1L23 is uart_rx:receiver|r_clk_count[0]~13 at LCCOMB_X66_Y70_N4
-D1L23 = D1_r_clk_count[0] $ (VCC);
+--D1_r_clk_count[0] is uart_rx:receiver|r_clk_count[0] at FF_X72_Y71_N3
+--register power-up is low
 
---D1L24 is uart_rx:receiver|r_clk_count[0]~14 at LCCOMB_X66_Y70_N4
-D1L24 = CARRY(D1_r_clk_count[0]);
-
-
---D1L30 is uart_rx:receiver|r_clk_count[1]~15 at LCCOMB_X66_Y70_N6
-D1L30 = (D1_r_clk_count[1] & (!D1L24)) # (!D1_r_clk_count[1] & ((D1L24) # (GND)));
-
---D1L31 is uart_rx:receiver|r_clk_count[1]~16 at LCCOMB_X66_Y70_N6
-D1L31 = CARRY((!D1L24) # (!D1_r_clk_count[1]));
+D1_r_clk_count[0] = DFFEAS(D1L22, GLOBAL(A1L6),  ,  , D1L49,  ,  , D1L48,  );
 
 
---D1L33 is uart_rx:receiver|r_clk_count[2]~17 at LCCOMB_X66_Y70_N8
-D1L33 = (D1_r_clk_count[2] & (D1L31 $ (GND))) # (!D1_r_clk_count[2] & (!D1L31 & VCC));
+--D1L22 is uart_rx:receiver|r_clk_count[0]~13 at LCCOMB_X72_Y71_N2
+D1L22 = D1_r_clk_count[0] $ (VCC);
 
---D1L34 is uart_rx:receiver|r_clk_count[2]~18 at LCCOMB_X66_Y70_N8
-D1L34 = CARRY((D1_r_clk_count[2] & !D1L31));
-
-
---D1L36 is uart_rx:receiver|r_clk_count[3]~19 at LCCOMB_X66_Y70_N10
-D1L36 = (D1_r_clk_count[3] & (!D1L34)) # (!D1_r_clk_count[3] & ((D1L34) # (GND)));
-
---D1L37 is uart_rx:receiver|r_clk_count[3]~20 at LCCOMB_X66_Y70_N10
-D1L37 = CARRY((!D1L34) # (!D1_r_clk_count[3]));
+--D1L23 is uart_rx:receiver|r_clk_count[0]~14 at LCCOMB_X72_Y71_N2
+D1L23 = CARRY(D1_r_clk_count[0]);
 
 
---D1L39 is uart_rx:receiver|r_clk_count[4]~21 at LCCOMB_X66_Y70_N12
-D1L39 = (D1_r_clk_count[4] & (D1L37 $ (GND))) # (!D1_r_clk_count[4] & (!D1L37 & VCC));
+--D1L25 is uart_rx:receiver|r_clk_count[1]~15 at LCCOMB_X72_Y71_N4
+D1L25 = (D1_r_clk_count[1] & (!D1L23)) # (!D1_r_clk_count[1] & ((D1L23) # (GND)));
 
---D1L40 is uart_rx:receiver|r_clk_count[4]~22 at LCCOMB_X66_Y70_N12
-D1L40 = CARRY((D1_r_clk_count[4] & !D1L37));
-
-
---D1L42 is uart_rx:receiver|r_clk_count[5]~23 at LCCOMB_X66_Y70_N14
-D1L42 = (D1_r_clk_count[5] & (!D1L40)) # (!D1_r_clk_count[5] & ((D1L40) # (GND)));
-
---D1L43 is uart_rx:receiver|r_clk_count[5]~24 at LCCOMB_X66_Y70_N14
-D1L43 = CARRY((!D1L40) # (!D1_r_clk_count[5]));
+--D1L26 is uart_rx:receiver|r_clk_count[1]~16 at LCCOMB_X72_Y71_N4
+D1L26 = CARRY((!D1L23) # (!D1_r_clk_count[1]));
 
 
---D1L45 is uart_rx:receiver|r_clk_count[6]~25 at LCCOMB_X66_Y70_N16
-D1L45 = (D1_r_clk_count[6] & (D1L43 $ (GND))) # (!D1_r_clk_count[6] & (!D1L43 & VCC));
+--D1L28 is uart_rx:receiver|r_clk_count[2]~17 at LCCOMB_X72_Y71_N6
+D1L28 = (D1_r_clk_count[2] & (D1L26 $ (GND))) # (!D1_r_clk_count[2] & (!D1L26 & VCC));
 
---D1L46 is uart_rx:receiver|r_clk_count[6]~26 at LCCOMB_X66_Y70_N16
-D1L46 = CARRY((D1_r_clk_count[6] & !D1L43));
-
-
---D1L48 is uart_rx:receiver|r_clk_count[7]~27 at LCCOMB_X66_Y70_N18
-D1L48 = (D1_r_clk_count[7] & (!D1L46)) # (!D1_r_clk_count[7] & ((D1L46) # (GND)));
-
---D1L49 is uart_rx:receiver|r_clk_count[7]~28 at LCCOMB_X66_Y70_N18
-D1L49 = CARRY((!D1L46) # (!D1_r_clk_count[7]));
+--D1L29 is uart_rx:receiver|r_clk_count[2]~18 at LCCOMB_X72_Y71_N6
+D1L29 = CARRY((D1_r_clk_count[2] & !D1L26));
 
 
---D1L51 is uart_rx:receiver|r_clk_count[8]~29 at LCCOMB_X66_Y70_N20
-D1L51 = (D1_r_clk_count[8] & (D1L49 $ (GND))) # (!D1_r_clk_count[8] & (!D1L49 & VCC));
+--D1L31 is uart_rx:receiver|r_clk_count[3]~19 at LCCOMB_X72_Y71_N8
+D1L31 = (D1_r_clk_count[3] & (!D1L29)) # (!D1_r_clk_count[3] & ((D1L29) # (GND)));
 
---D1L52 is uart_rx:receiver|r_clk_count[8]~30 at LCCOMB_X66_Y70_N20
-D1L52 = CARRY((D1_r_clk_count[8] & !D1L49));
+--D1L32 is uart_rx:receiver|r_clk_count[3]~20 at LCCOMB_X72_Y71_N8
+D1L32 = CARRY((!D1L29) # (!D1_r_clk_count[3]));
 
 
---D1L54 is uart_rx:receiver|r_clk_count[9]~31 at LCCOMB_X66_Y70_N22
+--D1L34 is uart_rx:receiver|r_clk_count[4]~21 at LCCOMB_X72_Y71_N10
+D1L34 = (D1_r_clk_count[4] & (D1L32 $ (GND))) # (!D1_r_clk_count[4] & (!D1L32 & VCC));
+
+--D1L35 is uart_rx:receiver|r_clk_count[4]~22 at LCCOMB_X72_Y71_N10
+D1L35 = CARRY((D1_r_clk_count[4] & !D1L32));
+
+
+--D1L37 is uart_rx:receiver|r_clk_count[5]~23 at LCCOMB_X72_Y71_N12
+D1L37 = (D1_r_clk_count[5] & (!D1L35)) # (!D1_r_clk_count[5] & ((D1L35) # (GND)));
+
+--D1L38 is uart_rx:receiver|r_clk_count[5]~24 at LCCOMB_X72_Y71_N12
+D1L38 = CARRY((!D1L35) # (!D1_r_clk_count[5]));
+
+
+--D1L40 is uart_rx:receiver|r_clk_count[6]~25 at LCCOMB_X72_Y71_N14
+D1L40 = (D1_r_clk_count[6] & (D1L38 $ (GND))) # (!D1_r_clk_count[6] & (!D1L38 & VCC));
+
+--D1L41 is uart_rx:receiver|r_clk_count[6]~26 at LCCOMB_X72_Y71_N14
+D1L41 = CARRY((D1_r_clk_count[6] & !D1L38));
+
+
+--D1L43 is uart_rx:receiver|r_clk_count[7]~27 at LCCOMB_X72_Y71_N16
+D1L43 = (D1_r_clk_count[7] & (!D1L41)) # (!D1_r_clk_count[7] & ((D1L41) # (GND)));
+
+--D1L44 is uart_rx:receiver|r_clk_count[7]~28 at LCCOMB_X72_Y71_N16
+D1L44 = CARRY((!D1L41) # (!D1_r_clk_count[7]));
+
+
+--D1L51 is uart_rx:receiver|r_clk_count[8]~29 at LCCOMB_X72_Y71_N18
+D1L51 = (D1_r_clk_count[8] & (D1L44 $ (GND))) # (!D1_r_clk_count[8] & (!D1L44 & VCC));
+
+--D1L52 is uart_rx:receiver|r_clk_count[8]~30 at LCCOMB_X72_Y71_N18
+D1L52 = CARRY((D1_r_clk_count[8] & !D1L44));
+
+
+--D1L54 is uart_rx:receiver|r_clk_count[9]~31 at LCCOMB_X72_Y71_N20
 D1L54 = (D1_r_clk_count[9] & (!D1L52)) # (!D1_r_clk_count[9] & ((D1L52) # (GND)));
 
---D1L55 is uart_rx:receiver|r_clk_count[9]~32 at LCCOMB_X66_Y70_N22
+--D1L55 is uart_rx:receiver|r_clk_count[9]~32 at LCCOMB_X72_Y71_N20
 D1L55 = CARRY((!D1L52) # (!D1_r_clk_count[9]));
 
 
---D1L57 is uart_rx:receiver|r_clk_count[10]~33 at LCCOMB_X66_Y70_N24
+--D1L57 is uart_rx:receiver|r_clk_count[10]~33 at LCCOMB_X72_Y71_N22
 D1L57 = (D1_r_clk_count[10] & (D1L55 $ (GND))) # (!D1_r_clk_count[10] & (!D1L55 & VCC));
 
---D1L58 is uart_rx:receiver|r_clk_count[10]~34 at LCCOMB_X66_Y70_N24
+--D1L58 is uart_rx:receiver|r_clk_count[10]~34 at LCCOMB_X72_Y71_N22
 D1L58 = CARRY((D1_r_clk_count[10] & !D1L55));
 
 
---D1L60 is uart_rx:receiver|r_clk_count[11]~35 at LCCOMB_X66_Y70_N26
+--D1L60 is uart_rx:receiver|r_clk_count[11]~35 at LCCOMB_X72_Y71_N24
 D1L60 = (D1_r_clk_count[11] & (!D1L58)) # (!D1_r_clk_count[11] & ((D1L58) # (GND)));
 
---D1L61 is uart_rx:receiver|r_clk_count[11]~36 at LCCOMB_X66_Y70_N26
+--D1L61 is uart_rx:receiver|r_clk_count[11]~36 at LCCOMB_X72_Y71_N24
 D1L61 = CARRY((!D1L58) # (!D1_r_clk_count[11]));
 
 
---D1L63 is uart_rx:receiver|r_clk_count[12]~37 at LCCOMB_X66_Y70_N28
-D1L63 = D1L61 $ (!D1_r_clk_count[12]);
+--D1L63 is uart_rx:receiver|r_clk_count[12]~37 at LCCOMB_X72_Y71_N26
+D1L63 = D1_r_clk_count[12] $ (!D1L61);
 
 
---C1L1 is fifo:fifo_rx|Equal2~0 at LCCOMB_X77_Y70_N28
-C1L1 = (!C1_r_fifo_count[0] & (!C1_r_fifo_count[4] & !C1_r_fifo_count[2]));
-
-
---C1L2 is fifo:fifo_rx|Equal2~1 at LCCOMB_X77_Y70_N30
-C1L2 = (C1L1 & (C1_r_fifo_count[1] & C1_r_fifo_count[3]));
-
-
---C1L3 is fifo:fifo_rx|Equal3~0 at LCCOMB_X77_Y70_N0
-C1L3 = (C1L1 & (!C1_r_fifo_count[1] & !C1_r_fifo_count[3]));
-
-
---D1_r_rx_byte[0] is uart_rx:receiver|r_rx_byte[0] at FF_X67_Y70_N9
+--E1_r_clk_count[10] is uart_tx:transmitter|r_clk_count[10] at FF_X80_Y71_N23
 --register power-up is low
 
-D1_r_rx_byte[0] = DFFEAS(D1L67, GLOBAL(A1L5),  ,  ,  ,  ,  ,  ,  );
+E1_r_clk_count[10] = DFFEAS(E1L48, GLOBAL(A1L6),  ,  , !E1_r_sm_main.s_cleanup,  ,  , E1L43,  );
 
 
---D1_r_rx_byte[1] is uart_rx:receiver|r_rx_byte[1] at FF_X68_Y70_N29
+--E1_r_clk_count[11] is uart_tx:transmitter|r_clk_count[11] at FF_X80_Y71_N25
 --register power-up is low
 
-D1_r_rx_byte[1] = DFFEAS(D1L69, GLOBAL(A1L5),  ,  ,  ,  ,  ,  ,  );
+E1_r_clk_count[11] = DFFEAS(E1L51, GLOBAL(A1L6),  ,  , !E1_r_sm_main.s_cleanup,  ,  , E1L43,  );
 
 
---D1_r_rx_byte[2] is uart_rx:receiver|r_rx_byte[2] at FF_X68_Y70_N31
+--E1_r_clk_count[3] is uart_tx:transmitter|r_clk_count[3] at FF_X80_Y71_N9
 --register power-up is low
 
-D1_r_rx_byte[2] = DFFEAS(D1L71, GLOBAL(A1L5),  ,  ,  ,  ,  ,  ,  );
+E1_r_clk_count[3] = DFFEAS(E1L26, GLOBAL(A1L6),  ,  , !E1_r_sm_main.s_cleanup,  ,  , E1L43,  );
 
 
---D1_r_rx_byte[3] is uart_rx:receiver|r_rx_byte[3] at FF_X69_Y70_N1
+--E1_r_clk_count[4] is uart_tx:transmitter|r_clk_count[4] at FF_X80_Y71_N11
 --register power-up is low
 
-D1_r_rx_byte[3] = DFFEAS(D1L73, GLOBAL(A1L5),  ,  ,  ,  ,  ,  ,  );
+E1_r_clk_count[4] = DFFEAS(E1L29, GLOBAL(A1L6),  ,  , !E1_r_sm_main.s_cleanup,  ,  , E1L43,  );
 
 
---D1_r_rx_byte[4] is uart_rx:receiver|r_rx_byte[4] at FF_X68_Y70_N9
+--E1_r_clk_count[5] is uart_tx:transmitter|r_clk_count[5] at FF_X80_Y71_N13
 --register power-up is low
 
-D1_r_rx_byte[4] = DFFEAS(D1L75, GLOBAL(A1L5),  ,  ,  ,  ,  ,  ,  );
+E1_r_clk_count[5] = DFFEAS(E1L32, GLOBAL(A1L6),  ,  , !E1_r_sm_main.s_cleanup,  ,  , E1L43,  );
 
 
---D1_r_rx_byte[5] is uart_rx:receiver|r_rx_byte[5] at FF_X69_Y70_N3
+--E1_r_clk_count[6] is uart_tx:transmitter|r_clk_count[6] at FF_X80_Y71_N15
 --register power-up is low
 
-D1_r_rx_byte[5] = DFFEAS(D1L77, GLOBAL(A1L5),  ,  ,  ,  ,  ,  ,  );
+E1_r_clk_count[6] = DFFEAS(E1L35, GLOBAL(A1L6),  ,  , !E1_r_sm_main.s_cleanup,  ,  , E1L43,  );
 
 
---D1_r_rx_byte[6] is uart_rx:receiver|r_rx_byte[6] at FF_X68_Y70_N15
+--E1_r_clk_count[7] is uart_tx:transmitter|r_clk_count[7] at FF_X80_Y71_N17
 --register power-up is low
 
-D1_r_rx_byte[6] = DFFEAS(D1L79, GLOBAL(A1L5),  ,  ,  ,  ,  ,  ,  );
+E1_r_clk_count[7] = DFFEAS(E1L38, GLOBAL(A1L6),  ,  , !E1_r_sm_main.s_cleanup,  ,  , E1L43,  );
 
 
---D1_r_rx_byte[7] is uart_rx:receiver|r_rx_byte[7] at FF_X68_Y70_N5
+--E1_r_clk_count[8] is uart_tx:transmitter|r_clk_count[8] at FF_X80_Y71_N19
 --register power-up is low
 
-D1_r_rx_byte[7] = DFFEAS(D1L81, GLOBAL(A1L5),  ,  ,  ,  ,  ,  ,  );
+E1_r_clk_count[8] = DFFEAS(E1L41, GLOBAL(A1L6),  ,  , !E1_r_sm_main.s_cleanup,  ,  , E1L43,  );
 
 
---D1_r_rx_dv is uart_rx:receiver|r_rx_dv at FF_X68_Y70_N11
+--E1_r_clk_count[9] is uart_tx:transmitter|r_clk_count[9] at FF_X80_Y71_N21
 --register power-up is low
 
-D1_r_rx_dv = DFFEAS(D1L95, GLOBAL(A1L5),  ,  ,  ,  ,  ,  ,  );
+E1_r_clk_count[9] = DFFEAS(E1L45, GLOBAL(A1L6),  ,  , !E1_r_sm_main.s_cleanup,  ,  , E1L43,  );
 
 
---C1L8 is fifo:fifo_rx|r_fifo_count[0]~13 at LCCOMB_X77_Y70_N16
-C1L8 = (A1L8) # (D1_r_rx_dv);
-
-
---D1_r_rx_data is uart_rx:receiver|r_rx_data at FF_X65_Y70_N21
+--E1_r_clk_count[12] is uart_tx:transmitter|r_clk_count[12] at FF_X80_Y71_N27
 --register power-up is low
 
-D1_r_rx_data = DFFEAS(D1L84, GLOBAL(A1L5),  ,  ,  ,  ,  ,  ,  );
+E1_r_clk_count[12] = DFFEAS(E1L54, GLOBAL(A1L6),  ,  , !E1_r_sm_main.s_cleanup,  ,  , E1L43,  );
 
 
---D1_r_bit_index[0] is uart_rx:receiver|r_bit_index[0] at FF_X67_Y70_N7
+--E1_r_tx_data[0] is uart_tx:transmitter|r_tx_data[0] at M9K_X78_Y71_N0
+--RAM Block Operation Mode: Simple Dual-Port
+--Port A Depth: 16, Port A Width: 36, Port B Depth: 16, Port B Width: 36
+--Port A Logical Depth: 10, Port A Logical Width: 8, Port B Logical Depth: 10, Port B Logical Width: 8
+--Port A Input: Registered, Port B Input: Registered, Port B Output: Registered
+E1_r_tx_data[0]_PORT_A_data_in = BUS(r_fifo_tx_wr_data[0], r_fifo_tx_wr_data[1], r_fifo_tx_wr_data[2], r_fifo_tx_wr_data[3], r_fifo_tx_wr_data[4], r_fifo_tx_wr_data[5], r_fifo_tx_wr_data[6], r_fifo_tx_wr_data[7], , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+E1_r_tx_data[0]_PORT_A_data_in_reg = DFFE(E1_r_tx_data[0]_PORT_A_data_in, E1_r_tx_data[0]_clock_0, , , );
+E1_r_tx_data[0]_PORT_A_address = BUS(C2_r_wr_index[0], C2_r_wr_index[1], C2_r_wr_index[2], C2_r_wr_index[3]);
+E1_r_tx_data[0]_PORT_A_address_reg = DFFE(E1_r_tx_data[0]_PORT_A_address, E1_r_tx_data[0]_clock_0, , , );
+E1_r_tx_data[0]_PORT_B_address = BUS(A1L96, A1L96, A1L96, A1L96);
+E1_r_tx_data[0]_PORT_B_address_reg = DFFE(E1_r_tx_data[0]_PORT_B_address, E1_r_tx_data[0]_clock_1, , , E1_r_tx_data[0]_clock_enable_1);
+E1_r_tx_data[0]_PORT_A_write_enable = C2L21;
+E1_r_tx_data[0]_PORT_A_write_enable_reg = DFFE(E1_r_tx_data[0]_PORT_A_write_enable, E1_r_tx_data[0]_clock_0, , , );
+E1_r_tx_data[0]_PORT_B_read_enable = VCC;
+E1_r_tx_data[0]_PORT_B_read_enable_reg = DFFE(E1_r_tx_data[0]_PORT_B_read_enable, E1_r_tx_data[0]_clock_1, , , E1_r_tx_data[0]_clock_enable_1);
+E1_r_tx_data[0]_clock_0 = GLOBAL(A1L6);
+E1_r_tx_data[0]_clock_1 = GLOBAL(A1L6);
+E1_r_tx_data[0]_clock_enable_0 = E1L86;
+E1_r_tx_data[0]_clock_enable_1 = A1L62;
+E1_r_tx_data[0]_PORT_B_data_out = MEMORY(E1_r_tx_data[0]_PORT_A_data_in_reg, , E1_r_tx_data[0]_PORT_A_address_reg, E1_r_tx_data[0]_PORT_B_address_reg, E1_r_tx_data[0]_PORT_A_write_enable_reg, , , E1_r_tx_data[0]_PORT_B_read_enable_reg, , , E1_r_tx_data[0]_clock_0, E1_r_tx_data[0]_clock_1, E1_r_tx_data[0]_clock_enable_0, E1_r_tx_data[0]_clock_enable_1, , , , );
+E1_r_tx_data[0]_PORT_B_data_out_reg = DFFE(E1_r_tx_data[0]_PORT_B_data_out, E1_r_tx_data[0]_clock_0, , , E1_r_tx_data[0]_clock_enable_0);
+E1_r_tx_data[0] = E1_r_tx_data[0]_PORT_B_data_out_reg[0];
+
+--E1_r_tx_data[7] is uart_tx:transmitter|r_tx_data[7] at M9K_X78_Y71_N0
+E1_r_tx_data[0]_PORT_A_data_in = BUS(r_fifo_tx_wr_data[0], r_fifo_tx_wr_data[1], r_fifo_tx_wr_data[2], r_fifo_tx_wr_data[3], r_fifo_tx_wr_data[4], r_fifo_tx_wr_data[5], r_fifo_tx_wr_data[6], r_fifo_tx_wr_data[7], , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+E1_r_tx_data[0]_PORT_A_data_in_reg = DFFE(E1_r_tx_data[0]_PORT_A_data_in, E1_r_tx_data[0]_clock_0, , , );
+E1_r_tx_data[0]_PORT_A_address = BUS(C2_r_wr_index[0], C2_r_wr_index[1], C2_r_wr_index[2], C2_r_wr_index[3]);
+E1_r_tx_data[0]_PORT_A_address_reg = DFFE(E1_r_tx_data[0]_PORT_A_address, E1_r_tx_data[0]_clock_0, , , );
+E1_r_tx_data[0]_PORT_B_address = BUS(A1L96, A1L96, A1L96, A1L96);
+E1_r_tx_data[0]_PORT_B_address_reg = DFFE(E1_r_tx_data[0]_PORT_B_address, E1_r_tx_data[0]_clock_1, , , E1_r_tx_data[0]_clock_enable_1);
+E1_r_tx_data[0]_PORT_A_write_enable = C2L21;
+E1_r_tx_data[0]_PORT_A_write_enable_reg = DFFE(E1_r_tx_data[0]_PORT_A_write_enable, E1_r_tx_data[0]_clock_0, , , );
+E1_r_tx_data[0]_PORT_B_read_enable = VCC;
+E1_r_tx_data[0]_PORT_B_read_enable_reg = DFFE(E1_r_tx_data[0]_PORT_B_read_enable, E1_r_tx_data[0]_clock_1, , , E1_r_tx_data[0]_clock_enable_1);
+E1_r_tx_data[0]_clock_0 = GLOBAL(A1L6);
+E1_r_tx_data[0]_clock_1 = GLOBAL(A1L6);
+E1_r_tx_data[0]_clock_enable_0 = E1L86;
+E1_r_tx_data[0]_clock_enable_1 = A1L62;
+E1_r_tx_data[0]_PORT_B_data_out = MEMORY(E1_r_tx_data[0]_PORT_A_data_in_reg, , E1_r_tx_data[0]_PORT_A_address_reg, E1_r_tx_data[0]_PORT_B_address_reg, E1_r_tx_data[0]_PORT_A_write_enable_reg, , , E1_r_tx_data[0]_PORT_B_read_enable_reg, , , E1_r_tx_data[0]_clock_0, E1_r_tx_data[0]_clock_1, E1_r_tx_data[0]_clock_enable_0, E1_r_tx_data[0]_clock_enable_1, , , , );
+E1_r_tx_data[0]_PORT_B_data_out_reg = DFFE(E1_r_tx_data[0]_PORT_B_data_out, E1_r_tx_data[0]_clock_0, , , E1_r_tx_data[0]_clock_enable_0);
+E1_r_tx_data[7] = E1_r_tx_data[0]_PORT_B_data_out_reg[7];
+
+--E1_r_tx_data[6] is uart_tx:transmitter|r_tx_data[6] at M9K_X78_Y71_N0
+E1_r_tx_data[0]_PORT_A_data_in = BUS(r_fifo_tx_wr_data[0], r_fifo_tx_wr_data[1], r_fifo_tx_wr_data[2], r_fifo_tx_wr_data[3], r_fifo_tx_wr_data[4], r_fifo_tx_wr_data[5], r_fifo_tx_wr_data[6], r_fifo_tx_wr_data[7], , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+E1_r_tx_data[0]_PORT_A_data_in_reg = DFFE(E1_r_tx_data[0]_PORT_A_data_in, E1_r_tx_data[0]_clock_0, , , );
+E1_r_tx_data[0]_PORT_A_address = BUS(C2_r_wr_index[0], C2_r_wr_index[1], C2_r_wr_index[2], C2_r_wr_index[3]);
+E1_r_tx_data[0]_PORT_A_address_reg = DFFE(E1_r_tx_data[0]_PORT_A_address, E1_r_tx_data[0]_clock_0, , , );
+E1_r_tx_data[0]_PORT_B_address = BUS(A1L96, A1L96, A1L96, A1L96);
+E1_r_tx_data[0]_PORT_B_address_reg = DFFE(E1_r_tx_data[0]_PORT_B_address, E1_r_tx_data[0]_clock_1, , , E1_r_tx_data[0]_clock_enable_1);
+E1_r_tx_data[0]_PORT_A_write_enable = C2L21;
+E1_r_tx_data[0]_PORT_A_write_enable_reg = DFFE(E1_r_tx_data[0]_PORT_A_write_enable, E1_r_tx_data[0]_clock_0, , , );
+E1_r_tx_data[0]_PORT_B_read_enable = VCC;
+E1_r_tx_data[0]_PORT_B_read_enable_reg = DFFE(E1_r_tx_data[0]_PORT_B_read_enable, E1_r_tx_data[0]_clock_1, , , E1_r_tx_data[0]_clock_enable_1);
+E1_r_tx_data[0]_clock_0 = GLOBAL(A1L6);
+E1_r_tx_data[0]_clock_1 = GLOBAL(A1L6);
+E1_r_tx_data[0]_clock_enable_0 = E1L86;
+E1_r_tx_data[0]_clock_enable_1 = A1L62;
+E1_r_tx_data[0]_PORT_B_data_out = MEMORY(E1_r_tx_data[0]_PORT_A_data_in_reg, , E1_r_tx_data[0]_PORT_A_address_reg, E1_r_tx_data[0]_PORT_B_address_reg, E1_r_tx_data[0]_PORT_A_write_enable_reg, , , E1_r_tx_data[0]_PORT_B_read_enable_reg, , , E1_r_tx_data[0]_clock_0, E1_r_tx_data[0]_clock_1, E1_r_tx_data[0]_clock_enable_0, E1_r_tx_data[0]_clock_enable_1, , , , );
+E1_r_tx_data[0]_PORT_B_data_out_reg = DFFE(E1_r_tx_data[0]_PORT_B_data_out, E1_r_tx_data[0]_clock_0, , , E1_r_tx_data[0]_clock_enable_0);
+E1_r_tx_data[6] = E1_r_tx_data[0]_PORT_B_data_out_reg[6];
+
+--E1_r_tx_data[5] is uart_tx:transmitter|r_tx_data[5] at M9K_X78_Y71_N0
+E1_r_tx_data[0]_PORT_A_data_in = BUS(r_fifo_tx_wr_data[0], r_fifo_tx_wr_data[1], r_fifo_tx_wr_data[2], r_fifo_tx_wr_data[3], r_fifo_tx_wr_data[4], r_fifo_tx_wr_data[5], r_fifo_tx_wr_data[6], r_fifo_tx_wr_data[7], , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+E1_r_tx_data[0]_PORT_A_data_in_reg = DFFE(E1_r_tx_data[0]_PORT_A_data_in, E1_r_tx_data[0]_clock_0, , , );
+E1_r_tx_data[0]_PORT_A_address = BUS(C2_r_wr_index[0], C2_r_wr_index[1], C2_r_wr_index[2], C2_r_wr_index[3]);
+E1_r_tx_data[0]_PORT_A_address_reg = DFFE(E1_r_tx_data[0]_PORT_A_address, E1_r_tx_data[0]_clock_0, , , );
+E1_r_tx_data[0]_PORT_B_address = BUS(A1L96, A1L96, A1L96, A1L96);
+E1_r_tx_data[0]_PORT_B_address_reg = DFFE(E1_r_tx_data[0]_PORT_B_address, E1_r_tx_data[0]_clock_1, , , E1_r_tx_data[0]_clock_enable_1);
+E1_r_tx_data[0]_PORT_A_write_enable = C2L21;
+E1_r_tx_data[0]_PORT_A_write_enable_reg = DFFE(E1_r_tx_data[0]_PORT_A_write_enable, E1_r_tx_data[0]_clock_0, , , );
+E1_r_tx_data[0]_PORT_B_read_enable = VCC;
+E1_r_tx_data[0]_PORT_B_read_enable_reg = DFFE(E1_r_tx_data[0]_PORT_B_read_enable, E1_r_tx_data[0]_clock_1, , , E1_r_tx_data[0]_clock_enable_1);
+E1_r_tx_data[0]_clock_0 = GLOBAL(A1L6);
+E1_r_tx_data[0]_clock_1 = GLOBAL(A1L6);
+E1_r_tx_data[0]_clock_enable_0 = E1L86;
+E1_r_tx_data[0]_clock_enable_1 = A1L62;
+E1_r_tx_data[0]_PORT_B_data_out = MEMORY(E1_r_tx_data[0]_PORT_A_data_in_reg, , E1_r_tx_data[0]_PORT_A_address_reg, E1_r_tx_data[0]_PORT_B_address_reg, E1_r_tx_data[0]_PORT_A_write_enable_reg, , , E1_r_tx_data[0]_PORT_B_read_enable_reg, , , E1_r_tx_data[0]_clock_0, E1_r_tx_data[0]_clock_1, E1_r_tx_data[0]_clock_enable_0, E1_r_tx_data[0]_clock_enable_1, , , , );
+E1_r_tx_data[0]_PORT_B_data_out_reg = DFFE(E1_r_tx_data[0]_PORT_B_data_out, E1_r_tx_data[0]_clock_0, , , E1_r_tx_data[0]_clock_enable_0);
+E1_r_tx_data[5] = E1_r_tx_data[0]_PORT_B_data_out_reg[5];
+
+--E1_r_tx_data[4] is uart_tx:transmitter|r_tx_data[4] at M9K_X78_Y71_N0
+E1_r_tx_data[0]_PORT_A_data_in = BUS(r_fifo_tx_wr_data[0], r_fifo_tx_wr_data[1], r_fifo_tx_wr_data[2], r_fifo_tx_wr_data[3], r_fifo_tx_wr_data[4], r_fifo_tx_wr_data[5], r_fifo_tx_wr_data[6], r_fifo_tx_wr_data[7], , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+E1_r_tx_data[0]_PORT_A_data_in_reg = DFFE(E1_r_tx_data[0]_PORT_A_data_in, E1_r_tx_data[0]_clock_0, , , );
+E1_r_tx_data[0]_PORT_A_address = BUS(C2_r_wr_index[0], C2_r_wr_index[1], C2_r_wr_index[2], C2_r_wr_index[3]);
+E1_r_tx_data[0]_PORT_A_address_reg = DFFE(E1_r_tx_data[0]_PORT_A_address, E1_r_tx_data[0]_clock_0, , , );
+E1_r_tx_data[0]_PORT_B_address = BUS(A1L96, A1L96, A1L96, A1L96);
+E1_r_tx_data[0]_PORT_B_address_reg = DFFE(E1_r_tx_data[0]_PORT_B_address, E1_r_tx_data[0]_clock_1, , , E1_r_tx_data[0]_clock_enable_1);
+E1_r_tx_data[0]_PORT_A_write_enable = C2L21;
+E1_r_tx_data[0]_PORT_A_write_enable_reg = DFFE(E1_r_tx_data[0]_PORT_A_write_enable, E1_r_tx_data[0]_clock_0, , , );
+E1_r_tx_data[0]_PORT_B_read_enable = VCC;
+E1_r_tx_data[0]_PORT_B_read_enable_reg = DFFE(E1_r_tx_data[0]_PORT_B_read_enable, E1_r_tx_data[0]_clock_1, , , E1_r_tx_data[0]_clock_enable_1);
+E1_r_tx_data[0]_clock_0 = GLOBAL(A1L6);
+E1_r_tx_data[0]_clock_1 = GLOBAL(A1L6);
+E1_r_tx_data[0]_clock_enable_0 = E1L86;
+E1_r_tx_data[0]_clock_enable_1 = A1L62;
+E1_r_tx_data[0]_PORT_B_data_out = MEMORY(E1_r_tx_data[0]_PORT_A_data_in_reg, , E1_r_tx_data[0]_PORT_A_address_reg, E1_r_tx_data[0]_PORT_B_address_reg, E1_r_tx_data[0]_PORT_A_write_enable_reg, , , E1_r_tx_data[0]_PORT_B_read_enable_reg, , , E1_r_tx_data[0]_clock_0, E1_r_tx_data[0]_clock_1, E1_r_tx_data[0]_clock_enable_0, E1_r_tx_data[0]_clock_enable_1, , , , );
+E1_r_tx_data[0]_PORT_B_data_out_reg = DFFE(E1_r_tx_data[0]_PORT_B_data_out, E1_r_tx_data[0]_clock_0, , , E1_r_tx_data[0]_clock_enable_0);
+E1_r_tx_data[4] = E1_r_tx_data[0]_PORT_B_data_out_reg[4];
+
+--E1_r_tx_data[3] is uart_tx:transmitter|r_tx_data[3] at M9K_X78_Y71_N0
+E1_r_tx_data[0]_PORT_A_data_in = BUS(r_fifo_tx_wr_data[0], r_fifo_tx_wr_data[1], r_fifo_tx_wr_data[2], r_fifo_tx_wr_data[3], r_fifo_tx_wr_data[4], r_fifo_tx_wr_data[5], r_fifo_tx_wr_data[6], r_fifo_tx_wr_data[7], , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+E1_r_tx_data[0]_PORT_A_data_in_reg = DFFE(E1_r_tx_data[0]_PORT_A_data_in, E1_r_tx_data[0]_clock_0, , , );
+E1_r_tx_data[0]_PORT_A_address = BUS(C2_r_wr_index[0], C2_r_wr_index[1], C2_r_wr_index[2], C2_r_wr_index[3]);
+E1_r_tx_data[0]_PORT_A_address_reg = DFFE(E1_r_tx_data[0]_PORT_A_address, E1_r_tx_data[0]_clock_0, , , );
+E1_r_tx_data[0]_PORT_B_address = BUS(A1L96, A1L96, A1L96, A1L96);
+E1_r_tx_data[0]_PORT_B_address_reg = DFFE(E1_r_tx_data[0]_PORT_B_address, E1_r_tx_data[0]_clock_1, , , E1_r_tx_data[0]_clock_enable_1);
+E1_r_tx_data[0]_PORT_A_write_enable = C2L21;
+E1_r_tx_data[0]_PORT_A_write_enable_reg = DFFE(E1_r_tx_data[0]_PORT_A_write_enable, E1_r_tx_data[0]_clock_0, , , );
+E1_r_tx_data[0]_PORT_B_read_enable = VCC;
+E1_r_tx_data[0]_PORT_B_read_enable_reg = DFFE(E1_r_tx_data[0]_PORT_B_read_enable, E1_r_tx_data[0]_clock_1, , , E1_r_tx_data[0]_clock_enable_1);
+E1_r_tx_data[0]_clock_0 = GLOBAL(A1L6);
+E1_r_tx_data[0]_clock_1 = GLOBAL(A1L6);
+E1_r_tx_data[0]_clock_enable_0 = E1L86;
+E1_r_tx_data[0]_clock_enable_1 = A1L62;
+E1_r_tx_data[0]_PORT_B_data_out = MEMORY(E1_r_tx_data[0]_PORT_A_data_in_reg, , E1_r_tx_data[0]_PORT_A_address_reg, E1_r_tx_data[0]_PORT_B_address_reg, E1_r_tx_data[0]_PORT_A_write_enable_reg, , , E1_r_tx_data[0]_PORT_B_read_enable_reg, , , E1_r_tx_data[0]_clock_0, E1_r_tx_data[0]_clock_1, E1_r_tx_data[0]_clock_enable_0, E1_r_tx_data[0]_clock_enable_1, , , , );
+E1_r_tx_data[0]_PORT_B_data_out_reg = DFFE(E1_r_tx_data[0]_PORT_B_data_out, E1_r_tx_data[0]_clock_0, , , E1_r_tx_data[0]_clock_enable_0);
+E1_r_tx_data[3] = E1_r_tx_data[0]_PORT_B_data_out_reg[3];
+
+--E1_r_tx_data[2] is uart_tx:transmitter|r_tx_data[2] at M9K_X78_Y71_N0
+E1_r_tx_data[0]_PORT_A_data_in = BUS(r_fifo_tx_wr_data[0], r_fifo_tx_wr_data[1], r_fifo_tx_wr_data[2], r_fifo_tx_wr_data[3], r_fifo_tx_wr_data[4], r_fifo_tx_wr_data[5], r_fifo_tx_wr_data[6], r_fifo_tx_wr_data[7], , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+E1_r_tx_data[0]_PORT_A_data_in_reg = DFFE(E1_r_tx_data[0]_PORT_A_data_in, E1_r_tx_data[0]_clock_0, , , );
+E1_r_tx_data[0]_PORT_A_address = BUS(C2_r_wr_index[0], C2_r_wr_index[1], C2_r_wr_index[2], C2_r_wr_index[3]);
+E1_r_tx_data[0]_PORT_A_address_reg = DFFE(E1_r_tx_data[0]_PORT_A_address, E1_r_tx_data[0]_clock_0, , , );
+E1_r_tx_data[0]_PORT_B_address = BUS(A1L96, A1L96, A1L96, A1L96);
+E1_r_tx_data[0]_PORT_B_address_reg = DFFE(E1_r_tx_data[0]_PORT_B_address, E1_r_tx_data[0]_clock_1, , , E1_r_tx_data[0]_clock_enable_1);
+E1_r_tx_data[0]_PORT_A_write_enable = C2L21;
+E1_r_tx_data[0]_PORT_A_write_enable_reg = DFFE(E1_r_tx_data[0]_PORT_A_write_enable, E1_r_tx_data[0]_clock_0, , , );
+E1_r_tx_data[0]_PORT_B_read_enable = VCC;
+E1_r_tx_data[0]_PORT_B_read_enable_reg = DFFE(E1_r_tx_data[0]_PORT_B_read_enable, E1_r_tx_data[0]_clock_1, , , E1_r_tx_data[0]_clock_enable_1);
+E1_r_tx_data[0]_clock_0 = GLOBAL(A1L6);
+E1_r_tx_data[0]_clock_1 = GLOBAL(A1L6);
+E1_r_tx_data[0]_clock_enable_0 = E1L86;
+E1_r_tx_data[0]_clock_enable_1 = A1L62;
+E1_r_tx_data[0]_PORT_B_data_out = MEMORY(E1_r_tx_data[0]_PORT_A_data_in_reg, , E1_r_tx_data[0]_PORT_A_address_reg, E1_r_tx_data[0]_PORT_B_address_reg, E1_r_tx_data[0]_PORT_A_write_enable_reg, , , E1_r_tx_data[0]_PORT_B_read_enable_reg, , , E1_r_tx_data[0]_clock_0, E1_r_tx_data[0]_clock_1, E1_r_tx_data[0]_clock_enable_0, E1_r_tx_data[0]_clock_enable_1, , , , );
+E1_r_tx_data[0]_PORT_B_data_out_reg = DFFE(E1_r_tx_data[0]_PORT_B_data_out, E1_r_tx_data[0]_clock_0, , , E1_r_tx_data[0]_clock_enable_0);
+E1_r_tx_data[2] = E1_r_tx_data[0]_PORT_B_data_out_reg[2];
+
+--E1_r_tx_data[1] is uart_tx:transmitter|r_tx_data[1] at M9K_X78_Y71_N0
+E1_r_tx_data[0]_PORT_A_data_in = BUS(r_fifo_tx_wr_data[0], r_fifo_tx_wr_data[1], r_fifo_tx_wr_data[2], r_fifo_tx_wr_data[3], r_fifo_tx_wr_data[4], r_fifo_tx_wr_data[5], r_fifo_tx_wr_data[6], r_fifo_tx_wr_data[7], , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+E1_r_tx_data[0]_PORT_A_data_in_reg = DFFE(E1_r_tx_data[0]_PORT_A_data_in, E1_r_tx_data[0]_clock_0, , , );
+E1_r_tx_data[0]_PORT_A_address = BUS(C2_r_wr_index[0], C2_r_wr_index[1], C2_r_wr_index[2], C2_r_wr_index[3]);
+E1_r_tx_data[0]_PORT_A_address_reg = DFFE(E1_r_tx_data[0]_PORT_A_address, E1_r_tx_data[0]_clock_0, , , );
+E1_r_tx_data[0]_PORT_B_address = BUS(A1L96, A1L96, A1L96, A1L96);
+E1_r_tx_data[0]_PORT_B_address_reg = DFFE(E1_r_tx_data[0]_PORT_B_address, E1_r_tx_data[0]_clock_1, , , E1_r_tx_data[0]_clock_enable_1);
+E1_r_tx_data[0]_PORT_A_write_enable = C2L21;
+E1_r_tx_data[0]_PORT_A_write_enable_reg = DFFE(E1_r_tx_data[0]_PORT_A_write_enable, E1_r_tx_data[0]_clock_0, , , );
+E1_r_tx_data[0]_PORT_B_read_enable = VCC;
+E1_r_tx_data[0]_PORT_B_read_enable_reg = DFFE(E1_r_tx_data[0]_PORT_B_read_enable, E1_r_tx_data[0]_clock_1, , , E1_r_tx_data[0]_clock_enable_1);
+E1_r_tx_data[0]_clock_0 = GLOBAL(A1L6);
+E1_r_tx_data[0]_clock_1 = GLOBAL(A1L6);
+E1_r_tx_data[0]_clock_enable_0 = E1L86;
+E1_r_tx_data[0]_clock_enable_1 = A1L62;
+E1_r_tx_data[0]_PORT_B_data_out = MEMORY(E1_r_tx_data[0]_PORT_A_data_in_reg, , E1_r_tx_data[0]_PORT_A_address_reg, E1_r_tx_data[0]_PORT_B_address_reg, E1_r_tx_data[0]_PORT_A_write_enable_reg, , , E1_r_tx_data[0]_PORT_B_read_enable_reg, , , E1_r_tx_data[0]_clock_0, E1_r_tx_data[0]_clock_1, E1_r_tx_data[0]_clock_enable_0, E1_r_tx_data[0]_clock_enable_1, , , , );
+E1_r_tx_data[0]_PORT_B_data_out_reg = DFFE(E1_r_tx_data[0]_PORT_B_data_out, E1_r_tx_data[0]_clock_0, , , E1_r_tx_data[0]_clock_enable_0);
+E1_r_tx_data[1] = E1_r_tx_data[0]_PORT_B_data_out_reg[1];
+
+
+--E1_r_clk_count[2] is uart_tx:transmitter|r_clk_count[2] at FF_X80_Y71_N7
 --register power-up is low
 
-D1_r_bit_index[0] = DFFEAS(D1L102, GLOBAL(A1L5),  ,  ,  ,  ,  ,  ,  );
+E1_r_clk_count[2] = DFFEAS(E1L23, GLOBAL(A1L6),  ,  , !E1_r_sm_main.s_cleanup,  ,  , E1L43,  );
 
 
---D1_r_bit_index[1] is uart_rx:receiver|r_bit_index[1] at FF_X67_Y70_N25
+--E1_r_clk_count[1] is uart_tx:transmitter|r_clk_count[1] at FF_X80_Y71_N5
 --register power-up is low
 
-D1_r_bit_index[1] = DFFEAS(D1L101, GLOBAL(A1L5),  ,  ,  ,  ,  ,  ,  );
+E1_r_clk_count[1] = DFFEAS(E1L20, GLOBAL(A1L6),  ,  , !E1_r_sm_main.s_cleanup,  ,  , E1L43,  );
 
 
---D1_r_bit_index[2] is uart_rx:receiver|r_bit_index[2] at FF_X68_Y70_N25
+--E1_r_clk_count[0] is uart_tx:transmitter|r_clk_count[0] at FF_X80_Y71_N3
 --register power-up is low
 
-D1_r_bit_index[2] = DFFEAS(D1L99, GLOBAL(A1L5),  ,  ,  ,  ,  ,  ,  );
+E1_r_clk_count[0] = DFFEAS(E1L17, GLOBAL(A1L6),  ,  , !E1_r_sm_main.s_cleanup,  ,  , E1L43,  );
 
 
---D1L14 is uart_rx:receiver|LessThan1~0 at LCCOMB_X66_Y70_N0
-D1L14 = ((!D1_r_clk_count[5] & ((!D1_r_clk_count[3]) # (!D1_r_clk_count[4])))) # (!D1_r_clk_count[6]);
+--E1L17 is uart_tx:transmitter|r_clk_count[0]~13 at LCCOMB_X80_Y71_N2
+E1L17 = E1_r_clk_count[0] $ (VCC);
+
+--E1L18 is uart_tx:transmitter|r_clk_count[0]~14 at LCCOMB_X80_Y71_N2
+E1L18 = CARRY(E1_r_clk_count[0]);
 
 
---D1_r_sm_main.s_rx_data_bits is uart_rx:receiver|r_sm_main.s_rx_data_bits at FF_X67_Y70_N27
+--E1L20 is uart_tx:transmitter|r_clk_count[1]~15 at LCCOMB_X80_Y71_N4
+E1L20 = (E1_r_clk_count[1] & (!E1L18)) # (!E1_r_clk_count[1] & ((E1L18) # (GND)));
+
+--E1L21 is uart_tx:transmitter|r_clk_count[1]~16 at LCCOMB_X80_Y71_N4
+E1L21 = CARRY((!E1L18) # (!E1_r_clk_count[1]));
+
+
+--E1L23 is uart_tx:transmitter|r_clk_count[2]~17 at LCCOMB_X80_Y71_N6
+E1L23 = (E1_r_clk_count[2] & (E1L21 $ (GND))) # (!E1_r_clk_count[2] & (!E1L21 & VCC));
+
+--E1L24 is uart_tx:transmitter|r_clk_count[2]~18 at LCCOMB_X80_Y71_N6
+E1L24 = CARRY((E1_r_clk_count[2] & !E1L21));
+
+
+--E1L26 is uart_tx:transmitter|r_clk_count[3]~19 at LCCOMB_X80_Y71_N8
+E1L26 = (E1_r_clk_count[3] & (!E1L24)) # (!E1_r_clk_count[3] & ((E1L24) # (GND)));
+
+--E1L27 is uart_tx:transmitter|r_clk_count[3]~20 at LCCOMB_X80_Y71_N8
+E1L27 = CARRY((!E1L24) # (!E1_r_clk_count[3]));
+
+
+--E1L29 is uart_tx:transmitter|r_clk_count[4]~21 at LCCOMB_X80_Y71_N10
+E1L29 = (E1_r_clk_count[4] & (E1L27 $ (GND))) # (!E1_r_clk_count[4] & (!E1L27 & VCC));
+
+--E1L30 is uart_tx:transmitter|r_clk_count[4]~22 at LCCOMB_X80_Y71_N10
+E1L30 = CARRY((E1_r_clk_count[4] & !E1L27));
+
+
+--E1L32 is uart_tx:transmitter|r_clk_count[5]~23 at LCCOMB_X80_Y71_N12
+E1L32 = (E1_r_clk_count[5] & (!E1L30)) # (!E1_r_clk_count[5] & ((E1L30) # (GND)));
+
+--E1L33 is uart_tx:transmitter|r_clk_count[5]~24 at LCCOMB_X80_Y71_N12
+E1L33 = CARRY((!E1L30) # (!E1_r_clk_count[5]));
+
+
+--E1L35 is uart_tx:transmitter|r_clk_count[6]~25 at LCCOMB_X80_Y71_N14
+E1L35 = (E1_r_clk_count[6] & (E1L33 $ (GND))) # (!E1_r_clk_count[6] & (!E1L33 & VCC));
+
+--E1L36 is uart_tx:transmitter|r_clk_count[6]~26 at LCCOMB_X80_Y71_N14
+E1L36 = CARRY((E1_r_clk_count[6] & !E1L33));
+
+
+--E1L38 is uart_tx:transmitter|r_clk_count[7]~27 at LCCOMB_X80_Y71_N16
+E1L38 = (E1_r_clk_count[7] & (!E1L36)) # (!E1_r_clk_count[7] & ((E1L36) # (GND)));
+
+--E1L39 is uart_tx:transmitter|r_clk_count[7]~28 at LCCOMB_X80_Y71_N16
+E1L39 = CARRY((!E1L36) # (!E1_r_clk_count[7]));
+
+
+--E1L41 is uart_tx:transmitter|r_clk_count[8]~29 at LCCOMB_X80_Y71_N18
+E1L41 = (E1_r_clk_count[8] & (E1L39 $ (GND))) # (!E1_r_clk_count[8] & (!E1L39 & VCC));
+
+--E1L42 is uart_tx:transmitter|r_clk_count[8]~30 at LCCOMB_X80_Y71_N18
+E1L42 = CARRY((E1_r_clk_count[8] & !E1L39));
+
+
+--E1L45 is uart_tx:transmitter|r_clk_count[9]~31 at LCCOMB_X80_Y71_N20
+E1L45 = (E1_r_clk_count[9] & (!E1L42)) # (!E1_r_clk_count[9] & ((E1L42) # (GND)));
+
+--E1L46 is uart_tx:transmitter|r_clk_count[9]~32 at LCCOMB_X80_Y71_N20
+E1L46 = CARRY((!E1L42) # (!E1_r_clk_count[9]));
+
+
+--E1L48 is uart_tx:transmitter|r_clk_count[10]~33 at LCCOMB_X80_Y71_N22
+E1L48 = (E1_r_clk_count[10] & (E1L46 $ (GND))) # (!E1_r_clk_count[10] & (!E1L46 & VCC));
+
+--E1L49 is uart_tx:transmitter|r_clk_count[10]~34 at LCCOMB_X80_Y71_N22
+E1L49 = CARRY((E1_r_clk_count[10] & !E1L46));
+
+
+--E1L51 is uart_tx:transmitter|r_clk_count[11]~36 at LCCOMB_X80_Y71_N24
+E1L51 = (E1_r_clk_count[11] & (!E1L49)) # (!E1_r_clk_count[11] & ((E1L49) # (GND)));
+
+--E1L52 is uart_tx:transmitter|r_clk_count[11]~37 at LCCOMB_X80_Y71_N24
+E1L52 = CARRY((!E1L49) # (!E1_r_clk_count[11]));
+
+
+--E1L54 is uart_tx:transmitter|r_clk_count[12]~38 at LCCOMB_X80_Y71_N26
+E1L54 = E1_r_clk_count[12] $ (!E1L52);
+
+
+--G1_ram_block1a0 is fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a0 at M9K_X78_Y68_N0
+--RAM Block Operation Mode: Simple Dual-Port
+--Port A Depth: 16, Port A Width: 36, Port B Depth: 16, Port B Width: 36
+--Port A Logical Depth: 10, Port A Logical Width: 8, Port B Logical Depth: 10, Port B Logical Width: 8
+--Port A Input: Registered, Port B Input: Registered, Port B Output: Un-registered
+G1_ram_block1a0_PORT_A_data_in = BUS(r_fifo_rx_wr_data[0], r_fifo_rx_wr_data[1], r_fifo_rx_wr_data[2], r_fifo_rx_wr_data[3], r_fifo_rx_wr_data[4], r_fifo_rx_wr_data[5], r_fifo_rx_wr_data[6], r_fifo_rx_wr_data[7], , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+G1_ram_block1a0_PORT_A_data_in_reg = DFFE(G1_ram_block1a0_PORT_A_data_in, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_A_address = BUS(C1_r_wr_index[0], C1_r_wr_index[1], C1_r_wr_index[2], C1_r_wr_index[3]);
+G1_ram_block1a0_PORT_A_address_reg = DFFE(G1_ram_block1a0_PORT_A_address, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_B_address = BUS(C1L88, C1L91, C1L92, C1L94);
+G1_ram_block1a0_PORT_B_address_reg = DFFE(G1_ram_block1a0_PORT_B_address, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_A_write_enable = C1L80;
+G1_ram_block1a0_PORT_A_write_enable_reg = DFFE(G1_ram_block1a0_PORT_A_write_enable, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_B_read_enable = VCC;
+G1_ram_block1a0_PORT_B_read_enable_reg = DFFE(G1_ram_block1a0_PORT_B_read_enable, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_clock_0 = GLOBAL(A1L6);
+G1_ram_block1a0_PORT_B_data_out = MEMORY(G1_ram_block1a0_PORT_A_data_in_reg, , G1_ram_block1a0_PORT_A_address_reg, G1_ram_block1a0_PORT_B_address_reg, G1_ram_block1a0_PORT_A_write_enable_reg, , , G1_ram_block1a0_PORT_B_read_enable_reg, , , G1_ram_block1a0_clock_0, , , , , , , );
+G1_ram_block1a0 = G1_ram_block1a0_PORT_B_data_out[0];
+
+--G1_ram_block1a7 is fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a7 at M9K_X78_Y68_N0
+G1_ram_block1a0_PORT_A_data_in = BUS(r_fifo_rx_wr_data[0], r_fifo_rx_wr_data[1], r_fifo_rx_wr_data[2], r_fifo_rx_wr_data[3], r_fifo_rx_wr_data[4], r_fifo_rx_wr_data[5], r_fifo_rx_wr_data[6], r_fifo_rx_wr_data[7], , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+G1_ram_block1a0_PORT_A_data_in_reg = DFFE(G1_ram_block1a0_PORT_A_data_in, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_A_address = BUS(C1_r_wr_index[0], C1_r_wr_index[1], C1_r_wr_index[2], C1_r_wr_index[3]);
+G1_ram_block1a0_PORT_A_address_reg = DFFE(G1_ram_block1a0_PORT_A_address, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_B_address = BUS(C1L88, C1L91, C1L92, C1L94);
+G1_ram_block1a0_PORT_B_address_reg = DFFE(G1_ram_block1a0_PORT_B_address, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_A_write_enable = C1L80;
+G1_ram_block1a0_PORT_A_write_enable_reg = DFFE(G1_ram_block1a0_PORT_A_write_enable, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_B_read_enable = VCC;
+G1_ram_block1a0_PORT_B_read_enable_reg = DFFE(G1_ram_block1a0_PORT_B_read_enable, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_clock_0 = GLOBAL(A1L6);
+G1_ram_block1a0_PORT_B_data_out = MEMORY(G1_ram_block1a0_PORT_A_data_in_reg, , G1_ram_block1a0_PORT_A_address_reg, G1_ram_block1a0_PORT_B_address_reg, G1_ram_block1a0_PORT_A_write_enable_reg, , , G1_ram_block1a0_PORT_B_read_enable_reg, , , G1_ram_block1a0_clock_0, , , , , , , );
+G1_ram_block1a7 = G1_ram_block1a0_PORT_B_data_out[7];
+
+--G1_ram_block1a6 is fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a6 at M9K_X78_Y68_N0
+G1_ram_block1a0_PORT_A_data_in = BUS(r_fifo_rx_wr_data[0], r_fifo_rx_wr_data[1], r_fifo_rx_wr_data[2], r_fifo_rx_wr_data[3], r_fifo_rx_wr_data[4], r_fifo_rx_wr_data[5], r_fifo_rx_wr_data[6], r_fifo_rx_wr_data[7], , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+G1_ram_block1a0_PORT_A_data_in_reg = DFFE(G1_ram_block1a0_PORT_A_data_in, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_A_address = BUS(C1_r_wr_index[0], C1_r_wr_index[1], C1_r_wr_index[2], C1_r_wr_index[3]);
+G1_ram_block1a0_PORT_A_address_reg = DFFE(G1_ram_block1a0_PORT_A_address, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_B_address = BUS(C1L88, C1L91, C1L92, C1L94);
+G1_ram_block1a0_PORT_B_address_reg = DFFE(G1_ram_block1a0_PORT_B_address, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_A_write_enable = C1L80;
+G1_ram_block1a0_PORT_A_write_enable_reg = DFFE(G1_ram_block1a0_PORT_A_write_enable, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_B_read_enable = VCC;
+G1_ram_block1a0_PORT_B_read_enable_reg = DFFE(G1_ram_block1a0_PORT_B_read_enable, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_clock_0 = GLOBAL(A1L6);
+G1_ram_block1a0_PORT_B_data_out = MEMORY(G1_ram_block1a0_PORT_A_data_in_reg, , G1_ram_block1a0_PORT_A_address_reg, G1_ram_block1a0_PORT_B_address_reg, G1_ram_block1a0_PORT_A_write_enable_reg, , , G1_ram_block1a0_PORT_B_read_enable_reg, , , G1_ram_block1a0_clock_0, , , , , , , );
+G1_ram_block1a6 = G1_ram_block1a0_PORT_B_data_out[6];
+
+--G1_ram_block1a5 is fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a5 at M9K_X78_Y68_N0
+G1_ram_block1a0_PORT_A_data_in = BUS(r_fifo_rx_wr_data[0], r_fifo_rx_wr_data[1], r_fifo_rx_wr_data[2], r_fifo_rx_wr_data[3], r_fifo_rx_wr_data[4], r_fifo_rx_wr_data[5], r_fifo_rx_wr_data[6], r_fifo_rx_wr_data[7], , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+G1_ram_block1a0_PORT_A_data_in_reg = DFFE(G1_ram_block1a0_PORT_A_data_in, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_A_address = BUS(C1_r_wr_index[0], C1_r_wr_index[1], C1_r_wr_index[2], C1_r_wr_index[3]);
+G1_ram_block1a0_PORT_A_address_reg = DFFE(G1_ram_block1a0_PORT_A_address, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_B_address = BUS(C1L88, C1L91, C1L92, C1L94);
+G1_ram_block1a0_PORT_B_address_reg = DFFE(G1_ram_block1a0_PORT_B_address, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_A_write_enable = C1L80;
+G1_ram_block1a0_PORT_A_write_enable_reg = DFFE(G1_ram_block1a0_PORT_A_write_enable, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_B_read_enable = VCC;
+G1_ram_block1a0_PORT_B_read_enable_reg = DFFE(G1_ram_block1a0_PORT_B_read_enable, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_clock_0 = GLOBAL(A1L6);
+G1_ram_block1a0_PORT_B_data_out = MEMORY(G1_ram_block1a0_PORT_A_data_in_reg, , G1_ram_block1a0_PORT_A_address_reg, G1_ram_block1a0_PORT_B_address_reg, G1_ram_block1a0_PORT_A_write_enable_reg, , , G1_ram_block1a0_PORT_B_read_enable_reg, , , G1_ram_block1a0_clock_0, , , , , , , );
+G1_ram_block1a5 = G1_ram_block1a0_PORT_B_data_out[5];
+
+--G1_ram_block1a4 is fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a4 at M9K_X78_Y68_N0
+G1_ram_block1a0_PORT_A_data_in = BUS(r_fifo_rx_wr_data[0], r_fifo_rx_wr_data[1], r_fifo_rx_wr_data[2], r_fifo_rx_wr_data[3], r_fifo_rx_wr_data[4], r_fifo_rx_wr_data[5], r_fifo_rx_wr_data[6], r_fifo_rx_wr_data[7], , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+G1_ram_block1a0_PORT_A_data_in_reg = DFFE(G1_ram_block1a0_PORT_A_data_in, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_A_address = BUS(C1_r_wr_index[0], C1_r_wr_index[1], C1_r_wr_index[2], C1_r_wr_index[3]);
+G1_ram_block1a0_PORT_A_address_reg = DFFE(G1_ram_block1a0_PORT_A_address, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_B_address = BUS(C1L88, C1L91, C1L92, C1L94);
+G1_ram_block1a0_PORT_B_address_reg = DFFE(G1_ram_block1a0_PORT_B_address, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_A_write_enable = C1L80;
+G1_ram_block1a0_PORT_A_write_enable_reg = DFFE(G1_ram_block1a0_PORT_A_write_enable, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_B_read_enable = VCC;
+G1_ram_block1a0_PORT_B_read_enable_reg = DFFE(G1_ram_block1a0_PORT_B_read_enable, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_clock_0 = GLOBAL(A1L6);
+G1_ram_block1a0_PORT_B_data_out = MEMORY(G1_ram_block1a0_PORT_A_data_in_reg, , G1_ram_block1a0_PORT_A_address_reg, G1_ram_block1a0_PORT_B_address_reg, G1_ram_block1a0_PORT_A_write_enable_reg, , , G1_ram_block1a0_PORT_B_read_enable_reg, , , G1_ram_block1a0_clock_0, , , , , , , );
+G1_ram_block1a4 = G1_ram_block1a0_PORT_B_data_out[4];
+
+--G1_ram_block1a3 is fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a3 at M9K_X78_Y68_N0
+G1_ram_block1a0_PORT_A_data_in = BUS(r_fifo_rx_wr_data[0], r_fifo_rx_wr_data[1], r_fifo_rx_wr_data[2], r_fifo_rx_wr_data[3], r_fifo_rx_wr_data[4], r_fifo_rx_wr_data[5], r_fifo_rx_wr_data[6], r_fifo_rx_wr_data[7], , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+G1_ram_block1a0_PORT_A_data_in_reg = DFFE(G1_ram_block1a0_PORT_A_data_in, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_A_address = BUS(C1_r_wr_index[0], C1_r_wr_index[1], C1_r_wr_index[2], C1_r_wr_index[3]);
+G1_ram_block1a0_PORT_A_address_reg = DFFE(G1_ram_block1a0_PORT_A_address, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_B_address = BUS(C1L88, C1L91, C1L92, C1L94);
+G1_ram_block1a0_PORT_B_address_reg = DFFE(G1_ram_block1a0_PORT_B_address, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_A_write_enable = C1L80;
+G1_ram_block1a0_PORT_A_write_enable_reg = DFFE(G1_ram_block1a0_PORT_A_write_enable, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_B_read_enable = VCC;
+G1_ram_block1a0_PORT_B_read_enable_reg = DFFE(G1_ram_block1a0_PORT_B_read_enable, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_clock_0 = GLOBAL(A1L6);
+G1_ram_block1a0_PORT_B_data_out = MEMORY(G1_ram_block1a0_PORT_A_data_in_reg, , G1_ram_block1a0_PORT_A_address_reg, G1_ram_block1a0_PORT_B_address_reg, G1_ram_block1a0_PORT_A_write_enable_reg, , , G1_ram_block1a0_PORT_B_read_enable_reg, , , G1_ram_block1a0_clock_0, , , , , , , );
+G1_ram_block1a3 = G1_ram_block1a0_PORT_B_data_out[3];
+
+--G1_ram_block1a2 is fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a2 at M9K_X78_Y68_N0
+G1_ram_block1a0_PORT_A_data_in = BUS(r_fifo_rx_wr_data[0], r_fifo_rx_wr_data[1], r_fifo_rx_wr_data[2], r_fifo_rx_wr_data[3], r_fifo_rx_wr_data[4], r_fifo_rx_wr_data[5], r_fifo_rx_wr_data[6], r_fifo_rx_wr_data[7], , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+G1_ram_block1a0_PORT_A_data_in_reg = DFFE(G1_ram_block1a0_PORT_A_data_in, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_A_address = BUS(C1_r_wr_index[0], C1_r_wr_index[1], C1_r_wr_index[2], C1_r_wr_index[3]);
+G1_ram_block1a0_PORT_A_address_reg = DFFE(G1_ram_block1a0_PORT_A_address, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_B_address = BUS(C1L88, C1L91, C1L92, C1L94);
+G1_ram_block1a0_PORT_B_address_reg = DFFE(G1_ram_block1a0_PORT_B_address, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_A_write_enable = C1L80;
+G1_ram_block1a0_PORT_A_write_enable_reg = DFFE(G1_ram_block1a0_PORT_A_write_enable, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_B_read_enable = VCC;
+G1_ram_block1a0_PORT_B_read_enable_reg = DFFE(G1_ram_block1a0_PORT_B_read_enable, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_clock_0 = GLOBAL(A1L6);
+G1_ram_block1a0_PORT_B_data_out = MEMORY(G1_ram_block1a0_PORT_A_data_in_reg, , G1_ram_block1a0_PORT_A_address_reg, G1_ram_block1a0_PORT_B_address_reg, G1_ram_block1a0_PORT_A_write_enable_reg, , , G1_ram_block1a0_PORT_B_read_enable_reg, , , G1_ram_block1a0_clock_0, , , , , , , );
+G1_ram_block1a2 = G1_ram_block1a0_PORT_B_data_out[2];
+
+--G1_ram_block1a1 is fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a1 at M9K_X78_Y68_N0
+G1_ram_block1a0_PORT_A_data_in = BUS(r_fifo_rx_wr_data[0], r_fifo_rx_wr_data[1], r_fifo_rx_wr_data[2], r_fifo_rx_wr_data[3], r_fifo_rx_wr_data[4], r_fifo_rx_wr_data[5], r_fifo_rx_wr_data[6], r_fifo_rx_wr_data[7], , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+G1_ram_block1a0_PORT_A_data_in_reg = DFFE(G1_ram_block1a0_PORT_A_data_in, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_A_address = BUS(C1_r_wr_index[0], C1_r_wr_index[1], C1_r_wr_index[2], C1_r_wr_index[3]);
+G1_ram_block1a0_PORT_A_address_reg = DFFE(G1_ram_block1a0_PORT_A_address, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_B_address = BUS(C1L88, C1L91, C1L92, C1L94);
+G1_ram_block1a0_PORT_B_address_reg = DFFE(G1_ram_block1a0_PORT_B_address, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_A_write_enable = C1L80;
+G1_ram_block1a0_PORT_A_write_enable_reg = DFFE(G1_ram_block1a0_PORT_A_write_enable, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_PORT_B_read_enable = VCC;
+G1_ram_block1a0_PORT_B_read_enable_reg = DFFE(G1_ram_block1a0_PORT_B_read_enable, G1_ram_block1a0_clock_0, , , );
+G1_ram_block1a0_clock_0 = GLOBAL(A1L6);
+G1_ram_block1a0_PORT_B_data_out = MEMORY(G1_ram_block1a0_PORT_A_data_in_reg, , G1_ram_block1a0_PORT_A_address_reg, G1_ram_block1a0_PORT_B_address_reg, G1_ram_block1a0_PORT_A_write_enable_reg, , , G1_ram_block1a0_PORT_B_read_enable_reg, , , G1_ram_block1a0_clock_0, , , , , , , );
+G1_ram_block1a1 = G1_ram_block1a0_PORT_B_data_out[1];
+
+
+--C1_r_fifo_count[0] is fifo:fifo_rx|r_fifo_count[0] at FF_X82_Y68_N25
 --register power-up is low
 
-D1_r_sm_main.s_rx_data_bits = DFFEAS(D1L106, GLOBAL(A1L5),  ,  ,  ,  ,  ,  ,  );
+C1_r_fifo_count[0] = DFFEAS(C1L12, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
 
 
---D1L1 is uart_rx:receiver|Decoder0~0 at LCCOMB_X68_Y70_N2
-D1L1 = (D1_r_sm_main.s_rx_data_bits & D1L16);
+--C1L5 is fifo:fifo_rx|Equal2~0 at LCCOMB_X81_Y68_N20
+C1L5 = (C1_r_fifo_count[3] & (C1_r_fifo_count[1] & (!C1_r_fifo_count[2] & !C1_r_fifo_count[0])));
 
 
---D1L2 is uart_rx:receiver|Decoder0~1 at LCCOMB_X67_Y70_N20
-D1L2 = (!D1_r_bit_index[0] & (!D1_r_bit_index[2] & (!D1_r_bit_index[1] & D1L1)));
+--C1L6 is fifo:fifo_rx|Equal3~0 at LCCOMB_X82_Y68_N14
+C1L6 = (!C1_r_fifo_count[3] & (!C1_r_fifo_count[0] & (!C1_r_fifo_count[1] & !C1_r_fifo_count[2])));
 
 
---D1L67 is uart_rx:receiver|r_rx_byte[0]~0 at LCCOMB_X67_Y70_N8
+--D1_r_rx_byte[0] is uart_rx:receiver|r_rx_byte[0] at FF_X75_Y71_N13
+--register power-up is low
+
+D1_r_rx_byte[0] = DFFEAS(D1L67, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1_r_rx_byte[1] is uart_rx:receiver|r_rx_byte[1] at FF_X76_Y71_N25
+--register power-up is low
+
+D1_r_rx_byte[1] = DFFEAS(D1L69, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1_r_rx_byte[2] is uart_rx:receiver|r_rx_byte[2] at FF_X75_Y71_N31
+--register power-up is low
+
+D1_r_rx_byte[2] = DFFEAS(D1L72, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1_r_rx_byte[3] is uart_rx:receiver|r_rx_byte[3] at FF_X76_Y71_N11
+--register power-up is low
+
+D1_r_rx_byte[3] = DFFEAS(D1L74, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1_r_rx_byte[4] is uart_rx:receiver|r_rx_byte[4] at FF_X75_Y71_N5
+--register power-up is low
+
+D1_r_rx_byte[4] = DFFEAS(D1L76, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1_r_rx_byte[5] is uart_rx:receiver|r_rx_byte[5] at FF_X76_Y71_N17
+--register power-up is low
+
+D1_r_rx_byte[5] = DFFEAS(D1L78, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1_r_rx_byte[6] is uart_rx:receiver|r_rx_byte[6] at FF_X75_Y71_N27
+--register power-up is low
+
+D1_r_rx_byte[6] = DFFEAS(D1L80, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1_r_rx_byte[7] is uart_rx:receiver|r_rx_byte[7] at FF_X75_Y71_N29
+--register power-up is low
+
+D1_r_rx_byte[7] = DFFEAS(D1L82, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--C2_r_fifo_count[0] is fifo:fifo_tx|r_fifo_count[0] at FF_X83_Y71_N29
+--register power-up is low
+
+C2_r_fifo_count[0] = DFFEAS(C2L7, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--C2L3 is fifo:fifo_tx|Equal2~0 at LCCOMB_X83_Y71_N26
+C2L3 = (!C2_r_fifo_count[0] & (C2_r_fifo_count[1] & (!C2_r_fifo_count[2] & C2_r_fifo_count[3])));
+
+
+--C2L4 is fifo:fifo_tx|Equal3~0 at LCCOMB_X83_Y71_N12
+C2L4 = (!C2_r_fifo_count[0] & (!C2_r_fifo_count[1] & (!C2_r_fifo_count[2] & !C2_r_fifo_count[3])));
+
+
+--E1_o_tx_serial is uart_tx:transmitter|o_tx_serial at FF_X77_Y71_N9
+--register power-up is low
+
+E1_o_tx_serial = DFFEAS(E1L76, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--r_fifo_rx_wr_en is r_fifo_rx_wr_en at FF_X81_Y68_N15
+--register power-up is low
+
+r_fifo_rx_wr_en = DFFEAS(A1L51, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--r_fifo_tx_wr_en is r_fifo_tx_wr_en at FF_X79_Y68_N17
+--register power-up is low
+
+r_fifo_tx_wr_en = DFFEAS(A1L32, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--C1L7 is fifo:fifo_rx|p_control~0 at LCCOMB_X82_Y68_N28
+C1L7 = (!r_fifo_tx_wr_en & r_fifo_rx_wr_en);
+
+
+--C1L11 is fifo:fifo_rx|r_fifo_count[0]~7 at LCCOMB_X82_Y68_N2
+C1L11 = (r_fifo_tx_wr_en $ (r_fifo_rx_wr_en)) # (!A1L9);
+
+
+--C1L12 is fifo:fifo_rx|r_fifo_count[0]~12 at LCCOMB_X82_Y68_N24
+C1L12 = (A1L9 & (r_fifo_rx_wr_en $ (r_fifo_tx_wr_en $ (C1_r_fifo_count[0]))));
+
+
+--D1_r_rx_data is uart_rx:receiver|r_rx_data at FF_X73_Y71_N25
+--register power-up is low
+
+D1_r_rx_data = DFFEAS(D1L86, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1_r_bit_index[0] is uart_rx:receiver|r_bit_index[0] at FF_X74_Y71_N17
+--register power-up is low
+
+D1_r_bit_index[0] = DFFEAS(D1L102, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1_r_bit_index[1] is uart_rx:receiver|r_bit_index[1] at FF_X74_Y71_N15
+--register power-up is low
+
+D1_r_bit_index[1] = DFFEAS(D1L101, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1_r_bit_index[2] is uart_rx:receiver|r_bit_index[2] at FF_X75_Y71_N15
+--register power-up is low
+
+D1_r_bit_index[2] = DFFEAS(D1L99, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1L13 is uart_rx:receiver|LessThan1~0 at LCCOMB_X72_Y71_N28
+D1L13 = ((!D1_r_clk_count[5] & ((!D1_r_clk_count[3]) # (!D1_r_clk_count[4])))) # (!D1_r_clk_count[6]);
+
+
+--D1_r_sm_main.s_rx_data_bits is uart_rx:receiver|r_sm_main.s_rx_data_bits at FF_X74_Y71_N29
+--register power-up is low
+
+D1_r_sm_main.s_rx_data_bits = DFFEAS(D1L106, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1L1 is uart_rx:receiver|Decoder0~0 at LCCOMB_X75_Y71_N8
+D1L1 = (D1L15 & D1_r_sm_main.s_rx_data_bits);
+
+
+--D1L2 is uart_rx:receiver|Decoder0~1 at LCCOMB_X75_Y71_N18
+D1L2 = (!D1_r_bit_index[0] & (!D1_r_bit_index[2] & (D1L1 & !D1_r_bit_index[1])));
+
+
+--D1L67 is uart_rx:receiver|r_rx_byte[0]~0 at LCCOMB_X75_Y71_N12
 D1L67 = (D1L2 & (D1_r_rx_data)) # (!D1L2 & ((D1_r_rx_byte[0])));
 
 
---D1L3 is uart_rx:receiver|Decoder0~2 at LCCOMB_X68_Y70_N16
-D1L3 = (!D1_r_bit_index[1] & (!D1_r_bit_index[2] & (D1_r_bit_index[0] & D1L1)));
+--D1L3 is uart_rx:receiver|Decoder0~2 at LCCOMB_X76_Y71_N18
+D1L3 = (!D1_r_bit_index[2] & (!D1_r_bit_index[1] & (D1_r_bit_index[0] & D1L1)));
 
 
---D1L69 is uart_rx:receiver|r_rx_byte[1]~1 at LCCOMB_X68_Y70_N28
+--D1L69 is uart_rx:receiver|r_rx_byte[1]~1 at LCCOMB_X76_Y71_N24
 D1L69 = (D1L3 & (D1_r_rx_data)) # (!D1L3 & ((D1_r_rx_byte[1])));
 
 
---D1L4 is uart_rx:receiver|Decoder0~3 at LCCOMB_X68_Y70_N6
-D1L4 = (D1_r_bit_index[1] & (!D1_r_bit_index[2] & (!D1_r_bit_index[0] & D1L1)));
+--D1L71 is uart_rx:receiver|r_rx_byte[2]~2 at LCCOMB_X75_Y71_N20
+D1L71 = ((D1_r_bit_index[2]) # (D1_r_bit_index[0])) # (!D1_r_bit_index[1]);
 
 
---D1L71 is uart_rx:receiver|r_rx_byte[2]~2 at LCCOMB_X68_Y70_N30
-D1L71 = (D1L4 & (D1_r_rx_data)) # (!D1L4 & ((D1_r_rx_byte[2])));
+--D1L72 is uart_rx:receiver|r_rx_byte[2]~3 at LCCOMB_X75_Y71_N30
+D1L72 = (D1L1 & ((D1L71 & ((D1_r_rx_byte[2]))) # (!D1L71 & (D1_r_rx_data)))) # (!D1L1 & (((D1_r_rx_byte[2]))));
 
 
---D1L5 is uart_rx:receiver|Decoder0~4 at LCCOMB_X69_Y70_N28
-D1L5 = (D1_r_bit_index[0] & (!D1_r_bit_index[2] & (D1_r_bit_index[1] & D1L1)));
+--D1L4 is uart_rx:receiver|Decoder0~3 at LCCOMB_X76_Y71_N28
+D1L4 = (!D1_r_bit_index[2] & (D1_r_bit_index[1] & (D1_r_bit_index[0] & D1L1)));
 
 
---D1L73 is uart_rx:receiver|r_rx_byte[3]~3 at LCCOMB_X69_Y70_N0
-D1L73 = (D1L5 & (D1_r_rx_data)) # (!D1L5 & ((D1_r_rx_byte[3])));
+--D1L74 is uart_rx:receiver|r_rx_byte[3]~4 at LCCOMB_X76_Y71_N10
+D1L74 = (D1L4 & (D1_r_rx_data)) # (!D1L4 & ((D1_r_rx_byte[3])));
 
 
---D1L6 is uart_rx:receiver|Decoder0~5 at LCCOMB_X68_Y70_N0
-D1L6 = (!D1_r_bit_index[1] & (D1_r_bit_index[2] & (!D1_r_bit_index[0] & D1L1)));
+--D1L5 is uart_rx:receiver|Decoder0~4 at LCCOMB_X75_Y71_N6
+D1L5 = (!D1_r_bit_index[0] & (D1_r_bit_index[2] & (D1L1 & !D1_r_bit_index[1])));
 
 
---D1L75 is uart_rx:receiver|r_rx_byte[4]~4 at LCCOMB_X68_Y70_N8
-D1L75 = (D1L6 & (D1_r_rx_data)) # (!D1L6 & ((D1_r_rx_byte[4])));
+--D1L76 is uart_rx:receiver|r_rx_byte[4]~5 at LCCOMB_X75_Y71_N4
+D1L76 = (D1L5 & (D1_r_rx_data)) # (!D1L5 & ((D1_r_rx_byte[4])));
 
 
---D1L7 is uart_rx:receiver|Decoder0~6 at LCCOMB_X69_Y70_N18
-D1L7 = (D1_r_bit_index[0] & (D1_r_bit_index[2] & (!D1_r_bit_index[1] & D1L1)));
+--D1L6 is uart_rx:receiver|Decoder0~5 at LCCOMB_X76_Y71_N2
+D1L6 = (D1_r_bit_index[2] & (!D1_r_bit_index[1] & (D1_r_bit_index[0] & D1L1)));
 
 
---D1L77 is uart_rx:receiver|r_rx_byte[5]~5 at LCCOMB_X69_Y70_N2
-D1L77 = (D1L7 & (D1_r_rx_data)) # (!D1L7 & ((D1_r_rx_byte[5])));
+--D1L78 is uart_rx:receiver|r_rx_byte[5]~6 at LCCOMB_X76_Y71_N16
+D1L78 = (D1L6 & (D1_r_rx_data)) # (!D1L6 & ((D1_r_rx_byte[5])));
 
 
---D1L8 is uart_rx:receiver|Decoder0~7 at LCCOMB_X68_Y70_N18
-D1L8 = (D1_r_bit_index[1] & (D1_r_bit_index[2] & (!D1_r_bit_index[0] & D1L1)));
+--D1L7 is uart_rx:receiver|Decoder0~6 at LCCOMB_X75_Y71_N16
+D1L7 = (!D1_r_bit_index[0] & (D1_r_bit_index[2] & (D1L1 & D1_r_bit_index[1])));
 
 
---D1L79 is uart_rx:receiver|r_rx_byte[6]~6 at LCCOMB_X68_Y70_N14
-D1L79 = (D1L8 & (D1_r_rx_data)) # (!D1L8 & ((D1_r_rx_byte[6])));
+--D1L80 is uart_rx:receiver|r_rx_byte[6]~7 at LCCOMB_X75_Y71_N26
+D1L80 = (D1L7 & (D1_r_rx_data)) # (!D1L7 & ((D1_r_rx_byte[6])));
 
 
---D1L9 is uart_rx:receiver|Decoder0~8 at LCCOMB_X68_Y70_N20
-D1L9 = (D1_r_bit_index[1] & (D1_r_bit_index[2] & (D1_r_bit_index[0] & D1L1)));
+--D1L8 is uart_rx:receiver|Decoder0~7 at LCCOMB_X75_Y71_N2
+D1L8 = (D1_r_bit_index[0] & (D1_r_bit_index[2] & (D1L1 & D1_r_bit_index[1])));
 
 
---D1L81 is uart_rx:receiver|r_rx_byte[7]~7 at LCCOMB_X68_Y70_N4
-D1L81 = (D1L9 & (D1_r_rx_data)) # (!D1L9 & ((D1_r_rx_byte[7])));
+--D1L82 is uart_rx:receiver|r_rx_byte[7]~8 at LCCOMB_X75_Y71_N28
+D1L82 = (D1L8 & (D1_r_rx_data)) # (!D1L8 & ((D1_r_rx_byte[7])));
 
 
---D1_r_sm_main.s_rx_stop_bit is uart_rx:receiver|r_sm_main.s_rx_stop_bit at FF_X68_Y70_N27
+--C2L13 is fifo:fifo_tx|r_fifo_count[1]~7 at LCCOMB_X83_Y71_N2
+C2L13 = (r_fifo_tx_wr_en) # (!A1L9);
+
+
+--C2L7 is fifo:fifo_tx|r_fifo_count[0]~12 at LCCOMB_X83_Y71_N28
+C2L7 = (A1L9 & (C2_r_fifo_count[0] $ (r_fifo_tx_wr_en)));
+
+
+--E1_r_bit_index[1] is uart_tx:transmitter|r_bit_index[1] at FF_X77_Y71_N15
 --register power-up is low
 
-D1_r_sm_main.s_rx_stop_bit = DFFEAS(D1L92, GLOBAL(A1L5),  ,  ,  ,  ,  ,  ,  );
+E1_r_bit_index[1] = DFFEAS(E1L82, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
 
 
---D1L93 is uart_rx:receiver|r_sm_main~7 at LCCOMB_X67_Y70_N10
-D1L93 = (D1L16 & D1_r_sm_main.s_rx_stop_bit);
-
-
---D1_r_sm_main.s_rx_start_bit is uart_rx:receiver|r_sm_main.s_rx_start_bit at FF_X65_Y70_N19
+--E1_r_bit_index[0] is uart_tx:transmitter|r_bit_index[0] at FF_X81_Y71_N17
 --register power-up is low
 
-D1_r_sm_main.s_rx_start_bit = DFFEAS(D1L104, GLOBAL(A1L5),  ,  ,  ,  ,  ,  ,  );
+E1_r_bit_index[0] = DFFEAS(E1L84, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
 
 
---D1L94 is uart_rx:receiver|Selector0~0 at LCCOMB_X67_Y70_N12
-D1L94 = (!D1_r_sm_main.s_rx_data_bits & !D1_r_sm_main.s_rx_stop_bit);
+--E1L6 is uart_tx:transmitter|Mux0~0 at LCCOMB_X77_Y71_N12
+E1L6 = (E1_r_bit_index[1] & (((E1_r_bit_index[0])))) # (!E1_r_bit_index[1] & ((E1_r_bit_index[0] & ((E1_r_tx_data[5]))) # (!E1_r_bit_index[0] & (E1_r_tx_data[4]))));
 
 
---D1L95 is uart_rx:receiver|Selector0~1 at LCCOMB_X68_Y70_N10
-D1L95 = (D1L93) # ((D1_r_rx_dv & ((D1_r_sm_main.s_rx_start_bit) # (!D1L94))));
+--E1L7 is uart_tx:transmitter|Mux0~1 at LCCOMB_X77_Y71_N30
+E1L7 = (E1L6 & (((E1_r_tx_data[7])) # (!E1_r_bit_index[1]))) # (!E1L6 & (E1_r_bit_index[1] & ((E1_r_tx_data[6]))));
 
 
---D1_r_rx_data_r is uart_rx:receiver|r_rx_data_r at FF_X58_Y70_N9
+--E1_r_bit_index[2] is uart_tx:transmitter|r_bit_index[2] at FF_X77_Y71_N5
 --register power-up is low
 
-D1_r_rx_data_r = DFFEAS( , GLOBAL(A1L5),  ,  ,  , A1L11,  ,  , VCC);
+E1_r_bit_index[2] = DFFEAS(E1L80, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
 
 
---D1_r_sm_main.s_idle is uart_rx:receiver|r_sm_main.s_idle at FF_X65_Y70_N25
+--E1_r_sm_main.s_tx_data_bits is uart_tx:transmitter|r_sm_main.s_tx_data_bits at FF_X77_Y71_N27
 --register power-up is low
 
-D1_r_sm_main.s_idle = DFFEAS(D1L103, GLOBAL(A1L5),  ,  ,  ,  ,  ,  ,  );
+E1_r_sm_main.s_tx_data_bits = DFFEAS(E1L88, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
 
 
---D1L102 is uart_rx:receiver|Selector16~0 at LCCOMB_X67_Y70_N6
-D1L102 = (D1_r_sm_main.s_rx_data_bits & ((D1L16 $ (D1_r_bit_index[0])))) # (!D1_r_sm_main.s_rx_data_bits & (D1_r_sm_main.s_idle & ((D1_r_bit_index[0]))));
+--E1_r_sm_main.s_idle is uart_tx:transmitter|r_sm_main.s_idle at FF_X81_Y71_N7
+--register power-up is low
+
+E1_r_sm_main.s_idle = DFFEAS(E1L85, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
 
 
---D1L100 is uart_rx:receiver|Selector15~2 at LCCOMB_X67_Y70_N18
-D1L100 = (D1_r_sm_main.s_rx_data_bits & (D1_r_bit_index[1] $ (((D1L16 & D1_r_bit_index[0])))));
+--E1L74 is uart_tx:transmitter|Selector1~0 at LCCOMB_X77_Y71_N24
+E1L74 = ((E1_r_sm_main.s_tx_data_bits & (E1_r_bit_index[2] & E1L7))) # (!E1_r_sm_main.s_idle);
 
 
---D1L96 is uart_rx:receiver|Selector14~0 at LCCOMB_X67_Y70_N28
+--E1_r_sm_main.s_tx_stop_bit is uart_tx:transmitter|r_sm_main.s_tx_stop_bit at FF_X77_Y71_N23
+--register power-up is low
+
+E1_r_sm_main.s_tx_stop_bit = DFFEAS(E1L62, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--E1L8 is uart_tx:transmitter|Mux0~2 at LCCOMB_X77_Y71_N28
+E1L8 = (E1_r_bit_index[0] & ((E1_r_bit_index[1]) # ((E1_r_tx_data[1])))) # (!E1_r_bit_index[0] & (!E1_r_bit_index[1] & (E1_r_tx_data[0])));
+
+
+--E1L9 is uart_tx:transmitter|Mux0~3 at LCCOMB_X77_Y71_N2
+E1L9 = (E1_r_bit_index[1] & ((E1L8 & ((E1_r_tx_data[3]))) # (!E1L8 & (E1_r_tx_data[2])))) # (!E1_r_bit_index[1] & (((E1L8))));
+
+
+--E1L75 is uart_tx:transmitter|Selector1~1 at LCCOMB_X77_Y71_N0
+E1L75 = (E1_r_sm_main.s_tx_stop_bit) # ((!E1_r_bit_index[2] & (E1_r_sm_main.s_tx_data_bits & E1L9)));
+
+
+--E1_r_sm_main.s_cleanup is uart_tx:transmitter|r_sm_main.s_cleanup at FF_X77_Y71_N7
+--register power-up is low
+
+E1_r_sm_main.s_cleanup = DFFEAS(E1L63, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--E1L76 is uart_tx:transmitter|Selector1~2 at LCCOMB_X77_Y71_N8
+E1L76 = (E1L75) # ((E1L74) # ((E1_r_sm_main.s_cleanup & E1_o_tx_serial)));
+
+
+--D1_r_rx_dv is uart_rx:receiver|r_rx_dv at FF_X74_Y71_N31
+--register power-up is low
+
+D1_r_rx_dv = DFFEAS(D1L95, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--A1L51 is r_fifo_rx_wr_en~0 at LCCOMB_X81_Y68_N14
+A1L51 = (D1_r_rx_dv & !C1L5);
+
+
+--A1L32 is p_process~0 at LCCOMB_X79_Y68_N16
+A1L32 = (!C1L6 & !C2L3);
+
+
+--D1_r_rx_data_r is uart_rx:receiver|r_rx_data_r at FF_X61_Y71_N25
+--register power-up is low
+
+D1_r_rx_data_r = DFFEAS(D1L85, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1_r_sm_main.s_idle is uart_rx:receiver|r_sm_main.s_idle at FF_X74_Y71_N25
+--register power-up is low
+
+D1_r_sm_main.s_idle = DFFEAS(D1L103, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1L102 is uart_rx:receiver|Selector16~0 at LCCOMB_X74_Y71_N16
+D1L102 = (D1_r_sm_main.s_rx_data_bits & (D1L15 $ ((D1_r_bit_index[0])))) # (!D1_r_sm_main.s_rx_data_bits & (((D1_r_bit_index[0] & D1_r_sm_main.s_idle))));
+
+
+--D1L100 is uart_rx:receiver|Selector15~2 at LCCOMB_X74_Y71_N22
+D1L100 = (D1_r_sm_main.s_rx_data_bits & (D1_r_bit_index[1] $ (((D1L15 & D1_r_bit_index[0])))));
+
+
+--D1L96 is uart_rx:receiver|Selector14~0 at LCCOMB_X74_Y71_N20
 D1L96 = (!D1_r_sm_main.s_rx_data_bits & D1_r_sm_main.s_idle);
 
 
---D1L97 is uart_rx:receiver|Selector14~1 at LCCOMB_X68_Y70_N12
-D1L97 = (D1_r_bit_index[0] & (D1L1 & (D1_r_bit_index[1] $ (D1_r_bit_index[2]))));
+--D1L97 is uart_rx:receiver|Selector14~1 at LCCOMB_X75_Y71_N0
+D1L97 = (D1_r_bit_index[0] & (D1L1 & (D1_r_bit_index[2] $ (D1_r_bit_index[1]))));
 
 
---D1L98 is uart_rx:receiver|Selector14~2 at LCCOMB_X68_Y70_N22
-D1L98 = (D1_r_sm_main.s_rx_data_bits & (D1_r_bit_index[2] & ((!D1L16) # (!D1_r_bit_index[0]))));
+--D1L98 is uart_rx:receiver|Selector14~2 at LCCOMB_X75_Y71_N10
+D1L98 = (D1_r_bit_index[2] & (D1_r_sm_main.s_rx_data_bits & ((!D1L15) # (!D1_r_bit_index[0]))));
 
 
---D1L99 is uart_rx:receiver|Selector14~3 at LCCOMB_X68_Y70_N24
+--D1L99 is uart_rx:receiver|Selector14~3 at LCCOMB_X75_Y71_N14
 D1L99 = (D1L98) # ((D1L97) # ((D1L96 & D1_r_bit_index[2])));
 
 
---D1L10 is uart_rx:receiver|Equal0~0 at LCCOMB_X65_Y70_N30
-D1L10 = (!D1_r_clk_count[8] & (!D1_r_clk_count[4] & (D1_r_clk_count[3] & !D1_r_clk_count[7])));
+--D1L9 is uart_rx:receiver|Equal0~0 at LCCOMB_X73_Y71_N10
+D1L9 = (!D1_r_clk_count[4] & (!D1_r_clk_count[8] & (!D1_r_clk_count[7] & D1_r_clk_count[3])));
 
 
---D1L11 is uart_rx:receiver|Equal0~1 at LCCOMB_X65_Y70_N0
-D1L11 = (D1_r_clk_count[9] & (!D1_r_clk_count[10] & (D1_r_clk_count[5] & !D1_r_clk_count[6])));
+--D1L10 is uart_rx:receiver|Equal0~1 at LCCOMB_X73_Y71_N12
+D1L10 = (D1_r_clk_count[5] & (!D1_r_clk_count[10] & (!D1_r_clk_count[6] & D1_r_clk_count[9])));
 
 
---D1L12 is uart_rx:receiver|Equal0~2 at LCCOMB_X65_Y70_N22
-D1L12 = (!D1_r_clk_count[1] & (!D1_r_clk_count[12] & (D1_r_clk_count[11] & !D1_r_clk_count[0])));
+--D1L11 is uart_rx:receiver|Equal0~2 at LCCOMB_X73_Y71_N30
+D1L11 = (!D1_r_clk_count[12] & (D1_r_clk_count[11] & (!D1_r_clk_count[1] & !D1_r_clk_count[0])));
 
 
---D1L25 is uart_rx:receiver|r_clk_count[0]~39 at LCCOMB_X65_Y70_N16
-D1L25 = (D1_r_clk_count[2] & D1_r_sm_main.s_rx_start_bit);
-
-
---D1L26 is uart_rx:receiver|r_clk_count[0]~40 at LCCOMB_X65_Y70_N14
-D1L26 = (D1L12 & (D1L25 & (D1L10 & D1L11)));
-
-
---D1L27 is uart_rx:receiver|r_clk_count[0]~41 at LCCOMB_X66_Y70_N2
-D1L27 = D1_r_sm_main.s_idle $ (D1L26 $ (((D1L94) # (!D1L16))));
-
-
---D1L13 is uart_rx:receiver|Equal0~3 at LCCOMB_X65_Y70_N28
-D1L13 = (D1L12 & (D1_r_clk_count[2] & (D1L10 & D1L11)));
-
-
---D1_r_sm_main.s_cleanup is uart_rx:receiver|r_sm_main.s_cleanup at FF_X67_Y70_N23
+--D1_r_sm_main.s_rx_start_bit is uart_rx:receiver|r_sm_main.s_rx_start_bit at FF_X73_Y71_N21
 --register power-up is low
 
-D1_r_sm_main.s_cleanup = DFFEAS(D1L87, GLOBAL(A1L5),  ,  ,  ,  ,  ,  ,  );
+D1_r_sm_main.s_rx_start_bit = DFFEAS(D1L104, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
 
 
---D1L28 is uart_rx:receiver|r_clk_count[0]~42 at LCCOMB_X65_Y70_N6
-D1L28 = (!D1_r_sm_main.s_cleanup & (((!D1L13) # (!D1_r_sm_main.s_rx_start_bit)) # (!D1_r_rx_data)));
+--D1L45 is uart_rx:receiver|r_clk_count[7]~39 at LCCOMB_X73_Y71_N18
+D1L45 = (D1_r_clk_count[2] & D1_r_sm_main.s_rx_start_bit);
 
 
---D1L105 is uart_rx:receiver|Selector19~0 at LCCOMB_X67_Y70_N16
-D1L105 = (D1_r_bit_index[0] & (D1_r_bit_index[1] & (D1L16 & D1_r_bit_index[2])));
+--D1L46 is uart_rx:receiver|r_clk_count[7]~40 at LCCOMB_X73_Y71_N8
+D1L46 = (D1L9 & (D1L45 & (D1L11 & D1L10)));
 
 
---D1L106 is uart_rx:receiver|Selector19~1 at LCCOMB_X67_Y70_N26
-D1L106 = (D1_r_rx_data & (((D1_r_sm_main.s_rx_data_bits & !D1L105)))) # (!D1_r_rx_data & ((D1L26) # ((D1_r_sm_main.s_rx_data_bits & !D1L105))));
+--D1_r_sm_main.s_rx_stop_bit is uart_rx:receiver|r_sm_main.s_rx_stop_bit at FF_X75_Y71_N25
+--register power-up is low
+
+D1_r_sm_main.s_rx_stop_bit = DFFEAS(D1L93, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
 
 
---D1L92 is uart_rx:receiver|r_sm_main.s_rx_stop_bit~0 at LCCOMB_X68_Y70_N26
-D1L92 = (D1L9) # ((!D1L16 & D1_r_sm_main.s_rx_stop_bit));
+--D1L47 is uart_rx:receiver|r_clk_count[7]~41 at LCCOMB_X74_Y71_N18
+D1L47 = (!D1_r_sm_main.s_rx_stop_bit & !D1_r_sm_main.s_rx_data_bits);
 
 
---D1L104 is uart_rx:receiver|Selector18~0 at LCCOMB_X65_Y70_N18
-D1L104 = (D1_r_sm_main.s_idle & (((D1_r_sm_main.s_rx_start_bit & !D1L13)))) # (!D1_r_sm_main.s_idle & (((D1_r_sm_main.s_rx_start_bit & !D1L13)) # (!D1_r_rx_data)));
+--D1L48 is uart_rx:receiver|r_clk_count[7]~42 at LCCOMB_X73_Y71_N26
+D1L48 = ((D1L46) # ((!D1L47 & D1L15))) # (!D1_r_sm_main.s_idle);
 
 
---D1L103 is uart_rx:receiver|Selector17~0 at LCCOMB_X65_Y70_N24
-D1L103 = (!D1_r_sm_main.s_cleanup & (((D1_r_sm_main.s_idle & !D1L26)) # (!D1_r_rx_data)));
+--D1L12 is uart_rx:receiver|Equal0~3 at LCCOMB_X73_Y71_N4
+D1L12 = (D1L10 & (D1_r_clk_count[2] & (D1L11 & D1L9)));
 
 
---D1L101 is uart_rx:receiver|Selector15~3 at LCCOMB_X67_Y70_N24
-D1L101 = (D1L100) # ((D1_r_sm_main.s_idle & (!D1_r_sm_main.s_rx_data_bits & D1_r_bit_index[1])));
+--D1_r_sm_main.s_cleanup is uart_rx:receiver|r_sm_main.s_cleanup at FF_X74_Y71_N13
+--register power-up is low
+
+D1_r_sm_main.s_cleanup = DFFEAS(D1L94, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
 
 
---D1L15 is uart_rx:receiver|LessThan1~1 at LCCOMB_X66_Y70_N30
-D1L15 = (D1_r_clk_count[9]) # ((D1_r_clk_count[7]) # ((D1_r_clk_count[8]) # (!D1L14)));
+--D1L49 is uart_rx:receiver|r_clk_count[7]~43 at LCCOMB_X73_Y71_N22
+D1L49 = (!D1_r_sm_main.s_cleanup & (((!D1_r_sm_main.s_rx_start_bit) # (!D1L12)) # (!D1_r_rx_data)));
 
 
---D1L16 is uart_rx:receiver|LessThan1~2 at LCCOMB_X67_Y70_N14
-D1L16 = (D1_r_clk_count[12] & ((D1_r_clk_count[11]) # ((D1_r_clk_count[10] & D1L15))));
+--D1L105 is uart_rx:receiver|Selector19~0 at LCCOMB_X75_Y71_N22
+D1L105 = (D1_r_bit_index[0] & (D1_r_bit_index[2] & (D1L15 & D1_r_bit_index[1])));
+
+
+--D1L106 is uart_rx:receiver|Selector19~1 at LCCOMB_X74_Y71_N28
+D1L106 = (D1L46 & (((D1_r_sm_main.s_rx_data_bits & !D1L105)) # (!D1_r_rx_data))) # (!D1L46 & (((D1_r_sm_main.s_rx_data_bits & !D1L105))));
+
+
+--r_tx_dv is r_tx_dv at FF_X82_Y71_N25
+--register power-up is low
+
+r_tx_dv = DFFEAS(A1L64, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--E1L86 is uart_tx:transmitter|Selector20~0 at LCCOMB_X81_Y71_N24
+E1L86 = (!E1_r_sm_main.s_idle & r_tx_dv);
+
+
+--E1L1 is uart_tx:transmitter|LessThan1~0 at LCCOMB_X81_Y71_N18
+E1L1 = (!E1_r_clk_count[11] & !E1_r_clk_count[10]);
+
+
+--E1L2 is uart_tx:transmitter|LessThan1~1 at LCCOMB_X80_Y71_N0
+E1L2 = ((!E1_r_clk_count[5] & ((!E1_r_clk_count[3]) # (!E1_r_clk_count[4])))) # (!E1_r_clk_count[6]);
+
+
+--E1L3 is uart_tx:transmitter|LessThan1~2 at LCCOMB_X80_Y71_N28
+E1L3 = (!E1_r_clk_count[8] & (!E1_r_clk_count[9] & (!E1_r_clk_count[7] & !E1_r_clk_count[11])));
+
+
+--E1L4 is uart_tx:transmitter|LessThan1~3 at LCCOMB_X81_Y71_N28
+E1L4 = (E1L1) # (((E1L2 & E1L3)) # (!E1_r_clk_count[12]));
+
+
+--E1L81 is uart_tx:transmitter|Selector17~0 at LCCOMB_X81_Y71_N22
+E1L81 = (E1_r_sm_main.s_tx_data_bits & (E1_r_bit_index[0])) # (!E1_r_sm_main.s_tx_data_bits & ((E1_r_sm_main.s_idle)));
+
+
+--E1L82 is uart_tx:transmitter|Selector17~1 at LCCOMB_X77_Y71_N14
+E1L82 = (E1_r_sm_main.s_tx_data_bits & (E1_r_bit_index[1] $ (((!E1L4 & E1L81))))) # (!E1_r_sm_main.s_tx_data_bits & (((E1_r_bit_index[1] & E1L81))));
+
+
+--E1L5 is uart_tx:transmitter|LessThan1~4 at LCCOMB_X81_Y71_N12
+E1L5 = (E1L3 & ((E1L2) # ((!E1_r_clk_count[11] & !E1_r_clk_count[10])))) # (!E1L3 & (!E1_r_clk_count[11] & ((!E1_r_clk_count[10]))));
+
+
+--E1L83 is uart_tx:transmitter|Selector18~0 at LCCOMB_X81_Y71_N2
+E1L83 = (E1_r_sm_main.s_tx_data_bits & (E1_r_clk_count[12])) # (!E1_r_sm_main.s_tx_data_bits & ((E1_r_sm_main.s_idle)));
+
+
+--E1L84 is uart_tx:transmitter|Selector18~1 at LCCOMB_X81_Y71_N16
+E1L84 = (E1_r_sm_main.s_tx_data_bits & (E1_r_bit_index[0] $ (((E1L83 & !E1L5))))) # (!E1_r_sm_main.s_tx_data_bits & (E1L83 & (E1_r_bit_index[0])));
+
+
+--E1L79 is uart_tx:transmitter|Selector16~0 at LCCOMB_X77_Y71_N20
+E1L79 = (E1_r_bit_index[1] & (!E1L4 & E1_r_bit_index[0]));
+
+
+--E1L80 is uart_tx:transmitter|Selector16~1 at LCCOMB_X77_Y71_N4
+E1L80 = (E1_r_sm_main.s_tx_data_bits & ((E1_r_bit_index[2] $ (E1L79)))) # (!E1_r_sm_main.s_tx_data_bits & (E1_r_sm_main.s_idle & (E1_r_bit_index[2])));
+
+
+--E1_r_sm_main.s_tx_start_bit is uart_tx:transmitter|r_sm_main.s_tx_start_bit at FF_X81_Y71_N5
+--register power-up is low
+
+E1_r_sm_main.s_tx_start_bit = DFFEAS(E1L87, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--E1L61 is uart_tx:transmitter|r_sm_main.s_tx_stop_bit~0 at LCCOMB_X77_Y71_N10
+E1L61 = (!E1L4 & (E1_r_bit_index[1] & (E1_r_bit_index[2] & E1_r_bit_index[0])));
+
+
+--E1L88 is uart_tx:transmitter|Selector21~0 at LCCOMB_X77_Y71_N26
+E1L88 = (E1L4 & (((E1_r_sm_main.s_tx_data_bits & !E1L61)))) # (!E1L4 & ((E1_r_sm_main.s_tx_start_bit) # ((E1_r_sm_main.s_tx_data_bits & !E1L61))));
+
+
+--E1L85 is uart_tx:transmitter|Selector19~0 at LCCOMB_X81_Y71_N6
+E1L85 = (!E1_r_sm_main.s_cleanup & ((E1_r_sm_main.s_idle) # (r_tx_dv)));
+
+
+--E1L62 is uart_tx:transmitter|r_sm_main.s_tx_stop_bit~1 at LCCOMB_X77_Y71_N22
+E1L62 = (E1L4 & ((E1_r_sm_main.s_tx_stop_bit) # ((E1_r_sm_main.s_tx_data_bits & E1L61)))) # (!E1L4 & (E1_r_sm_main.s_tx_data_bits & ((E1L61))));
+
+
+--E1L63 is uart_tx:transmitter|r_sm_main~7 at LCCOMB_X77_Y71_N6
+E1L63 = (E1_r_sm_main.s_tx_stop_bit & !E1L4);
+
+
+--D1L94 is uart_rx:receiver|r_sm_main~7 at LCCOMB_X74_Y71_N12
+D1L94 = (D1L15 & D1_r_sm_main.s_rx_stop_bit);
+
+
+--D1L95 is uart_rx:receiver|Selector0~0 at LCCOMB_X74_Y71_N30
+D1L95 = (D1L94) # ((D1_r_rx_dv & ((D1_r_sm_main.s_rx_start_bit) # (!D1L47))));
+
+
+--D1L103 is uart_rx:receiver|Selector17~0 at LCCOMB_X74_Y71_N24
+D1L103 = (!D1_r_sm_main.s_cleanup & (((!D1L46 & D1_r_sm_main.s_idle)) # (!D1_r_rx_data)));
+
+
+--D1L104 is uart_rx:receiver|Selector18~0 at LCCOMB_X73_Y71_N20
+D1L104 = (D1_r_rx_data & (!D1L12 & (D1_r_sm_main.s_rx_start_bit))) # (!D1_r_rx_data & (((!D1L12 & D1_r_sm_main.s_rx_start_bit)) # (!D1_r_sm_main.s_idle)));
+
+
+--D1L93 is uart_rx:receiver|r_sm_main.s_rx_stop_bit~0 at LCCOMB_X75_Y71_N24
+D1L93 = (D1L8) # ((!D1L15 & D1_r_sm_main.s_rx_stop_bit));
+
+
+--C2L21 is fifo:fifo_tx|r_fifo_data~13 at LCCOMB_X79_Y71_N12
+C2L21 = (A1L9 & r_fifo_tx_wr_en);
+
+
+--E1_r_tx_done is uart_tx:transmitter|r_tx_done at FF_X77_Y71_N17
+--register power-up is low
+
+E1_r_tx_done = DFFEAS(E1L78, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--A1L62 is r_tx_data[0]~0 at LCCOMB_X82_Y71_N14
+A1L62 = (!C2L4 & !E1_r_tx_done);
+
+
+--r_fifo_tx_wr_data[6] is r_fifo_tx_wr_data[6] at FF_X79_Y68_N7
+--register power-up is low
+
+r_fifo_tx_wr_data[6] = DFFEAS(C1L72, GLOBAL(A1L6),  ,  , A1L32,  ,  ,  ,  );
+
+
+--C2_r_wr_index[0] is fifo:fifo_tx|r_wr_index[0] at FF_X79_Y71_N19
+--register power-up is low
+
+C2_r_wr_index[0] = DFFEAS(C2L29, GLOBAL(A1L6),  ,  , C2L24,  ,  ,  ,  );
+
+
+--C2_r_wr_index[1] is fifo:fifo_tx|r_wr_index[1] at FF_X79_Y71_N29
+--register power-up is low
+
+C2_r_wr_index[1] = DFFEAS(C2L30, GLOBAL(A1L6),  ,  , C2L24,  ,  ,  ,  );
+
+
+--C2_r_wr_index[2] is fifo:fifo_tx|r_wr_index[2] at FF_X79_Y71_N23
+--register power-up is low
+
+C2_r_wr_index[2] = DFFEAS(C2L31, GLOBAL(A1L6),  ,  , C2L24,  ,  ,  ,  );
+
+
+--C2_r_wr_index[3] is fifo:fifo_tx|r_wr_index[3] at FF_X79_Y71_N9
+--register power-up is low
+
+C2_r_wr_index[3] = DFFEAS(C2L32, GLOBAL(A1L6),  ,  , C2L24,  ,  ,  ,  );
+
+
+--A1L64 is r_tx_dv~0 at LCCOMB_X82_Y71_N24
+A1L64 = (C2L4 & ((r_tx_dv))) # (!C2L4 & (!E1_r_tx_done));
+
+
+--E1L43 is uart_tx:transmitter|r_clk_count[8]~35 at LCCOMB_X80_Y71_N30
+E1L43 = (!E1L4) # (!E1_r_sm_main.s_idle);
+
+
+--r_fifo_tx_wr_data[5] is r_fifo_tx_wr_data[5] at FF_X79_Y68_N25
+--register power-up is low
+
+r_fifo_tx_wr_data[5] = DFFEAS(C1L73, GLOBAL(A1L6),  ,  , A1L32,  ,  ,  ,  );
+
+
+--r_fifo_tx_wr_data[4] is r_fifo_tx_wr_data[4] at FF_X79_Y68_N3
+--register power-up is low
+
+r_fifo_tx_wr_data[4] = DFFEAS(C1L74, GLOBAL(A1L6),  ,  , A1L32,  ,  ,  ,  );
+
+
+--r_fifo_tx_wr_data[7] is r_fifo_tx_wr_data[7] at FF_X79_Y68_N5
+--register power-up is low
+
+r_fifo_tx_wr_data[7] = DFFEAS(C1L75, GLOBAL(A1L6),  ,  , A1L32,  ,  ,  ,  );
+
+
+--E1L87 is uart_tx:transmitter|Selector20~1 at LCCOMB_X81_Y71_N4
+E1L87 = (E1_r_sm_main.s_idle & (E1L4 & (E1_r_sm_main.s_tx_start_bit))) # (!E1_r_sm_main.s_idle & ((r_tx_dv) # ((E1L4 & E1_r_sm_main.s_tx_start_bit))));
+
+
+--r_fifo_tx_wr_data[2] is r_fifo_tx_wr_data[2] at FF_X79_Y68_N19
+--register power-up is low
+
+r_fifo_tx_wr_data[2] = DFFEAS(C1L76, GLOBAL(A1L6),  ,  , A1L32,  ,  ,  ,  );
+
+
+--r_fifo_tx_wr_data[1] is r_fifo_tx_wr_data[1] at FF_X79_Y68_N29
+--register power-up is low
+
+r_fifo_tx_wr_data[1] = DFFEAS(C1L77, GLOBAL(A1L6),  ,  , A1L32,  ,  ,  ,  );
+
+
+--r_fifo_tx_wr_data[0] is r_fifo_tx_wr_data[0] at FF_X79_Y68_N15
+--register power-up is low
+
+r_fifo_tx_wr_data[0] = DFFEAS(C1L78, GLOBAL(A1L6),  ,  , A1L32,  ,  ,  ,  );
+
+
+--r_fifo_tx_wr_data[3] is r_fifo_tx_wr_data[3] at FF_X79_Y68_N9
+--register power-up is low
+
+r_fifo_tx_wr_data[3] = DFFEAS(C1L79, GLOBAL(A1L6),  ,  , A1L32,  ,  ,  ,  );
+
+
+--E1L77 is uart_tx:transmitter|Selector2~0 at LCCOMB_X77_Y71_N18
+E1L77 = (E1_r_tx_done & ((E1_r_sm_main.s_tx_stop_bit) # ((E1_r_sm_main.s_tx_data_bits) # (E1_r_sm_main.s_tx_start_bit))));
+
+
+--E1L78 is uart_tx:transmitter|Selector2~1 at LCCOMB_X77_Y71_N16
+E1L78 = (E1L77) # ((E1_r_sm_main.s_cleanup) # ((E1_r_sm_main.s_tx_stop_bit & !E1L4)));
+
+
+--C1L61Q is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[21] at FF_X77_Y68_N5
+--register power-up is low
+
+C1L61Q = DFFEAS(C1L62, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--C1L63Q is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[22] at FF_X79_Y68_N31
+--register power-up is low
+
+C1L63Q = DFFEAS(C1L64, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--C1L27Q is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[1] at FF_X81_Y68_N25
+--register power-up is low
+
+C1L27Q = DFFEAS(C1L28, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--C1L30Q is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[3] at FF_X81_Y68_N7
+--register power-up is low
+
+C1L30Q = DFFEAS(C1L31, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--C1L32Q is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[4] at FF_X80_Y68_N21
+--register power-up is low
+
+C1L32Q = DFFEAS( , GLOBAL(A1L6),  ,  ,  , C1L91,  ,  , VCC);
+
+
+--C1L29Q is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[2] at FF_X80_Y68_N31
+--register power-up is low
+
+C1L29Q = DFFEAS( , GLOBAL(A1L6),  ,  ,  , C1L88,  ,  , VCC);
+
+
+--C1L69 is fifo:fifo_rx|r_fifo_data~13 at LCCOMB_X80_Y68_N20
+C1L69 = (C1L29Q & (C1L27Q & (C1L32Q $ (!C1L30Q)))) # (!C1L29Q & (!C1L27Q & (C1L32Q $ (!C1L30Q))));
+
+
+--C1L26Q is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[0] at FF_X81_Y68_N9
+--register power-up is low
+
+C1L26Q = DFFEAS(C1L80, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--C1L33Q is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[5] at FF_X81_Y68_N19
+--register power-up is low
+
+C1L33Q = DFFEAS( , GLOBAL(A1L6),  ,  ,  , C1_r_wr_index[2],  ,  , VCC);
+
+
+--C1L35Q is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[7] at FF_X81_Y68_N5
+--register power-up is low
+
+C1L35Q = DFFEAS(C1L36, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--C1L37Q is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[8] at FF_X80_Y68_N5
+--register power-up is low
+
+C1L37Q = DFFEAS(C1L94, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--C1L34Q is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[6] at FF_X80_Y68_N3
+--register power-up is low
+
+C1L34Q = DFFEAS( , GLOBAL(A1L6),  ,  ,  , C1L92,  ,  , VCC);
+
+
+--C1L70 is fifo:fifo_rx|r_fifo_data~14 at LCCOMB_X80_Y68_N2
+C1L70 = (C1L35Q & (C1L37Q & (C1L34Q $ (!C1L33Q)))) # (!C1L35Q & (!C1L37Q & (C1L34Q $ (!C1L33Q))));
+
+
+--C1L71 is fifo:fifo_rx|r_fifo_data~15 at LCCOMB_X80_Y68_N8
+C1L71 = (C1L26Q & (C1L69 & C1L70));
+
+
+--C1L72 is fifo:fifo_rx|r_fifo_data~16 at LCCOMB_X79_Y68_N6
+C1L72 = (C1L63Q & ((C1L71 & (C1L61Q)) # (!C1L71 & ((G1_ram_block1a6))))) # (!C1L63Q & (((C1L61Q))));
+
+
+--C2L29 is fifo:fifo_tx|r_wr_index~0 at LCCOMB_X79_Y71_N18
+C2L29 = (A1L9 & !C2_r_wr_index[0]);
+
+
+--C2L24 is fifo:fifo_tx|r_wr_index[0]~1 at LCCOMB_X79_Y71_N30
+C2L24 = ((r_fifo_tx_wr_en & !C2L3)) # (!A1L9);
+
+
+--C2L25 is fifo:fifo_tx|r_wr_index[0]~2 at LCCOMB_X79_Y71_N20
+C2L25 = (C2_r_wr_index[2]) # (((C2_r_wr_index[1]) # (!C2_r_wr_index[3])) # (!C2_r_wr_index[0]));
+
+
+--C2L30 is fifo:fifo_tx|r_wr_index~3 at LCCOMB_X79_Y71_N28
+C2L30 = (A1L9 & (C2L25 & (C2_r_wr_index[0] $ (C2_r_wr_index[1]))));
+
+
+--C2L1 is fifo:fifo_tx|Add2~0 at LCCOMB_X79_Y71_N26
+C2L1 = C2_r_wr_index[2] $ (((C2_r_wr_index[0] & C2_r_wr_index[1])));
+
+
+--C2L31 is fifo:fifo_tx|r_wr_index~4 at LCCOMB_X79_Y71_N22
+C2L31 = (A1L9 & (C2L1 & C2L25));
+
+
+--C2L2 is fifo:fifo_tx|Add2~1 at LCCOMB_X79_Y71_N24
+C2L2 = C2_r_wr_index[3] $ (((C2_r_wr_index[2] & (C2_r_wr_index[0] & C2_r_wr_index[1]))));
+
+
+--C2L32 is fifo:fifo_tx|r_wr_index~5 at LCCOMB_X79_Y71_N8
+C2L32 = (C2L2 & (A1L9 & C2L25));
+
+
+--C1L57Q is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[19] at FF_X77_Y68_N7
+--register power-up is low
+
+C1L57Q = DFFEAS(C1L58, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--C1L59Q is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[20] at FF_X79_Y68_N13
+--register power-up is low
+
+C1L59Q = DFFEAS(C1L60, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--C1L73 is fifo:fifo_rx|r_fifo_data~17 at LCCOMB_X79_Y68_N24
+C1L73 = (C1L59Q & ((C1L71 & (C1L57Q)) # (!C1L71 & ((G1_ram_block1a5))))) # (!C1L59Q & (((C1L57Q))));
+
+
+--C1L53Q is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[17] at FF_X77_Y68_N1
+--register power-up is low
+
+C1L53Q = DFFEAS(C1L54, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--C1L55Q is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[18] at FF_X79_Y68_N27
+--register power-up is low
+
+C1L55Q = DFFEAS(C1L56, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--C1L74 is fifo:fifo_rx|r_fifo_data~18 at LCCOMB_X79_Y68_N2
+C1L74 = (C1L71 & (C1L53Q)) # (!C1L71 & ((C1L55Q & ((G1_ram_block1a4))) # (!C1L55Q & (C1L53Q))));
+
+
+--C1L65Q is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[23] at FF_X77_Y68_N23
+--register power-up is low
+
+C1L65Q = DFFEAS(C1L66, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--C1L67Q is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[24] at FF_X76_Y68_N25
+--register power-up is low
+
+C1L67Q = DFFEAS(C1L68, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--C1L75 is fifo:fifo_rx|r_fifo_data~19 at LCCOMB_X79_Y68_N4
+C1L75 = (C1L71 & (C1L65Q)) # (!C1L71 & ((C1L67Q & ((G1_ram_block1a7))) # (!C1L67Q & (C1L65Q))));
+
+
+--C1L45Q is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[13] at FF_X77_Y68_N21
+--register power-up is low
+
+C1L45Q = DFFEAS(C1L46, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--C1L47Q is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[14] at FF_X79_Y68_N21
+--register power-up is low
+
+C1L47Q = DFFEAS(C1L48, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--C1L76 is fifo:fifo_rx|r_fifo_data~20 at LCCOMB_X79_Y68_N18
+C1L76 = (C1L71 & (C1L45Q)) # (!C1L71 & ((C1L47Q & ((G1_ram_block1a2))) # (!C1L47Q & (C1L45Q))));
+
+
+--C1L42Q is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[11] at FF_X77_Y68_N15
+--register power-up is low
+
+C1L42Q = DFFEAS( , GLOBAL(A1L6),  ,  ,  , r_fifo_rx_wr_data[1],  ,  , VCC);
+
+
+--C1L43Q is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[12] at FF_X79_Y68_N23
+--register power-up is low
+
+C1L43Q = DFFEAS(C1L44, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--C1L77 is fifo:fifo_rx|r_fifo_data~21 at LCCOMB_X79_Y68_N28
+C1L77 = (C1L43Q & ((C1L71 & ((C1L42Q))) # (!C1L71 & (G1_ram_block1a1)))) # (!C1L43Q & (((C1L42Q))));
+
+
+--C1L38Q is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[9] at FF_X77_Y68_N9
+--register power-up is low
+
+C1L38Q = DFFEAS(C1L39, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--C1L40Q is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[10] at FF_X79_Y68_N1
+--register power-up is low
+
+C1L40Q = DFFEAS(C1L41, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--C1L78 is fifo:fifo_rx|r_fifo_data~22 at LCCOMB_X79_Y68_N14
+C1L78 = (C1L71 & (C1L38Q)) # (!C1L71 & ((C1L40Q & ((G1_ram_block1a0))) # (!C1L40Q & (C1L38Q))));
+
+
+--C1L49Q is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[15] at FF_X77_Y68_N31
+--register power-up is low
+
+C1L49Q = DFFEAS(C1L50, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--C1L51Q is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[16] at FF_X79_Y68_N11
+--register power-up is low
+
+C1L51Q = DFFEAS(C1L52, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--C1L79 is fifo:fifo_rx|r_fifo_data~23 at LCCOMB_X79_Y68_N8
+C1L79 = (C1L51Q & ((C1L71 & (C1L49Q)) # (!C1L71 & ((G1_ram_block1a3))))) # (!C1L51Q & (((C1L49Q))));
+
+
+--r_fifo_rx_wr_data[6] is r_fifo_rx_wr_data[6] at FF_X77_Y68_N29
+--register power-up is low
+
+r_fifo_rx_wr_data[6] = DFFEAS(A1L47, GLOBAL(A1L6),  ,  , !C1L5,  ,  ,  ,  );
+
+
+--C1L80 is fifo:fifo_rx|r_fifo_data~24 at LCCOMB_X81_Y68_N8
+C1L80 = (A1L9 & r_fifo_rx_wr_en);
+
+
+--C1_r_wr_index[0] is fifo:fifo_rx|r_wr_index[0] at FF_X81_Y68_N3
+--register power-up is low
+
+C1_r_wr_index[0] = DFFEAS(C1L102, GLOBAL(A1L6),  ,  , C1L100,  ,  ,  ,  );
+
+
+--C1_r_wr_index[1] is fifo:fifo_rx|r_wr_index[1] at FF_X81_Y68_N1
+--register power-up is low
+
+C1_r_wr_index[1] = DFFEAS(C1L103, GLOBAL(A1L6),  ,  , C1L100,  ,  ,  ,  );
+
+
+--C1_r_wr_index[2] is fifo:fifo_rx|r_wr_index[2] at FF_X81_Y68_N23
+--register power-up is low
+
+C1_r_wr_index[2] = DFFEAS(C1L104, GLOBAL(A1L6),  ,  , C1L100,  ,  ,  ,  );
+
+
+--C1_r_wr_index[3] is fifo:fifo_rx|r_wr_index[3] at FF_X81_Y68_N29
+--register power-up is low
+
+C1_r_wr_index[3] = DFFEAS(C1L105, GLOBAL(A1L6),  ,  , C1L100,  ,  ,  ,  );
+
+
+--C1_r_rd_index[0] is fifo:fifo_rx|r_rd_index[0] at FF_X80_Y68_N27
+--register power-up is low
+
+C1_r_rd_index[0] = DFFEAS(C1L88, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--C1L88 is fifo:fifo_rx|r_rd_index~0 at LCCOMB_X80_Y68_N26
+C1L88 = (A1L9 & (C1_r_rd_index[0] $ (((r_fifo_tx_wr_en & !C1L6)))));
+
+
+--C1_r_rd_index[3] is fifo:fifo_rx|r_rd_index[3] at FF_X80_Y68_N17
+--register power-up is low
+
+C1_r_rd_index[3] = DFFEAS(C1L87, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--C1_r_rd_index[1] is fifo:fifo_rx|r_rd_index[1] at FF_X80_Y68_N19
+--register power-up is low
+
+C1_r_rd_index[1] = DFFEAS( , GLOBAL(A1L6),  ,  ,  , C1L91,  ,  , VCC);
+
+
+--C1_r_rd_index[2] is fifo:fifo_rx|r_rd_index[2] at FF_X80_Y68_N25
+--register power-up is low
+
+C1_r_rd_index[2] = DFFEAS(C1L85, GLOBAL(A1L6),  ,  ,  ,  ,  ,  ,  );
+
+
+--C1L4 is fifo:fifo_rx|Equal1~0 at LCCOMB_X80_Y68_N22
+C1L4 = (C1_r_rd_index[3] & (!C1_r_rd_index[1] & (C1_r_rd_index[0] & !C1_r_rd_index[2])));
+
+
+--C1L89 is fifo:fifo_rx|r_rd_index~1 at LCCOMB_X80_Y68_N0
+C1L89 = (r_fifo_tx_wr_en & (!C1L4 & !C1L6));
+
+
+--C1L8 is fifo:fifo_rx|p_control~1 at LCCOMB_X80_Y68_N14
+C1L8 = (r_fifo_tx_wr_en & !C1L6);
+
+
+--C1L90 is fifo:fifo_rx|r_rd_index~2 at LCCOMB_X80_Y68_N28
+C1L90 = (C1_r_rd_index[1] & (((!C1_r_rd_index[0] & C1L89)) # (!C1L8))) # (!C1_r_rd_index[1] & (C1_r_rd_index[0] & ((C1L89))));
+
+
+--C1L91 is fifo:fifo_rx|r_rd_index~3 at LCCOMB_X80_Y68_N30
+C1L91 = (A1L9 & C1L90);
+
+
+--C1L3 is fifo:fifo_rx|Add3~0 at LCCOMB_X80_Y68_N18
+C1L3 = (C1_r_rd_index[0] & C1_r_rd_index[1]);
+
+
+--C1L92 is fifo:fifo_rx|r_rd_index~4 at LCCOMB_X80_Y68_N10
+C1L92 = (A1L9 & (C1_r_rd_index[2] $ (((C1L3 & C1L8)))));
+
+
+--C1L93 is fifo:fifo_rx|r_rd_index~5 at LCCOMB_X80_Y68_N12
+C1L93 = (C1L89 & (C1_r_rd_index[3] $ (((C1_r_rd_index[2] & C1L3)))));
+
+
+--C1L94 is fifo:fifo_rx|r_rd_index~6 at LCCOMB_X80_Y68_N4
+C1L94 = (A1L9 & ((C1L93) # ((!C1L8 & C1_r_rd_index[3]))));
+
+
+--r_fifo_rx_wr_data[5] is r_fifo_rx_wr_data[5] at FF_X77_Y68_N11
+--register power-up is low
+
+r_fifo_rx_wr_data[5] = DFFEAS(A1L45, GLOBAL(A1L6),  ,  , !C1L5,  ,  ,  ,  );
+
+
+--r_fifo_rx_wr_data[4] is r_fifo_rx_wr_data[4] at FF_X77_Y68_N17
+--register power-up is low
+
+r_fifo_rx_wr_data[4] = DFFEAS(A1L43, GLOBAL(A1L6),  ,  , !C1L5,  ,  ,  ,  );
+
+
+--r_fifo_rx_wr_data[7] is r_fifo_rx_wr_data[7] at FF_X77_Y68_N19
+--register power-up is low
+
+r_fifo_rx_wr_data[7] = DFFEAS(A1L49, GLOBAL(A1L6),  ,  , !C1L5,  ,  ,  ,  );
+
+
+--r_fifo_rx_wr_data[2] is r_fifo_rx_wr_data[2] at FF_X77_Y68_N13
+--register power-up is low
+
+r_fifo_rx_wr_data[2] = DFFEAS(A1L39, GLOBAL(A1L6),  ,  , !C1L5,  ,  ,  ,  );
+
+
+--r_fifo_rx_wr_data[1] is r_fifo_rx_wr_data[1] at FF_X77_Y68_N27
+--register power-up is low
+
+r_fifo_rx_wr_data[1] = DFFEAS(A1L37, GLOBAL(A1L6),  ,  , !C1L5,  ,  ,  ,  );
+
+
+--r_fifo_rx_wr_data[0] is r_fifo_rx_wr_data[0] at FF_X77_Y68_N25
+--register power-up is low
+
+r_fifo_rx_wr_data[0] = DFFEAS(A1L35, GLOBAL(A1L6),  ,  , !C1L5,  ,  ,  ,  );
+
+
+--r_fifo_rx_wr_data[3] is r_fifo_rx_wr_data[3] at FF_X77_Y68_N3
+--register power-up is low
+
+r_fifo_rx_wr_data[3] = DFFEAS(A1L41, GLOBAL(A1L6),  ,  , !C1L5,  ,  ,  ,  );
+
+
+--C1L102 is fifo:fifo_rx|r_wr_index~0 at LCCOMB_X81_Y68_N2
+C1L102 = (A1L9 & !C1_r_wr_index[0]);
+
+
+--C1L100 is fifo:fifo_rx|r_wr_index[3]~1 at LCCOMB_X81_Y68_N10
+C1L100 = ((r_fifo_rx_wr_en & !C1L5)) # (!A1L9);
+
+
+--C1L101 is fifo:fifo_rx|r_wr_index[3]~2 at LCCOMB_X81_Y68_N12
+C1L101 = ((C1_r_wr_index[1]) # ((C1_r_wr_index[2]) # (!C1_r_wr_index[3]))) # (!C1_r_wr_index[0]);
+
+
+--C1L103 is fifo:fifo_rx|r_wr_index~3 at LCCOMB_X81_Y68_N0
+C1L103 = (C1L101 & (A1L9 & (C1_r_wr_index[1] $ (C1_r_wr_index[0]))));
+
+
+--C1L1 is fifo:fifo_rx|Add2~0 at LCCOMB_X81_Y68_N30
+C1L1 = C1_r_wr_index[2] $ (((C1_r_wr_index[1] & C1_r_wr_index[0])));
+
+
+--C1L104 is fifo:fifo_rx|r_wr_index~4 at LCCOMB_X81_Y68_N22
+C1L104 = (C1L101 & (A1L9 & C1L1));
+
+
+--C1L2 is fifo:fifo_rx|Add2~1 at LCCOMB_X81_Y68_N16
+C1L2 = C1_r_wr_index[3] $ (((C1_r_wr_index[0] & (C1_r_wr_index[1] & C1_r_wr_index[2]))));
+
+
+--C1L105 is fifo:fifo_rx|r_wr_index~5 at LCCOMB_X81_Y68_N28
+C1L105 = (C1L101 & (C1L2 & A1L9));
+
+
+--D1L101 is uart_rx:receiver|Selector15~3 at LCCOMB_X74_Y71_N14
+D1L101 = (D1L100) # ((!D1_r_sm_main.s_rx_data_bits & (D1_r_bit_index[1] & D1_r_sm_main.s_idle)));
+
+
+--D1L14 is uart_rx:receiver|LessThan1~1 at LCCOMB_X72_Y71_N0
+D1L14 = (D1_r_clk_count[8]) # ((D1_r_clk_count[9]) # ((D1_r_clk_count[7]) # (!D1L13)));
+
+
+--D1L15 is uart_rx:receiver|LessThan1~2 at LCCOMB_X72_Y71_N30
+D1L15 = (D1_r_clk_count[12] & ((D1_r_clk_count[11]) # ((D1_r_clk_count[10] & D1L14))));
+
+
+--A1L96 is ~GND at LCCOMB_X79_Y71_N14
+A1L96 = GND;
 
 
 
@@ -547,136 +1729,168 @@ D1L16 = (D1_r_clk_count[12] & ((D1_r_clk_count[11]) # ((D1_r_clk_count[10] & D1L
 i_rst = INPUT();
 
 
---A1L18 is o_status[0]~output at IOOBUF_X87_Y73_N9
-A1L18 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
+--A1L23 is o_status[0]~output at IOOBUF_X87_Y73_N9
+A1L23 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
 
 
 --o_status[0] is o_status[0] at PIN_E18
 o_status[0] = OUTPUT();
 
 
---A1L20 is o_status[1]~output at IOOBUF_X72_Y73_N9
-A1L20 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
+--A1L25 is o_status[1]~output at IOOBUF_X72_Y73_N9
+A1L25 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
 
 
 --o_status[1] is o_status[1] at PIN_J19
 o_status[1] = OUTPUT();
 
 
---A1L22 is o_status[2]~output at IOOBUF_X72_Y73_N2
-A1L22 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
+--A1L27 is o_status[2]~output at IOOBUF_X72_Y73_N2
+A1L27 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
 
 
 --o_status[2] is o_status[2] at PIN_H19
 o_status[2] = OUTPUT();
 
 
---A1L24 is o_status[3]~output at IOOBUF_X69_Y73_N2
-A1L24 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
+--A1L29 is o_status[3]~output at IOOBUF_X69_Y73_N2
+A1L29 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
 
 
 --o_status[3] is o_status[3] at PIN_J17
 o_status[3] = OUTPUT();
 
 
---A1L15 is o_fifo_rx_full~output at IOOBUF_X83_Y73_N2
-A1L15 = OUTPUT_BUFFER.O(.I(C1L2), , , , , , , , , , , , , , , , , );
+--A1L16 is o_fifo_rx_full~output at IOOBUF_X83_Y73_N2
+A1L16 = OUTPUT_BUFFER.O(.I(C1L5), , , , , , , , , , , , , , , , , );
 
 
 --o_fifo_rx_full is o_fifo_rx_full at PIN_E25
 o_fifo_rx_full = OUTPUT();
 
 
---A1L13 is o_fifo_rx_empty~output at IOOBUF_X85_Y73_N23
-A1L13 = OUTPUT_BUFFER.O(.I(C1L3), , , , , , , , , , , , , , , , , );
+--A1L14 is o_fifo_rx_empty~output at IOOBUF_X85_Y73_N23
+A1L14 = OUTPUT_BUFFER.O(.I(C1L6), , , , , , , , , , , , , , , , , );
 
 
 --o_fifo_rx_empty is o_fifo_rx_empty at PIN_E24
 o_fifo_rx_empty = OUTPUT();
 
 
---A1L28 is rx_data[0]~output at IOOBUF_X60_Y73_N23
-A1L28 = OUTPUT_BUFFER.O(.I(D1_r_rx_byte[0]), , , , , , , , , , , , , , , , , );
+--A1L68 is rx_data[0]~output at IOOBUF_X60_Y73_N23
+A1L68 = OUTPUT_BUFFER.O(.I(D1_r_rx_byte[0]), , , , , , , , , , , , , , , , , );
 
 
 --rx_data[0] is rx_data[0] at PIN_J15
 rx_data[0] = OUTPUT();
 
 
---A1L30 is rx_data[1]~output at IOOBUF_X65_Y73_N23
-A1L30 = OUTPUT_BUFFER.O(.I(D1_r_rx_byte[1]), , , , , , , , , , , , , , , , , );
+--A1L70 is rx_data[1]~output at IOOBUF_X65_Y73_N23
+A1L70 = OUTPUT_BUFFER.O(.I(D1_r_rx_byte[1]), , , , , , , , , , , , , , , , , );
 
 
 --rx_data[1] is rx_data[1] at PIN_H16
 rx_data[1] = OUTPUT();
 
 
---A1L32 is rx_data[2]~output at IOOBUF_X65_Y73_N16
-A1L32 = OUTPUT_BUFFER.O(.I(D1_r_rx_byte[2]), , , , , , , , , , , , , , , , , );
+--A1L72 is rx_data[2]~output at IOOBUF_X65_Y73_N16
+A1L72 = OUTPUT_BUFFER.O(.I(D1_r_rx_byte[2]), , , , , , , , , , , , , , , , , );
 
 
 --rx_data[2] is rx_data[2] at PIN_J16
 rx_data[2] = OUTPUT();
 
 
---A1L34 is rx_data[3]~output at IOOBUF_X67_Y73_N9
-A1L34 = OUTPUT_BUFFER.O(.I(D1_r_rx_byte[3]), , , , , , , , , , , , , , , , , );
+--A1L74 is rx_data[3]~output at IOOBUF_X67_Y73_N9
+A1L74 = OUTPUT_BUFFER.O(.I(D1_r_rx_byte[3]), , , , , , , , , , , , , , , , , );
 
 
 --rx_data[3] is rx_data[3] at PIN_H17
 rx_data[3] = OUTPUT();
 
 
---A1L36 is rx_data[4]~output at IOOBUF_X58_Y73_N2
-A1L36 = OUTPUT_BUFFER.O(.I(D1_r_rx_byte[4]), , , , , , , , , , , , , , , , , );
+--A1L76 is rx_data[4]~output at IOOBUF_X58_Y73_N2
+A1L76 = OUTPUT_BUFFER.O(.I(D1_r_rx_byte[4]), , , , , , , , , , , , , , , , , );
 
 
 --rx_data[4] is rx_data[4] at PIN_F15
 rx_data[4] = OUTPUT();
 
 
---A1L38 is rx_data[5]~output at IOOBUF_X65_Y73_N9
-A1L38 = OUTPUT_BUFFER.O(.I(D1_r_rx_byte[5]), , , , , , , , , , , , , , , , , );
+--A1L78 is rx_data[5]~output at IOOBUF_X65_Y73_N9
+A1L78 = OUTPUT_BUFFER.O(.I(D1_r_rx_byte[5]), , , , , , , , , , , , , , , , , );
 
 
 --rx_data[5] is rx_data[5] at PIN_G15
 rx_data[5] = OUTPUT();
 
 
---A1L40 is rx_data[6]~output at IOOBUF_X67_Y73_N2
-A1L40 = OUTPUT_BUFFER.O(.I(D1_r_rx_byte[6]), , , , , , , , , , , , , , , , , );
+--A1L80 is rx_data[6]~output at IOOBUF_X67_Y73_N2
+A1L80 = OUTPUT_BUFFER.O(.I(D1_r_rx_byte[6]), , , , , , , , , , , , , , , , , );
 
 
 --rx_data[6] is rx_data[6] at PIN_G16
 rx_data[6] = OUTPUT();
 
 
---A1L42 is rx_data[7]~output at IOOBUF_X60_Y73_N16
-A1L42 = OUTPUT_BUFFER.O(.I(D1_r_rx_byte[7]), , , , , , , , , , , , , , , , , );
+--A1L82 is rx_data[7]~output at IOOBUF_X60_Y73_N16
+A1L82 = OUTPUT_BUFFER.O(.I(D1_r_rx_byte[7]), , , , , , , , , , , , , , , , , );
 
 
 --rx_data[7] is rx_data[7] at PIN_H15
 rx_data[7] = OUTPUT();
 
 
---A1L4 is i_clk~input at IOIBUF_X0_Y36_N15
-A1L4 = INPUT_BUFFER(.I(i_clk), );
+--A1L20 is o_fifo_tx_full~output at IOOBUF_X107_Y73_N9
+A1L20 = OUTPUT_BUFFER.O(.I(C2L3), , , , , , , , , , , , , , , , , );
+
+
+--o_fifo_tx_full is o_fifo_tx_full at PIN_E21
+o_fifo_tx_full = OUTPUT();
+
+
+--A1L18 is o_fifo_tx_empty~output at IOOBUF_X111_Y73_N9
+A1L18 = OUTPUT_BUFFER.O(.I(C2L4), , , , , , , , , , , , , , , , , );
+
+
+--o_fifo_tx_empty is o_fifo_tx_empty at PIN_E22
+o_fifo_tx_empty = OUTPUT();
+
+
+--A1L31 is o_tx_serial~output at IOOBUF_X13_Y73_N23
+A1L31 = OUTPUT_BUFFER.O(.I(E1_o_tx_serial), , , , , , , , , , , , , , , , , );
+
+
+--o_tx_serial is o_tx_serial at PIN_G9
+o_tx_serial = OUTPUT();
+
+
+--A1L85 is tx_data~output at IOOBUF_X115_Y16_N9
+A1L85 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
+
+
+--tx_data is tx_data at PIN_AB25
+tx_data = OUTPUT();
+
+
+--A1L5 is i_clk~input at IOIBUF_X0_Y36_N15
+A1L5 = INPUT_BUFFER(.I(i_clk), );
 
 
 --i_clk is i_clk at PIN_Y2
 i_clk = INPUT();
 
 
---A1L8 is i_rst_sync~input at IOIBUF_X115_Y53_N15
-A1L8 = INPUT_BUFFER(.I(i_rst_sync), );
+--A1L9 is i_rst_sync~input at IOIBUF_X115_Y53_N15
+A1L9 = INPUT_BUFFER(.I(i_rst_sync), );
 
 
 --i_rst_sync is i_rst_sync at PIN_M21
 i_rst_sync = INPUT();
 
 
---A1L11 is i_rx_serial~input at IOIBUF_X27_Y73_N8
-A1L11 = INPUT_BUFFER(.I(i_rx_serial), );
+--A1L12 is i_rx_serial~input at IOIBUF_X27_Y73_N8
+A1L12 = INPUT_BUFFER(.I(i_rx_serial), );
 
 
 --i_rx_serial is i_rx_serial at PIN_G12
@@ -693,15 +1907,127 @@ i_rx_serial = INPUT();
 
 
 
---A1L5 is i_clk~inputclkctrl at CLKCTRL_G4
-A1L5 = cycloneive_clkctrl(.INCLK[0] = A1L4) WITH (clock_type = "Global Clock", ena_register_mode = "none");
+--A1L6 is i_clk~inputclkctrl at CLKCTRL_G4
+A1L6 = cycloneive_clkctrl(.INCLK[0] = A1L5) WITH (clock_type = "Global Clock", ena_register_mode = "none");
 
 
---D1L87 is uart_rx:receiver|r_sm_main.s_cleanup~feeder at LCCOMB_X67_Y70_N22
-D1L87 = D1L93;
+--A1L35 is r_fifo_rx_wr_data[0]~feeder at LCCOMB_X77_Y68_N24
+A1L35 = D1_r_rx_byte[0];
 
 
---D1L84 is uart_rx:receiver|r_rx_data~feeder at LCCOMB_X65_Y70_N20
-D1L84 = D1_r_rx_data_r;
+--A1L37 is r_fifo_rx_wr_data[1]~feeder at LCCOMB_X77_Y68_N26
+A1L37 = D1_r_rx_byte[1];
+
+
+--A1L39 is r_fifo_rx_wr_data[2]~feeder at LCCOMB_X77_Y68_N12
+A1L39 = D1_r_rx_byte[2];
+
+
+--A1L41 is r_fifo_rx_wr_data[3]~feeder at LCCOMB_X77_Y68_N2
+A1L41 = D1_r_rx_byte[3];
+
+
+--A1L43 is r_fifo_rx_wr_data[4]~feeder at LCCOMB_X77_Y68_N16
+A1L43 = D1_r_rx_byte[4];
+
+
+--A1L45 is r_fifo_rx_wr_data[5]~feeder at LCCOMB_X77_Y68_N10
+A1L45 = D1_r_rx_byte[5];
+
+
+--A1L47 is r_fifo_rx_wr_data[6]~feeder at LCCOMB_X77_Y68_N28
+A1L47 = D1_r_rx_byte[6];
+
+
+--A1L49 is r_fifo_rx_wr_data[7]~feeder at LCCOMB_X77_Y68_N18
+A1L49 = D1_r_rx_byte[7];
+
+
+--D1L86 is uart_rx:receiver|r_rx_data~feeder at LCCOMB_X73_Y71_N24
+D1L86 = D1_r_rx_data_r;
+
+
+--C1L62 is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[21]~feeder at LCCOMB_X77_Y68_N4
+C1L62 = r_fifo_rx_wr_data[6];
+
+
+--C1L28 is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[1]~feeder at LCCOMB_X81_Y68_N24
+C1L28 = C1_r_wr_index[0];
+
+
+--C1L31 is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[3]~feeder at LCCOMB_X81_Y68_N6
+C1L31 = C1_r_wr_index[1];
+
+
+--C1L36 is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[7]~feeder at LCCOMB_X81_Y68_N4
+C1L36 = C1_r_wr_index[3];
+
+
+--C1L85 is fifo:fifo_rx|r_rd_index[2]~feeder at LCCOMB_X80_Y68_N24
+C1L85 = C1L92;
+
+
+--C1L87 is fifo:fifo_rx|r_rd_index[3]~feeder at LCCOMB_X80_Y68_N16
+C1L87 = C1L94;
+
+
+--C1L58 is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[19]~feeder at LCCOMB_X77_Y68_N6
+C1L58 = r_fifo_rx_wr_data[5];
+
+
+--C1L54 is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[17]~feeder at LCCOMB_X77_Y68_N0
+C1L54 = r_fifo_rx_wr_data[4];
+
+
+--C1L66 is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[23]~feeder at LCCOMB_X77_Y68_N22
+C1L66 = r_fifo_rx_wr_data[7];
+
+
+--C1L46 is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[13]~feeder at LCCOMB_X77_Y68_N20
+C1L46 = r_fifo_rx_wr_data[2];
+
+
+--C1L39 is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[9]~feeder at LCCOMB_X77_Y68_N8
+C1L39 = r_fifo_rx_wr_data[0];
+
+
+--C1L50 is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[15]~feeder at LCCOMB_X77_Y68_N30
+C1L50 = r_fifo_rx_wr_data[3];
+
+
+--D1L85 is uart_rx:receiver|r_rx_data_r~feeder at LCCOMB_X61_Y71_N24
+D1L85 = A1L12;
+
+
+--C1L64 is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[22]~feeder at LCCOMB_X79_Y68_N30
+C1L64 = VCC;
+
+
+--C1L60 is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[20]~feeder at LCCOMB_X79_Y68_N12
+C1L60 = VCC;
+
+
+--C1L56 is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[18]~feeder at LCCOMB_X79_Y68_N26
+C1L56 = VCC;
+
+
+--C1L68 is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[24]~feeder at LCCOMB_X76_Y68_N24
+C1L68 = VCC;
+
+
+--C1L48 is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[14]~feeder at LCCOMB_X79_Y68_N20
+C1L48 = VCC;
+
+
+--C1L44 is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[12]~feeder at LCCOMB_X79_Y68_N22
+C1L44 = VCC;
+
+
+--C1L41 is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[10]~feeder at LCCOMB_X79_Y68_N0
+C1L41 = VCC;
+
+
+--C1L52 is fifo:fifo_rx|r_fifo_data_rtl_0_bypass[16]~feeder at LCCOMB_X79_Y68_N10
+C1L52 = VCC;
 
 

@@ -4796,14 +4796,6 @@ E1_r_b_reg[5] = DFFEAS(E1L141, i_clk, i_rst,  , E1L8, E1_r_b_reg[6],  ,  , E1_r_
 E1_r_b_reg[6] = DFFEAS(E1L99, i_clk, i_rst,  , E1L8, E1_r_b_reg[7],  ,  , E1_r_state_reg.s_data);
 
 
---o_tx_full is o_tx_full
-o_tx_full = OUTPUT(C2_r_full);
-
-
---o_tx_empty is o_tx_empty
-o_tx_empty = OUTPUT(C2L715);
-
-
 --o_rx_full is o_rx_full
 o_rx_full = OUTPUT(C1_r_full);
 
@@ -4848,16 +4840,44 @@ o_r_data[7] = OUTPUT(C1L137);
 o_tx = OUTPUT(E1L44);
 
 
---C2_r_full is fifo:fifo_tx|r_full
---register power-up is low
-
-C2_r_full = DFFEAS(C2L89, i_clk, i_rst,  , C2L90,  ,  ,  ,  );
+--o_tx_full is o_tx_full
+o_tx_full = OUTPUT(C2_r_full);
 
 
---C2_r_empty is fifo:fifo_tx|r_empty
---register power-up is low
+--o_tx_empty is o_tx_empty
+o_tx_empty = OUTPUT(C2L715);
 
-C2_r_empty = DFFEAS(C2L95, i_clk, i_rst,  , C2L90,  ,  ,  ,  );
+
+--o_data_test[0] is o_data_test[0]
+o_data_test[0] = OUTPUT(D1_r_b_reg[0]);
+
+
+--o_data_test[1] is o_data_test[1]
+o_data_test[1] = OUTPUT(D1_r_b_reg[1]);
+
+
+--o_data_test[2] is o_data_test[2]
+o_data_test[2] = OUTPUT(D1_r_b_reg[2]);
+
+
+--o_data_test[3] is o_data_test[3]
+o_data_test[3] = OUTPUT(D1_r_b_reg[3]);
+
+
+--o_data_test[4] is o_data_test[4]
+o_data_test[4] = OUTPUT(D1_r_b_reg[4]);
+
+
+--o_data_test[5] is o_data_test[5]
+o_data_test[5] = OUTPUT(D1_r_b_reg[5]);
+
+
+--o_data_test[6] is o_data_test[6]
+o_data_test[6] = OUTPUT(D1_r_b_reg[6]);
+
+
+--o_data_test[7] is o_data_test[7]
+o_data_test[7] = OUTPUT(D1_r_b_reg[7]);
 
 
 --C1_r_full is fifo:fifo_rx|r_full
@@ -4881,7 +4901,7 @@ C1_r_array[42][0] = DFFEAS(D1_r_b_reg[0], i_clk, i_rst,  , C1L14,  ,  ,  ,  );
 --C1_r_ptr[5] is fifo:fifo_rx|r_ptr[5]
 --register power-up is low
 
-C1_r_ptr[5] = DFFEAS(C1L11, i_clk, i_rst,  , C1L1013,  ,  ,  ,  );
+C1_r_ptr[5] = DFFEAS(C1L11, i_clk, i_rst,  , C1L1016,  ,  ,  ,  );
 
 
 --C1_r_array[14][0] is fifo:fifo_rx|r_array[14][0]
@@ -4893,7 +4913,7 @@ C1_r_array[14][0] = DFFEAS(D1_r_b_reg[0], i_clk, i_rst,  , C1L16,  ,  ,  ,  );
 --C1_r_ptr[2] is fifo:fifo_rx|r_ptr[2]
 --register power-up is low
 
-C1_r_ptr[2] = DFFEAS(C1L7, i_clk, i_rst,  , C1L1013,  ,  ,  ,  );
+C1_r_ptr[2] = DFFEAS(C1L7, i_clk, i_rst,  , C1L1016,  ,  ,  ,  );
 
 
 --C1_r_array[10][0] is fifo:fifo_rx|r_array[10][0]
@@ -4919,7 +4939,7 @@ C1L391 = (C1_r_ptr[5] & ((C1L390 & ((C1_r_array[46][0]))) # (!C1L390 & (C1_r_arr
 --C1_r_ptr[3] is fifo:fifo_rx|r_ptr[3]
 --register power-up is low
 
-C1_r_ptr[3] = DFFEAS(C1L10, i_clk, i_rst,  , C1L1013,  ,  ,  ,  );
+C1_r_ptr[3] = DFFEAS(C1L10, i_clk, i_rst,  , C1L1016,  ,  ,  ,  );
 
 
 --C1_r_array[22][0] is fifo:fifo_rx|r_array[22][0]
@@ -4957,7 +4977,7 @@ C1L393 = (C1_r_ptr[2] & ((C1L392 & ((C1_r_array[54][0]))) # (!C1L392 & (C1_r_arr
 --C1_r_ptr[4] is fifo:fifo_rx|r_ptr[4]
 --register power-up is low
 
-C1_r_ptr[4] = DFFEAS(C1L9, i_clk, i_rst,  , C1L1013,  ,  ,  ,  );
+C1_r_ptr[4] = DFFEAS(C1L9, i_clk, i_rst,  , C1L1016,  ,  ,  ,  );
 
 
 --C1_r_array[6][0] is fifo:fifo_rx|r_array[6][0]
@@ -5035,7 +5055,7 @@ C1L399 = (C1_r_ptr[3] & ((C1L396 & ((C1L398))) # (!C1L396 & (C1L391)))) # (!C1_r
 --C1_r_ptr[1] is fifo:fifo_rx|r_ptr[1]
 --register power-up is low
 
-C1_r_ptr[1] = DFFEAS(C1L12, i_clk, i_rst,  , C1L1013,  ,  ,  ,  );
+C1_r_ptr[1] = DFFEAS(C1L12, i_clk, i_rst,  , C1L1016,  ,  ,  ,  );
 
 
 --C1_r_array[21][0] is fifo:fifo_rx|r_array[21][0]
@@ -5177,7 +5197,7 @@ C1L409 = (C1_r_ptr[2] & ((C1L406 & ((C1L408))) # (!C1L406 & (C1L401)))) # (!C1_r
 --C1_r_ptr[0] is fifo:fifo_rx|r_ptr[0]
 --register power-up is low
 
-C1_r_ptr[0] = DFFEAS(C1L1014, i_clk, i_rst,  , C1L1013,  ,  ,  ,  );
+C1_r_ptr[0] = DFFEAS(C1L1013, i_clk, i_rst,  , C1L1016,  ,  ,  ,  );
 
 
 --C1_r_array[48][0] is fifo:fifo_rx|r_array[48][0]
@@ -9330,162 +9350,98 @@ C1L137 = (C1_r_ptr[2] & ((C1L126 & ((C1L136))) # (!C1L126 & (C1L105)))) # (!C1_r
 E1_r_tx_reg = DFFEAS(E1L45, i_clk, i_rst,  ,  ,  ,  ,  ,  );
 
 
---C2_r_ptr[2] is fifo:fifo_tx|r_ptr[2]
+--C2_r_full is fifo:fifo_tx|r_full
 --register power-up is low
 
-C2_r_ptr[2] = DFFEAS(C2L7, i_clk, i_rst,  , C2L719,  ,  ,  ,  );
+C2_r_full = DFFEAS(C2L89, i_clk, i_rst,  , C2L90,  ,  ,  ,  );
 
 
---C2_r_ptr[4] is fifo:fifo_tx|r_ptr[4]
+--C2_r_empty is fifo:fifo_tx|r_empty
 --register power-up is low
 
-C2_r_ptr[4] = DFFEAS(C2L9, i_clk, i_rst,  , C2L719,  ,  ,  ,  );
+C2_r_empty = DFFEAS(C2L95, i_clk, i_rst,  , C2L90,  ,  ,  ,  );
 
 
---C2_r_w_ptr[4] is fifo:fifo_tx|r_w_ptr[4]
+--D1_r_b_reg[0] is uart_rx:receiver|r_b_reg[0]
 --register power-up is low
 
-C2_r_w_ptr[4] = DFFEAS(C2L2, i_clk, i_rst,  , C2L728,  ,  ,  ,  );
+D1_r_b_reg[0] = DFFEAS(D1_r_b_reg[1], i_clk, i_rst,  , D1L8,  ,  ,  ,  );
 
 
---C2_r_w_ptr[3] is fifo:fifo_tx|r_w_ptr[3]
+--D1_r_b_reg[1] is uart_rx:receiver|r_b_reg[1]
 --register power-up is low
 
-C2_r_w_ptr[3] = DFFEAS(C2L4, i_clk, i_rst,  , C2L728,  ,  ,  ,  );
+D1_r_b_reg[1] = DFFEAS(D1_r_b_reg[2], i_clk, i_rst,  , D1L8,  ,  ,  ,  );
 
 
---C2_r_w_ptr[2] is fifo:fifo_tx|r_w_ptr[2]
+--D1_r_b_reg[2] is uart_rx:receiver|r_b_reg[2]
 --register power-up is low
 
-C2_r_w_ptr[2] = DFFEAS(C2L3, i_clk, i_rst,  , C2L728,  ,  ,  ,  );
+D1_r_b_reg[2] = DFFEAS(D1_r_b_reg[3], i_clk, i_rst,  , D1L8,  ,  ,  ,  );
 
 
---C2_r_w_ptr[1] is fifo:fifo_tx|r_w_ptr[1]
+--D1_r_b_reg[3] is uart_rx:receiver|r_b_reg[3]
 --register power-up is low
 
-C2_r_w_ptr[1] = DFFEAS(C2L6, i_clk, i_rst,  , C2L728,  ,  ,  ,  );
+D1_r_b_reg[3] = DFFEAS(D1_r_b_reg[4], i_clk, i_rst,  , D1L8,  ,  ,  ,  );
 
 
---C2_r_w_ptr[0] is fifo:fifo_tx|r_w_ptr[0]
+--D1_r_b_reg[4] is uart_rx:receiver|r_b_reg[4]
 --register power-up is low
 
-C2_r_w_ptr[0] = DFFEAS(C2L729, i_clk, i_rst,  , C2L728,  ,  ,  ,  );
+D1_r_b_reg[4] = DFFEAS(D1_r_b_reg[5], i_clk, i_rst,  , D1L8,  ,  ,  ,  );
 
 
---C2L1 is fifo:fifo_tx|Add0~0
-C2L1 = (C2_r_w_ptr[3] & (C2_r_w_ptr[2] & (C2_r_w_ptr[1] & C2_r_w_ptr[0])));
-
-
---C2L2 is fifo:fifo_tx|Add0~1
-C2L2 = C2_r_w_ptr[4] $ (C2L1);
-
-
---C2L3 is fifo:fifo_tx|Add0~2
-C2L3 = C2_r_w_ptr[2] $ (((C2_r_w_ptr[1] & C2_r_w_ptr[0])));
-
-
---C2L85 is fifo:fifo_tx|Mux6~0
-C2L85 = (C2_r_ptr[2] & (C2L3 & (C2_r_ptr[4] $ (!C2L2)))) # (!C2_r_ptr[2] & (!C2L3 & (C2_r_ptr[4] $ (!C2L2))));
-
-
---i_wr_uart is i_wr_uart
-i_wr_uart = INPUT();
-
-
---C2_r_ptr[1] is fifo:fifo_tx|r_ptr[1]
+--D1_r_b_reg[5] is uart_rx:receiver|r_b_reg[5]
 --register power-up is low
 
-C2_r_ptr[1] = DFFEAS(C2L12, i_clk, i_rst,  , C2L719,  ,  ,  ,  );
+D1_r_b_reg[5] = DFFEAS(D1_r_b_reg[6], i_clk, i_rst,  , D1L8,  ,  ,  ,  );
 
 
---C2_r_ptr[0] is fifo:fifo_tx|r_ptr[0]
+--D1_r_b_reg[6] is uart_rx:receiver|r_b_reg[6]
 --register power-up is low
 
-C2_r_ptr[0] = DFFEAS(C2L720, i_clk, i_rst,  , C2L719,  ,  ,  ,  );
+D1_r_b_reg[6] = DFFEAS(D1_r_b_reg[7], i_clk, i_rst,  , D1L8,  ,  ,  ,  );
 
 
---C2L86 is fifo:fifo_tx|Mux6~1
-C2L86 = (C2_r_ptr[0] & (!C2_r_w_ptr[0] & (C2_r_w_ptr[1] $ (!C2_r_ptr[1])))) # (!C2_r_ptr[0] & (C2_r_w_ptr[0] & (C2_r_w_ptr[1] $ (C2_r_ptr[1]))));
-
-
---C2_r_ptr[3] is fifo:fifo_tx|r_ptr[3]
+--D1_r_b_reg[7] is uart_rx:receiver|r_b_reg[7]
 --register power-up is low
 
-C2_r_ptr[3] = DFFEAS(C2L10, i_clk, i_rst,  , C2L719,  ,  ,  ,  );
+D1_r_b_reg[7] = DFFEAS(i_rx, i_clk, i_rst,  , D1L8,  ,  ,  ,  );
 
 
---C2L4 is fifo:fifo_tx|Add0~3
-C2L4 = C2_r_w_ptr[3] $ (((C2_r_w_ptr[2] & (C2_r_w_ptr[1] & C2_r_w_ptr[0]))));
-
-
---C2L87 is fifo:fifo_tx|Mux6~2
-C2L87 = (i_wr_uart & (C2L86 & (C2_r_ptr[3] $ (!C2L4))));
-
-
---C2_r_ptr[5] is fifo:fifo_tx|r_ptr[5]
+--D1_r_state_reg.s_stop is uart_rx:receiver|r_state_reg.s_stop
 --register power-up is low
 
-C2_r_ptr[5] = DFFEAS(C2L11, i_clk, i_rst,  , C2L719,  ,  ,  ,  );
+D1_r_state_reg.s_stop = DFFEAS(D1L49, i_clk, i_rst,  ,  ,  ,  ,  ,  );
 
 
---C2_r_w_ptr[5] is fifo:fifo_tx|r_w_ptr[5]
+--D1_r_s_reg[3] is uart_rx:receiver|r_s_reg[3]
 --register power-up is low
 
-C2_r_w_ptr[5] = DFFEAS(C2L5, i_clk, i_rst,  , C2L728,  ,  ,  ,  );
+D1_r_s_reg[3] = DFFEAS(D1L37, i_clk, i_rst,  ,  ,  ,  ,  ,  );
 
 
---C2L5 is fifo:fifo_tx|Add0~4
-C2L5 = C2_r_w_ptr[5] $ (((C2_r_w_ptr[4] & C2L1)));
-
-
---C2L88 is fifo:fifo_tx|Mux6~3
-C2L88 = (C2L85 & (C2L87 & (C2_r_ptr[5] $ (!C2L5))));
-
-
---C2L89 is fifo:fifo_tx|Mux6~4
-C2L89 = (C2L88) # ((C2_r_full & ((i_wr_uart) # (!C2_r_empty))));
-
-
---i_clk is i_clk
-i_clk = INPUT();
-
-
---i_rst is i_rst
-i_rst = INPUT();
-
-
---E1_r_state_reg.s_stop is uart_tx:transmitter|r_state_reg.s_stop
+--D1_r_s_reg[2] is uart_rx:receiver|r_s_reg[2]
 --register power-up is low
 
-E1_r_state_reg.s_stop = DFFEAS(E1L57, i_clk, i_rst,  ,  ,  ,  ,  ,  );
+D1_r_s_reg[2] = DFFEAS(D1L35, i_clk, i_rst,  ,  ,  ,  ,  ,  );
 
 
---E1_r_s_reg[3] is uart_tx:transmitter|r_s_reg[3]
+--D1_r_s_reg[1] is uart_rx:receiver|r_s_reg[1]
 --register power-up is low
 
-E1_r_s_reg[3] = DFFEAS(E1L37, i_clk, i_rst,  ,  ,  ,  ,  ,  );
+D1_r_s_reg[1] = DFFEAS(D1L30, i_clk, i_rst,  ,  ,  ,  ,  ,  );
 
 
---E1_r_s_reg[2] is uart_tx:transmitter|r_s_reg[2]
+--D1_r_s_reg[0] is uart_rx:receiver|r_s_reg[0]
 --register power-up is low
 
-E1_r_s_reg[2] = DFFEAS(E1L35, i_clk, i_rst,  ,  ,  ,  ,  ,  );
+D1_r_s_reg[0] = DFFEAS(D1L28, i_clk, i_rst,  ,  ,  ,  ,  ,  );
 
 
---E1_r_s_reg[1] is uart_tx:transmitter|r_s_reg[1]
---register power-up is low
-
-E1_r_s_reg[1] = DFFEAS(E1L30, i_clk, i_rst,  ,  ,  ,  ,  ,  );
-
-
---E1_r_s_reg[0] is uart_tx:transmitter|r_s_reg[0]
---register power-up is low
-
-E1_r_s_reg[0] = DFFEAS(E1L28, i_clk, i_rst,  ,  ,  ,  ,  ,  );
-
-
---E1L4 is uart_tx:transmitter|Equal1~0
-E1L4 = (E1_r_s_reg[3] & (E1_r_s_reg[2] & (E1_r_s_reg[1] & E1_r_s_reg[0])));
+--D1L3 is uart_rx:receiver|Equal2~0
+D1L3 = (D1_r_s_reg[3] & (D1_r_s_reg[2] & (D1_r_s_reg[1] & D1_r_s_reg[0])));
 
 
 --B1L1 is mod_m_counter:baud_generator|Equal0~0
@@ -9972,120 +9928,38 @@ B1L120 = (B1L117 & (B1L118 & (B1L119 & !B1_r_reg[364])));
 B1L121 = (B1L106 & (B1L111 & (B1L116 & B1L120)));
 
 
---E1L38 is uart_tx:transmitter|r_state_next~4
-E1L38 = (E1L4 & (B1L85 & B1L121));
-
-
---C2L90 is fifo:fifo_tx|Mux6~5
-C2L90 = i_wr_uart $ (((E1_r_state_reg.s_stop & E1L38)));
-
-
---C2L7 is fifo:fifo_tx|Add1~0
-C2L7 = C2_r_ptr[2] $ (((C2_r_ptr[0] & C2_r_ptr[1])));
-
-
---C2L8 is fifo:fifo_tx|Add1~1
-C2L8 = (C2_r_ptr[2] & (C2_r_ptr[3] & (C2_r_ptr[0] & C2_r_ptr[1])));
-
-
---C2L9 is fifo:fifo_tx|Add1~2
-C2L9 = C2_r_ptr[4] $ (C2L8);
-
-
---C2L91 is fifo:fifo_tx|Mux7~2
-C2L91 = (C2_r_w_ptr[4] & (C2L9 & (C2_r_w_ptr[2] $ (!C2L7)))) # (!C2_r_w_ptr[4] & (!C2L9 & (C2_r_w_ptr[2] $ (!C2L7))));
-
-
---C2L92 is fifo:fifo_tx|Mux7~3
-C2L92 = (C2_r_w_ptr[0] & (!C2_r_ptr[0] & (C2_r_w_ptr[1] $ (!C2_r_ptr[1])))) # (!C2_r_w_ptr[0] & (C2_r_ptr[0] & (C2_r_w_ptr[1] $ (C2_r_ptr[1]))));
-
-
---C2L10 is fifo:fifo_tx|Add1~3
-C2L10 = C2_r_ptr[3] $ (((C2_r_ptr[2] & (C2_r_ptr[0] & C2_r_ptr[1]))));
-
-
---C2L93 is fifo:fifo_tx|Mux7~4
-C2L93 = (C2L92 & (!i_wr_uart & (C2_r_w_ptr[3] $ (!C2L10))));
-
-
---C2L11 is fifo:fifo_tx|Add1~4
-C2L11 = C2_r_ptr[5] $ (((C2_r_ptr[4] & C2L8)));
-
-
---C2L94 is fifo:fifo_tx|Mux7~5
-C2L94 = (C2L91 & (C2L93 & (C2_r_w_ptr[5] $ (!C2L11))));
-
-
---C2_r_wr_en is fifo:fifo_tx|r_wr_en
-C2_r_wr_en = (i_wr_uart & !C2_r_full);
-
-
---D1_r_state_reg.s_stop is uart_rx:receiver|r_state_reg.s_stop
---register power-up is low
-
-D1_r_state_reg.s_stop = DFFEAS(D1L49, i_clk, i_rst,  ,  ,  ,  ,  ,  );
-
-
---D1_r_s_reg[3] is uart_rx:receiver|r_s_reg[3]
---register power-up is low
-
-D1_r_s_reg[3] = DFFEAS(D1L37, i_clk, i_rst,  ,  ,  ,  ,  ,  );
-
-
---D1_r_s_reg[2] is uart_rx:receiver|r_s_reg[2]
---register power-up is low
-
-D1_r_s_reg[2] = DFFEAS(D1L35, i_clk, i_rst,  ,  ,  ,  ,  ,  );
-
-
---D1_r_s_reg[1] is uart_rx:receiver|r_s_reg[1]
---register power-up is low
-
-D1_r_s_reg[1] = DFFEAS(D1L33, i_clk, i_rst,  ,  ,  ,  ,  ,  );
-
-
---D1_r_s_reg[0] is uart_rx:receiver|r_s_reg[0]
---register power-up is low
-
-D1_r_s_reg[0] = DFFEAS(D1L31, i_clk, i_rst,  ,  ,  ,  ,  ,  );
-
-
---D1L3 is uart_rx:receiver|Equal2~0
-D1L3 = (D1_r_s_reg[3] & (D1_r_s_reg[2] & (D1_r_s_reg[1] & D1_r_s_reg[0])));
-
-
 --D1L5 is uart_rx:receiver|o_rx_done_tick~0
-D1L5 = (B1L85 & (B1L121 & (D1_r_state_reg.s_stop & D1L3)));
+D1L5 = (D1_r_state_reg.s_stop & (D1L3 & (B1L85 & B1L121)));
 
 
 --C1_r_w_ptr[4] is fifo:fifo_rx|r_w_ptr[4]
 --register power-up is low
 
-C1_r_w_ptr[4] = DFFEAS(C1L2, i_clk, i_rst,  , C1L1022,  ,  ,  ,  );
+C1_r_w_ptr[4] = DFFEAS(C1L2, i_clk, i_rst,  , C1L1028,  ,  ,  ,  );
 
 
 --C1_r_w_ptr[3] is fifo:fifo_rx|r_w_ptr[3]
 --register power-up is low
 
-C1_r_w_ptr[3] = DFFEAS(C1L4, i_clk, i_rst,  , C1L1022,  ,  ,  ,  );
+C1_r_w_ptr[3] = DFFEAS(C1L4, i_clk, i_rst,  , C1L1028,  ,  ,  ,  );
 
 
 --C1_r_w_ptr[2] is fifo:fifo_rx|r_w_ptr[2]
 --register power-up is low
 
-C1_r_w_ptr[2] = DFFEAS(C1L3, i_clk, i_rst,  , C1L1022,  ,  ,  ,  );
+C1_r_w_ptr[2] = DFFEAS(C1L3, i_clk, i_rst,  , C1L1028,  ,  ,  ,  );
 
 
 --C1_r_w_ptr[1] is fifo:fifo_rx|r_w_ptr[1]
 --register power-up is low
 
-C1_r_w_ptr[1] = DFFEAS(C1L6, i_clk, i_rst,  , C1L1022,  ,  ,  ,  );
+C1_r_w_ptr[1] = DFFEAS(C1L6, i_clk, i_rst,  , C1L1028,  ,  ,  ,  );
 
 
 --C1_r_w_ptr[0] is fifo:fifo_rx|r_w_ptr[0]
 --register power-up is low
 
-C1_r_w_ptr[0] = DFFEAS(C1L1023, i_clk, i_rst,  , C1L1022,  ,  ,  ,  );
+C1_r_w_ptr[0] = DFFEAS(C1L1022, i_clk, i_rst,  , C1L1028,  ,  ,  ,  );
 
 
 --C1L1 is fifo:fifo_rx|Add0~0
@@ -10119,7 +9993,7 @@ C1L87 = (C1L85 & (C1L86 & (C1_r_ptr[3] $ (!C1L4))));
 --C1_r_w_ptr[5] is fifo:fifo_rx|r_w_ptr[5]
 --register power-up is low
 
-C1_r_w_ptr[5] = DFFEAS(C1L5, i_clk, i_rst,  , C1L1022,  ,  ,  ,  );
+C1_r_w_ptr[5] = DFFEAS(C1L5, i_clk, i_rst,  , C1L1028,  ,  ,  ,  );
 
 
 --C1L5 is fifo:fifo_rx|Add0~4
@@ -10132,6 +10006,14 @@ C1L88 = (C1_r_full) # ((C1L87 & (C1_r_ptr[5] $ (!C1L5))));
 
 --C1L89 is fifo:fifo_rx|Mux6~4
 C1L89 = (D1L5 & ((C1L88) # ((C1_r_full & !C1_r_empty)))) # (!D1L5 & (((C1_r_full & !C1_r_empty))));
+
+
+--i_clk is i_clk
+i_clk = INPUT();
+
+
+--i_rst is i_rst
+i_rst = INPUT();
 
 
 --i_rd_uart is i_rd_uart
@@ -10182,12 +10064,6 @@ C1L94 = ((C1L93 & (C1_r_w_ptr[5] $ (!C1L11)))) # (!C1_r_empty);
 C1L95 = (C1_r_full & (C1_r_empty & ((D1L5) # (!C1L94)))) # (!C1_r_full & (((D1L5)) # (!C1L94)));
 
 
---D1_r_b_reg[0] is uart_rx:receiver|r_b_reg[0]
---register power-up is low
-
-D1_r_b_reg[0] = DFFEAS(D1_r_b_reg[1], i_clk, i_rst,  , D1L8,  ,  ,  ,  );
-
-
 --C1_r_wr_en is fifo:fifo_rx|r_wr_en
 C1_r_wr_en = (D1L5 & !C1_r_full);
 
@@ -10200,8 +10076,8 @@ C1L13 = (C1_r_wr_en & (!C1_r_w_ptr[0] & (C1_r_w_ptr[1] & !C1_r_w_ptr[2])));
 C1L14 = (C1_r_w_ptr[5] & (C1_r_w_ptr[3] & (C1L13 & !C1_r_w_ptr[4])));
 
 
---C1L1013 is fifo:fifo_rx|r_ptr[0]~0
-C1L1013 = (i_rd_uart & ((C1_r_empty) # (D1L5)));
+--C1L1016 is fifo:fifo_rx|r_ptr[2]~0
+C1L1016 = (i_rd_uart & ((C1_r_empty) # (D1L5)));
 
 
 --C1L15 is fifo:fifo_rx|Decoder0~2
@@ -10488,46 +10364,10 @@ C1L83 = (C1_r_w_ptr[4] & (C1_r_w_ptr[3] & (C1L67 & !C1_r_w_ptr[5])));
 C1L84 = (C1_r_w_ptr[5] & (C1_r_w_ptr[4] & (C1_r_w_ptr[3] & C1L69)));
 
 
---D1_r_b_reg[1] is uart_rx:receiver|r_b_reg[1]
+--E1_r_state_reg.s_stop is uart_tx:transmitter|r_state_reg.s_stop
 --register power-up is low
 
-D1_r_b_reg[1] = DFFEAS(D1_r_b_reg[2], i_clk, i_rst,  , D1L8,  ,  ,  ,  );
-
-
---D1_r_b_reg[2] is uart_rx:receiver|r_b_reg[2]
---register power-up is low
-
-D1_r_b_reg[2] = DFFEAS(D1_r_b_reg[3], i_clk, i_rst,  , D1L8,  ,  ,  ,  );
-
-
---D1_r_b_reg[3] is uart_rx:receiver|r_b_reg[3]
---register power-up is low
-
-D1_r_b_reg[3] = DFFEAS(D1_r_b_reg[4], i_clk, i_rst,  , D1L8,  ,  ,  ,  );
-
-
---D1_r_b_reg[4] is uart_rx:receiver|r_b_reg[4]
---register power-up is low
-
-D1_r_b_reg[4] = DFFEAS(D1_r_b_reg[5], i_clk, i_rst,  , D1L8,  ,  ,  ,  );
-
-
---D1_r_b_reg[5] is uart_rx:receiver|r_b_reg[5]
---register power-up is low
-
-D1_r_b_reg[5] = DFFEAS(D1_r_b_reg[6], i_clk, i_rst,  , D1L8,  ,  ,  ,  );
-
-
---D1_r_b_reg[6] is uart_rx:receiver|r_b_reg[6]
---register power-up is low
-
-D1_r_b_reg[6] = DFFEAS(D1_r_b_reg[7], i_clk, i_rst,  , D1L8,  ,  ,  ,  );
-
-
---D1_r_b_reg[7] is uart_rx:receiver|r_b_reg[7]
---register power-up is low
-
-D1_r_b_reg[7] = DFFEAS(i_rx, i_clk, i_rst,  , D1L8,  ,  ,  ,  );
+E1_r_state_reg.s_stop = DFFEAS(E1L57, i_clk, i_rst,  ,  ,  ,  ,  ,  );
 
 
 --E1_r_state_reg.s_data is uart_tx:transmitter|r_state_reg.s_data
@@ -10546,24 +10386,316 @@ E1_r_state_reg.s_idle = DFFEAS(E1L46, i_clk, i_rst,  ,  ,  ,  ,  ,  );
 E1L45 = (!E1_r_state_reg.s_stop & (E1_r_state_reg.s_idle & ((!E1_r_state_reg.s_data) # (!E1_r_b_reg[0]))));
 
 
---C2L719 is fifo:fifo_tx|r_ptr[0]~0
-C2L719 = (E1_r_state_reg.s_stop & (E1L38 & ((C2_r_empty) # (i_wr_uart))));
+--C2_r_ptr[2] is fifo:fifo_tx|r_ptr[2]
+--register power-up is low
+
+C2_r_ptr[2] = DFFEAS(C2L7, i_clk, i_rst,  , C2L725,  ,  ,  ,  );
 
 
---C2L728 is fifo:fifo_tx|r_w_ptr[0]~0
-C2L728 = (i_wr_uart & (((E1_r_state_reg.s_stop & E1L38)) # (!C2_r_full)));
+--C2_r_ptr[4] is fifo:fifo_tx|r_ptr[4]
+--register power-up is low
+
+C2_r_ptr[4] = DFFEAS(C2L9, i_clk, i_rst,  , C2L725,  ,  ,  ,  );
 
 
---C2L6 is fifo:fifo_tx|Add0~5
-C2L6 = C2_r_w_ptr[1] $ (C2_r_w_ptr[0]);
+--C2_r_w_ptr[4] is fifo:fifo_tx|r_w_ptr[4]
+--register power-up is low
+
+C2_r_w_ptr[4] = DFFEAS(C2L2, i_clk, i_rst,  , C2L730,  ,  ,  ,  );
 
 
---C2L12 is fifo:fifo_tx|Add1~5
-C2L12 = C2_r_ptr[0] $ (C2_r_ptr[1]);
+--C2_r_w_ptr[3] is fifo:fifo_tx|r_w_ptr[3]
+--register power-up is low
+
+C2_r_w_ptr[3] = DFFEAS(C2L4, i_clk, i_rst,  , C2L730,  ,  ,  ,  );
+
+
+--C2_r_w_ptr[2] is fifo:fifo_tx|r_w_ptr[2]
+--register power-up is low
+
+C2_r_w_ptr[2] = DFFEAS(C2L3, i_clk, i_rst,  , C2L730,  ,  ,  ,  );
+
+
+--C2_r_w_ptr[1] is fifo:fifo_tx|r_w_ptr[1]
+--register power-up is low
+
+C2_r_w_ptr[1] = DFFEAS(C2L6, i_clk, i_rst,  , C2L730,  ,  ,  ,  );
+
+
+--C2_r_w_ptr[0] is fifo:fifo_tx|r_w_ptr[0]
+--register power-up is low
+
+C2_r_w_ptr[0] = DFFEAS(C2L728, i_clk, i_rst,  , C2L730,  ,  ,  ,  );
+
+
+--C2L1 is fifo:fifo_tx|Add0~0
+C2L1 = (C2_r_w_ptr[3] & (C2_r_w_ptr[2] & (C2_r_w_ptr[1] & C2_r_w_ptr[0])));
+
+
+--C2L2 is fifo:fifo_tx|Add0~1
+C2L2 = C2_r_w_ptr[4] $ (C2L1);
+
+
+--C2L3 is fifo:fifo_tx|Add0~2
+C2L3 = C2_r_w_ptr[2] $ (((C2_r_w_ptr[1] & C2_r_w_ptr[0])));
+
+
+--C2L85 is fifo:fifo_tx|Mux6~0
+C2L85 = (C2_r_ptr[2] & (C2L3 & (C2_r_ptr[4] $ (!C2L2)))) # (!C2_r_ptr[2] & (!C2L3 & (C2_r_ptr[4] $ (!C2L2))));
+
+
+--i_wr_uart is i_wr_uart
+i_wr_uart = INPUT();
+
+
+--C2_r_ptr[1] is fifo:fifo_tx|r_ptr[1]
+--register power-up is low
+
+C2_r_ptr[1] = DFFEAS(C2L12, i_clk, i_rst,  , C2L725,  ,  ,  ,  );
+
+
+--C2_r_ptr[0] is fifo:fifo_tx|r_ptr[0]
+--register power-up is low
+
+C2_r_ptr[0] = DFFEAS(C2L719, i_clk, i_rst,  , C2L725,  ,  ,  ,  );
+
+
+--C2L86 is fifo:fifo_tx|Mux6~1
+C2L86 = (C2_r_ptr[0] & (!C2_r_w_ptr[0] & (C2_r_w_ptr[1] $ (!C2_r_ptr[1])))) # (!C2_r_ptr[0] & (C2_r_w_ptr[0] & (C2_r_w_ptr[1] $ (C2_r_ptr[1]))));
+
+
+--C2_r_ptr[3] is fifo:fifo_tx|r_ptr[3]
+--register power-up is low
+
+C2_r_ptr[3] = DFFEAS(C2L10, i_clk, i_rst,  , C2L725,  ,  ,  ,  );
+
+
+--C2L4 is fifo:fifo_tx|Add0~3
+C2L4 = C2_r_w_ptr[3] $ (((C2_r_w_ptr[2] & (C2_r_w_ptr[1] & C2_r_w_ptr[0]))));
+
+
+--C2L87 is fifo:fifo_tx|Mux6~2
+C2L87 = (i_wr_uart & (C2L86 & (C2_r_ptr[3] $ (!C2L4))));
+
+
+--C2_r_ptr[5] is fifo:fifo_tx|r_ptr[5]
+--register power-up is low
+
+C2_r_ptr[5] = DFFEAS(C2L11, i_clk, i_rst,  , C2L725,  ,  ,  ,  );
+
+
+--C2_r_w_ptr[5] is fifo:fifo_tx|r_w_ptr[5]
+--register power-up is low
+
+C2_r_w_ptr[5] = DFFEAS(C2L5, i_clk, i_rst,  , C2L730,  ,  ,  ,  );
+
+
+--C2L5 is fifo:fifo_tx|Add0~4
+C2L5 = C2_r_w_ptr[5] $ (((C2_r_w_ptr[4] & C2L1)));
+
+
+--C2L88 is fifo:fifo_tx|Mux6~3
+C2L88 = (C2L85 & (C2L87 & (C2_r_ptr[5] $ (!C2L5))));
+
+
+--C2L89 is fifo:fifo_tx|Mux6~4
+C2L89 = (C2L88) # ((C2_r_full & ((i_wr_uart) # (!C2_r_empty))));
+
+
+--E1_r_s_reg[3] is uart_tx:transmitter|r_s_reg[3]
+--register power-up is low
+
+E1_r_s_reg[3] = DFFEAS(E1L37, i_clk, i_rst,  ,  ,  ,  ,  ,  );
+
+
+--E1_r_s_reg[2] is uart_tx:transmitter|r_s_reg[2]
+--register power-up is low
+
+E1_r_s_reg[2] = DFFEAS(E1L35, i_clk, i_rst,  ,  ,  ,  ,  ,  );
+
+
+--E1_r_s_reg[1] is uart_tx:transmitter|r_s_reg[1]
+--register power-up is low
+
+E1_r_s_reg[1] = DFFEAS(E1L30, i_clk, i_rst,  ,  ,  ,  ,  ,  );
+
+
+--E1_r_s_reg[0] is uart_tx:transmitter|r_s_reg[0]
+--register power-up is low
+
+E1_r_s_reg[0] = DFFEAS(E1L28, i_clk, i_rst,  ,  ,  ,  ,  ,  );
+
+
+--E1L4 is uart_tx:transmitter|Equal1~0
+E1L4 = (E1_r_s_reg[3] & (E1_r_s_reg[2] & (E1_r_s_reg[1] & E1_r_s_reg[0])));
+
+
+--E1L38 is uart_tx:transmitter|r_state_next~4
+E1L38 = (B1L85 & (B1L121 & E1L4));
+
+
+--C2L90 is fifo:fifo_tx|Mux6~5
+C2L90 = i_wr_uart $ (((E1_r_state_reg.s_stop & E1L38)));
+
+
+--C2L7 is fifo:fifo_tx|Add1~0
+C2L7 = C2_r_ptr[2] $ (((C2_r_ptr[0] & C2_r_ptr[1])));
+
+
+--C2L8 is fifo:fifo_tx|Add1~1
+C2L8 = (C2_r_ptr[2] & (C2_r_ptr[3] & (C2_r_ptr[0] & C2_r_ptr[1])));
+
+
+--C2L9 is fifo:fifo_tx|Add1~2
+C2L9 = C2_r_ptr[4] $ (C2L8);
+
+
+--C2L91 is fifo:fifo_tx|Mux7~2
+C2L91 = (C2_r_w_ptr[4] & (C2L9 & (C2_r_w_ptr[2] $ (!C2L7)))) # (!C2_r_w_ptr[4] & (!C2L9 & (C2_r_w_ptr[2] $ (!C2L7))));
+
+
+--C2L92 is fifo:fifo_tx|Mux7~3
+C2L92 = (C2_r_w_ptr[0] & (!C2_r_ptr[0] & (C2_r_w_ptr[1] $ (!C2_r_ptr[1])))) # (!C2_r_w_ptr[0] & (C2_r_ptr[0] & (C2_r_w_ptr[1] $ (C2_r_ptr[1]))));
+
+
+--C2L10 is fifo:fifo_tx|Add1~3
+C2L10 = C2_r_ptr[3] $ (((C2_r_ptr[2] & (C2_r_ptr[0] & C2_r_ptr[1]))));
+
+
+--C2L93 is fifo:fifo_tx|Mux7~4
+C2L93 = (C2L92 & (!i_wr_uart & (C2_r_w_ptr[3] $ (!C2L10))));
+
+
+--C2L11 is fifo:fifo_tx|Add1~4
+C2L11 = C2_r_ptr[5] $ (((C2_r_ptr[4] & C2L8)));
+
+
+--C2L94 is fifo:fifo_tx|Mux7~5
+C2L94 = (C2L91 & (C2L93 & (C2_r_w_ptr[5] $ (!C2L11))));
+
+
+--C2_r_wr_en is fifo:fifo_tx|r_wr_en
+C2_r_wr_en = (i_wr_uart & !C2_r_full);
+
+
+--D1_r_state_reg.s_data is uart_rx:receiver|r_state_reg.s_data
+--register power-up is low
+
+D1_r_state_reg.s_data = DFFEAS(D1L45, i_clk, i_rst,  ,  ,  ,  ,  ,  );
+
+
+--D1L8 is uart_rx:receiver|r_b_reg[0]~0
+D1L8 = (D1L3 & (B1L85 & (B1L121 & D1_r_state_reg.s_data)));
+
+
+--i_rx is i_rx
+i_rx = INPUT();
+
+
+--D1_r_n_reg[2] is uart_rx:receiver|r_n_reg[2]
+--register power-up is low
+
+D1_r_n_reg[2] = DFFEAS(D1L23, i_clk, i_rst,  ,  ,  ,  ,  ,  );
+
+
+--D1_r_n_reg[1] is uart_rx:receiver|r_n_reg[1]
+--register power-up is low
+
+D1_r_n_reg[1] = DFFEAS(D1L21, i_clk, i_rst,  ,  ,  ,  ,  ,  );
+
+
+--D1_r_n_reg[0] is uart_rx:receiver|r_n_reg[0]
+--register power-up is low
+
+D1_r_n_reg[0] = DFFEAS(D1L19, i_clk, i_rst,  ,  ,  ,  ,  ,  );
+
+
+--D1L46 is uart_rx:receiver|Selector3~0
+D1L46 = (D1L8 & (D1_r_n_reg[2] & (D1_r_n_reg[1] & D1_r_n_reg[0])));
+
+
+--D1_r_state_reg.s_idle is uart_rx:receiver|r_state_reg.s_idle
+--register power-up is low
+
+D1_r_state_reg.s_idle = DFFEAS(D1L40, i_clk, i_rst,  ,  ,  ,  ,  ,  );
+
+
+--D1L4 is uart_rx:receiver|Equal2~1
+D1L4 = (D1_r_s_reg[2] & (D1_r_s_reg[1] & D1_r_s_reg[0]));
 
 
 --B1L122 is mod_m_counter:baud_generator|Equal0~121
 B1L122 = (B1L85 & B1L121);
+
+
+--D1_r_state_reg.s_start is uart_rx:receiver|r_state_reg.s_start
+--register power-up is low
+
+D1_r_state_reg.s_start = DFFEAS(D1L44, i_clk, i_rst,  ,  ,  ,  ,  ,  );
+
+
+--D1L47 is uart_rx:receiver|Selector3~1
+D1L47 = (D1L4 & (B1L122 & (D1_r_state_reg.s_start & !D1_r_s_reg[3])));
+
+
+--D1L43 is uart_rx:receiver|Selector1~0
+D1L43 = (!D1L5 & (!D1L46 & !D1L47));
+
+
+--D1L48 is uart_rx:receiver|Selector3~2
+D1L48 = ((!i_rx & !D1_r_state_reg.s_idle)) # (!D1L43);
+
+
+--D1L49 is uart_rx:receiver|Selector3~3
+D1L49 = (D1_r_state_reg.s_stop & (((D1L46 & !D1L5)) # (!D1L48))) # (!D1_r_state_reg.s_stop & (D1L46 & ((!D1L5))));
+
+
+--D1L32 is uart_rx:receiver|r_s_reg[2]~0
+D1L32 = (!B1L122 & ((D1_r_state_reg.s_stop) # ((D1_r_state_reg.s_data) # (D1_r_state_reg.s_start))));
+
+
+--D1L33 is uart_rx:receiver|r_s_reg[2]~1
+D1L33 = (i_rx & !D1_r_state_reg.s_idle);
+
+
+--D1L34 is uart_rx:receiver|r_s_reg[2]~2
+D1L34 = (D1L32) # ((D1L33) # ((D1_r_state_reg.s_stop & D1L3)));
+
+
+--D1L26 is uart_rx:receiver|r_s_reg[0]~3
+D1L26 = ((D1_r_s_reg[3] & ((!D1_r_state_reg.s_data))) # (!D1_r_s_reg[3] & ((D1_r_state_reg.s_data) # (!D1_r_state_reg.s_start)))) # (!D1L4);
+
+
+--D1L27 is uart_rx:receiver|r_s_reg[0]~4
+D1L27 = (D1_r_state_reg.s_idle & (D1L26 & !D1L34));
+
+
+--D1L37 is uart_rx:receiver|r_s_reg[3]~5
+D1L37 = (D1_r_s_reg[3] & ((D1L34) # ((D1L27 & !D1L4)))) # (!D1_r_s_reg[3] & (((D1L27 & D1L4))));
+
+
+--D1L1 is uart_rx:receiver|Add0~0
+D1L1 = D1_r_s_reg[2] $ (((D1_r_s_reg[1] & D1_r_s_reg[0])));
+
+
+--D1L35 is uart_rx:receiver|r_s_reg[2]~6
+D1L35 = (D1_r_s_reg[2] & ((D1L34) # ((D1L27 & D1L1)))) # (!D1_r_s_reg[2] & (D1L27 & (D1L1)));
+
+
+--D1L30 is uart_rx:receiver|r_s_reg[1]~7
+D1L30 = (D1_r_s_reg[1] & ((D1L34) # ((D1L27 & !D1_r_s_reg[0])))) # (!D1_r_s_reg[1] & (((D1L27 & D1_r_s_reg[0]))));
+
+
+--D1L28 is uart_rx:receiver|r_s_reg[0]~8
+D1L28 = (D1_r_s_reg[0] & (D1L34)) # (!D1_r_s_reg[0] & (!D1L34 & (D1_r_state_reg.s_idle & D1L26)));
+
+
+--C1L1028 is fifo:fifo_rx|r_w_ptr[5]~0
+C1L1028 = (D1L5 & ((i_rd_uart) # (!C1_r_full)));
+
+
+--C1L6 is fifo:fifo_rx|Add0~5
+C1L6 = C1_r_w_ptr[1] $ (C1_r_w_ptr[0]);
 
 
 --E1_r_n_reg[2] is uart_tx:transmitter|r_n_reg[2]
@@ -10589,7 +10721,7 @@ E1L47 = (E1_r_n_reg[2] & (E1_r_n_reg[1] & E1_r_n_reg[0]));
 
 
 --E1L48 is uart_tx:transmitter|Selector2~5
-E1L48 = (E1L4 & (B1L122 & (E1_r_state_reg.s_data & E1L47)));
+E1L48 = (B1L122 & (E1_r_state_reg.s_data & (E1L4 & E1L47)));
 
 
 --E1L49 is uart_tx:transmitter|Selector2~6
@@ -10608,162 +10740,6 @@ E1L50 = (!E1_r_state_reg.s_stop & !E1_r_state_reg.s_start);
 
 --E1L57 is uart_tx:transmitter|Selector4~0
 E1L57 = (E1L48) # ((E1_r_state_reg.s_stop & !E1L52));
-
-
---E1L1 is uart_tx:transmitter|Add0~0
-E1L1 = E1_r_s_reg[3] $ (((E1_r_s_reg[2] & (E1_r_s_reg[1] & E1_r_s_reg[0]))));
-
-
---E1L32 is uart_tx:transmitter|r_s_reg[2]~0
-E1L32 = (!E1_r_state_reg.s_data & !E1_r_state_reg.s_start);
-
-
---E1L33 is uart_tx:transmitter|r_s_reg[2]~1
-E1L33 = (E1_r_state_reg.s_stop & ((E1L4) # ((!C2_r_empty & !E1_r_state_reg.s_idle)))) # (!E1_r_state_reg.s_stop & (((!C2_r_empty & !E1_r_state_reg.s_idle))));
-
-
---E1L34 is uart_tx:transmitter|r_s_reg[2]~2
-E1L34 = (E1L33) # ((!B1L122 & ((E1_r_state_reg.s_data) # (!E1L50))));
-
-
---E1L27 is uart_tx:transmitter|r_s_reg[0]~3
-E1L27 = (E1_r_state_reg.s_idle & (!E1L34 & ((E1L32) # (!E1L4))));
-
-
---E1L37 is uart_tx:transmitter|r_s_reg[3]~4
-E1L37 = (E1_r_s_reg[3] & ((E1L34) # ((E1L1 & E1L27)))) # (!E1_r_s_reg[3] & (E1L1 & (E1L27)));
-
-
---E1L2 is uart_tx:transmitter|Add0~1
-E1L2 = E1_r_s_reg[2] $ (((E1_r_s_reg[1] & E1_r_s_reg[0])));
-
-
---E1L35 is uart_tx:transmitter|r_s_reg[2]~5
-E1L35 = (E1_r_s_reg[2] & ((E1L34) # ((E1L27 & E1L2)))) # (!E1_r_s_reg[2] & (E1L27 & (E1L2)));
-
-
---E1L30 is uart_tx:transmitter|r_s_reg[1]~6
-E1L30 = (E1_r_s_reg[1] & ((E1L34) # ((E1L27 & !E1_r_s_reg[0])))) # (!E1_r_s_reg[1] & (((E1L27 & E1_r_s_reg[0]))));
-
-
---E1L28 is uart_tx:transmitter|r_s_reg[0]~7
-E1L28 = (E1_r_s_reg[0] & (E1L34)) # (!E1_r_s_reg[0] & ((E1L27)));
-
-
---D1_r_state_reg.s_data is uart_rx:receiver|r_state_reg.s_data
---register power-up is low
-
-D1_r_state_reg.s_data = DFFEAS(D1L45, i_clk, i_rst,  ,  ,  ,  ,  ,  );
-
-
---D1L8 is uart_rx:receiver|r_b_reg[0]~0
-D1L8 = (B1L85 & (B1L121 & (D1L3 & D1_r_state_reg.s_data)));
-
-
---D1_r_n_reg[2] is uart_rx:receiver|r_n_reg[2]
---register power-up is low
-
-D1_r_n_reg[2] = DFFEAS(D1L23, i_clk, i_rst,  ,  ,  ,  ,  ,  );
-
-
---D1_r_n_reg[1] is uart_rx:receiver|r_n_reg[1]
---register power-up is low
-
-D1_r_n_reg[1] = DFFEAS(D1L20, i_clk, i_rst,  ,  ,  ,  ,  ,  );
-
-
---D1_r_n_reg[0] is uart_rx:receiver|r_n_reg[0]
---register power-up is low
-
-D1_r_n_reg[0] = DFFEAS(D1L18, i_clk, i_rst,  ,  ,  ,  ,  ,  );
-
-
---D1L46 is uart_rx:receiver|Selector3~0
-D1L46 = (D1L8 & (D1_r_n_reg[2] & (D1_r_n_reg[1] & D1_r_n_reg[0])));
-
-
---i_rx is i_rx
-i_rx = INPUT();
-
-
---D1_r_state_reg.s_idle is uart_rx:receiver|r_state_reg.s_idle
---register power-up is low
-
-D1_r_state_reg.s_idle = DFFEAS(D1L40, i_clk, i_rst,  ,  ,  ,  ,  ,  );
-
-
---D1L4 is uart_rx:receiver|Equal2~1
-D1L4 = (D1_r_s_reg[2] & (D1_r_s_reg[1] & D1_r_s_reg[0]));
-
-
---D1_r_state_reg.s_start is uart_rx:receiver|r_state_reg.s_start
---register power-up is low
-
-D1_r_state_reg.s_start = DFFEAS(D1L44, i_clk, i_rst,  ,  ,  ,  ,  ,  );
-
-
---D1L47 is uart_rx:receiver|Selector3~1
-D1L47 = (B1L122 & (D1L4 & (D1_r_state_reg.s_start & !D1_r_s_reg[3])));
-
-
---D1L43 is uart_rx:receiver|Selector1~0
-D1L43 = (!D1L5 & (!D1L46 & !D1L47));
-
-
---D1L48 is uart_rx:receiver|Selector3~2
-D1L48 = ((!i_rx & !D1_r_state_reg.s_idle)) # (!D1L43);
-
-
---D1L49 is uart_rx:receiver|Selector3~3
-D1L49 = (D1_r_state_reg.s_stop & (((D1L46 & !D1L5)) # (!D1L48))) # (!D1_r_state_reg.s_stop & (D1L46 & ((!D1L5))));
-
-
---D1L26 is uart_rx:receiver|r_s_reg[0]~0
-D1L26 = (!B1L122 & ((D1_r_state_reg.s_stop) # ((D1_r_state_reg.s_data) # (D1_r_state_reg.s_start))));
-
-
---D1L27 is uart_rx:receiver|r_s_reg[0]~1
-D1L27 = (i_rx & !D1_r_state_reg.s_idle);
-
-
---D1L28 is uart_rx:receiver|r_s_reg[0]~2
-D1L28 = (D1L26) # ((D1L27) # ((D1_r_state_reg.s_stop & D1L3)));
-
-
---D1L29 is uart_rx:receiver|r_s_reg[0]~3
-D1L29 = ((D1_r_s_reg[3] & ((!D1_r_state_reg.s_data))) # (!D1_r_s_reg[3] & ((D1_r_state_reg.s_data) # (!D1_r_state_reg.s_start)))) # (!D1L4);
-
-
---D1L30 is uart_rx:receiver|r_s_reg[0]~4
-D1L30 = (D1_r_state_reg.s_idle & (D1L29 & !D1L28));
-
-
---D1L37 is uart_rx:receiver|r_s_reg[3]~5
-D1L37 = (D1_r_s_reg[3] & ((D1L28) # ((D1L30 & !D1L4)))) # (!D1_r_s_reg[3] & (((D1L30 & D1L4))));
-
-
---D1L1 is uart_rx:receiver|Add0~0
-D1L1 = D1_r_s_reg[2] $ (((D1_r_s_reg[1] & D1_r_s_reg[0])));
-
-
---D1L35 is uart_rx:receiver|r_s_reg[2]~6
-D1L35 = (D1_r_s_reg[2] & ((D1L28) # ((D1L30 & D1L1)))) # (!D1_r_s_reg[2] & (D1L30 & (D1L1)));
-
-
---D1L33 is uart_rx:receiver|r_s_reg[1]~7
-D1L33 = (D1_r_s_reg[1] & ((D1L28) # ((D1L30 & !D1_r_s_reg[0])))) # (!D1_r_s_reg[1] & (((D1L30 & D1_r_s_reg[0]))));
-
-
---D1L31 is uart_rx:receiver|r_s_reg[0]~8
-D1L31 = (D1_r_s_reg[0] & (D1L28)) # (!D1_r_s_reg[0] & (!D1L28 & (D1_r_state_reg.s_idle & D1L29)));
-
-
---C1L1022 is fifo:fifo_rx|r_w_ptr[0]~0
-C1L1022 = (D1L5 & ((i_rd_uart) # (!C1_r_full)));
-
-
---C1L6 is fifo:fifo_rx|Add0~5
-C1L6 = C1_r_w_ptr[1] $ (C1_r_w_ptr[0]);
 
 
 --C2_r_array[42][0] is fifo:fifo_tx|r_array[42][0]
@@ -11334,6 +11310,94 @@ E1L55 = (E1L56 & ((!E1L38) # (!E1_r_state_reg.s_stop)));
 E1L46 = (E1_r_state_reg.s_stop & (!E1L38 & ((E1_r_state_reg.s_idle) # (E1L54)))) # (!E1_r_state_reg.s_stop & (((E1_r_state_reg.s_idle) # (E1L54))));
 
 
+--C2L725 is fifo:fifo_tx|r_ptr[5]~0
+C2L725 = (E1_r_state_reg.s_stop & (E1L38 & ((C2_r_empty) # (i_wr_uart))));
+
+
+--C2L730 is fifo:fifo_tx|r_w_ptr[1]~0
+C2L730 = (i_wr_uart & (((E1_r_state_reg.s_stop & E1L38)) # (!C2_r_full)));
+
+
+--C2L6 is fifo:fifo_tx|Add0~5
+C2L6 = C2_r_w_ptr[1] $ (C2_r_w_ptr[0]);
+
+
+--C2L12 is fifo:fifo_tx|Add1~5
+C2L12 = C2_r_ptr[0] $ (C2_r_ptr[1]);
+
+
+--E1L1 is uart_tx:transmitter|Add0~0
+E1L1 = E1_r_s_reg[3] $ (((E1_r_s_reg[2] & (E1_r_s_reg[1] & E1_r_s_reg[0]))));
+
+
+--E1L32 is uart_tx:transmitter|r_s_reg[2]~0
+E1L32 = (!E1_r_state_reg.s_data & !E1_r_state_reg.s_start);
+
+
+--E1L33 is uart_tx:transmitter|r_s_reg[2]~1
+E1L33 = (E1_r_state_reg.s_stop & ((E1L4) # ((!C2_r_empty & !E1_r_state_reg.s_idle)))) # (!E1_r_state_reg.s_stop & (((!C2_r_empty & !E1_r_state_reg.s_idle))));
+
+
+--E1L34 is uart_tx:transmitter|r_s_reg[2]~2
+E1L34 = (E1L33) # ((!B1L122 & ((E1_r_state_reg.s_data) # (!E1L50))));
+
+
+--E1L27 is uart_tx:transmitter|r_s_reg[0]~3
+E1L27 = (E1_r_state_reg.s_idle & (!E1L34 & ((E1L32) # (!E1L4))));
+
+
+--E1L37 is uart_tx:transmitter|r_s_reg[3]~4
+E1L37 = (E1_r_s_reg[3] & ((E1L34) # ((E1L1 & E1L27)))) # (!E1_r_s_reg[3] & (E1L1 & (E1L27)));
+
+
+--E1L2 is uart_tx:transmitter|Add0~1
+E1L2 = E1_r_s_reg[2] $ (((E1_r_s_reg[1] & E1_r_s_reg[0])));
+
+
+--E1L35 is uart_tx:transmitter|r_s_reg[2]~5
+E1L35 = (E1_r_s_reg[2] & ((E1L34) # ((E1L27 & E1L2)))) # (!E1_r_s_reg[2] & (E1L27 & (E1L2)));
+
+
+--E1L30 is uart_tx:transmitter|r_s_reg[1]~6
+E1L30 = (E1_r_s_reg[1] & ((E1L34) # ((E1L27 & !E1_r_s_reg[0])))) # (!E1_r_s_reg[1] & (((E1L27 & E1_r_s_reg[0]))));
+
+
+--E1L28 is uart_tx:transmitter|r_s_reg[0]~7
+E1L28 = (E1_r_s_reg[0] & (E1L34)) # (!E1_r_s_reg[0] & ((E1L27)));
+
+
+--D1L45 is uart_rx:receiver|Selector2~0
+D1L45 = (D1L47 & (((D1_r_state_reg.s_data & !D1L48)) # (!D1L5))) # (!D1L47 & (D1_r_state_reg.s_data & ((!D1L48))));
+
+
+--D1L2 is uart_rx:receiver|Add1~0
+D1L2 = (D1_r_n_reg[1] & D1_r_n_reg[0]);
+
+
+--D1L18 is uart_rx:receiver|r_n_reg[0]~0
+D1L18 = (!D1L47 & (((D1_r_n_reg[2] & D1L2)) # (!D1L8)));
+
+
+--D1L23 is uart_rx:receiver|r_n_reg[2]~1
+D1L23 = (D1L18 & (D1_r_n_reg[2])) # (!D1L18 & (D1_r_state_reg.s_data & (D1_r_n_reg[2] $ (D1L2))));
+
+
+--D1L21 is uart_rx:receiver|r_n_reg[1]~2
+D1L21 = (D1L18 & (D1_r_n_reg[1])) # (!D1L18 & (D1_r_state_reg.s_data & (D1_r_n_reg[1] $ (D1_r_n_reg[0]))));
+
+
+--D1L19 is uart_rx:receiver|r_n_reg[0]~3
+D1L19 = (D1_r_n_reg[0] & (D1L18)) # (!D1_r_n_reg[0] & (!D1L18 & D1_r_state_reg.s_data));
+
+
+--D1L40 is uart_rx:receiver|r_state_reg.s_idle~0
+D1L40 = (D1L43 & ((D1_r_state_reg.s_idle) # ((!i_rx & !D1L5)))) # (!D1L43 & (((!D1L5))));
+
+
+--D1L44 is uart_rx:receiver|Selector1~1
+D1L44 = (D1L43 & ((D1_r_state_reg.s_start) # ((!i_rx & !D1_r_state_reg.s_idle))));
+
+
 --E1L3 is uart_tx:transmitter|Add1~0
 E1L3 = E1_r_n_reg[2] $ (((E1_r_n_reg[1] & E1_r_n_reg[0])));
 
@@ -11356,38 +11420,6 @@ E1L19 = (E1_r_n_reg[0] & (E1L23)) # (!E1_r_n_reg[0] & (!E1L23 & E1_r_state_reg.s
 
 --E1L51 is uart_tx:transmitter|Selector2~8
 E1L51 = (!E1L48 & ((E1L49) # ((E1_r_state_reg.s_start & !E1L52))));
-
-
---D1L45 is uart_rx:receiver|Selector2~0
-D1L45 = (D1L47 & (((D1_r_state_reg.s_data & !D1L48)) # (!D1L5))) # (!D1L47 & (D1_r_state_reg.s_data & ((!D1L48))));
-
-
---D1L2 is uart_rx:receiver|Add1~0
-D1L2 = (D1_r_n_reg[1] & D1_r_n_reg[0]);
-
-
---D1L22 is uart_rx:receiver|r_n_reg[2]~0
-D1L22 = (!D1L47 & (((D1_r_n_reg[2] & D1L2)) # (!D1L8)));
-
-
---D1L23 is uart_rx:receiver|r_n_reg[2]~1
-D1L23 = (D1L22 & (D1_r_n_reg[2])) # (!D1L22 & (D1_r_state_reg.s_data & (D1_r_n_reg[2] $ (D1L2))));
-
-
---D1L20 is uart_rx:receiver|r_n_reg[1]~2
-D1L20 = (D1L22 & (D1_r_n_reg[1])) # (!D1L22 & (D1_r_state_reg.s_data & (D1_r_n_reg[1] $ (D1_r_n_reg[0]))));
-
-
---D1L18 is uart_rx:receiver|r_n_reg[0]~3
-D1L18 = (D1_r_n_reg[0] & (D1L22)) # (!D1_r_n_reg[0] & (!D1L22 & D1_r_state_reg.s_data));
-
-
---D1L40 is uart_rx:receiver|r_state_reg.s_idle~0
-D1L40 = (D1L43 & ((D1_r_state_reg.s_idle) # ((!i_rx & !D1L5)))) # (!D1L43 & (((!D1L5))));
-
-
---D1L44 is uart_rx:receiver|Selector1~1
-D1L44 = (D1L43 & ((D1_r_state_reg.s_start) # ((!i_rx & !D1_r_state_reg.s_idle))));
 
 
 --i_w_data[0] is i_w_data[0]
@@ -15593,7 +15625,7 @@ E1L52 = (C2_r_empty & (((E1L38 & !E1L50)) # (!E1_r_state_reg.s_idle))) # (!C2_r_
 
 
 --E1L8 is uart_tx:transmitter|r_b_reg[0]~3
-E1L8 = (C2_r_empty & (((E1L38 & E1_r_state_reg.s_data)) # (!E1_r_state_reg.s_idle))) # (!C2_r_empty & (((E1L38 & E1_r_state_reg.s_data))));
+E1L8 = (C2_r_empty & (((E1_r_state_reg.s_data & E1L38)) # (!E1_r_state_reg.s_idle))) # (!C2_r_empty & (((E1_r_state_reg.s_data & E1L38))));
 
 
 --E1L56 is uart_tx:transmitter|Selector3~5
@@ -15601,23 +15633,23 @@ E1L56 = (E1L38 & ((E1_r_state_reg.s_start) # ((E1_r_state_reg.s_data & !E1L53)))
 
 
 --E1L5 is uart_tx:transmitter|r_b_next~2
-E1L5 = (E1_r_state_reg.s_idle & (((E1L38 & E1_r_state_reg.s_data)))) # (!E1_r_state_reg.s_idle & (C2_r_empty));
+E1L5 = (E1_r_state_reg.s_idle & (((E1_r_state_reg.s_data & E1L38)))) # (!E1_r_state_reg.s_idle & (C2_r_empty));
 
 
---C1L1014 is fifo:fifo_rx|r_ptr[0]~1
-C1L1014 = !C1_r_ptr[0];
+--C1L1013 is fifo:fifo_rx|r_ptr[0]~1
+C1L1013 = !C1_r_ptr[0];
 
 
---C2L729 is fifo:fifo_tx|r_w_ptr[0]~1
-C2L729 = !C2_r_w_ptr[0];
+--C1L1022 is fifo:fifo_rx|r_w_ptr[0]~1
+C1L1022 = !C1_r_w_ptr[0];
 
 
---C2L720 is fifo:fifo_tx|r_ptr[0]~1
-C2L720 = !C2_r_ptr[0];
+--C2L728 is fifo:fifo_tx|r_w_ptr[0]~1
+C2L728 = !C2_r_w_ptr[0];
 
 
---C1L1023 is fifo:fifo_rx|r_w_ptr[0]~1
-C1L1023 = !C1_r_w_ptr[0];
+--C2L719 is fifo:fifo_tx|r_ptr[0]~1
+C2L719 = !C2_r_ptr[0];
 
 
 --C1L1009 is fifo:fifo_rx|r_empty~_wirecell

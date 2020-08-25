@@ -1,5 +1,5 @@
 Flow report for simple_operations
-Mon Aug 10 22:58:04 2020
+Mon Aug 24 15:05:39 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,17 +41,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Mon Aug 10 22:58:04 2020       ;
+; Flow Status                        ; Successful - Mon Aug 24 15:05:39 2020       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; simple_operations                           ;
 ; Top-level Entity Name              ; simple_operations                           ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 433 / 114,480 ( < 1 % )                     ;
-;     Total combinational functions  ; 390 / 114,480 ( < 1 % )                     ;
-;     Dedicated logic registers      ; 317 / 114,480 ( < 1 % )                     ;
-; Total registers                    ; 317                                         ;
+; Total logic elements               ; 314 / 114,480 ( < 1 % )                     ;
+;     Total combinational functions  ; 265 / 114,480 ( < 1 % )                     ;
+;     Dedicated logic registers      ; 212 / 114,480 ( < 1 % )                     ;
+; Total registers                    ; 212                                         ;
 ; Total pins                         ; 69 / 529 ( 13 % )                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 160 / 3,981,312 ( < 1 % )                   ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 08/10/2020 22:57:31 ;
+; Start date & time ; 08/24/2020 15:05:04 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; simple_operations   ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                                          ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 193675815263611.159711105117036                                ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 193675815263611.159829230413492                                ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                            ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                            ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                            ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -107,12 +107,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:10     ; 1.0                     ; 4825 MB             ; 00:00:22                           ;
-; Fitter               ; 00:00:13     ; 1.0                     ; 5840 MB             ; 00:00:22                           ;
-; Assembler            ; 00:00:02     ; 1.0                     ; 4697 MB             ; 00:00:03                           ;
-; Timing Analyzer      ; 00:00:02     ; 1.1                     ; 4878 MB             ; 00:00:02                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 4650 MB             ; 00:00:01                           ;
-; Total                ; 00:00:27     ; --                      ; --                  ; 00:00:50                           ;
+; Analysis & Synthesis ; 00:00:11     ; 1.0                     ; 4827 MB             ; 00:00:23                           ;
+; Fitter               ; 00:00:15     ; 1.0                     ; 5828 MB             ; 00:00:27                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 4690 MB             ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.1                     ; 4873 MB             ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 4649 MB             ; 00:00:01                           ;
+; Total                ; 00:00:30     ; --                      ; --                  ; 00:00:56                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

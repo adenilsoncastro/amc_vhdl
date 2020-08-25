@@ -14,14 +14,19 @@
 		i_rst			: in std_logic;
 		i_rd_uart	: in std_logic;
 		i_wr_uart	: in std_logic;
-		i_rx			: in std_logic;
-		i_w_data		: in std_logic_vector(7 downto 0);
-		o_tx_full	: out std_logic;
-		o_tx_empty	: out std_logic;
+		
+		i_rx			: in std_logic;		
 		o_rx_full	: out std_logic;
 		o_rx_empty	: out std_logic;
 		o_r_data		: out std_logic_vector(7 downto 0);
-		o_tx			: out std_logic);
+
+		o_tx			: out std_logic;		
+		o_tx_full	: out std_logic;
+		o_tx_empty	: out std_logic;
+		i_w_data		: in std_logic_vector(7 downto 0);
+		
+		o_data_test : out std_logic_vector(7 downto 0));
+
  end uart;
  
  architecture arch of uart is
@@ -48,6 +53,7 @@
 			o_max_tick 	: out std_logic;
 			o_count		: out std_logic_vector(g_bits-1 downto 0));
 	end component;
+	
 	component uart_rx is
 		generic(
 			g_dbit		: integer := 8;
@@ -60,6 +66,7 @@
 			o_rx_done_tick: out std_logic;
 			o_dout		: out std_logic_vector(g_dbit-1 downto 0));
 	end component;
+	
 	component uart_tx is
 		generic(
 			g_dbit		: integer := 8;
@@ -73,6 +80,7 @@
 			o_tx_done	: out std_logic;
 			o_tx			: out std_logic);
 	end component;		
+	
 	component fifo is
 		generic(
 			g_bits : natural :=8;
@@ -87,6 +95,7 @@
 			o_full		: out std_logic;
 			o_rd_data	: out std_logic_vector(g_bits-1 downto 0));
 	end component;		
+	
 	begin
 		baud_generator	: mod_m_counter generic map(g_dvsr, g_dvsr_bit) port map (i_clk, i_rst, r_tick, open);
 		
@@ -100,5 +109,7 @@
 		
 	r_tx_fifo_not_empty <= not r_tx_empty;	
 	o_tx_empty <= r_tx_empty;
+	
+	o_data_test <= r_rx_data_out;
 
 end arch;
