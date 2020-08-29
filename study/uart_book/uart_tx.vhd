@@ -18,8 +18,8 @@
 		
  architecture arch of uart_tx is
 	type t_sm_main is (s_idle, s_start, s_data, s_stop);
-	signal r_state_reg	: t_sm_main := s_idle;
-	signal r_state_next	: t_sm_main := s_idle;
+	signal r_state_reg	: t_sm_main;
+	signal r_state_next	: t_sm_main;
 	
 	signal r_s_reg			: unsigned (3 downto 0);
 	signal r_s_next		: unsigned (3 downto 0);

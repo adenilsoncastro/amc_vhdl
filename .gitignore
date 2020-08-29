@@ -1,6 +1,10 @@
-/study/fifo/db
+/study/fifo/db/
 /study/fifo/incremental_db
 /study/simple_operations/db
 /study/simple_operations/incremental_db
 /study/UART/db
 /study/UART/incremental_db
+/study/uart_with_fifo/db
+/study/uart_with_fifo/incremental_db
+/study/uart_book/db
+/study/uart_book/incremental_db

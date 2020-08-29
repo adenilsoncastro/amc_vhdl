@@ -1,5 +1,5 @@
 Analysis & Synthesis report for uart_fifo
-Wed Aug 19 19:56:21 2020
+Tue Aug 25 16:39:12 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -14,29 +14,31 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
-  9. State Machine - |uart_fifo|uart_tx:transmitter|r_sm_main
- 10. State Machine - |uart_fifo|uart_rx:receiver|r_sm_main
- 11. Registers Removed During Synthesis
- 12. General Register Statistics
- 13. Inverted Register Statistics
- 14. Registers Packed Into Inferred Megafunctions
- 15. Registers Added for RAM Pass-Through Logic
- 16. Multiplexer Restructuring Statistics (Restructuring Performed)
- 17. Source assignments for fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_n9i1:auto_generated
- 18. Source assignments for fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated
- 19. Parameter Settings for User Entity Instance: Top-level Entity: |uart_fifo
- 20. Parameter Settings for User Entity Instance: uart_rx:receiver
- 21. Parameter Settings for User Entity Instance: fifo:fifo_rx
- 22. Parameter Settings for User Entity Instance: uart_tx:transmitter
- 23. Parameter Settings for User Entity Instance: fifo:fifo_tx
- 24. Parameter Settings for Inferred Entity Instance: fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0
- 25. Parameter Settings for Inferred Entity Instance: fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0
- 26. altsyncram Parameter Settings by Entity Instance
- 27. Port Connectivity Checks: "uart_tx:transmitter"
- 28. Post-Synthesis Netlist Statistics for Top Partition
- 29. Elapsed Time Per Partition
- 30. Analysis & Synthesis Equations
- 31. Analysis & Synthesis Messages
+  9. State Machine - |uart_fifo|r_sm_main
+ 10. State Machine - |uart_fifo|uart_tx:transmitter|r_sm_main
+ 11. State Machine - |uart_fifo|uart_rx:receiver|r_sm_main
+ 12. User-Specified and Inferred Latches
+ 13. Registers Removed During Synthesis
+ 14. General Register Statistics
+ 15. Inverted Register Statistics
+ 16. Registers Packed Into Inferred Megafunctions
+ 17. Registers Added for RAM Pass-Through Logic
+ 18. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 19. Source assignments for fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_n9i1:auto_generated
+ 20. Source assignments for fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated
+ 21. Parameter Settings for User Entity Instance: Top-level Entity: |uart_fifo
+ 22. Parameter Settings for User Entity Instance: uart_rx:receiver
+ 23. Parameter Settings for User Entity Instance: fifo:fifo_rx
+ 24. Parameter Settings for User Entity Instance: uart_tx:transmitter
+ 25. Parameter Settings for User Entity Instance: fifo:fifo_tx
+ 26. Parameter Settings for Inferred Entity Instance: fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0
+ 27. Parameter Settings for Inferred Entity Instance: fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0
+ 28. altsyncram Parameter Settings by Entity Instance
+ 29. Port Connectivity Checks: "uart_tx:transmitter"
+ 30. Post-Synthesis Netlist Statistics for Top Partition
+ 31. Elapsed Time Per Partition
+ 32. Analysis & Synthesis Equations
+ 33. Analysis & Synthesis Messages
 
 
 
@@ -63,15 +65,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Aug 19 19:56:21 2020       ;
+; Analysis & Synthesis Status        ; Successful - Tue Aug 25 16:39:12 2020       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; uart_fifo                                   ;
 ; Top-level Entity Name              ; uart_fifo                                   ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 200                                         ;
-;     Total combinational functions  ; 158                                         ;
-;     Dedicated logic registers      ; 127                                         ;
-; Total registers                    ; 127                                         ;
+; Total logic elements               ; 227                                         ;
+;     Total combinational functions  ; 189                                         ;
+;     Dedicated logic registers      ; 136                                         ;
+; Total registers                    ; 136                                         ;
 ; Total pins                         ; 22                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 160                                         ;
@@ -213,20 +215,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 200         ;
+; Estimated Total logic elements              ; 227         ;
 ;                                             ;             ;
-; Total combinational functions               ; 158         ;
+; Total combinational functions               ; 189         ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 76          ;
-;     -- 3 input functions                    ; 30          ;
-;     -- <=2 input functions                  ; 52          ;
+;     -- 4 input functions                    ; 83          ;
+;     -- 3 input functions                    ; 45          ;
+;     -- <=2 input functions                  ; 61          ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 128         ;
+;     -- normal mode                          ; 159         ;
 ;     -- arithmetic mode                      ; 30          ;
 ;                                             ;             ;
-; Total registers                             ; 127         ;
-;     -- Dedicated logic registers            ; 127         ;
+; Total registers                             ; 136         ;
+;     -- Dedicated logic registers            ; 136         ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
 ; I/O pins                                    ; 22          ;
@@ -235,9 +237,9 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; i_clk~input ;
-; Maximum fan-out                             ; 143         ;
-; Total fan-out                               ; 1031        ;
-; Average fan-out                             ; 2.99        ;
+; Maximum fan-out                             ; 152         ;
+; Total fan-out                               ; 1170        ;
+; Average fan-out                             ; 3.04        ;
 +---------------------------------------------+-------------+
 
 
@@ -246,15 +248,15 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                 ; Entity Name     ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------+-----------------+--------------+
-; |uart_fifo                                ; 158 (5)             ; 127 (19)                  ; 160         ; 0            ; 0       ; 0         ; 22   ; 0            ; |uart_fifo                                                                          ; uart_fifo       ; work         ;
-;    |fifo:fifo_rx|                         ; 39 (39)             ; 37 (37)                   ; 80          ; 0            ; 0       ; 0         ; 0    ; 0            ; |uart_fifo|fifo:fifo_rx                                                             ; fifo            ; work         ;
+; |uart_fifo                                ; 189 (36)            ; 136 (28)                  ; 160         ; 0            ; 0       ; 0         ; 22   ; 0            ; |uart_fifo                                                                          ; uart_fifo       ; work         ;
+;    |fifo:fifo_rx|                         ; 40 (40)             ; 37 (37)                   ; 80          ; 0            ; 0       ; 0         ; 0    ; 0            ; |uart_fifo|fifo:fifo_rx                                                             ; fifo            ; work         ;
 ;       |altsyncram:r_fifo_data_rtl_0|      ; 0 (0)               ; 0 (0)                     ; 80          ; 0            ; 0       ; 0         ; 0    ; 0            ; |uart_fifo|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0                                ; altsyncram      ; work         ;
 ;          |altsyncram_9tg1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 80          ; 0            ; 0       ; 0         ; 0    ; 0            ; |uart_fifo|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated ; altsyncram_9tg1 ; work         ;
 ;    |fifo:fifo_tx|                         ; 17 (17)             ; 8 (8)                     ; 80          ; 0            ; 0       ; 0         ; 0    ; 0            ; |uart_fifo|fifo:fifo_tx                                                             ; fifo            ; work         ;
 ;       |altsyncram:r_fifo_data_rtl_0|      ; 0 (0)               ; 0 (0)                     ; 80          ; 0            ; 0       ; 0         ; 0    ; 0            ; |uart_fifo|fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0                                ; altsyncram      ; work         ;
 ;          |altsyncram_n9i1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 80          ; 0            ; 0       ; 0         ; 0    ; 0            ; |uart_fifo|fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_n9i1:auto_generated ; altsyncram_n9i1 ; work         ;
 ;    |uart_rx:receiver|                     ; 56 (56)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |uart_fifo|uart_rx:receiver                                                         ; uart_rx         ; work         ;
-;    |uart_tx:transmitter|                  ; 41 (41)             ; 31 (31)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |uart_fifo|uart_tx:transmitter                                                      ; uart_tx         ; work         ;
+;    |uart_tx:transmitter|                  ; 40 (40)             ; 31 (31)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |uart_fifo|uart_tx:transmitter                                                      ; uart_tx         ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -267,6 +269,20 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 10           ; 8            ; 10           ; 8            ; 80   ; db/uart_fifo.ram0_fifo_1ff8f9ef.hdl.mif ;
 ; fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_n9i1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 10           ; 8            ; 10           ; 8            ; 80   ; db/uart_fifo.ram0_fifo_1ff8f9ef.hdl.mif ;
 +-------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+-----------------------------------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |uart_fifo|r_sm_main                                                                                                           ;
++---------------------------+-------------------+---------------------------+---------------------+---------------------------+------------------+
+; Name                      ; r_sm_main.s_clear ; r_sm_main.s_put_fifo_data ; r_sm_main.s_process ; r_sm_main.s_get_fifo_data ; r_sm_main.s_idle ;
++---------------------------+-------------------+---------------------------+---------------------+---------------------------+------------------+
+; r_sm_main.s_idle          ; 0                 ; 0                         ; 0                   ; 0                         ; 0                ;
+; r_sm_main.s_get_fifo_data ; 0                 ; 0                         ; 0                   ; 1                         ; 1                ;
+; r_sm_main.s_process       ; 0                 ; 0                         ; 1                   ; 0                         ; 1                ;
+; r_sm_main.s_put_fifo_data ; 0                 ; 1                         ; 0                   ; 0                         ; 1                ;
+; r_sm_main.s_clear         ; 1                 ; 0                         ; 0                   ; 0                         ; 1                ;
++---------------------------+-------------------+---------------------------+---------------------+---------------------------+------------------+
 
 
 Encoding Type:  One-Hot
@@ -297,14 +313,32 @@ Encoding Type:  One-Hot
 +--------------------------+---------------------+-------------------------+--------------------------+--------------------------+------------------+
 
 
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++----------------------------------------------------+----------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal  ; Free of Timing Hazards ;
++----------------------------------------------------+----------------------+------------------------+
+; r_fifo_rx_wr_en                                    ; GND                  ; yes                    ;
+; r_fifo_rx_wr_data[2]                               ; r_fifo_rx_wr_data[1] ; yes                    ;
+; r_fifo_rx_wr_data[1]                               ; r_fifo_rx_wr_data[1] ; yes                    ;
+; r_fifo_rx_wr_data[0]                               ; r_fifo_rx_wr_data[1] ; yes                    ;
+; r_fifo_rx_wr_data[3]                               ; r_fifo_rx_wr_data[1] ; yes                    ;
+; r_fifo_rx_wr_data[6]                               ; r_fifo_rx_wr_data[1] ; yes                    ;
+; r_fifo_rx_wr_data[5]                               ; r_fifo_rx_wr_data[1] ; yes                    ;
+; r_fifo_rx_wr_data[4]                               ; r_fifo_rx_wr_data[1] ; yes                    ;
+; r_fifo_rx_wr_data[7]                               ; r_fifo_rx_wr_data[1] ; yes                    ;
+; Number of user-specified and inferred latches = 9  ;                      ;                        ;
++----------------------------------------------------+----------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
 +--------------------------------------------------------------------------------+
 ; Registers Removed During Synthesis                                             ;
 +---------------------------------------+----------------------------------------+
 ; Register name                         ; Reason for Removal                     ;
 +---------------------------------------+----------------------------------------+
-; r_fifo_rx_rd_en                       ; Merged with r_fifo_tx_wr_en            ;
 ; fifo:fifo_tx|r_rd_index[0..3]         ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 5 ;                                        ;
+; Total Number of Removed Registers = 4 ;                                        ;
 +---------------------------------------+----------------------------------------+
 
 
@@ -313,12 +347,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 127   ;
+; Total registers                              ; 136   ;
 ; Number of registers using Synchronous Clear  ; 32    ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Synchronous Load   ; 8     ;
+; Number of registers using Asynchronous Clear ; 10    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 64    ;
+; Number of registers using Clock Enable       ; 66    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -328,6 +362,10 @@ Encoding Type:  One-Hot
 +-------------------------------------------+---------+
 ; Inverted Register                         ; Fan out ;
 +-------------------------------------------+---------+
+; r_status[0]                               ; 1       ;
+; r_status[1]                               ; 1       ;
+; r_status[2]                               ; 1       ;
+; r_status[3]                               ; 1       ;
 ; fifo:fifo_rx|r_fifo_data_rtl_0_bypass[22] ; 1       ;
 ; fifo:fifo_rx|r_fifo_data_rtl_0_bypass[20] ; 1       ;
 ; fifo:fifo_rx|r_fifo_data_rtl_0_bypass[18] ; 1       ;
@@ -336,7 +374,7 @@ Encoding Type:  One-Hot
 ; fifo:fifo_rx|r_fifo_data_rtl_0_bypass[12] ; 1       ;
 ; fifo:fifo_rx|r_fifo_data_rtl_0_bypass[10] ; 1       ;
 ; fifo:fifo_rx|r_fifo_data_rtl_0_bypass[16] ; 1       ;
-; Total number of inverted registers = 8    ;         ;
+; Total number of inverted registers = 12   ;         ;
 +-------------------------------------------+---------+
 
 
@@ -382,21 +420,21 @@ Encoding Type:  One-Hot
 +-------------------------------------------+--------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |uart_fifo|fifo:fifo_tx|r_fifo_count[1]       ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |uart_fifo|fifo:fifo_rx|r_fifo_count[0]       ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |uart_fifo|fifo:fifo_tx|r_wr_index[0]         ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |uart_fifo|fifo:fifo_rx|r_wr_index[3]         ;
-; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |uart_fifo|uart_tx:transmitter|r_clk_count[8] ;
-; 7:1                ; 13 bits   ; 52 LEs        ; 13 LEs               ; 39 LEs                 ; Yes        ; |uart_fifo|uart_rx:receiver|r_clk_count[7]    ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |uart_fifo|uart_tx:transmitter|r_bit_index    ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |uart_fifo|uart_rx:receiver|r_bit_index       ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |uart_fifo|fifo:fifo_rx|r_rd_index            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |uart_fifo|fifo:fifo_tx|r_fifo_count[0]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |uart_fifo|fifo:fifo_rx|r_fifo_count[0]        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |uart_fifo|fifo:fifo_tx|r_wr_index[1]          ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |uart_fifo|fifo:fifo_rx|r_wr_index[3]          ;
+; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |uart_fifo|uart_tx:transmitter|r_clk_count[12] ;
+; 7:1                ; 13 bits   ; 52 LEs        ; 13 LEs               ; 39 LEs                 ; Yes        ; |uart_fifo|uart_rx:receiver|r_clk_count[10]    ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |uart_fifo|uart_tx:transmitter|r_bit_index     ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |uart_fifo|uart_rx:receiver|r_bit_index        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |uart_fifo|fifo:fifo_rx|r_rd_index             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------+
@@ -639,24 +677,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 22                          ;
-; cycloneiii_ff         ; 127                         ;
-;     ENA               ; 32                          ;
+; cycloneiii_ff         ; 136                         ;
+;     CLR               ; 10                          ;
+;     ENA               ; 26                          ;
 ;     ENA SCLR          ; 32                          ;
-;     plain             ; 63                          ;
-; cycloneiii_lcell_comb ; 158                         ;
+;     ENA SLD           ; 8                           ;
+;     plain             ; 60                          ;
+; cycloneiii_lcell_comb ; 194                         ;
 ;     arith             ; 30                          ;
 ;         2 data inputs ; 26                          ;
 ;         3 data inputs ; 4                           ;
-;     normal            ; 128                         ;
+;     normal            ; 164                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 2                           ;
-;         2 data inputs ; 23                          ;
-;         3 data inputs ; 26                          ;
-;         4 data inputs ; 76                          ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 31                          ;
+;         3 data inputs ; 41                          ;
+;         4 data inputs ; 83                          ;
 ; cycloneiii_ram_block  ; 16                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 6.00                        ;
-; Average LUT depth     ; 2.51                        ;
+; Average LUT depth     ; 2.43                        ;
 +-----------------------+-----------------------------+
 
 
@@ -681,7 +721,7 @@ The equations can be found in C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/u
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Wed Aug 19 19:56:01 2020
+    Info: Processing started: Tue Aug 25 16:39:01 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off uart_fifo -c uart_fifo
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -698,13 +738,24 @@ Info (12021): Found 2 design units, including 1 entities, in source file fifo.vh
     Info (12022): Found design unit 1: fifo-bhv File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/fifo.vhd Line: 23
     Info (12023): Found entity 1: fifo File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/fifo.vhd Line: 5
 Info (12127): Elaborating entity "uart_fifo" for the top level hierarchy
-Warning (10540): VHDL Signal Declaration warning at uart_fifo.vhd(16): used explicit default value for signal "o_status" because signal was never assigned a value File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 16
 Warning (10541): VHDL Signal Declaration warning at uart_fifo.vhd(26): used implicit default value for signal "tx_data" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 26
-Warning (10036): Verilog HDL or VHDL warning at uart_fifo.vhd(42): object "r_tx_active" assigned a value but never read File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 42
-Warning (10541): VHDL Signal Declaration warning at uart_fifo.vhd(47): used implicit default value for signal "r_fifo_tx_rd_en" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 47
-Info (12128): Elaborating entity "uart_rx" for hierarchy "uart_rx:receiver" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 96
-Info (12128): Elaborating entity "fifo" for hierarchy "fifo:fifo_rx" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 98
-Info (12128): Elaborating entity "uart_tx" for hierarchy "uart_tx:transmitter" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 101
+Warning (10036): Verilog HDL or VHDL warning at uart_fifo.vhd(45): object "r_tx_active" assigned a value but never read File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 45
+Warning (10541): VHDL Signal Declaration warning at uart_fifo.vhd(50): used implicit default value for signal "r_fifo_tx_rd_en" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 50
+Warning (10492): VHDL Process Statement warning at uart_fifo.vhd(115): signal "r_rx_data" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 115
+Warning (10631): VHDL Process Statement warning at uart_fifo.vhd(110): inferring latch(es) for signal or variable "r_fifo_rx_wr_en", which holds its previous value in one or more paths through the process File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 110
+Warning (10631): VHDL Process Statement warning at uart_fifo.vhd(110): inferring latch(es) for signal or variable "r_fifo_rx_wr_data", which holds its previous value in one or more paths through the process File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 110
+Info (10041): Inferred latch for "r_fifo_rx_wr_data[0]" at uart_fifo.vhd(110) File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 110
+Info (10041): Inferred latch for "r_fifo_rx_wr_data[1]" at uart_fifo.vhd(110) File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 110
+Info (10041): Inferred latch for "r_fifo_rx_wr_data[2]" at uart_fifo.vhd(110) File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 110
+Info (10041): Inferred latch for "r_fifo_rx_wr_data[3]" at uart_fifo.vhd(110) File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 110
+Info (10041): Inferred latch for "r_fifo_rx_wr_data[4]" at uart_fifo.vhd(110) File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 110
+Info (10041): Inferred latch for "r_fifo_rx_wr_data[5]" at uart_fifo.vhd(110) File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 110
+Info (10041): Inferred latch for "r_fifo_rx_wr_data[6]" at uart_fifo.vhd(110) File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 110
+Info (10041): Inferred latch for "r_fifo_rx_wr_data[7]" at uart_fifo.vhd(110) File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 110
+Info (10041): Inferred latch for "r_fifo_rx_wr_en" at uart_fifo.vhd(110) File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 110
+Info (12128): Elaborating entity "uart_rx" for hierarchy "uart_rx:receiver" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 100
+Info (12128): Elaborating entity "fifo" for hierarchy "fifo:fifo_rx" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 102
+Info (12128): Elaborating entity "uart_tx" for hierarchy "uart_tx:transmitter" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 105
 Warning (276027): Inferred dual-clock RAM node "fifo:fifo_tx|r_fifo_data_rtl_0" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
 Warning (113028): 6 out of 16 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/db/uart_fifo.ram0_fifo_1ff8f9ef.hdl.mif Line: 1
     Warning (113027): Addresses ranging from 10 to 15 are not initialized File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/db/uart_fifo.ram0_fifo_1ff8f9ef.hdl.mif Line: 1
@@ -780,26 +831,27 @@ Info (12133): Instantiated megafunction "fifo:fifo_rx|altsyncram:r_fifo_data_rtl
     Info (12134): Parameter "INIT_FILE" = "db/uart_fifo.ram0_fifo_1ff8f9ef.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_9tg1.tdf
     Info (12023): Found entity 1: altsyncram_9tg1 File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/db/altsyncram_9tg1.tdf Line: 28
+Info (13000): Registers with preset signals will power-up high File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 140
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "o_status[0]" is stuck at GND File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 16
-    Warning (13410): Pin "o_status[1]" is stuck at GND File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 16
-    Warning (13410): Pin "o_status[2]" is stuck at GND File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 16
-    Warning (13410): Pin "o_status[3]" is stuck at GND File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 16
     Warning (13410): Pin "tx_data" is stuck at GND File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 26
 Info (286030): Timing-Driven Synthesis is running
+Critical Warning (18061): Ignored Power-Up Level option on the following registers
+    Critical Warning (18010): Register r_status[0] will power up to High File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 140
+    Critical Warning (18010): Register r_status[1] will power up to High File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 140
+    Critical Warning (18010): Register r_status[2] will power up to High File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 140
+    Critical Warning (18010): Register r_status[3] will power up to High File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 140
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "i_rst" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 14
-Info (21057): Implemented 245 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 279 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 4 input pins
     Info (21059): Implemented 18 output pins
-    Info (21061): Implemented 207 logic cells
+    Info (21061): Implemented 241 logic cells
     Info (21064): Implemented 16 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 17 warnings
-    Info: Peak virtual memory: 4808 megabytes
-    Info: Processing ended: Wed Aug 19 19:56:21 2020
-    Info: Elapsed time: 00:00:20
-    Info: Total CPU time (on all processors): 00:00:27
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 18 warnings
+    Info: Peak virtual memory: 4801 megabytes
+    Info: Processing ended: Tue Aug 25 16:39:12 2020
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:23
 
 

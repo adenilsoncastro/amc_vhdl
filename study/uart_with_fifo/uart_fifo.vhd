@@ -13,7 +13,7 @@
 		i_clk					: in std_logic;
 		i_rst					: in std_logic;
 		i_rst_sync			: in std_logic;
-		o_status				: out std_logic_vector(3 downto 0) := "0000";
+		o_status				: out std_logic_vector(3 downto 0);
 
 		o_fifo_rx_full		: out std_logic;
 		o_fifo_rx_empty 	: out std_logic;		
@@ -27,6 +27,9 @@
 end uart_fifo;
 
 architecture bhv of uart_fifo is
+
+	type t_fsm is (s_idle, s_get_fifo_data, s_process, s_put_fifo_data, s_clear);
+	signal r_sm_main 				: t_fsm := s_idle;
 
 	signal r_rx_data 				: std_logic_vector(g_bits - 1 downto 0) := (others => '0');
 	signal r_rx_dv					: std_logic := '0';
@@ -47,6 +50,7 @@ architecture bhv of uart_fifo is
 	signal r_fifo_tx_rd_en		: std_logic;	
 	signal r_fifo_data_out		: std_logic_vector(g_bits - 1 downto 0) := (others => '0');
 
+	signal r_processing			: std_logic_vector(g_bits - 1 downto 0) := (others => '0');
 	signal r_status				: std_logic_vector(3 downto 0)			 := (others => '0');
 	
 	component uart_rx is
@@ -98,51 +102,89 @@ begin
 	fifo_rx		: fifo	 generic map(g_bits, g_depth) port map (i_rst_sync, i_clk, r_fifo_rx_wr_en, r_fifo_rx_wr_data, o_fifo_rx_full,
 																					r_fifo_rx_rd_en, r_fifo_data_in, o_fifo_rx_empty);	
 	
-	transmitter	:uart_tx generic map(g_clks_per_bit) port map(i_clk, r_tx_dv, r_tx_data, r_tx_active, o_tx_serial, r_tx_done);
+	transmitter	: uart_tx generic map(g_clks_per_bit) port map(i_clk, r_tx_dv, r_tx_data, r_tx_active, o_tx_serial, r_tx_done);
 	
 	fifo_tx		: fifo 	generic map(g_bits, g_depth) port map(i_rst_sync, i_clk, r_fifo_tx_wr_en, r_fifo_tx_wr_data, o_fifo_tx_full,
 																					r_fifo_tx_rd_en, r_fifo_data_out, o_fifo_tx_empty);
 																					
-	p_receive : process(i_clk)
+	p_receive : process(i_clk, r_rx_dv)
 	begin
-		if rising_edge(i_clk) then
+		if r_rx_dv = '1' then
 			if o_fifo_rx_full = '0' then
-				r_fifo_rx_wr_en	<= r_rx_dv;	  -- write enable in fifo rx
+				r_fifo_rx_wr_en	<= '1';	  -- write enable in fifo rx
 				r_fifo_rx_wr_data	<= r_rx_data; --data in fifo rx
-			else
-				r_fifo_rx_wr_en	<= '0';
 			end if;
+		else
+			r_fifo_rx_wr_en	<= '0';
 		end if;
 	end process p_receive;
 	
-	p_transmit : process(i_clk)
+	p_transmit : process(i_clk, r_tx_done)
 	begin
 		if rising_edge(i_clk) then
 			if o_fifo_tx_empty = '0' then
-				if r_tx_done = '0' then
-					r_tx_dv 		<= '1';
-					r_tx_data	<= r_fifo_data_out;
-				else
-					r_tx_dv <= '0';
-				end if;
+				r_tx_dv 		<= '1';
+				r_tx_data	<= r_fifo_data_out;
+			else
+				r_tx_dv <= '0';
 			end if;
+		end if;
+		
+		if r_tx_done = '1' then
+			r_tx_dv <= '0';
 		end if;
 	end process p_transmit;
 																					
-	p_process : process(i_clk)
+	p_process : process(i_clk, i_rst)
 	begin
-		if rising_edge(i_clk) then
-			if o_fifo_rx_empty = '0' and o_fifo_tx_full = '0' then
-				r_fifo_rx_rd_en <= '1';
-				r_fifo_tx_wr_en <= '1';
-				r_fifo_tx_wr_data <= r_fifo_data_in;
-			else
-				r_fifo_rx_rd_en <= '0';
-				r_fifo_tx_wr_en <= '0';
-			end if;
+		if not i_rst = '1' then
+			r_sm_main <= s_idle;
+			r_status <= "1111";
+		elsif rising_edge(i_clk) then
+			case r_sm_main is
+				when s_idle =>
+					r_status <= "0001";
+					r_fifo_rx_rd_en <= '0';
+					r_fifo_tx_wr_en <= '0';
+					
+					if o_fifo_rx_empty = '0' then
+						r_sm_main <= s_get_fifo_data;
+					else
+						r_sm_main <= s_idle;
+					end if;
+				
+				when s_get_fifo_data =>
+					r_status <= "0010";
+					r_fifo_rx_rd_en <= '1';
+					r_processing <= r_fifo_data_in;
+					r_sm_main <= s_process;
+				
+				when s_process =>
+					r_fifo_rx_rd_en <= '0';
+					r_status <= "0011";
+					r_sm_main <= s_put_fifo_data;
+					
+				when s_put_fifo_data =>
+					r_status <= "0100";
+					r_fifo_tx_wr_en <= '1';
+					r_fifo_tx_wr_data <= r_processing;
+					r_sm_main <= s_clear;
+				
+				when s_clear =>
+					r_status <= "0101";
+					r_fifo_rx_rd_en <= '0';
+					r_fifo_tx_wr_en <= '0';
+					r_processing <= (others => '0');
+					r_sm_main <= s_idle;
+				
+				when others =>
+					r_status <= "0000";
+					r_sm_main <= s_idle;
+			end case;
 		end if;
 	end process p_process;
 	
 	rx_data <= r_rx_data; --serial data to leds
+	o_status <= r_status;
 																					 
 end bhv;	

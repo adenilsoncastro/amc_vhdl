@@ -1,5 +1,5 @@
 Analysis & Synthesis report for uart_book
-Sat Aug 15 17:03:57 2020
+Fri Aug 28 16:24:22 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -13,22 +13,23 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |uart|uart_tx:transmitter|r_state_reg
-  9. State Machine - |uart|uart_rx:receiver|r_state_reg
+  8. State Machine - |top_level|uart:uart_unit|uart_tx:transmitter|r_state_reg
+  9. State Machine - |top_level|uart:uart_unit|uart_rx:receiver|r_state_reg
  10. General Register Statistics
  11. Inverted Register Statistics
  12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for User Entity Instance: Top-level Entity: |uart
- 14. Parameter Settings for User Entity Instance: mod_m_counter:baud_generator
- 15. Parameter Settings for User Entity Instance: uart_rx:receiver
- 16. Parameter Settings for User Entity Instance: uart_tx:transmitter
- 17. Parameter Settings for User Entity Instance: fifo:fifo_rx
- 18. Parameter Settings for User Entity Instance: fifo:fifo_tx
- 19. Port Connectivity Checks: "mod_m_counter:baud_generator"
- 20. Post-Synthesis Netlist Statistics for Top Partition
- 21. Elapsed Time Per Partition
- 22. Analysis & Synthesis Equations
- 23. Analysis & Synthesis Messages
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |top_level
+ 14. Parameter Settings for User Entity Instance: uart:uart_unit
+ 15. Parameter Settings for User Entity Instance: uart:uart_unit|mod_m_counter:baud_generator
+ 16. Parameter Settings for User Entity Instance: uart:uart_unit|uart_rx:receiver
+ 17. Parameter Settings for User Entity Instance: uart:uart_unit|uart_tx:transmitter
+ 18. Parameter Settings for User Entity Instance: uart:uart_unit|fifo:fifo_rx
+ 19. Parameter Settings for User Entity Instance: uart:uart_unit|fifo:fifo_tx
+ 20. Port Connectivity Checks: "uart:uart_unit|mod_m_counter:baud_generator"
+ 21. Post-Synthesis Netlist Statistics for Top Partition
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Equations
+ 24. Analysis & Synthesis Messages
 
 
 
@@ -55,16 +56,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Aug 15 17:03:57 2020       ;
+; Analysis & Synthesis Status        ; Successful - Fri Aug 28 16:24:22 2020       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; uart_book                                   ;
-; Top-level Entity Name              ; uart                                        ;
+; Top-level Entity Name              ; top_level                                   ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 2,451                                       ;
-;     Total combinational functions  ; 1,419                                       ;
-;     Dedicated logic registers      ; 1,456                                       ;
-; Total registers                    ; 1456                                        ;
-; Total pins                         ; 34                                          ;
+; Total logic elements               ; 1,061                                       ;
+;     Total combinational functions  ; 549                                         ;
+;     Dedicated logic registers      ; 584                                         ;
+; Total registers                    ; 584                                         ;
+; Total pins                         ; 17                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -78,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE115F29C7      ;                    ;
-; Top-level entity name                                            ; uart               ; uart_book          ;
+; Top-level entity name                                            ; top_level          ; uart_book          ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; VHDL Show LMF Mapping Messages                                   ; Off                ;                    ;
 ; Use smart compilation                                            ; Off                ; Off                ;
@@ -172,7 +173,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.1%      ;
+;     Processor 2            ;   0.0%      ;
 ;     Processor 3            ;   0.0%      ;
 ;     Processor 4            ;   0.0%      ;
 ;     Processor 5            ;   0.0%      ;
@@ -190,6 +191,7 @@ https://fpgasoftware.intel.com/eula.
 ; uart_tx.vhd                      ; yes             ; User VHDL File  ; C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_book/uart_tx.vhd       ;         ;
 ; fifo.vhd                         ; yes             ; User VHDL File  ; C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_book/fifo.vhd          ;         ;
 ; uart.vhd                         ; yes             ; User VHDL File  ; C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_book/uart.vhd          ;         ;
+; top_level.vhd                    ; yes             ; User VHDL File  ; C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_book/top_level.vhd     ;         ;
 +----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------+---------+
 
 
@@ -198,51 +200,52 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 2,451       ;
+; Estimated Total logic elements              ; 1,061       ;
 ;                                             ;             ;
-; Total combinational functions               ; 1419        ;
+; Total combinational functions               ; 549         ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 1008        ;
-;     -- 3 input functions                    ; 25          ;
-;     -- <=2 input functions                  ; 386         ;
+;     -- 4 input functions                    ; 408         ;
+;     -- 3 input functions                    ; 106         ;
+;     -- <=2 input functions                  ; 35          ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 1055        ;
-;     -- arithmetic mode                      ; 364         ;
+;     -- normal mode                          ; 534         ;
+;     -- arithmetic mode                      ; 15          ;
 ;                                             ;             ;
-; Total registers                             ; 1456        ;
-;     -- Dedicated logic registers            ; 1456        ;
+; Total registers                             ; 584         ;
+;     -- Dedicated logic registers            ; 584         ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
-; I/O pins                                    ; 34          ;
+; I/O pins                                    ; 17          ;
 ;                                             ;             ;
 ; Embedded Multiplier 9-bit elements          ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; i_clk~input ;
-; Maximum fan-out                             ; 1456        ;
-; Total fan-out                               ; 10743       ;
-; Average fan-out                             ; 3.65        ;
+; Maximum fan-out                             ; 584         ;
+; Total fan-out                               ; 4361        ;
+; Average fan-out                             ; 3.74        ;
 +---------------------------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                              ;
-+-----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------+---------------+--------------+
-; Compilation Hierarchy Node        ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                ; Entity Name   ; Library Name ;
-+-----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------+---------------+--------------+
-; |uart                             ; 1419 (0)            ; 1456 (0)                  ; 0           ; 0            ; 0       ; 0         ; 34   ; 0            ; |uart                              ; uart          ; work         ;
-;    |fifo:fifo_rx|                 ; 436 (436)           ; 526 (526)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |uart|fifo:fifo_rx                 ; fifo          ; work         ;
-;    |fifo:fifo_tx|                 ; 142 (142)           ; 526 (526)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |uart|fifo:fifo_tx                 ; fifo          ; work         ;
-;    |mod_m_counter:baud_generator| ; 487 (487)           ; 365 (365)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |uart|mod_m_counter:baud_generator ; mod_m_counter ; work         ;
-;    |uart_rx:receiver|             ; 27 (27)             ; 19 (19)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |uart|uart_rx:receiver             ; uart_rx       ; work         ;
-;    |uart_tx:transmitter|          ; 327 (327)           ; 20 (20)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |uart|uart_tx:transmitter          ; uart_tx       ; work         ;
-+-----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------+---------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                     ;
++--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------+---------------+--------------+
+; Compilation Hierarchy Node           ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                    ; Entity Name   ; Library Name ;
++--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------+---------------+--------------+
+; |top_level                           ; 549 (8)             ; 584 (0)                   ; 0           ; 0            ; 0       ; 0         ; 17   ; 0            ; |top_level                                             ; top_level     ; work         ;
+;    |uart:uart_unit|                  ; 541 (0)             ; 584 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|uart:uart_unit                              ; uart          ; work         ;
+;       |fifo:fifo_rx|                 ; 232 (232)           ; 268 (268)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|uart:uart_unit|fifo:fifo_rx                 ; fifo          ; work         ;
+;       |fifo:fifo_tx|                 ; 85 (85)             ; 268 (268)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|uart:uart_unit|fifo:fifo_tx                 ; fifo          ; work         ;
+;       |mod_m_counter:baud_generator| ; 18 (18)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|uart:uart_unit|mod_m_counter:baud_generator ; mod_m_counter ; work         ;
+;       |uart_rx:receiver|             ; 29 (29)             ; 19 (19)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|uart:uart_unit|uart_rx:receiver             ; uart_rx       ; work         ;
+;       |uart_tx:transmitter|          ; 177 (177)           ; 20 (20)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|uart:uart_unit|uart_tx:transmitter          ; uart_tx       ; work         ;
++--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
 +----------------------------------------------------------------------------------------------------------+
-; State Machine - |uart|uart_tx:transmitter|r_state_reg                                                    ;
+; State Machine - |top_level|uart:uart_unit|uart_tx:transmitter|r_state_reg                                ;
 +---------------------+--------------------+--------------------+---------------------+--------------------+
 ; Name                ; r_state_reg.s_stop ; r_state_reg.s_data ; r_state_reg.s_start ; r_state_reg.s_idle ;
 +---------------------+--------------------+--------------------+---------------------+--------------------+
@@ -255,7 +258,7 @@ Encoding Type:  One-Hot
 
 Encoding Type:  One-Hot
 +----------------------------------------------------------------------------------------------------------+
-; State Machine - |uart|uart_rx:receiver|r_state_reg                                                       ;
+; State Machine - |top_level|uart:uart_unit|uart_rx:receiver|r_state_reg                                   ;
 +---------------------+--------------------+--------------------+---------------------+--------------------+
 ; Name                ; r_state_reg.s_stop ; r_state_reg.s_data ; r_state_reg.s_start ; r_state_reg.s_idle ;
 +---------------------+--------------------+--------------------+---------------------+--------------------+
@@ -271,120 +274,130 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1456  ;
-; Number of registers using Synchronous Clear  ; 365   ;
+; Total registers                              ; 584   ;
+; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 7     ;
-; Number of registers using Asynchronous Clear ; 1456  ;
+; Number of registers using Asynchronous Clear ; 584   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 1067  ;
+; Number of registers using Clock Enable       ; 551   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; fifo:fifo_rx|r_empty                   ; 5       ;
-; uart_tx:transmitter|r_tx_reg           ; 1       ;
-; fifo:fifo_tx|r_empty                   ; 10      ;
-; Total number of inverted registers = 3 ;         ;
-+----------------------------------------+---------+
++-------------------------------------------------------+
+; Inverted Register Statistics                          ;
++---------------------------------------------+---------+
+; Inverted Register                           ; Fan out ;
++---------------------------------------------+---------+
+; uart:uart_unit|uart_tx:transmitter|r_tx_reg ; 1       ;
+; uart:uart_unit|fifo:fifo_rx|r_empty         ; 4       ;
+; uart:uart_unit|fifo:fifo_tx|r_empty         ; 8       ;
+; Total number of inverted registers = 3      ;         ;
++---------------------------------------------+---------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
-; 5:1                ; 6 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |uart|fifo:fifo_rx|r_w_ptr[5]        ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |uart|fifo:fifo_rx|r_ptr[2]          ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |uart|fifo:fifo_tx|r_w_ptr[1]        ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |uart|fifo:fifo_tx|r_ptr[5]          ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |uart|uart_tx:transmitter|r_n_reg[2] ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |uart|uart_rx:receiver|r_n_reg[0]    ;
-; 7:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |uart|uart_tx:transmitter|r_s_reg[2] ;
-; 10:1               ; 4 bits    ; 24 LEs        ; 4 LEs                ; 20 LEs                 ; Yes        ; |uart|uart_rx:receiver|r_s_reg[2]    ;
-; 68:1               ; 7 bits    ; 315 LEs       ; 301 LEs              ; 14 LEs                 ; Yes        ; |uart|uart_tx:transmitter|r_b_reg[0] ;
-; 64:1               ; 8 bits    ; 336 LEs       ; 336 LEs              ; 0 LEs                  ; No         ; |uart|fifo:fifo_rx|Mux16             ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |uart|uart_tx:transmitter|Selector2  ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |uart|uart_tx:transmitter|Selector3  ;
-; 8:1                ; 4 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |uart|uart_rx:receiver|Selector3     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
-
-
-+----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Top-level Entity: |uart ;
-+----------------+-------+---------------------------------------------+
-; Parameter Name ; Value ; Type                                        ;
-+----------------+-------+---------------------------------------------+
-; g_dbit         ; 8     ; Signed Integer                              ;
-; g_sb_tick      ; 16    ; Signed Integer                              ;
-; g_dvsr         ; 365   ; Signed Integer                              ;
-; g_dvsr_bit     ; 9     ; Signed Integer                              ;
-; g_fifo_w       ; 6     ; Signed Integer                              ;
-+----------------+-------+---------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+; 5:1                ; 5 bits    ; 15 LEs        ; 0 LEs                ; 15 LEs                 ; Yes        ; |top_level|uart:uart_unit|fifo:fifo_rx|r_w_ptr[0]        ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 0 LEs                ; 15 LEs                 ; Yes        ; |top_level|uart:uart_unit|fifo:fifo_rx|r_ptr[4]          ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 0 LEs                ; 15 LEs                 ; Yes        ; |top_level|uart:uart_unit|fifo:fifo_tx|r_w_ptr[0]        ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 0 LEs                ; 15 LEs                 ; Yes        ; |top_level|uart:uart_unit|fifo:fifo_tx|r_ptr[1]          ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |top_level|uart:uart_unit|uart_tx:transmitter|r_n_reg[0] ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |top_level|uart:uart_unit|uart_rx:receiver|r_n_reg[2]    ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |top_level|uart:uart_unit|uart_tx:transmitter|r_s_reg[3] ;
+; 36:1               ; 7 bits    ; 168 LEs       ; 154 LEs              ; 14 LEs                 ; Yes        ; |top_level|uart:uart_unit|uart_tx:transmitter|r_b_reg[2] ;
+; 10:1               ; 4 bits    ; 24 LEs        ; 4 LEs                ; 20 LEs                 ; Yes        ; |top_level|uart:uart_unit|uart_rx:receiver|r_s_reg[3]    ;
+; 32:1               ; 8 bits    ; 168 LEs       ; 168 LEs              ; 0 LEs                  ; No         ; |top_level|uart:uart_unit|fifo:fifo_rx|Mux14             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |top_level|uart:uart_unit|uart_tx:transmitter|Selector2  ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |top_level|uart:uart_unit|uart_tx:transmitter|Selector3  ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |top_level|uart:uart_unit|uart_rx:receiver|Selector3     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: mod_m_counter:baud_generator ;
+; Parameter Settings for User Entity Instance: Top-level Entity: |top_level ;
 +----------------+-------+--------------------------------------------------+
 ; Parameter Name ; Value ; Type                                             ;
 +----------------+-------+--------------------------------------------------+
-; g_bits         ; 365   ; Signed Integer                                   ;
-; g_mod          ; 9     ; Signed Integer                                   ;
+; g_dbit         ; 8     ; Signed Integer                                   ;
 +----------------+-------+--------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: uart_rx:receiver ;
-+----------------+-------+--------------------------------------+
-; Parameter Name ; Value ; Type                                 ;
-+----------------+-------+--------------------------------------+
-; g_dbit         ; 8     ; Signed Integer                       ;
-; g_sb_tick      ; 16    ; Signed Integer                       ;
-+----------------+-------+--------------------------------------+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart:uart_unit ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; g_dbit         ; 8     ; Signed Integer                     ;
+; g_sb_tick      ; 16    ; Signed Integer                     ;
+; g_dvsr         ; 365   ; Signed Integer                     ;
+; g_dvsr_bit     ; 9     ; Signed Integer                     ;
+; g_fifo_w       ; 5     ; Signed Integer                     ;
++----------------+-------+------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: uart_tx:transmitter ;
-+----------------+-------+-----------------------------------------+
-; Parameter Name ; Value ; Type                                    ;
-+----------------+-------+-----------------------------------------+
-; g_dbit         ; 8     ; Signed Integer                          ;
-; g_sb_tick      ; 16    ; Signed Integer                          ;
-+----------------+-------+-----------------------------------------+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart:uart_unit|mod_m_counter:baud_generator ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; g_bits         ; 9     ; Signed Integer                                                  ;
+; g_mod          ; 365   ; Signed Integer                                                  ;
++----------------+-------+-----------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------+
-; Parameter Settings for User Entity Instance: fifo:fifo_rx ;
-+----------------+-------+----------------------------------+
-; Parameter Name ; Value ; Type                             ;
-+----------------+-------+----------------------------------+
-; g_bits         ; 8     ; Signed Integer                   ;
-; g_words        ; 6     ; Signed Integer                   ;
-+----------------+-------+----------------------------------+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart:uart_unit|uart_rx:receiver ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; g_dbit         ; 8     ; Signed Integer                                      ;
+; g_sb_tick      ; 16    ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------+
-; Parameter Settings for User Entity Instance: fifo:fifo_tx ;
-+----------------+-------+----------------------------------+
-; Parameter Name ; Value ; Type                             ;
-+----------------+-------+----------------------------------+
-; g_bits         ; 8     ; Signed Integer                   ;
-; g_words        ; 6     ; Signed Integer                   ;
-+----------------+-------+----------------------------------+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart:uart_unit|uart_tx:transmitter ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; g_dbit         ; 8     ; Signed Integer                                         ;
+; g_sb_tick      ; 16    ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart:uart_unit|fifo:fifo_rx ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; g_bits         ; 8     ; Signed Integer                                  ;
+; g_words        ; 5     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart:uart_unit|fifo:fifo_tx ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; g_bits         ; 8     ; Signed Integer                                  ;
+; g_words        ; 5     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "mod_m_counter:baud_generator"                                                          ;
+; Port Connectivity Checks: "uart:uart_unit|mod_m_counter:baud_generator"                                           ;
 +---------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port    ; Type   ; Severity ; Details                                                                             ;
 +---------+--------+----------+-------------------------------------------------------------------------------------+
@@ -397,23 +410,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 34                          ;
-; cycloneiii_ff         ; 1456                        ;
-;     CLR               ; 24                          ;
-;     CLR SCLR          ; 365                         ;
-;     ENA CLR           ; 1060                        ;
+; boundary_port         ; 17                          ;
+; cycloneiii_ff         ; 584                         ;
+;     CLR               ; 33                          ;
+;     ENA CLR           ; 544                         ;
 ;     ENA CLR SLD       ; 7                           ;
-; cycloneiii_lcell_comb ; 1422                        ;
-;     arith             ; 364                         ;
-;         2 data inputs ; 364                         ;
-;     normal            ; 1058                        ;
-;         1 data inputs ; 8                           ;
-;         2 data inputs ; 17                          ;
-;         3 data inputs ; 25                          ;
-;         4 data inputs ; 1008                        ;
+; cycloneiii_lcell_comb ; 552                         ;
+;     arith             ; 15                          ;
+;         2 data inputs ; 15                          ;
+;     normal            ; 537                         ;
+;         1 data inputs ; 9                           ;
+;         2 data inputs ; 14                          ;
+;         3 data inputs ; 106                         ;
+;         4 data inputs ; 408                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 37.40                       ;
-; Average LUT depth     ; 10.88                       ;
+; Max LUT depth         ; 6.70                        ;
+; Average LUT depth     ; 4.68                        ;
 +-----------------------+-----------------------------+
 
 
@@ -422,7 +434,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -438,7 +450,7 @@ The equations can be found in C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/u
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Sat Aug 15 17:03:45 2020
+    Info: Processing started: Fri Aug 28 16:24:10 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off uart_book -c uart_book
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -455,26 +467,30 @@ Info (12021): Found 2 design units, including 1 entities, in source file fifo.vh
     Info (12022): Found design unit 1: fifo-arch File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_book/fifo.vhd Line: 20
     Info (12023): Found entity 1: fifo File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_book/fifo.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file uart.vhd
-    Info (12022): Found design unit 1: uart-arch File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_book/uart.vhd Line: 32
+    Info (12022): Found design unit 1: uart-arch File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_book/uart.vhd Line: 30
     Info (12023): Found entity 1: uart File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_book/uart.vhd Line: 5
-Info (12127): Elaborating entity "uart" for the top level hierarchy
-Info (12128): Elaborating entity "mod_m_counter" for hierarchy "mod_m_counter:baud_generator" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_book/uart.vhd Line: 100
-Info (12128): Elaborating entity "uart_rx" for hierarchy "uart_rx:receiver" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_book/uart.vhd Line: 102
-Info (12128): Elaborating entity "uart_tx" for hierarchy "uart_tx:transmitter" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_book/uart.vhd Line: 104
-Info (12128): Elaborating entity "fifo" for hierarchy "fifo:fifo_rx" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_book/uart.vhd Line: 106
-Info (13000): Registers with preset signals will power-up high File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_book/fifo.vhd Line: 52
+Info (12021): Found 2 design units, including 1 entities, in source file top_level.vhd
+    Info (12022): Found design unit 1: top_level-bhv File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_book/top_level.vhd Line: 22
+    Info (12023): Found entity 1: top_level File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_book/top_level.vhd Line: 5
+Info (12127): Elaborating entity "top_level" for the top level hierarchy
+Info (12128): Elaborating entity "uart" for hierarchy "uart:uart_unit" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_book/top_level.vhd Line: 49
+Info (12128): Elaborating entity "mod_m_counter" for hierarchy "uart:uart_unit|mod_m_counter:baud_generator" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_book/uart.vhd Line: 98
+Info (12128): Elaborating entity "uart_rx" for hierarchy "uart:uart_unit|uart_rx:receiver" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_book/uart.vhd Line: 100
+Info (12128): Elaborating entity "uart_tx" for hierarchy "uart:uart_unit|uart_tx:transmitter" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_book/uart.vhd Line: 102
+Info (12128): Elaborating entity "fifo" for hierarchy "uart:uart_unit|fifo:fifo_rx" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_book/uart.vhd Line: 104
+Info (13000): Registers with preset signals will power-up high File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_book/uart_tx.vhd Line: 36
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 2501 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 13 input pins
-    Info (21059): Implemented 21 output pins
-    Info (21061): Implemented 2467 logic cells
+Info (21057): Implemented 1100 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 13 output pins
+    Info (21061): Implemented 1083 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4806 megabytes
-    Info: Processing ended: Sat Aug 15 17:03:57 2020
+    Info: Peak virtual memory: 4810 megabytes
+    Info: Processing ended: Fri Aug 28 16:24:22 2020
     Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:23
+    Info: Total CPU time (on all processors): 00:00:26
 
 

@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 package uart_components is
-    component uart_tx is
+	component uart_tx is
 		generic(
 			g_clks_per_bit : integer := 5209);
 			
@@ -43,6 +43,29 @@ package uart_components is
 			i_rd_en		: in std_logic;
 			o_rd_data	: out std_logic_vector(g_width-1 downto 0);
 			o_empty		: out std_logic);
+	end component;
+
+	component uart is
+		generic(
+			g_bits 				: natural := 8;
+			g_clks_per_bit		: integer := 5209;----50000000/9600
+			g_depth				: integer := 10);
+		port(
+			i_clk 				: in std_logic;
+			i_rst					: in std_logic;
+			i_rst_sync			: in std_logic;
+			
+			i_rx					: in std_logic;
+			o_fifo_rx_full		: out std_logic;
+			o_fifo_rx_empty	: out std_logic;
+			o_rx_data			: out std_logic_vector(g_bits-1 downto 0);
+			i_rd_uart			: in std_logic;
+			
+			o_tx					: out std_logic;
+			o_fifo_tx_full		: out std_logic;
+			o_fifo_tx_empty	: out std_logic;
+			i_tx_data			: in std_logic_vector(g_bits-1 downto 0);
+			i_wr_uart			: in std_logic);
 	end component;
 	
 end uart_components;

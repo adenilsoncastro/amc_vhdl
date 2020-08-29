@@ -1,5 +1,5 @@
 Fitter report for uart_fifo
-Wed Aug 19 19:56:40 2020
+Tue Aug 25 16:39:27 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -73,17 +73,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Wed Aug 19 19:56:40 2020       ;
+; Fitter Status                      ; Successful - Tue Aug 25 16:39:27 2020       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; uart_fifo                                   ;
 ; Top-level Entity Name              ; uart_fifo                                   ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 190 / 114,480 ( < 1 % )                     ;
-;     Total combinational functions  ; 166 / 114,480 ( < 1 % )                     ;
-;     Dedicated logic registers      ; 119 / 114,480 ( < 1 % )                     ;
-; Total registers                    ; 119                                         ;
+; Total logic elements               ; 215 / 114,480 ( < 1 % )                     ;
+;     Total combinational functions  ; 198 / 114,480 ( < 1 % )                     ;
+;     Dedicated logic registers      ; 128 / 114,480 ( < 1 % )                     ;
+; Total registers                    ; 128                                         ;
 ; Total pins                         ; 22 / 529 ( 4 % )                            ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 160 / 3,981,312 ( < 1 % )                   ;
@@ -160,13 +160,13 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 6           ;
 ;                            ;             ;
-; Average used               ; 1.01        ;
+; Average used               ; 1.02        ;
 ; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.2%      ;
-;     Processors 3-6         ;   0.2%      ;
+;     Processor 2            ;   0.4%      ;
+;     Processors 3-6         ;   0.3%      ;
 +----------------------------+-------------+
 
 
@@ -192,8 +192,8 @@ https://fpgasoftware.intel.com/eula.
 ; Type                ; Total [A + B]      ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+--------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                    ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 356 ) ; 0.00 % ( 0 / 356 )         ; 0.00 % ( 0 / 356 )       ;
-;     -- Achieved     ; 0.00 % ( 0 / 356 ) ; 0.00 % ( 0 / 356 )         ; 0.00 % ( 0 / 356 )       ;
+;     -- Requested    ; 0.00 % ( 0 / 397 ) ; 0.00 % ( 0 / 397 )         ; 0.00 % ( 0 / 397 )       ;
+;     -- Achieved     ; 0.00 % ( 0 / 397 ) ; 0.00 % ( 0 / 397 )         ; 0.00 % ( 0 / 397 )       ;
 ;                     ;                    ;                            ;                          ;
 ; Routing (by net)    ;                    ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )   ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -216,7 +216,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 346 )    ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 387 )    ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 10 )     ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -238,23 +238,23 @@ The pin-out file can be found in C:/Users/adeni/Documents/Mestrado/amc_vhdl/stud
 +---------------------------------------------+------------------------------+
 ; Resource                                    ; Usage                        ;
 +---------------------------------------------+------------------------------+
-; Total logic elements                        ; 190 / 114,480 ( < 1 % )      ;
-;     -- Combinational with no register       ; 71                           ;
-;     -- Register only                        ; 24                           ;
-;     -- Combinational with a register        ; 95                           ;
+; Total logic elements                        ; 215 / 114,480 ( < 1 % )      ;
+;     -- Combinational with no register       ; 87                           ;
+;     -- Register only                        ; 17                           ;
+;     -- Combinational with a register        ; 111                          ;
 ;                                             ;                              ;
 ; Logic element usage by number of LUT inputs ;                              ;
-;     -- 4 input functions                    ; 76                           ;
-;     -- 3 input functions                    ; 30                           ;
-;     -- <=2 input functions                  ; 60                           ;
-;     -- Register only                        ; 24                           ;
+;     -- 4 input functions                    ; 83                           ;
+;     -- 3 input functions                    ; 45                           ;
+;     -- <=2 input functions                  ; 70                           ;
+;     -- Register only                        ; 17                           ;
 ;                                             ;                              ;
 ; Logic elements by mode                      ;                              ;
-;     -- normal mode                          ; 136                          ;
+;     -- normal mode                          ; 168                          ;
 ;     -- arithmetic mode                      ; 30                           ;
 ;                                             ;                              ;
-; Total registers*                            ; 119 / 117,053 ( < 1 % )      ;
-;     -- Dedicated logic registers            ; 119 / 114,480 ( < 1 % )      ;
+; Total registers*                            ; 128 / 117,053 ( < 1 % )      ;
+;     -- Dedicated logic registers            ; 128 / 114,480 ( < 1 % )      ;
 ;     -- I/O registers                        ; 0 / 2,573 ( 0 % )            ;
 ;                                             ;                              ;
 ; Total LABs:  partially or completely used   ; 18 / 7,155 ( < 1 % )         ;
@@ -268,19 +268,19 @@ The pin-out file can be found in C:/Users/adeni/Documents/Mestrado/amc_vhdl/stud
 ; Total block memory implementation bits      ; 18,432 / 3,981,312 ( < 1 % ) ;
 ; Embedded Multiplier 9-bit elements          ; 0 / 532 ( 0 % )              ;
 ; PLLs                                        ; 0 / 4 ( 0 % )                ;
-; Global signals                              ; 1                            ;
-;     -- Global clocks                        ; 1 / 20 ( 5 % )               ;
+; Global signals                              ; 2                            ;
+;     -- Global clocks                        ; 2 / 20 ( 10 % )              ;
 ; JTAGs                                       ; 0 / 1 ( 0 % )                ;
 ; CRC blocks                                  ; 0 / 1 ( 0 % )                ;
 ; ASMI blocks                                 ; 0 / 1 ( 0 % )                ;
 ; Oscillator blocks                           ; 0 / 1 ( 0 % )                ;
 ; Impedance control blocks                    ; 0 / 4 ( 0 % )                ;
-; Average interconnect usage (total/H/V)      ; 0.0% / 0.1% / 0.0%           ;
-; Peak interconnect usage (total/H/V)         ; 1.2% / 1.6% / 0.5%           ;
-; Maximum fan-out                             ; 122                          ;
-; Highest non-global fan-out                  ; 26                           ;
-; Total fan-out                               ; 914                          ;
-; Average fan-out                             ; 2.51                         ;
+; Average interconnect usage (total/H/V)      ; 0.1% / 0.1% / 0.1%           ;
+; Peak interconnect usage (total/H/V)         ; 2.2% / 2.2% / 2.3%           ;
+; Maximum fan-out                             ; 127                          ;
+; Highest non-global fan-out                  ; 27                           ;
+; Total fan-out                               ; 1047                         ;
+; Average fan-out                             ; 2.63                         ;
 +---------------------------------------------+------------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -293,23 +293,23 @@ The pin-out file can be found in C:/Users/adeni/Documents/Mestrado/amc_vhdl/stud
 +---------------------------------------------+------------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                    ; Low                            ;
 ;                                             ;                        ;                                ;
-; Total logic elements                        ; 190 / 114480 ( < 1 % ) ; 0 / 114480 ( 0 % )             ;
-;     -- Combinational with no register       ; 71                     ; 0                              ;
-;     -- Register only                        ; 24                     ; 0                              ;
-;     -- Combinational with a register        ; 95                     ; 0                              ;
+; Total logic elements                        ; 215 / 114480 ( < 1 % ) ; 0 / 114480 ( 0 % )             ;
+;     -- Combinational with no register       ; 87                     ; 0                              ;
+;     -- Register only                        ; 17                     ; 0                              ;
+;     -- Combinational with a register        ; 111                    ; 0                              ;
 ;                                             ;                        ;                                ;
 ; Logic element usage by number of LUT inputs ;                        ;                                ;
-;     -- 4 input functions                    ; 76                     ; 0                              ;
-;     -- 3 input functions                    ; 30                     ; 0                              ;
-;     -- <=2 input functions                  ; 60                     ; 0                              ;
-;     -- Register only                        ; 24                     ; 0                              ;
+;     -- 4 input functions                    ; 83                     ; 0                              ;
+;     -- 3 input functions                    ; 45                     ; 0                              ;
+;     -- <=2 input functions                  ; 70                     ; 0                              ;
+;     -- Register only                        ; 17                     ; 0                              ;
 ;                                             ;                        ;                                ;
 ; Logic elements by mode                      ;                        ;                                ;
-;     -- normal mode                          ; 136                    ; 0                              ;
+;     -- normal mode                          ; 168                    ; 0                              ;
 ;     -- arithmetic mode                      ; 30                     ; 0                              ;
 ;                                             ;                        ;                                ;
-; Total registers                             ; 119                    ; 0                              ;
-;     -- Dedicated logic registers            ; 119 / 114480 ( < 1 % ) ; 0 / 114480 ( 0 % )             ;
+; Total registers                             ; 128                    ; 0                              ;
+;     -- Dedicated logic registers            ; 128 / 114480 ( < 1 % ) ; 0 / 114480 ( 0 % )             ;
 ;     -- I/O registers                        ; 0                      ; 0                              ;
 ;                                             ;                        ;                                ;
 ; Total LABs:  partially or completely used   ; 18 / 7155 ( < 1 % )    ; 0 / 7155 ( 0 % )               ;
@@ -320,7 +320,7 @@ The pin-out file can be found in C:/Users/adeni/Documents/Mestrado/amc_vhdl/stud
 ; Total memory bits                           ; 160                    ; 0                              ;
 ; Total RAM block bits                        ; 18432                  ; 0                              ;
 ; M9K                                         ; 2 / 432 ( < 1 % )      ; 0 / 432 ( 0 % )                ;
-; Clock control block                         ; 1 / 24 ( 4 % )         ; 0 / 24 ( 0 % )                 ;
+; Clock control block                         ; 2 / 24 ( 8 % )         ; 0 / 24 ( 0 % )                 ;
 ;                                             ;                        ;                                ;
 ; Connections                                 ;                        ;                                ;
 ;     -- Input Connections                    ; 0                      ; 0                              ;
@@ -329,8 +329,8 @@ The pin-out file can be found in C:/Users/adeni/Documents/Mestrado/amc_vhdl/stud
 ;     -- Registered Output Connections        ; 0                      ; 0                              ;
 ;                                             ;                        ;                                ;
 ; Internal Connections                        ;                        ;                                ;
-;     -- Total Connections                    ; 917                    ; 5                              ;
-;     -- Registered Connections               ; 385                    ; 0                              ;
+;     -- Total Connections                    ; 1050                   ; 5                              ;
+;     -- Registered Connections               ; 437                    ; 0                              ;
 ;                                             ;                        ;                                ;
 ; External Connections                        ;                        ;                                ;
 ;     -- Top                                  ; 0                      ; 0                              ;
@@ -362,9 +362,9 @@ The pin-out file can be found in C:/Users/adeni/Documents/Mestrado/amc_vhdl/stud
 +-------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 ; Name        ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination Control Block ; Location assigned by ; Slew Rate ;
 +-------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
-; i_clk       ; Y2    ; 2        ; 0            ; 36           ; 14           ; 122                   ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
-; i_rst       ; M23   ; 6        ; 115          ; 40           ; 7            ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
-; i_rst_sync  ; M21   ; 6        ; 115          ; 53           ; 14           ; 26                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
+; i_clk       ; Y2    ; 2        ; 0            ; 36           ; 14           ; 131                   ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
+; i_rst       ; M23   ; 6        ; 115          ; 40           ; 7            ; 20                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
+; i_rst_sync  ; M21   ; 6        ; 115          ; 53           ; 14           ; 27                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
 ; i_rx_serial ; G12   ; 8        ; 27           ; 73           ; 7            ; 1                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
 +-------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 
@@ -1226,7 +1226,6 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +-----------------+-------------------------------+
 ; Pin Name        ; Reason                        ;
 +-----------------+-------------------------------+
-; i_rst           ; Incomplete set of assignments ;
 ; o_status[0]     ; Incomplete set of assignments ;
 ; o_status[1]     ; Incomplete set of assignments ;
 ; o_status[2]     ; Incomplete set of assignments ;
@@ -1246,6 +1245,7 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ; o_tx_serial     ; Incomplete set of assignments ;
 ; tx_data         ; Incomplete set of assignments ;
 ; i_clk           ; Incomplete set of assignments ;
+; i_rst           ; Incomplete set of assignments ;
 ; i_rst_sync      ; Incomplete set of assignments ;
 ; i_rx_serial     ; Incomplete set of assignments ;
 ; tx_data         ; Missing location assignment   ;
@@ -1257,15 +1257,15 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +-------------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node                ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name                                                                 ; Entity Name     ; Library Name ;
 +-------------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------------------------------------------------------------------+-----------------+--------------+
-; |uart_fifo                                ; 190 (21)    ; 119 (19)                  ; 0 (0)         ; 160         ; 2    ; 0            ; 0       ; 0         ; 22   ; 0            ; 71 (2)       ; 24 (8)            ; 95 (3)           ; |uart_fifo                                                                          ; uart_fifo       ; work         ;
-;    |fifo:fifo_rx|                         ; 61 (61)     ; 37 (37)                   ; 0 (0)         ; 80          ; 1    ; 0            ; 0       ; 0         ; 0    ; 0            ; 16 (16)      ; 14 (14)           ; 31 (31)          ; |uart_fifo|fifo:fifo_rx                                                             ; fifo            ; work         ;
+; |uart_fifo                                ; 215 (41)    ; 128 (28)                  ; 0 (0)         ; 160         ; 2    ; 0            ; 0       ; 0         ; 22   ; 0            ; 87 (13)      ; 17 (12)           ; 111 (24)         ; |uart_fifo                                                                          ; uart_fifo       ; work         ;
+;    |fifo:fifo_rx|                         ; 60 (60)     ; 37 (37)                   ; 0 (0)         ; 80          ; 1    ; 0            ; 0       ; 0         ; 0    ; 0            ; 23 (23)      ; 4 (4)             ; 33 (33)          ; |uart_fifo|fifo:fifo_rx                                                             ; fifo            ; work         ;
 ;       |altsyncram:r_fifo_data_rtl_0|      ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 80          ; 1    ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; |uart_fifo|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0                                ; altsyncram      ; work         ;
 ;          |altsyncram_9tg1:auto_generated| ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 80          ; 1    ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; |uart_fifo|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated ; altsyncram_9tg1 ; work         ;
 ;    |fifo:fifo_tx|                         ; 17 (17)     ; 8 (8)                     ; 0 (0)         ; 80          ; 1    ; 0            ; 0       ; 0         ; 0    ; 0            ; 9 (9)        ; 0 (0)             ; 8 (8)            ; |uart_fifo|fifo:fifo_tx                                                             ; fifo            ; work         ;
 ;       |altsyncram:r_fifo_data_rtl_0|      ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 80          ; 1    ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; |uart_fifo|fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0                                ; altsyncram      ; work         ;
 ;          |altsyncram_n9i1:auto_generated| ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 80          ; 1    ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; |uart_fifo|fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_n9i1:auto_generated ; altsyncram_n9i1 ; work         ;
-;    |uart_rx:receiver|                     ; 58 (58)     ; 32 (32)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 26 (26)      ; 2 (2)             ; 30 (30)          ; |uart_fifo|uart_rx:receiver                                                         ; uart_rx         ; work         ;
-;    |uart_tx:transmitter|                  ; 41 (41)     ; 23 (23)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 18 (18)      ; 0 (0)             ; 23 (23)          ; |uart_fifo|uart_tx:transmitter                                                      ; uart_tx         ; work         ;
+;    |uart_rx:receiver|                     ; 57 (57)     ; 32 (32)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 25 (25)      ; 1 (1)             ; 31 (31)          ; |uart_fifo|uart_rx:receiver                                                         ; uart_rx         ; work         ;
+;    |uart_tx:transmitter|                  ; 40 (40)     ; 23 (23)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 17 (17)      ; 0 (0)             ; 23 (23)          ; |uart_fifo|uart_tx:transmitter                                                      ; uart_tx         ; work         ;
 +-------------------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------------------------------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -1275,7 +1275,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------+----------+---------------+---------------+-----------------------+-----+------+
 ; Name            ; Pin Type ; Pad to Core 0 ; Pad to Core 1 ; Pad to Input Register ; TCO ; TCOE ;
 +-----------------+----------+---------------+---------------+-----------------------+-----+------+
-; i_rst           ; Input    ; --            ; --            ; --                    ; --  ; --   ;
 ; o_status[0]     ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; o_status[1]     ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; o_status[2]     ; Output   ; --            ; --            ; --                    ; --  ; --   ;
@@ -1295,81 +1294,108 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; o_tx_serial     ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; tx_data         ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; i_clk           ; Input    ; (0) 0 ps      ; --            ; --                    ; --  ; --   ;
-; i_rst_sync      ; Input    ; --            ; (6) 1314 ps   ; --                    ; --  ; --   ;
+; i_rst           ; Input    ; --            ; (6) 1314 ps   ; --                    ; --  ; --   ;
+; i_rst_sync      ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
 ; i_rx_serial     ; Input    ; (6) 1314 ps   ; --            ; --                    ; --  ; --   ;
 +-----------------+----------+---------------+---------------+-----------------------+-----+------+
 
 
-+--------------------------------------------------------------------------+
-; Pad To Core Delay Chain Fanout                                           ;
-+--------------------------------------------+-------------------+---------+
-; Source Pin / Fanout                        ; Pad To Core Index ; Setting ;
-+--------------------------------------------+-------------------+---------+
-; i_rst                                      ;                   ;         ;
-; i_clk                                      ;                   ;         ;
-; i_rst_sync                                 ;                   ;         ;
-;      - fifo:fifo_rx|r_fifo_count[1]        ; 1                 ; 6       ;
-;      - fifo:fifo_rx|r_fifo_count[2]        ; 1                 ; 6       ;
-;      - fifo:fifo_rx|r_fifo_count[3]        ; 1                 ; 6       ;
-;      - fifo:fifo_tx|r_fifo_count[1]        ; 1                 ; 6       ;
-;      - fifo:fifo_tx|r_fifo_count[2]        ; 1                 ; 6       ;
-;      - fifo:fifo_tx|r_fifo_count[3]        ; 1                 ; 6       ;
-;      - fifo:fifo_rx|r_fifo_count[0]~7      ; 1                 ; 6       ;
-;      - fifo:fifo_rx|r_fifo_count[0]~12     ; 1                 ; 6       ;
-;      - fifo:fifo_tx|r_fifo_count[1]~7      ; 1                 ; 6       ;
-;      - fifo:fifo_tx|r_fifo_count[0]~12     ; 1                 ; 6       ;
-;      - fifo:fifo_tx|r_fifo_data~13         ; 1                 ; 6       ;
-;      - fifo:fifo_tx|r_wr_index~0           ; 1                 ; 6       ;
-;      - fifo:fifo_tx|r_wr_index[0]~1        ; 1                 ; 6       ;
-;      - fifo:fifo_tx|r_wr_index~3           ; 1                 ; 6       ;
-;      - fifo:fifo_tx|r_wr_index~4           ; 1                 ; 6       ;
-;      - fifo:fifo_tx|r_wr_index~5           ; 1                 ; 6       ;
-;      - fifo:fifo_rx|r_fifo_data~24         ; 1                 ; 6       ;
-;      - fifo:fifo_rx|r_rd_index~0           ; 1                 ; 6       ;
-;      - fifo:fifo_rx|r_rd_index~3           ; 1                 ; 6       ;
-;      - fifo:fifo_rx|r_rd_index~4           ; 1                 ; 6       ;
-;      - fifo:fifo_rx|r_rd_index~6           ; 1                 ; 6       ;
-;      - fifo:fifo_rx|r_wr_index~0           ; 1                 ; 6       ;
-;      - fifo:fifo_rx|r_wr_index[3]~1        ; 1                 ; 6       ;
-;      - fifo:fifo_rx|r_wr_index~3           ; 1                 ; 6       ;
-;      - fifo:fifo_rx|r_wr_index~4           ; 1                 ; 6       ;
-;      - fifo:fifo_rx|r_wr_index~5           ; 1                 ; 6       ;
-; i_rx_serial                                ;                   ;         ;
-;      - uart_rx:receiver|r_rx_data_r~feeder ; 0                 ; 6       ;
-+--------------------------------------------+-------------------+---------+
++----------------------------------------------------------------------+
+; Pad To Core Delay Chain Fanout                                       ;
++----------------------------------------+-------------------+---------+
+; Source Pin / Fanout                    ; Pad To Core Index ; Setting ;
++----------------------------------------+-------------------+---------+
+; i_clk                                  ;                   ;         ;
+; i_rst                                  ;                   ;         ;
+;      - r_sm_main.s_get_fifo_data       ; 1                 ; 6       ;
+;      - r_sm_main.s_put_fifo_data       ; 1                 ; 6       ;
+;      - r_processing[0]                 ; 1                 ; 6       ;
+;      - r_processing[1]                 ; 1                 ; 6       ;
+;      - r_processing[2]                 ; 1                 ; 6       ;
+;      - r_processing[3]                 ; 1                 ; 6       ;
+;      - r_processing[4]                 ; 1                 ; 6       ;
+;      - r_processing[5]                 ; 1                 ; 6       ;
+;      - r_processing[6]                 ; 1                 ; 6       ;
+;      - r_processing[7]                 ; 1                 ; 6       ;
+;      - r_status[0]                     ; 1                 ; 6       ;
+;      - r_status[1]                     ; 1                 ; 6       ;
+;      - r_status[2]                     ; 1                 ; 6       ;
+;      - r_status[3]                     ; 1                 ; 6       ;
+;      - r_sm_main.s_process             ; 1                 ; 6       ;
+;      - r_sm_main.s_clear               ; 1                 ; 6       ;
+;      - r_fifo_rx_rd_en                 ; 1                 ; 6       ;
+;      - r_fifo_tx_wr_en                 ; 1                 ; 6       ;
+;      - r_sm_main.s_idle                ; 1                 ; 6       ;
+;      - r_fifo_tx_wr_data[0]~0          ; 1                 ; 6       ;
+; i_rst_sync                             ;                   ;         ;
+;      - fifo:fifo_rx|r_fifo_count[1]    ; 0                 ; 6       ;
+;      - fifo:fifo_rx|r_fifo_count[2]    ; 0                 ; 6       ;
+;      - fifo:fifo_rx|r_fifo_count[3]    ; 0                 ; 6       ;
+;      - fifo:fifo_tx|r_fifo_count[1]    ; 0                 ; 6       ;
+;      - fifo:fifo_tx|r_fifo_count[2]    ; 0                 ; 6       ;
+;      - fifo:fifo_tx|r_fifo_count[3]    ; 0                 ; 6       ;
+;      - fifo:fifo_rx|r_fifo_count[0]~7  ; 0                 ; 6       ;
+;      - fifo:fifo_rx|r_fifo_count[0]~12 ; 0                 ; 6       ;
+;      - fifo:fifo_tx|r_fifo_count[0]~7  ; 0                 ; 6       ;
+;      - fifo:fifo_tx|r_fifo_count[0]~12 ; 0                 ; 6       ;
+;      - fifo:fifo_tx|r_fifo_data~13     ; 0                 ; 6       ;
+;      - fifo:fifo_tx|r_wr_index~0       ; 0                 ; 6       ;
+;      - fifo:fifo_tx|r_wr_index[1]~1    ; 0                 ; 6       ;
+;      - fifo:fifo_tx|r_wr_index~3       ; 0                 ; 6       ;
+;      - fifo:fifo_tx|r_wr_index~4       ; 0                 ; 6       ;
+;      - fifo:fifo_tx|r_wr_index~5       ; 0                 ; 6       ;
+;      - fifo:fifo_rx|r_fifo_data~15     ; 0                 ; 6       ;
+;      - fifo:fifo_rx|r_rd_index~0       ; 0                 ; 6       ;
+;      - fifo:fifo_rx|r_rd_index~5       ; 0                 ; 6       ;
+;      - fifo:fifo_rx|r_rd_index~7       ; 0                 ; 6       ;
+;      - fifo:fifo_rx|r_rd_index~8       ; 0                 ; 6       ;
+;      - fifo:fifo_rx|r_rd_index~9       ; 0                 ; 6       ;
+;      - fifo:fifo_rx|r_wr_index~0       ; 0                 ; 6       ;
+;      - fifo:fifo_rx|r_wr_index[3]~1    ; 0                 ; 6       ;
+;      - fifo:fifo_rx|r_wr_index~4       ; 0                 ; 6       ;
+;      - fifo:fifo_rx|r_wr_index~5       ; 0                 ; 6       ;
+;      - fifo:fifo_rx|r_wr_index~6       ; 0                 ; 6       ;
+; i_rx_serial                            ;                   ;         ;
+;      - uart_rx:receiver|r_rx_data_r    ; 0                 ; 6       ;
++----------------------------------------+-------------------+---------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                                      ;
-+-----------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; Name                                    ; Location           ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+-----------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; fifo:fifo_rx|Equal2~0                   ; LCCOMB_X81_Y68_N20 ; 11      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; fifo:fifo_rx|r_fifo_count[0]~7          ; LCCOMB_X82_Y68_N2  ; 3       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; fifo:fifo_rx|r_fifo_data~24             ; LCCOMB_X81_Y68_N8  ; 2       ; Write enable ; no     ; --                   ; --               ; --                        ;
-; fifo:fifo_rx|r_wr_index[3]~1            ; LCCOMB_X81_Y68_N10 ; 4       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; fifo:fifo_tx|r_fifo_count[1]~7          ; LCCOMB_X83_Y71_N2  ; 3       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; fifo:fifo_tx|r_fifo_data~13             ; LCCOMB_X79_Y71_N12 ; 1       ; Write enable ; no     ; --                   ; --               ; --                        ;
-; fifo:fifo_tx|r_wr_index[0]~1            ; LCCOMB_X79_Y71_N30 ; 4       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; i_clk                                   ; PIN_Y2             ; 121     ; Clock        ; yes    ; Global Clock         ; GCLK4            ; --                        ;
-; i_rst_sync                              ; PIN_M21            ; 26      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; p_process~0                             ; LCCOMB_X79_Y68_N16 ; 9       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; r_tx_data[0]~0                          ; LCCOMB_X82_Y71_N14 ; 1       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; uart_rx:receiver|r_clk_count[7]~42      ; LCCOMB_X73_Y71_N26 ; 13      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; uart_rx:receiver|r_clk_count[7]~43      ; LCCOMB_X73_Y71_N22 ; 13      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; uart_tx:transmitter|Selector20~0        ; LCCOMB_X81_Y71_N24 ; 1       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; uart_tx:transmitter|r_clk_count[8]~35   ; LCCOMB_X80_Y71_N30 ; 13      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; uart_tx:transmitter|r_sm_main.s_cleanup ; FF_X77_Y71_N7      ; 16      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-+-----------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                                                    ;
++-----------------------------------------+--------------------+---------+----------------------------+--------+----------------------+------------------+---------------------------+
+; Name                                    ; Location           ; Fan-Out ; Usage                      ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++-----------------------------------------+--------------------+---------+----------------------------+--------+----------------------+------------------+---------------------------+
+; fifo:fifo_rx|r_fifo_count[0]~7          ; LCCOMB_X59_Y58_N28 ; 3       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; fifo:fifo_rx|r_fifo_data~15             ; LCCOMB_X60_Y58_N28 ; 2       ; Write enable               ; no     ; --                   ; --               ; --                        ;
+; fifo:fifo_rx|r_wr_index[3]~2            ; LCCOMB_X60_Y58_N6  ; 4       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; fifo:fifo_tx|Equal3~0                   ; LCCOMB_X66_Y62_N0  ; 3       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; fifo:fifo_tx|r_fifo_count[0]~7          ; LCCOMB_X66_Y62_N2  ; 3       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; fifo:fifo_tx|r_fifo_data~13             ; LCCOMB_X65_Y62_N0  ; 1       ; Write enable               ; no     ; --                   ; --               ; --                        ;
+; fifo:fifo_tx|r_wr_index[1]~1            ; LCCOMB_X66_Y62_N24 ; 4       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; i_clk                                   ; PIN_Y2             ; 5       ; Clock                      ; no     ; --                   ; --               ; --                        ;
+; i_clk                                   ; PIN_Y2             ; 126     ; Clock                      ; yes    ; Global Clock         ; GCLK4            ; --                        ;
+; i_rst                                   ; PIN_M23            ; 20      ; Async. clear, Clock enable ; no     ; --                   ; --               ; --                        ;
+; i_rst_sync                              ; PIN_M21            ; 27      ; Sync. clear                ; no     ; --                   ; --               ; --                        ;
+; r_fifo_rx_wr_data[1]~0                  ; LCCOMB_X59_Y58_N14 ; 8       ; Latch enable               ; yes    ; Global Clock         ; GCLK10           ; --                        ;
+; r_fifo_tx_wr_data[0]~0                  ; LCCOMB_X63_Y62_N2  ; 8       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; r_sm_main.s_get_fifo_data               ; FF_X62_Y62_N1      ; 13      ; Sync. load                 ; no     ; --                   ; --               ; --                        ;
+; uart_rx:receiver|r_clk_count[10]~42     ; LCCOMB_X63_Y55_N30 ; 13      ; Sync. clear                ; no     ; --                   ; --               ; --                        ;
+; uart_rx:receiver|r_clk_count[10]~43     ; LCCOMB_X63_Y55_N18 ; 13      ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; uart_tx:transmitter|Selector20~0        ; LCCOMB_X60_Y63_N0  ; 1       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; uart_tx:transmitter|r_clk_count[12]~35  ; LCCOMB_X59_Y63_N30 ; 13      ; Sync. clear                ; no     ; --                   ; --               ; --                        ;
+; uart_tx:transmitter|r_sm_main.s_cleanup ; FF_X60_Y62_N7      ; 16      ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; uart_tx:transmitter|r_tx_done           ; FF_X60_Y63_N19     ; 2       ; Async. clear               ; no     ; --                   ; --               ; --                        ;
++-----------------------------------------+--------------------+---------+----------------------------+--------+----------------------+------------------+---------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------+
-; Global & Other Fast Signals                                                                                                             ;
-+-------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
-; Name  ; Location ; Fan-Out ; Fan-Out Using Intentional Clock Skew ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+-------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
-; i_clk ; PIN_Y2   ; 121     ; 8                                    ; Global Clock         ; GCLK4            ; --                        ;
-+-------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Global & Other Fast Signals                                                                                                                                        ;
++------------------------+--------------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
+; Name                   ; Location           ; Fan-Out ; Fan-Out Using Intentional Clock Skew ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++------------------------+--------------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
+; i_clk                  ; PIN_Y2             ; 126     ; 7                                    ; Global Clock         ; GCLK4            ; --                        ;
+; r_fifo_rx_wr_data[1]~0 ; LCCOMB_X59_Y58_N14 ; 8       ; 0                                    ; Global Clock         ; GCLK10           ; --                        ;
++------------------------+--------------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1377,8 +1403,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+-----------------------------------------+----------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
 ; Name                                                                                ; Type ; Mode             ; Clock Mode   ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Port A Input Registers ; Port A Output Registers ; Port B Input Registers ; Port B Output Registers ; Size ; Implementation Port A Depth ; Implementation Port A Width ; Implementation Port B Depth ; Implementation Port B Width ; Implementation Bits ; M9Ks ; MIF                                     ; Location       ; Mixed Width RDW Mode ; Port A RDW Mode        ; Port B RDW Mode        ; ECC Mode ; ECC Pipeline Registers ; Fits in MLABs ;
 +-------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+-----------------------------------------+----------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
-; fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; Single Clock ; 10           ; 8            ; 10           ; 8            ; yes                    ; no                      ; yes                    ; no                      ; 80   ; 10                          ; 8                           ; 10                          ; 8                           ; 80                  ; 1    ; db/uart_fifo.ram0_fifo_1ff8f9ef.hdl.mif ; M9K_X78_Y68_N0 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
-; fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_n9i1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; Single Clock ; 10           ; 8            ; 10           ; 8            ; yes                    ; no                      ; yes                    ; yes                     ; 80   ; 10                          ; 8                           ; 10                          ; 8                           ; 80                  ; 1    ; db/uart_fifo.ram0_fifo_1ff8f9ef.hdl.mif ; M9K_X78_Y71_N0 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
+; fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; Single Clock ; 10           ; 8            ; 10           ; 8            ; yes                    ; no                      ; yes                    ; no                      ; 80   ; 10                          ; 8                           ; 10                          ; 8                           ; 80                  ; 1    ; db/uart_fifo.ram0_fifo_1ff8f9ef.hdl.mif ; M9K_X64_Y58_N0 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
+; fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_n9i1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; Single Clock ; 10           ; 8            ; 10           ; 8            ; yes                    ; no                      ; yes                    ; yes                     ; 80   ; 10                          ; 8                           ; 10                          ; 8                           ; 80                  ; 1    ; db/uart_fifo.ram0_fifo_1ff8f9ef.hdl.mif ; M9K_X64_Y62_N0 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
 +-------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+-----------------------------------------+----------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
 Note: Fitter may spread logical memories into multiple blocks to improve timing. The actual required RAM blocks can be found in the Fitter Resource Usage section.
 
@@ -1408,111 +1434,110 @@ RAM content values are presented in the following format: (Binary) (Octal) (Deci
 +-----------------------+-------------------------+
 ; Routing Resource Type ; Usage                   ;
 +-----------------------+-------------------------+
-; Block interconnects   ; 188 / 342,891 ( < 1 % ) ;
-; C16 interconnects     ; 2 / 10,120 ( < 1 % )    ;
-; C4 interconnects      ; 38 / 209,544 ( < 1 % )  ;
-; Direct links          ; 62 / 342,891 ( < 1 % )  ;
-; Global clocks         ; 1 / 20 ( 5 % )          ;
-; Local interconnects   ; 130 / 119,088 ( < 1 % ) ;
-; R24 interconnects     ; 10 / 9,963 ( < 1 % )    ;
-; R4 interconnects      ; 123 / 289,782 ( < 1 % ) ;
+; Block interconnects   ; 265 / 342,891 ( < 1 % ) ;
+; C16 interconnects     ; 24 / 10,120 ( < 1 % )   ;
+; C4 interconnects      ; 136 / 209,544 ( < 1 % ) ;
+; Direct links          ; 65 / 342,891 ( < 1 % )  ;
+; Global clocks         ; 2 / 20 ( 10 % )         ;
+; Local interconnects   ; 133 / 119,088 ( < 1 % ) ;
+; R24 interconnects     ; 23 / 9,963 ( < 1 % )    ;
+; R4 interconnects      ; 202 / 289,782 ( < 1 % ) ;
 +-----------------------+-------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Logic Elements                                                         ;
 +---------------------------------------------+------------------------------+
-; Number of Logic Elements  (Average = 10.56) ; Number of LABs  (Total = 18) ;
+; Number of Logic Elements  (Average = 11.94) ; Number of LABs  (Total = 18) ;
 +---------------------------------------------+------------------------------+
 ; 1                                           ; 2                            ;
-; 2                                           ; 1                            ;
+; 2                                           ; 0                            ;
 ; 3                                           ; 0                            ;
 ; 4                                           ; 0                            ;
 ; 5                                           ; 0                            ;
-; 6                                           ; 1                            ;
-; 7                                           ; 0                            ;
-; 8                                           ; 2                            ;
-; 9                                           ; 2                            ;
-; 10                                          ; 2                            ;
+; 6                                           ; 0                            ;
+; 7                                           ; 1                            ;
+; 8                                           ; 0                            ;
+; 9                                           ; 4                            ;
+; 10                                          ; 0                            ;
 ; 11                                          ; 0                            ;
 ; 12                                          ; 0                            ;
 ; 13                                          ; 0                            ;
-; 14                                          ; 0                            ;
-; 15                                          ; 2                            ;
-; 16                                          ; 6                            ;
+; 14                                          ; 3                            ;
+; 15                                          ; 0                            ;
+; 16                                          ; 8                            ;
 +---------------------------------------------+------------------------------+
 
 
 +-------------------------------------------------------------------+
 ; LAB-wide Signals                                                  ;
 +------------------------------------+------------------------------+
-; LAB-wide Signals  (Average = 1.22) ; Number of LABs  (Total = 18) ;
+; LAB-wide Signals  (Average = 1.50) ; Number of LABs  (Total = 18) ;
 +------------------------------------+------------------------------+
-; 1 Clock                            ; 18                           ;
-; 1 Clock enable                     ; 3                            ;
+; 1 Async. clear                     ; 2                            ;
+; 1 Clock                            ; 17                           ;
+; 1 Clock enable                     ; 5                            ;
 ; 1 Sync. clear                      ; 1                            ;
+; 1 Sync. load                       ; 2                            ;
 +------------------------------------+------------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Signals Sourced  (Average = 16.94) ; Number of LABs  (Total = 18) ;
+; Number of Signals Sourced  (Average = 18.78) ; Number of LABs  (Total = 18) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
-; 1                                            ; 0                            ;
-; 2                                            ; 2                            ;
-; 3                                            ; 1                            ;
+; 1                                            ; 2                            ;
+; 2                                            ; 0                            ;
+; 3                                            ; 0                            ;
 ; 4                                            ; 0                            ;
 ; 5                                            ; 0                            ;
 ; 6                                            ; 0                            ;
 ; 7                                            ; 0                            ;
 ; 8                                            ; 0                            ;
-; 9                                            ; 1                            ;
+; 9                                            ; 0                            ;
 ; 10                                           ; 0                            ;
-; 11                                           ; 2                            ;
-; 12                                           ; 2                            ;
-; 13                                           ; 0                            ;
+; 11                                           ; 0                            ;
+; 12                                           ; 1                            ;
+; 13                                           ; 3                            ;
 ; 14                                           ; 1                            ;
-; 15                                           ; 1                            ;
+; 15                                           ; 0                            ;
 ; 16                                           ; 0                            ;
-; 17                                           ; 0                            ;
+; 17                                           ; 1                            ;
 ; 18                                           ; 0                            ;
 ; 19                                           ; 0                            ;
-; 20                                           ; 0                            ;
+; 20                                           ; 1                            ;
 ; 21                                           ; 0                            ;
 ; 22                                           ; 0                            ;
-; 23                                           ; 3                            ;
+; 23                                           ; 2                            ;
 ; 24                                           ; 1                            ;
-; 25                                           ; 0                            ;
-; 26                                           ; 0                            ;
-; 27                                           ; 0                            ;
-; 28                                           ; 0                            ;
+; 25                                           ; 1                            ;
+; 26                                           ; 1                            ;
+; 27                                           ; 1                            ;
+; 28                                           ; 1                            ;
 ; 29                                           ; 2                            ;
-; 30                                           ; 0                            ;
-; 31                                           ; 1                            ;
-; 32                                           ; 1                            ;
 +----------------------------------------------+------------------------------+
 
 
 +--------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                        ;
 +-------------------------------------------------+------------------------------+
-; Number of Signals Sourced Out  (Average = 6.28) ; Number of LABs  (Total = 18) ;
+; Number of Signals Sourced Out  (Average = 7.72) ; Number of LABs  (Total = 18) ;
 +-------------------------------------------------+------------------------------+
 ; 0                                               ; 0                            ;
 ; 1                                               ; 2                            ;
-; 2                                               ; 2                            ;
+; 2                                               ; 0                            ;
 ; 3                                               ; 1                            ;
 ; 4                                               ; 1                            ;
-; 5                                               ; 4                            ;
+; 5                                               ; 3                            ;
 ; 6                                               ; 2                            ;
 ; 7                                               ; 0                            ;
-; 8                                               ; 1                            ;
-; 9                                               ; 2                            ;
-; 10                                              ; 0                            ;
-; 11                                              ; 0                            ;
-; 12                                              ; 1                            ;
+; 8                                               ; 2                            ;
+; 9                                               ; 0                            ;
+; 10                                              ; 1                            ;
+; 11                                              ; 1                            ;
+; 12                                              ; 3                            ;
 ; 13                                              ; 0                            ;
 ; 14                                              ; 1                            ;
 ; 15                                              ; 0                            ;
@@ -1523,30 +1548,31 @@ RAM content values are presented in the following format: (Binary) (Octal) (Deci
 +----------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                        ;
 +---------------------------------------------+------------------------------+
-; Number of Distinct Inputs  (Average = 7.39) ; Number of LABs  (Total = 18) ;
+; Number of Distinct Inputs  (Average = 8.61) ; Number of LABs  (Total = 18) ;
 +---------------------------------------------+------------------------------+
 ; 0                                           ; 0                            ;
-; 1                                           ; 1                            ;
-; 2                                           ; 1                            ;
+; 1                                           ; 0                            ;
+; 2                                           ; 2                            ;
 ; 3                                           ; 3                            ;
 ; 4                                           ; 3                            ;
-; 5                                           ; 0                            ;
-; 6                                           ; 1                            ;
-; 7                                           ; 3                            ;
+; 5                                           ; 1                            ;
+; 6                                           ; 0                            ;
+; 7                                           ; 1                            ;
 ; 8                                           ; 0                            ;
-; 9                                           ; 2                            ;
+; 9                                           ; 0                            ;
 ; 10                                          ; 1                            ;
 ; 11                                          ; 0                            ;
-; 12                                          ; 0                            ;
-; 13                                          ; 0                            ;
-; 14                                          ; 1                            ;
+; 12                                          ; 2                            ;
+; 13                                          ; 2                            ;
+; 14                                          ; 0                            ;
 ; 15                                          ; 0                            ;
 ; 16                                          ; 0                            ;
 ; 17                                          ; 0                            ;
-; 18                                          ; 0                            ;
-; 19                                          ; 1                            ;
+; 18                                          ; 2                            ;
+; 19                                          ; 0                            ;
 ; 20                                          ; 0                            ;
-; 21                                          ; 1                            ;
+; 21                                          ; 0                            ;
+; 22                                          ; 1                            ;
 +---------------------------------------------+------------------------------+
 
 
@@ -1611,7 +1637,6 @@ RAM content values are presented in the following format: (Binary) (Octal) (Deci
 ; Total Unchecked    ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0            ; 0            ; 0         ; 0         ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0            ; 0            ;
 ; Total Inapplicable ; 1            ; 22           ; 1            ; 22           ; 22           ; 0         ; 1            ; 22           ; 0         ; 0         ; 22           ; 4            ; 22           ; 22           ; 18           ; 22           ; 4            ; 18           ; 22           ; 22           ; 22           ; 4            ; 22           ; 22           ; 22           ; 22           ; 22           ; 0         ; 22           ; 22           ;
 ; Total Fail         ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0            ; 0            ; 0         ; 0         ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0            ; 0            ;
-; i_rst              ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; o_status[0]        ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; o_status[1]        ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; o_status[2]        ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
@@ -1631,6 +1656,7 @@ RAM content values are presented in the following format: (Binary) (Octal) (Deci
 ; o_tx_serial        ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; tx_data            ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; i_clk              ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; i_rst              ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; i_rst_sync         ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; i_rx_serial        ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 +--------------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+-----------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+
@@ -1672,40 +1698,60 @@ RAM content values are presented in the following format: (Binary) (Octal) (Deci
 +---------------------------+--------+
 
 
-+------------------------------------------------------------+
-; Estimated Delay Added for Hold Timing Summary              ;
-+-----------------+----------------------+-------------------+
-; Source Clock(s) ; Destination Clock(s) ; Delay Added in ns ;
-+-----------------+----------------------+-------------------+
-; i_clk           ; i_clk                ; 3.7               ;
-+-----------------+----------------------+-------------------+
++--------------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Summary                      ;
++-----------------+------------------------------+-------------------+
+; Source Clock(s) ; Destination Clock(s)         ; Delay Added in ns ;
++-----------------+------------------------------+-------------------+
+; i_clk           ; i_clk                        ; 25.1              ;
+; i_clk,I/O       ; i_clk                        ; 11.6              ;
+; i_clk           ; fifo:fifo_rx|r_fifo_count[0] ; 5.6               ;
+; i_clk           ; i_clk,I/O                    ; 1.1               ;
++-----------------+------------------------------+-------------------+
 Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
 This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Estimated Delay Added for Hold Timing Details                                                                                                             ;
-+----------------------------+----------------------------------------------------------------------------------------------------------+-------------------+
-; Source Register            ; Destination Register                                                                                     ; Delay Added in ns ;
-+----------------------------+----------------------------------------------------------------------------------------------------------+-------------------+
-; r_fifo_rx_wr_data[3]       ; fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a3~porta_datain_reg0  ; 0.336             ;
-; r_fifo_rx_wr_data[0]       ; fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a0~porta_datain_reg0  ; 0.336             ;
-; r_fifo_rx_wr_data[1]       ; fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a1~porta_datain_reg0  ; 0.336             ;
-; r_fifo_rx_wr_data[2]       ; fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a2~porta_datain_reg0  ; 0.336             ;
-; r_fifo_rx_wr_data[7]       ; fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a7~porta_datain_reg0  ; 0.336             ;
-; r_fifo_rx_wr_data[4]       ; fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a4~porta_datain_reg0  ; 0.336             ;
-; r_fifo_rx_wr_data[5]       ; fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a5~porta_datain_reg0  ; 0.336             ;
-; r_fifo_rx_wr_data[6]       ; fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a6~porta_datain_reg0  ; 0.336             ;
-; fifo:fifo_tx|r_wr_index[0] ; fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_n9i1:auto_generated|ram_block1a6~porta_address_reg0 ; 0.226             ;
-; fifo:fifo_tx|r_wr_index[1] ; fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_n9i1:auto_generated|ram_block1a6~porta_address_reg0 ; 0.226             ;
-; fifo:fifo_tx|r_wr_index[2] ; fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_n9i1:auto_generated|ram_block1a6~porta_address_reg0 ; 0.226             ;
-; fifo:fifo_tx|r_wr_index[3] ; fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_n9i1:auto_generated|ram_block1a6~porta_address_reg0 ; 0.226             ;
-; fifo:fifo_rx|r_wr_index[0] ; fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a6~porta_address_reg0 ; 0.036             ;
-; fifo:fifo_rx|r_wr_index[1] ; fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a6~porta_address_reg0 ; 0.036             ;
-; fifo:fifo_rx|r_wr_index[2] ; fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a6~porta_address_reg0 ; 0.036             ;
-; fifo:fifo_rx|r_wr_index[3] ; fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a6~porta_address_reg0 ; 0.036             ;
-+----------------------------+----------------------------------------------------------------------------------------------------------+-------------------+
-Note: This table only shows the top 16 path(s) that have the largest delay added for hold.
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Details                                                                                                                ;
++-------------------------------+----------------------------------------------------------------------------------------------------------+-------------------+
+; Source Register               ; Destination Register                                                                                     ; Delay Added in ns ;
++-------------------------------+----------------------------------------------------------------------------------------------------------+-------------------+
+; fifo:fifo_rx|r_fifo_count[0]  ; fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a6~portb_address_reg0 ; 4.518             ;
+; fifo:fifo_rx|r_rd_index[0]    ; fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a6~portb_address_reg0 ; 2.840             ;
+; fifo:fifo_rx|r_rd_index[3]    ; fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a6~portb_address_reg0 ; 2.840             ;
+; fifo:fifo_rx|r_rd_index[2]    ; fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a6~portb_address_reg0 ; 2.840             ;
+; fifo:fifo_rx|r_rd_index[1]    ; fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a6~portb_address_reg0 ; 2.840             ;
+; fifo:fifo_rx|r_fifo_count[3]  ; fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a6~portb_address_reg0 ; 2.840             ;
+; r_fifo_rx_rd_en               ; fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a6~portb_address_reg0 ; 2.840             ;
+; fifo:fifo_rx|r_fifo_count[2]  ; fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a6~portb_address_reg0 ; 2.840             ;
+; fifo:fifo_rx|r_fifo_count[1]  ; fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_9tg1:auto_generated|ram_block1a6~portb_address_reg0 ; 2.840             ;
+; r_fifo_rx_wr_en               ; fifo:fifo_rx|r_fifo_count[0]                                                                             ; 1.811             ;
+; i_rst_sync                    ; fifo:fifo_rx|r_fifo_count[0]                                                                             ; 1.811             ;
+; r_sm_main.s_clear             ; r_sm_main.s_idle                                                                                         ; 0.745             ;
+; r_sm_main.s_idle              ; r_sm_main.s_idle                                                                                         ; 0.745             ;
+; uart_rx:receiver|r_rx_byte[3] ; r_fifo_rx_wr_data[3]                                                                                     ; 0.697             ;
+; uart_rx:receiver|r_rx_byte[0] ; r_fifo_rx_wr_data[0]                                                                                     ; 0.697             ;
+; uart_rx:receiver|r_rx_byte[1] ; r_fifo_rx_wr_data[1]                                                                                     ; 0.697             ;
+; uart_rx:receiver|r_rx_byte[2] ; r_fifo_rx_wr_data[2]                                                                                     ; 0.697             ;
+; uart_rx:receiver|r_rx_byte[7] ; r_fifo_rx_wr_data[7]                                                                                     ; 0.697             ;
+; uart_rx:receiver|r_rx_byte[4] ; r_fifo_rx_wr_data[4]                                                                                     ; 0.697             ;
+; uart_rx:receiver|r_rx_byte[5] ; r_fifo_rx_wr_data[5]                                                                                     ; 0.697             ;
+; uart_rx:receiver|r_rx_byte[6] ; r_fifo_rx_wr_data[6]                                                                                     ; 0.697             ;
+; r_fifo_tx_wr_data[3]          ; fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_n9i1:auto_generated|ram_block1a3~porta_datain_reg0  ; 0.307             ;
+; r_fifo_tx_wr_data[0]          ; fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_n9i1:auto_generated|ram_block1a0~porta_datain_reg0  ; 0.307             ;
+; r_fifo_tx_wr_data[1]          ; fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_n9i1:auto_generated|ram_block1a1~porta_datain_reg0  ; 0.307             ;
+; r_fifo_tx_wr_data[2]          ; fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_n9i1:auto_generated|ram_block1a2~porta_datain_reg0  ; 0.307             ;
+; r_fifo_tx_wr_data[7]          ; fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_n9i1:auto_generated|ram_block1a7~porta_datain_reg0  ; 0.307             ;
+; r_fifo_tx_wr_data[4]          ; fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_n9i1:auto_generated|ram_block1a4~porta_datain_reg0  ; 0.307             ;
+; r_fifo_tx_wr_data[5]          ; fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_n9i1:auto_generated|ram_block1a5~porta_datain_reg0  ; 0.307             ;
+; r_fifo_tx_wr_data[6]          ; fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_n9i1:auto_generated|ram_block1a6~porta_datain_reg0  ; 0.307             ;
+; fifo:fifo_tx|r_wr_index[0]    ; fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_n9i1:auto_generated|ram_block1a6~porta_address_reg0 ; 0.229             ;
+; fifo:fifo_tx|r_wr_index[1]    ; fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_n9i1:auto_generated|ram_block1a6~porta_address_reg0 ; 0.229             ;
+; fifo:fifo_tx|r_wr_index[2]    ; fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_n9i1:auto_generated|ram_block1a6~porta_address_reg0 ; 0.229             ;
+; fifo:fifo_tx|r_wr_index[3]    ; fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_n9i1:auto_generated|ram_block1a6~porta_address_reg0 ; 0.229             ;
++-------------------------------+----------------------------------------------------------------------------------------------------------+-------------------+
+Note: This table only shows the top 33 path(s) that have the largest delay added for hold.
 
 
 +-----------------+
@@ -1737,13 +1783,21 @@ Info (169124): Fitter converted 5 user pins into dedicated programming pins
 Warning (15714): Some pins have incomplete I/O assignments. Refer to the I/O Assignment Warnings report for details
 Info (176045): Design uses memory blocks. Violating setup or hold times of memory block address registers for either read or write operations could cause memory contents to be corrupted. Make sure that all memory block address registers meet the setup and hold time requirements.
 Critical Warning (169085): No exact pin location assignment(s) for 1 pins of 22 total pins. For the list of pins please refer to the I/O Assignment Warnings table in the fitter report.
+Warning (335093): The Timing Analyzer is analyzing 9 combinational loops as latches. For more details, run the Check Timing command in the Timing Analyzer or view the "User-Specified and Inferred Latches" table in the Analysis & Synthesis report.
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'uart_fifo.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332144): No user constrained base clocks found in the design
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
-Info (332154): The derive_clock_uncertainty command did not apply clock uncertainty to any clock-to-clock transfers.
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Info (332130): Timing requirements not specified -- quality metrics such as performance may be sacrificed to reduce compilation time.
 Info (176353): Automatically promoted node i_clk~input (placed in PIN Y2 (CLK2, DIFFCLK_1p)) File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 13
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G4
+    Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
+        Info (176357): Destination node fifo:fifo_rx|r_fifo_count[1] File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/fifo.vhd Line: 38
+        Info (176357): Destination node fifo:fifo_rx|r_fifo_count[2] File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/fifo.vhd Line: 38
+        Info (176357): Destination node fifo:fifo_rx|r_fifo_count[3] File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/fifo.vhd Line: 38
+        Info (176357): Destination node uart_rx:receiver|r_rx_dv File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_rx.vhd Line: 41
+Info (176353): Automatically promoted node r_fifo_rx_wr_data[1]~0  File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/uart_fifo.vhd Line: 110
+    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
 Info (176233): Starting register packing
 Info (176235): Finished register packing
     Extra Info (176218): Packed 8 registers into blocks of type Block RAM
@@ -1760,7 +1814,7 @@ Info (176215): I/O bank details before I/O pin placement
         Info (176213): I/O bank number 6 does not use VREF pins and has undetermined VCCIO pins. 3 total pin(s) used --  55 pins available
         Info (176213): I/O bank number 7 does not use VREF pins and has 2.5V VCCIO pins. 16 total pin(s) used --  56 pins available
         Info (176213): I/O bank number 8 does not use VREF pins and has 2.5V VCCIO pins. 2 total pin(s) used --  69 pins available
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:01
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:02
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
@@ -1769,22 +1823,22 @@ Info (170137): Fitter placement was successful
 Info (170192): Fitter placement operations ending: elapsed time is 00:00:05
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 1% of the available device resources in the region that extends from location X69_Y61 to location X80_Y73
+    Info (170196): Router estimated peak interconnect usage is 1% of the available device resources in the region that extends from location X58_Y49 to location X68_Y60
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
-Info (11888): Total time spent on timing analysis during the Fitter is 0.24 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.34 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
 Info (144001): Generated suppressed messages file C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/uart_with_fifo/output_files/uart_fifo.fit.smsg
-Info: Quartus Prime Fitter was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 5744 megabytes
-    Info: Processing ended: Wed Aug 19 19:56:41 2020
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:28
+Info: Quartus Prime Fitter was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 5746 megabytes
+    Info: Processing ended: Tue Aug 25 16:39:27 2020
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:25
 
 
 +----------------------------+

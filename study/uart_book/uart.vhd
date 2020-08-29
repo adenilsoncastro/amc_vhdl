@@ -4,11 +4,11 @@
  
  entity uart is
 	generic(
-		g_dbit 		: integer := 8;
-		g_sb_tick	: integer := 16;
-		g_dvsr 		: integer := 365;
-		g_dvsr_bit	: integer := 9;
-		g_fifo_w 	: integer := 6);
+		g_dbit 		: integer := 8;		--Data bits
+		g_sb_tick	: integer := 16;		--Ticks for stop bits
+		g_dvsr 		: integer := 365;		--Baud Rate divisor (9600)
+		g_dvsr_bit	: integer := 9;		--Bits for divisor
+		g_fifo_w 	: integer := 5);		--Words in fifo (2^g_fifo_w)
 	port(
 		i_clk			: in std_logic;
 		i_rst			: in std_logic;
@@ -23,9 +23,7 @@
 		o_tx			: out std_logic;		
 		o_tx_full	: out std_logic;
 		o_tx_empty	: out std_logic;
-		i_w_data		: in std_logic_vector(7 downto 0);
-		
-		o_data_test : out std_logic_vector(7 downto 0));
+		i_w_data		: in std_logic_vector(7 downto 0));
 
  end uart;
  
@@ -45,8 +43,8 @@
 	
 	component mod_m_counter is
 		generic(
-			g_bits	: integer := 4;
-			g_mod		: integer := 10);
+			g_bits	: integer := g_dvsr_bit;
+			g_mod		: integer := g_dvsr);
 		port(
 			i_clk			: in std_logic;
 			i_rst 		: in std_logic;
@@ -56,8 +54,8 @@
 	
 	component uart_rx is
 		generic(
-			g_dbit		: integer := 8;
-			g_sb_tick	: integer := 16);
+			g_dbit		: integer := g_dbit;
+			g_sb_tick	: integer := g_sb_tick);
 		port(
 			i_clk			: in std_logic;
 			i_rst			: in std_logic;
@@ -69,8 +67,8 @@
 	
 	component uart_tx is
 		generic(
-			g_dbit		: integer := 8;
-			g_sb_tick	: integer := 16);
+			g_dbit		: integer := g_dbit;
+			g_sb_tick	: integer := g_sb_tick);
 		port(
 			i_clk			: in std_logic;
 			i_rst			: in std_logic;
@@ -97,7 +95,7 @@
 	end component;		
 	
 	begin
-		baud_generator	: mod_m_counter generic map(g_dvsr, g_dvsr_bit) port map (i_clk, i_rst, r_tick, open);
+		baud_generator	: mod_m_counter generic map(g_dvsr_bit, g_dvsr) port map (i_clk, i_rst, r_tick, open);
 		
 		receiver 		: uart_rx generic map(g_dbit, g_sb_tick) port map (i_clk, i_rst, i_rx, r_tick, r_rx_done, r_rx_data_out);
 		
@@ -109,7 +107,5 @@
 		
 	r_tx_fifo_not_empty <= not r_tx_empty;	
 	o_tx_empty <= r_tx_empty;
-	
-	o_data_test <= r_rx_data_out;
 
 end arch;
