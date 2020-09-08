@@ -1,5 +1,5 @@
 Analysis & Synthesis report for simple_operations
-Mon Sep 07 22:18:53 2020
+Tue Sep 08 14:48:59 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -14,28 +14,29 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
-  9. State Machine - |simple_operations|uart:uart_unit|uart_tx:transmitter|r_sm_main
- 10. State Machine - |simple_operations|uart:uart_unit|uart_rx:receiver|r_sm_main
- 11. General Register Statistics
- 12. Inverted Register Statistics
- 13. Registers Added for RAM Pass-Through Logic
- 14. Multiplexer Restructuring Statistics (Restructuring Performed)
- 15. Source assignments for uart:uart_unit|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_noh1:auto_generated
- 16. Source assignments for uart:uart_unit|fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_noh1:auto_generated
- 17. Parameter Settings for User Entity Instance: Top-level Entity: |simple_operations
- 18. Parameter Settings for User Entity Instance: uart:uart_unit
- 19. Parameter Settings for User Entity Instance: uart:uart_unit|uart_rx:receiver
- 20. Parameter Settings for User Entity Instance: uart:uart_unit|fifo:fifo_rx
- 21. Parameter Settings for User Entity Instance: uart:uart_unit|uart_tx:transmitter
- 22. Parameter Settings for User Entity Instance: uart:uart_unit|fifo:fifo_tx
- 23. Parameter Settings for Inferred Entity Instance: uart:uart_unit|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0
- 24. Parameter Settings for Inferred Entity Instance: uart:uart_unit|fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0
- 25. altsyncram Parameter Settings by Entity Instance
- 26. Port Connectivity Checks: "uart:uart_unit|uart_tx:transmitter"
- 27. Post-Synthesis Netlist Statistics for Top Partition
- 28. Elapsed Time Per Partition
- 29. Analysis & Synthesis Equations
- 30. Analysis & Synthesis Messages
+  9. State Machine - |simple_operations|r_sm_main
+ 10. State Machine - |simple_operations|uart:uart_unit|uart_tx:transmitter|r_sm_main
+ 11. State Machine - |simple_operations|uart:uart_unit|uart_rx:receiver|r_sm_main
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Registers Added for RAM Pass-Through Logic
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Source assignments for uart:uart_unit|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_noh1:auto_generated
+ 17. Source assignments for uart:uart_unit|fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_noh1:auto_generated
+ 18. Parameter Settings for User Entity Instance: Top-level Entity: |simple_operations
+ 19. Parameter Settings for User Entity Instance: uart:uart_unit
+ 20. Parameter Settings for User Entity Instance: uart:uart_unit|uart_rx:receiver
+ 21. Parameter Settings for User Entity Instance: uart:uart_unit|fifo:fifo_rx
+ 22. Parameter Settings for User Entity Instance: uart:uart_unit|uart_tx:transmitter
+ 23. Parameter Settings for User Entity Instance: uart:uart_unit|fifo:fifo_tx
+ 24. Parameter Settings for Inferred Entity Instance: uart:uart_unit|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0
+ 25. Parameter Settings for Inferred Entity Instance: uart:uart_unit|fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0
+ 26. altsyncram Parameter Settings by Entity Instance
+ 27. Port Connectivity Checks: "uart:uart_unit|uart_tx:transmitter"
+ 28. Post-Synthesis Netlist Statistics for Top Partition
+ 29. Elapsed Time Per Partition
+ 30. Analysis & Synthesis Equations
+ 31. Analysis & Synthesis Messages
 
 
 
@@ -62,16 +63,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Sep 07 22:18:53 2020       ;
+; Analysis & Synthesis Status        ; Successful - Tue Sep 08 14:48:58 2020       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; simple_operations                           ;
 ; Top-level Entity Name              ; simple_operations                           ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 229                                         ;
-;     Total combinational functions  ; 187                                         ;
-;     Dedicated logic registers      ; 139                                         ;
-; Total registers                    ; 139                                         ;
-; Total pins                         ; 19                                          ;
+; Total logic elements               ; 253                                         ;
+;     Total combinational functions  ; 194                                         ;
+;     Dedicated logic registers      ; 162                                         ;
+; Total registers                    ; 162                                         ;
+; Total pins                         ; 17                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 160                                         ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -217,31 +218,31 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 229         ;
+; Estimated Total logic elements              ; 253         ;
 ;                                             ;             ;
-; Total combinational functions               ; 187         ;
+; Total combinational functions               ; 194         ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 90          ;
-;     -- 3 input functions                    ; 47          ;
-;     -- <=2 input functions                  ; 50          ;
+;     -- 4 input functions                    ; 96          ;
+;     -- 3 input functions                    ; 44          ;
+;     -- <=2 input functions                  ; 54          ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 149         ;
-;     -- arithmetic mode                      ; 38          ;
+;     -- normal mode                          ; 155         ;
+;     -- arithmetic mode                      ; 39          ;
 ;                                             ;             ;
-; Total registers                             ; 139         ;
-;     -- Dedicated logic registers            ; 139         ;
+; Total registers                             ; 162         ;
+;     -- Dedicated logic registers            ; 162         ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
-; I/O pins                                    ; 19          ;
+; I/O pins                                    ; 17          ;
 ; Total memory bits                           ; 160         ;
 ;                                             ;             ;
 ; Embedded Multiplier 9-bit elements          ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; i_clk~input ;
-; Maximum fan-out                             ; 155         ;
-; Total fan-out                               ; 1154        ;
-; Average fan-out                             ; 3.04        ;
+; Maximum fan-out                             ; 178         ;
+; Total fan-out                               ; 1270        ;
+; Average fan-out                             ; 3.13        ;
 +---------------------------------------------+-------------+
 
 
@@ -250,15 +251,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                        ; Entity Name       ; Library Name ;
 +----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------+-------------------+--------------+
-; |simple_operations                           ; 187 (7)             ; 139 (0)                   ; 160         ; 0            ; 0       ; 0         ; 19   ; 0            ; |simple_operations                                                                                         ; simple_operations ; work         ;
-;    |uart:uart_unit|                          ; 180 (0)             ; 139 (0)                   ; 160         ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple_operations|uart:uart_unit                                                                          ; uart              ; work         ;
+; |simple_operations                           ; 194 (17)            ; 162 (23)                  ; 160         ; 0            ; 0       ; 0         ; 17   ; 0            ; |simple_operations                                                                                         ; simple_operations ; work         ;
+;    |uart:uart_unit|                          ; 177 (0)             ; 139 (0)                   ; 160         ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple_operations|uart:uart_unit                                                                          ; uart              ; work         ;
 ;       |fifo:fifo_rx|                         ; 41 (41)             ; 38 (38)                   ; 80          ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple_operations|uart:uart_unit|fifo:fifo_rx                                                             ; fifo              ; work         ;
 ;          |altsyncram:r_fifo_data_rtl_0|      ; 0 (0)               ; 0 (0)                     ; 80          ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple_operations|uart:uart_unit|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0                                ; altsyncram        ; work         ;
 ;             |altsyncram_noh1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 80          ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple_operations|uart:uart_unit|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_noh1:auto_generated ; altsyncram_noh1   ; work         ;
-;       |fifo:fifo_tx|                         ; 41 (41)             ; 38 (38)                   ; 80          ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple_operations|uart:uart_unit|fifo:fifo_tx                                                             ; fifo              ; work         ;
+;       |fifo:fifo_tx|                         ; 40 (40)             ; 38 (38)                   ; 80          ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple_operations|uart:uart_unit|fifo:fifo_tx                                                             ; fifo              ; work         ;
 ;          |altsyncram:r_fifo_data_rtl_0|      ; 0 (0)               ; 0 (0)                     ; 80          ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple_operations|uart:uart_unit|fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0                                ; altsyncram        ; work         ;
 ;             |altsyncram_noh1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 80          ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple_operations|uart:uart_unit|fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_noh1:auto_generated ; altsyncram_noh1   ; work         ;
-;       |uart_rx:receiver|                     ; 58 (58)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple_operations|uart:uart_unit|uart_rx:receiver                                                         ; uart_rx           ; work         ;
+;       |uart_rx:receiver|                     ; 56 (56)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple_operations|uart:uart_unit|uart_rx:receiver                                                         ; uart_rx           ; work         ;
 ;       |uart_tx:transmitter|                  ; 40 (40)             ; 31 (31)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |simple_operations|uart:uart_unit|uart_tx:transmitter                                                      ; uart_tx           ; work         ;
 +----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -272,6 +273,20 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; uart:uart_unit|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_noh1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 10           ; 8            ; 10           ; 8            ; 80   ; db/simple_operations.ram0_fifo_1ff8f9ef.hdl.mif ;
 ; uart:uart_unit|fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_noh1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 10           ; 8            ; 10           ; 8            ; 80   ; db/simple_operations.ram0_fifo_1ff8f9ef.hdl.mif ;
 +----------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+-------------------------------------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |simple_operations|r_sm_main                                                                                                    ;
++---------------------------+-------------------+---------------------------+----------------------+---------------------------+------------------+
+; Name                      ; r_sm_main.s_clear ; r_sm_main.s_put_fifo_data ; r_sm_main.s_calculus ; r_sm_main.s_get_fifo_data ; r_sm_main.s_idle ;
++---------------------------+-------------------+---------------------------+----------------------+---------------------------+------------------+
+; r_sm_main.s_idle          ; 0                 ; 0                         ; 0                    ; 0                         ; 0                ;
+; r_sm_main.s_get_fifo_data ; 0                 ; 0                         ; 0                    ; 1                         ; 1                ;
+; r_sm_main.s_calculus      ; 0                 ; 0                         ; 1                    ; 0                         ; 1                ;
+; r_sm_main.s_put_fifo_data ; 0                 ; 1                         ; 0                    ; 0                         ; 1                ;
+; r_sm_main.s_clear         ; 1                 ; 0                         ; 0                    ; 0                         ; 1                ;
++---------------------------+-------------------+---------------------------+----------------------+---------------------------+------------------+
 
 
 Encoding Type:  One-Hot
@@ -307,12 +322,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 139   ;
+; Total registers                              ; 162   ;
 ; Number of registers using Synchronous Clear  ; 36    ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Synchronous Load   ; 8     ;
+; Number of registers using Asynchronous Clear ; 15    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 52    ;
+; Number of registers using Clock Enable       ; 68    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -400,22 +415,23 @@ Encoding Type:  One-Hot
 +----------------------------------------------------------+-----------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |simple_operations|uart:uart_unit|fifo:fifo_tx|r_fifo_count[0]        ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |simple_operations|uart:uart_unit|fifo:fifo_rx|r_fifo_count[2]        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |simple_operations|uart:uart_unit|fifo:fifo_rx|r_wr_index[3]          ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |simple_operations|uart:uart_unit|fifo:fifo_tx|r_wr_index[3]          ;
-; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |simple_operations|uart:uart_unit|uart_tx:transmitter|r_clk_count[11] ;
-; 7:1                ; 13 bits   ; 52 LEs        ; 13 LEs               ; 39 LEs                 ; Yes        ; |simple_operations|uart:uart_unit|uart_rx:receiver|r_clk_count[4]     ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |simple_operations|uart:uart_unit|uart_tx:transmitter|r_bit_index     ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |simple_operations|uart:uart_unit|uart_rx:receiver|r_bit_index        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |simple_operations|uart:uart_unit|fifo:fifo_rx|r_rd_index             ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |simple_operations|uart:uart_unit|fifo:fifo_tx|r_rd_index             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------+
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |simple_operations|uart:uart_unit|fifo:fifo_rx|r_fifo_count[2]       ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |simple_operations|uart:uart_unit|fifo:fifo_tx|r_fifo_count[2]       ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |simple_operations|r_data[5]                                         ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |simple_operations|uart:uart_unit|fifo:fifo_rx|r_wr_index[1]         ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |simple_operations|uart:uart_unit|fifo:fifo_tx|r_wr_index[3]         ;
+; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |simple_operations|uart:uart_unit|uart_tx:transmitter|r_clk_count[7] ;
+; 7:1                ; 13 bits   ; 52 LEs        ; 13 LEs               ; 39 LEs                 ; Yes        ; |simple_operations|uart:uart_unit|uart_rx:receiver|r_clk_count[10]   ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |simple_operations|uart:uart_unit|uart_tx:transmitter|r_bit_index    ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |simple_operations|uart:uart_unit|uart_rx:receiver|r_bit_index       ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |simple_operations|uart:uart_unit|fifo:fifo_rx|r_rd_index            ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |simple_operations|uart:uart_unit|fifo:fifo_tx|r_rd_index            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------+
@@ -669,24 +685,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 19                          ;
-; cycloneiii_ff         ; 139                         ;
-;     ENA               ; 16                          ;
+; boundary_port         ; 17                          ;
+; cycloneiii_ff         ; 162                         ;
+;     CLR               ; 7                           ;
+;     ENA               ; 24                          ;
+;     ENA CLR SLD       ; 8                           ;
 ;     ENA SCLR          ; 36                          ;
 ;     plain             ; 87                          ;
-; cycloneiii_lcell_comb ; 187                         ;
-;     arith             ; 38                          ;
-;         2 data inputs ; 31                          ;
-;         3 data inputs ; 7                           ;
-;     normal            ; 149                         ;
+; cycloneiii_lcell_comb ; 196                         ;
+;     arith             ; 39                          ;
+;         2 data inputs ; 33                          ;
+;         3 data inputs ; 6                           ;
+;     normal            ; 157                         ;
 ;         1 data inputs ; 5                           ;
-;         2 data inputs ; 14                          ;
-;         3 data inputs ; 40                          ;
-;         4 data inputs ; 90                          ;
+;         2 data inputs ; 18                          ;
+;         3 data inputs ; 38                          ;
+;         4 data inputs ; 96                          ;
 ; cycloneiii_ram_block  ; 16                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 2.86                        ;
+; Max LUT depth         ; 6.00                        ;
+; Average LUT depth     ; 2.56                        ;
 +-----------------------+-----------------------------+
 
 
@@ -695,7 +713,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -711,7 +729,7 @@ The equations can be found in C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/s
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Mon Sep 07 22:18:44 2020
+    Info: Processing started: Tue Sep 08 14:48:47 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off simple_operations -c simple_operations
 Info (20032): Parallel compilation is enabled and will use up to 6 processors
 Info (12021): Found 1 design units, including 0 entities, in source file /users/adeni/documents/mestrado/amc_vhdl/study/rna_library/data_types_pkg.vhd
@@ -722,7 +740,7 @@ Info (12021): Found 2 design units, including 0 entities, in source file /users/
 Info (12021): Found 1 design units, including 0 entities, in source file /users/adeni/documents/mestrado/amc_vhdl/study/ieee_proposed/fixed_float_types_c.vhdl
     Info (12022): Found design unit 1: fixed_float_types File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/ieee_proposed/fixed_float_types_c.vhdl Line: 16
 Info (12021): Found 2 design units, including 1 entities, in source file simple_operations.vhd
-    Info (12022): Found design unit 1: simple_operations-bhv File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/simple_operations.vhd Line: 39
+    Info (12022): Found design unit 1: simple_operations-bhv File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/simple_operations.vhd Line: 37
     Info (12023): Found entity 1: simple_operations File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/simple_operations.vhd Line: 13
 Info (12021): Found 1 design units, including 0 entities, in source file /users/adeni/documents/mestrado/amc_vhdl/study/rna_library/uart_components.vhd
     Info (12022): Found design unit 1: uart_components File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/rna_library/uart_components.vhd Line: 5
@@ -733,7 +751,7 @@ Warning (10445): VHDL Subtype or Type Declaration warning at fixed_pkg_c.vhdl(14
 Warning (12125): Using design file /users/adeni/documents/mestrado/amc_vhdl/study/rna_library/uart.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
     Info (12022): Found design unit 1: uart-bhv File: c:/users/adeni/documents/mestrado/amc_vhdl/study/rna_library/uart.vhd Line: 33
     Info (12023): Found entity 1: uart File: c:/users/adeni/documents/mestrado/amc_vhdl/study/rna_library/uart.vhd Line: 8
-Info (12128): Elaborating entity "uart" for hierarchy "uart:uart_unit" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/simple_operations.vhd Line: 55
+Info (12128): Elaborating entity "uart" for hierarchy "uart:uart_unit" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/simple_operations.vhd Line: 57
 Warning (10036): Verilog HDL or VHDL warning at uart.vhd(39): object "r_tx_active" assigned a value but never read File: c:/users/adeni/documents/mestrado/amc_vhdl/study/rna_library/uart.vhd Line: 39
 Warning (12125): Using design file /users/adeni/documents/mestrado/amc_vhdl/study/rna_library/uart_rx.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
     Info (12022): Found design unit 1: uart_rx-rtl File: c:/users/adeni/documents/mestrado/amc_vhdl/study/rna_library/uart_rx.vhd Line: 16
@@ -806,17 +824,15 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alts
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "i_rst" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/simple_operations/simple_operations.vhd Line: 22
-Info (21057): Implemented 282 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 6 input pins
+Info (21057): Implemented 298 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
     Info (21059): Implemented 13 output pins
-    Info (21061): Implemented 247 logic cells
+    Info (21061): Implemented 265 logic cells
     Info (21064): Implemented 16 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
-    Info: Peak virtual memory: 4832 megabytes
-    Info: Processing ended: Mon Sep 07 22:18:53 2020
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:18
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 12 warnings
+    Info: Peak virtual memory: 4836 megabytes
+    Info: Processing ended: Tue Sep 08 14:48:59 2020
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:25
 
 

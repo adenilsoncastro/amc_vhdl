@@ -13,18 +13,18 @@
 		
 	port(
 		i_clk 				: in std_logic;
-		i_rst					: in std_logic;
+		i_rst				: in std_logic;
 		i_rst_sync			: in std_logic;
 		
-		i_rx					: in std_logic;
+		i_rx				: in std_logic;
 		o_fifo_rx_full		: out std_logic;
-		o_fifo_rx_empty	: out std_logic;
+		o_fifo_rx_empty		: out std_logic;
 		o_rx_data			: out std_logic_vector(g_bits-1 downto 0);
 		i_rd_uart			: in std_logic;
 		
-		o_tx					: out std_logic;
+		o_tx				: out std_logic;
 		o_fifo_tx_full		: out std_logic;
-		o_fifo_tx_empty	: out std_logic;
+		o_fifo_tx_empty		: out std_logic;
 		i_tx_data			: in std_logic_vector(g_bits-1 downto 0);
 		i_wr_uart			: in std_logic);
 		
@@ -36,7 +36,7 @@
 	signal r_rx_data 				: std_logic_vector(g_bits - 1 downto 0) := (others => '0');
  
 	signal r_tx_dv					: std_logic := '0';
-	signal r_tx_active			: std_logic := '0';
+	signal r_tx_active				: std_logic := '0';
 	signal r_tx_done				: std_logic := '0';
 	signal r_tx_data 				: std_logic_vector(g_bits - 1 downto 0) := (others => '0');
 	
