@@ -7,6 +7,7 @@
  
  library rna_library; 
  use rna_library.uart_components.all;
+ use rna_library.data_types_pkg.all;
  
  
  entity simple_operations is
@@ -17,8 +18,8 @@
 
 		
 	port(
-		i_clk					: in std_logic;
-		i_rst					: in std_logic;
+		i_clk				: in std_logic;
+		i_rst				: in std_logic;
 		i_rst_sync			: in std_logic;
 		
 		i_rx					: in std_logic;
@@ -37,14 +38,16 @@
  
 architecture bhv of simple_operations is
 
+	signal frame 		: mod_data;
+
 	signal r_rst		: std_logic;
 	signal r_rst_sync	: std_logic;
 	signal r_rd_rx		: std_logic;
 	signal r_wr_tx		: std_logic;
 	
-	signal r_rx_data 	: std_logic_vector(g_bits-1 downto 0);
+	signal r_rx_data 	: std_logic_vector(g_bits-1 downto 0) := (others => '0');
 	
-	signal r_tx_data 	: std_logic_vector(g_bits-1 downto 0);
+	signal r_tx_data 	: std_logic_vector(g_bits-1 downto 0) := (others => '0');
 	
 	
 begin
@@ -53,11 +56,14 @@ begin
 										o_tx, o_tx_full, o_tx_empty, r_tx_data, r_wr_tx);
 										
 	r_rst			<= not i_rst;
-	r_rst_sync	<= i_rst_sync;
+	r_rst_sync	<= not i_rst_sync;
 	r_rd_rx		<= not i_rd_rx;
 	r_wr_tx		<= not i_wr_tx;
 	
 	r_tx_data 	<= std_logic_vector(unsigned(r_rx_data) + 1);
 	o_data		<= r_rx_data;
+	
+	--o_rd <= r_rd_rx;
+	--o_wr <= r_wr_tx;
 	
 end bhv;

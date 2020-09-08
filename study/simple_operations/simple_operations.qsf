@@ -86,6 +86,7 @@ set_location_assignment PIN_H17 -to o_data[3]
 set_location_assignment PIN_J16 -to o_data[2]
 set_location_assignment PIN_H16 -to o_data[1]
 set_location_assignment PIN_J15 -to o_data[0]
+set_global_assignment -name VHDL_FILE ../rna_library/data_types_pkg.vhd
 set_global_assignment -name VHDL_FILE ../ieee_proposed/fixed_pkg_c.vhdl
 set_global_assignment -name VHDL_FILE ../ieee_proposed/fixed_float_types_c.vhdl
 set_global_assignment -name VHDL_FILE simple_operations.vhd

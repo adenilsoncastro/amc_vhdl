@@ -89,7 +89,7 @@ architecture rtl of uart_tx is
 						
 					when s_cleanup =>
 						o_tx_active <= '0';
-						r_tx_done	<= '1';
+						r_tx_done	<= '0';
 						r_sm_main	<= s_idle;
 					
 					when others =>
