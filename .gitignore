@@ -1,3 +1,5 @@
+/db
+/incremental_db
 /study/fifo/db/
 /study/fifo/incremental_db
 /study/simple_operations/db

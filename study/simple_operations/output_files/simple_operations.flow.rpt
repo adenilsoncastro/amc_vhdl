@@ -1,5 +1,5 @@
 Flow report for simple_operations
-Tue Sep 08 14:49:23 2020
+Tue Sep 08 16:07:01 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Tue Sep 08 14:49:23 2020       ;
+; Flow Status                        ; Successful - Tue Sep 08 16:07:01 2020       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; simple_operations                           ;
 ; Top-level Entity Name              ; simple_operations                           ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 09/08/2020 14:48:48 ;
+; Start date & time ; 09/08/2020 16:06:25 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; simple_operations   ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                                          ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 193675815263611.159958732715840                                ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 193675815263611.159959198516144                                ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                            ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                            ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                            ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -95,8 +95,8 @@ https://fpgasoftware.intel.com/eula.
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                          ; --            ; --          ; --                                ;
 ; POWER_USE_INPUT_FILES               ; On                                                             ; Off           ; --          ; --                                ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                                                   ; --            ; --          ; --                                ;
-; SEARCH_PATH                         ; c:\users\adeni\documents\mestrado\amc_vhdl\study\ieee_proposed ; --            ; --          ; --                                ;
 ; SEARCH_PATH                         ; c:\users\adeni\documents\mestrado\amc_vhdl\study\rna_library   ; --            ; --          ; --                                ;
+; SEARCH_PATH                         ; c:\users\adeni\documents\mestrado\amc_vhdl\study\ieee_proposed ; --            ; --          ; --                                ;
 ; VHDL_INPUT_VERSION                  ; VHDL_2008                                                      ; VHDL_1993     ; --          ; --                                ;
 ; VHDL_SHOW_LMF_MAPPING_MESSAGES      ; Off                                                            ; --            ; --          ; --                                ;
 +-------------------------------------+----------------------------------------------------------------+---------------+-------------+-----------------------------------+
@@ -107,12 +107,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:11     ; 1.0                     ; 4836 MB             ; 00:00:25                           ;
-; Fitter               ; 00:00:14     ; 1.0                     ; 5838 MB             ; 00:00:25                           ;
-; Assembler            ; 00:00:03     ; 1.0                     ; 4687 MB             ; 00:00:03                           ;
-; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4870 MB             ; 00:00:02                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4647 MB             ; 00:00:01                           ;
-; Total                ; 00:00:31     ; --                      ; --                  ; 00:00:56                           ;
+; Analysis & Synthesis ; 00:00:10     ; 1.0                     ; 4822 MB             ; 00:00:21                           ;
+; Fitter               ; 00:00:15     ; 1.0                     ; 5832 MB             ; 00:00:23                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 4688 MB             ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4874 MB             ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4647 MB             ; 00:00:00                           ;
+; Total                ; 00:00:30     ; --                      ; --                  ; 00:00:49                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
