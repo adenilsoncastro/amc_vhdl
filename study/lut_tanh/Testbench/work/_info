@@ -1,0 +1,86 @@
+m255
+K4
+z2
+!s11e MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/adeni/Desktop/TestBench/tb_simple_operations
+Elut_tanh
+w1601344006
+Z0 DPx4 ieee 17 fixed_float_types 0 22 j<WD5SZ6`I4KC;8P]h@_10
+Z1 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z2 DPx4 ieee 17 fixed_generic_pkg 0 22 Rl?j<5:i_L<aE9]<7A]V?0
+Z3 DPx4 ieee 9 fixed_pkg 0 22 c`b>2Shb`ic5KAcV=K;Co1
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 13
+Z6 dC:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/Testbench
+8lut_tanh.vhd
+Flut_tanh.vhd
+l0
+L8 1
+VXab@GV>cI6^B;g_XbTQIO1
+!s100 YeG@`kZ[lY>j2D5@2SRZL1
+Z7 OV;C;2020.1;71
+32
+!s110 1601344032
+!i10b 1
+!s108 1601344031.000000
+!s90 -reportprogress|300|-explicit|lut_tanh.vhd|
+!s107 lut_tanh.vhd|
+!i113 1
+o-explicit
+Z8 tExplicit 1 CvgOpt 0
+Etb_lut_tanh
+Z9 w1601343900
+R0
+R1
+R2
+R3
+R4
+R5
+!i122 12
+R6
+Z10 8C:\Users\adeni\Documents\Mestrado\amc_vhdl\study\lut_tanh\Testbench\tb_lut_tanh.vhd
+Z11 FC:\Users\adeni\Documents\Mestrado\amc_vhdl\study\lut_tanh\Testbench\tb_lut_tanh.vhd
+l0
+L9 1
+Vh2;:iW797S>CdT[B@?0_91
+!s100 GF2UdoGhTVJZTJ`0INCeL2
+R7
+32
+Z12 !s110 1601344025
+!i10b 1
+Z13 !s108 1601344024.000000
+Z14 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\adeni\Documents\Mestrado\amc_vhdl\study\lut_tanh\Testbench\tb_lut_tanh.vhd|
+Z15 !s107 C:\Users\adeni\Documents\Mestrado\amc_vhdl\study\lut_tanh\Testbench\tb_lut_tanh.vhd|
+!i113 1
+Z16 o-work work -2002 -explicit
+R8
+Abhv
+R0
+R1
+R2
+R3
+R4
+R5
+DEx4 work 11 tb_lut_tanh 0 22 h2;:iW797S>CdT[B@?0_91
+!i122 12
+l23
+L12 25
+VAG?MkRDzbUn6cLYDg=d9F2
+!s100 e4002S><B<A9XiQ7Jn9l82
+R7
+32
+R12
+!i10b 1
+R13
+R14
+R15
+!i113 1
+R16
+R8
