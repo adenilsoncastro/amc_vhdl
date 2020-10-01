@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lut_tanh
-Mon Sep 28 23:29:33 2020
+Tue Sep 29 00:23:17 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -14,12 +14,11 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Parameter Settings for User Entity Instance: Top-level Entity: |lut_tanh
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Equations
- 14. Analysis & Synthesis Messages
+  9. Parameter Settings for User Entity Instance: Top-level Entity: |lut_tanh
+ 10. Post-Synthesis Netlist Statistics for Top Partition
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Equations
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -46,13 +45,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Sep 28 23:29:32 2020       ;
+; Analysis & Synthesis Status        ; Successful - Tue Sep 29 00:23:17 2020       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; lut_tanh                                    ;
 ; Top-level Entity Name              ; lut_tanh                                    ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 75                                          ;
-;     Total combinational functions  ; 75                                          ;
+; Total logic elements               ; 68                                          ;
+;     Total combinational functions  ; 68                                          ;
 ;     Dedicated logic registers      ; 0                                           ;
 ; Total registers                    ; 0                                           ;
 ; Total pins                         ; 16                                          ;
@@ -182,16 +181,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+--------------------+
 ; Resource                                    ; Usage              ;
 +---------------------------------------------+--------------------+
-; Estimated Total logic elements              ; 75                 ;
+; Estimated Total logic elements              ; 68                 ;
 ;                                             ;                    ;
-; Total combinational functions               ; 75                 ;
+; Total combinational functions               ; 68                 ;
 ; Logic element usage by number of LUT inputs ;                    ;
-;     -- 4 input functions                    ; 66                 ;
-;     -- 3 input functions                    ; 7                  ;
-;     -- <=2 input functions                  ; 2                  ;
+;     -- 4 input functions                    ; 62                 ;
+;     -- 3 input functions                    ; 6                  ;
+;     -- <=2 input functions                  ; 0                  ;
 ;                                             ;                    ;
 ; Logic elements by mode                      ;                    ;
-;     -- normal mode                          ; 75                 ;
+;     -- normal mode                          ; 68                 ;
 ;     -- arithmetic mode                      ; 0                  ;
 ;                                             ;                    ;
 ; Total registers                             ; 0                  ;
@@ -202,10 +201,10 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                    ;
 ; Embedded Multiplier 9-bit elements          ; 0                  ;
 ;                                             ;                    ;
-; Maximum fan-out node                        ; i_address[5]~input ;
-; Maximum fan-out                             ; 36                 ;
-; Total fan-out                               ; 313                ;
-; Average fan-out                             ; 2.93               ;
+; Maximum fan-out node                        ; i_address[3]~input ;
+; Maximum fan-out                             ; 34                 ;
+; Total fan-out                               ; 290                ;
+; Average fan-out                             ; 2.90               ;
 +---------------------------------------------+--------------------+
 
 
@@ -214,7 +213,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; |lut_tanh                  ; 75 (75)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 16   ; 0            ; |lut_tanh           ; lut_tanh    ; work         ;
+; |lut_tanh                  ; 68 (68)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 16   ; 0            ; |lut_tanh           ; lut_tanh    ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -234,15 +233,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 256:1              ; 2 bits    ; 340 LEs       ; 180 LEs              ; 160 LEs                ; No         ; |lut_tanh|r_out            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-
-
 +--------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: Top-level Entity: |lut_tanh ;
 +----------------+-------+-------------------------------------------------+
@@ -259,14 +249,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 16                          ;
-; cycloneiii_lcell_comb ; 75                          ;
-;     normal            ; 75                          ;
-;         2 data inputs ; 2                           ;
-;         3 data inputs ; 7                           ;
-;         4 data inputs ; 66                          ;
+; cycloneiii_lcell_comb ; 68                          ;
+;     normal            ; 68                          ;
+;         3 data inputs ; 6                           ;
+;         4 data inputs ; 62                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 4.30                        ;
+; Average LUT depth     ; 4.09                        ;
 +-----------------------+-----------------------------+
 
 
@@ -291,7 +280,7 @@ The equations can be found in C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/l
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Mon Sep 28 23:29:22 2020
+    Info: Processing started: Tue Sep 29 00:23:04 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lut_tanh -c lut_tanh
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -303,100 +292,6 @@ Info (12021): Found 1 design units, including 0 entities, in source file /users/
 Info (12021): Found 2 design units, including 1 entities, in source file lut_tanh.vhd
     Info (12022): Found design unit 1: lut_tanh-bhv File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 17
     Info (12023): Found entity 1: lut_tanh File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 7
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(29): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 29
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(30): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 30
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(31): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 31
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(32): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 32
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(33): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 33
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(34): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 34
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(35): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 35
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(36): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 36
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(37): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 37
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(38): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 38
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(39): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 39
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(40): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 40
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(41): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 41
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(42): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 42
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(43): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 43
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(44): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 44
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(45): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 45
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(46): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 46
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(47): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 47
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(48): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 48
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(49): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 49
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(50): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 50
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(51): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 51
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(52): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 52
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(53): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 53
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(54): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 54
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(55): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 55
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(56): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 56
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(57): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 57
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(58): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 58
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(59): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 59
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(60): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 60
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(61): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 61
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(62): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 62
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(63): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 63
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(64): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 64
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(65): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 65
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(66): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 66
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(67): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 67
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(68): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 68
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(69): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 69
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(70): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 70
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(71): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 71
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(72): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 72
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(73): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 73
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(74): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 74
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(75): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 75
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(76): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 76
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(77): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 77
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(78): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 78
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(79): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 79
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(80): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 80
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(81): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 81
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(82): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 82
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(83): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 83
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(84): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 84
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(85): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 85
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(86): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 86
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(87): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 87
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(88): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 88
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(89): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 89
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(90): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 90
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(91): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 91
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(92): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 92
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(93): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 93
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(94): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 94
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(95): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 95
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(96): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 96
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(97): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 97
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(98): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 98
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(99): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 99
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(100): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 100
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(101): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 101
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(102): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 102
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(103): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 103
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(104): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 104
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(105): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 105
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(106): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 106
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(107): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 107
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(108): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 108
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(109): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 109
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(110): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 110
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(111): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 111
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(112): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 112
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(113): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 113
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(114): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 114
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(115): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 115
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(116): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 116
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(117): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 117
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(118): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 118
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(119): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 119
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(120): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 120
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(121): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 121
-Warning (10645): VHDL type inferencing warning at lut_tanh.vhd(122): two visible identifiers match "to_sfixed" because the actual at position 2 has an ambiguous type - it could be "std_ulogic_vector" or "std_logic_vector", assuming "std_ulogic_vector" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/lut_tanh.vhd Line: 122
 Info (12127): Elaborating entity "lut_tanh" for the top level hierarchy
 Warning (10445): VHDL Subtype or Type Declaration warning at fixed_pkg_c.vhdl(1470): subtype or type has null range File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/ieee_proposed/fixed_pkg_c.vhdl Line: 1470
 Warning (10445): VHDL Subtype or Type Declaration warning at fixed_pkg_c.vhdl(1471): subtype or type has null range File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/ieee_proposed/fixed_pkg_c.vhdl Line: 1471
@@ -409,14 +304,14 @@ Warning (10325): VHDL Choice warning at std_1164_vhdl1993.vhd(1092): ignored cho
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 91 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 84 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 8 input pins
     Info (21059): Implemented 8 output pins
-    Info (21061): Implemented 75 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 103 warnings
-    Info: Peak virtual memory: 4792 megabytes
-    Info: Processing ended: Mon Sep 28 23:29:33 2020
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:20
+    Info (21061): Implemented 68 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
+    Info: Peak virtual memory: 4794 megabytes
+    Info: Processing ended: Tue Sep 29 00:23:17 2020
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:26
 
 

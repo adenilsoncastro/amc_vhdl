@@ -1,8 +1,9 @@
  library ieee;
  use ieee.std_logic_1164.all;
  
- library ieee_proposed;
- use ieee_proposed.fixed_pkg.all; 
+ --library ieee_proposed;
+ --use ieee_proposed.fixed_pkg.all; 
+ use ieee.fixed_pkg.all;
  
  entity lut_tanh is
 	generic(

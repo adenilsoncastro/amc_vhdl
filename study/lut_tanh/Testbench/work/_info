@@ -10,77 +10,100 @@ z2
 cModel Technology
 dC:/Users/adeni/Desktop/TestBench/tb_simple_operations
 Elut_tanh
-w1601344006
-Z0 DPx4 ieee 17 fixed_float_types 0 22 j<WD5SZ6`I4KC;8P]h@_10
-Z1 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
-Z2 DPx4 ieee 17 fixed_generic_pkg 0 22 Rl?j<5:i_L<aE9]<7A]V?0
-Z3 DPx4 ieee 9 fixed_pkg 0 22 c`b>2Shb`ic5KAcV=K;Co1
-Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z5 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 13
-Z6 dC:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/Testbench
-8lut_tanh.vhd
-Flut_tanh.vhd
+Z0 w1601353036
+Z1 DPx4 ieee 17 fixed_float_types 0 22 j<WD5SZ6`I4KC;8P]h@_10
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx4 ieee 17 fixed_generic_pkg 0 22 Rl?j<5:i_L<aE9]<7A]V?0
+Z4 DPx4 ieee 9 fixed_pkg 0 22 c`b>2Shb`ic5KAcV=K;Co1
+Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 43
+Z7 dC:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/Testbench
+Z8 8C:\Users\adeni\Documents\Mestrado\amc_vhdl\study\lut_tanh\Testbench\lut_tanh.vhd
+Z9 FC:\Users\adeni\Documents\Mestrado\amc_vhdl\study\lut_tanh\Testbench\lut_tanh.vhd
 l0
 L8 1
-VXab@GV>cI6^B;g_XbTQIO1
-!s100 YeG@`kZ[lY>j2D5@2SRZL1
-Z7 OV;C;2020.1;71
+V9fDhUj6;RKM1Q=7nXS9E43
+!s100 >i_7?haNbd=]:KUK`KPRm2
+Z10 OV;C;2020.1;71
 32
-!s110 1601344032
+Z11 !s110 1601355112
 !i10b 1
-!s108 1601344031.000000
-!s90 -reportprogress|300|-explicit|lut_tanh.vhd|
-!s107 lut_tanh.vhd|
+Z12 !s108 1601355112.000000
+Z13 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\adeni\Documents\Mestrado\amc_vhdl\study\lut_tanh\Testbench\lut_tanh.vhd|
+Z14 !s107 C:\Users\adeni\Documents\Mestrado\amc_vhdl\study\lut_tanh\Testbench\lut_tanh.vhd|
 !i113 1
-o-explicit
-Z8 tExplicit 1 CvgOpt 0
-Etb_lut_tanh
-Z9 w1601343900
-R0
+Z15 o-work work -2002 -explicit
+Z16 tExplicit 1 CvgOpt 0
+Abhv
 R1
 R2
 R3
 R4
 R5
-!i122 12
 R6
-Z10 8C:\Users\adeni\Documents\Mestrado\amc_vhdl\study\lut_tanh\Testbench\tb_lut_tanh.vhd
-Z11 FC:\Users\adeni\Documents\Mestrado\amc_vhdl\study\lut_tanh\Testbench\tb_lut_tanh.vhd
+DEx4 work 8 lut_tanh 0 22 9fDhUj6;RKM1Q=7nXS9E43
+!i122 43
+l23
+L18 116
+VKbO[j1o5Vhe]_DTiL]Kj<2
+!s100 9T`_oYPAJK=:TIcjjQ_1@2
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Etb_lut_tanh
+Z17 w1601355060
+R1
+R2
+R3
+R4
+R5
+R6
+!i122 44
+R7
+Z18 8C:\Users\adeni\Documents\Mestrado\amc_vhdl\study\lut_tanh\Testbench\tb_lut_tanh.vhd
+Z19 FC:\Users\adeni\Documents\Mestrado\amc_vhdl\study\lut_tanh\Testbench\tb_lut_tanh.vhd
 l0
 L9 1
 Vh2;:iW797S>CdT[B@?0_91
 !s100 GF2UdoGhTVJZTJ`0INCeL2
-R7
+R10
 32
-Z12 !s110 1601344025
+Z20 !s110 1601355113
 !i10b 1
-Z13 !s108 1601344024.000000
-Z14 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\adeni\Documents\Mestrado\amc_vhdl\study\lut_tanh\Testbench\tb_lut_tanh.vhd|
-Z15 !s107 C:\Users\adeni\Documents\Mestrado\amc_vhdl\study\lut_tanh\Testbench\tb_lut_tanh.vhd|
+R12
+Z21 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\adeni\Documents\Mestrado\amc_vhdl\study\lut_tanh\Testbench\tb_lut_tanh.vhd|
+Z22 !s107 C:\Users\adeni\Documents\Mestrado\amc_vhdl\study\lut_tanh\Testbench\tb_lut_tanh.vhd|
 !i113 1
-Z16 o-work work -2002 -explicit
-R8
+R15
+R16
 Abhv
-R0
 R1
 R2
 R3
 R4
 R5
-DEx4 work 11 tb_lut_tanh 0 22 h2;:iW797S>CdT[B@?0_91
-!i122 12
-l23
-L12 25
-VAG?MkRDzbUn6cLYDg=d9F2
-!s100 e4002S><B<A9XiQ7Jn9l82
-R7
+R6
+Z23 DEx4 work 11 tb_lut_tanh 0 22 h2;:iW797S>CdT[B@?0_91
+!i122 44
+l27
+Z24 L12 28
+VWk2ABda<cz1YjW@>4Z9NK3
+!s100 ZLIBS0Z5h_g`i6SUL]oL_2
+R10
 32
-R12
+R20
 !i10b 1
-R13
-R14
-R15
+R12
+R21
+R22
 !i113 1
+R15
 R16
-R8

@@ -1,0 +1,30 @@
+C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/Testbench/lut_tanh.vhd {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\adeni\Documents\Mestrado\amc_vhdl\study\lut_tanh\Testbench\lut_tanh.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package instance fixed_pkg
+-- Loading package NUMERIC_STD
+-- Loading package fixed_float_types
+-- Loading package fixed_generic_pkg
+-- Loading package MATH_REAL
+-- Loading package body fixed_generic_pkg
+-- Compiling entity lut_tanh
+-- Compiling architecture bhv of lut_tanh
+
+} {} {}} C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/lut_tanh/Testbench/tb_lut_tanh.vhd {2 {vcom -work work -2002 -explicit -stats=none {C:\Users\adeni\Documents\Mestrado\amc_vhdl\study\lut_tanh\Testbench\tb_lut_tanh.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package instance fixed_pkg
+-- Loading package NUMERIC_STD
+-- Loading package fixed_float_types
+-- Loading package fixed_generic_pkg
+-- Loading package MATH_REAL
+-- Loading package body fixed_generic_pkg
+-- Compiling entity tb_lut_tanh
+-- Compiling architecture bhv of tb_lut_tanh
+** Warning: C:\Users\adeni\Documents\Mestrado\amc_vhdl\study\lut_tanh\Testbench\tb_lut_tanh.vhd(35): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+
+} {} {}}
