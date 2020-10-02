@@ -1,0 +1,110 @@
+-- Copyright (C) 2020  Intel Corporation. All rights reserved.
+-- Your use of Intel Corporation's design tools, logic functions 
+-- and other software and tools, and any partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Intel Program License 
+-- Subscription Agreement, the Intel Quartus Prime License Agreement,
+-- the Intel FPGA IP License Agreement, or other applicable license
+-- agreement, including, without limitation, that your use is for
+-- the sole purpose of programming logic devices manufactured by
+-- Intel and sold by Intel or its authorized distributors.  Please
+-- refer to the applicable agreement for further details, at
+-- https://fpgasoftware.intel.com/eula.
+--o_result[0] is o_result[0]
+o_result[0] = OUTPUT(A1L19);
+
+
+--o_result[1] is o_result[1]
+o_result[1] = OUTPUT(A1L20);
+
+
+--o_result[2] is o_result[2]
+o_result[2] = OUTPUT(A1L21);
+
+
+--o_result[3] is o_result[3]
+o_result[3] = OUTPUT(A1L22);
+
+
+--o_result[4] is o_result[4]
+o_result[4] = OUTPUT(A1L23);
+
+
+--o_result[5] is o_result[5]
+o_result[5] = OUTPUT(A1L24);
+
+
+--o_result[6] is o_result[6]
+o_result[6] = OUTPUT(A1L25);
+
+
+--o_result[7] is o_result[7]
+o_result[7] = OUTPUT(A1L26);
+
+
+--i_value[0] is i_value[0]
+i_value[0] = INPUT();
+
+
+--i_value[7] is i_value[7]
+i_value[7] = INPUT();
+
+
+--A1L19 is r_out~0
+A1L19 = (i_value[0] & !i_value[7]);
+
+
+--i_value[1] is i_value[1]
+i_value[1] = INPUT();
+
+
+--A1L20 is r_out~1
+A1L20 = (i_value[1] & !i_value[7]);
+
+
+--i_value[2] is i_value[2]
+i_value[2] = INPUT();
+
+
+--A1L21 is r_out~2
+A1L21 = (i_value[2] & !i_value[7]);
+
+
+--i_value[3] is i_value[3]
+i_value[3] = INPUT();
+
+
+--A1L22 is r_out~3
+A1L22 = (i_value[3] & !i_value[7]);
+
+
+--i_value[4] is i_value[4]
+i_value[4] = INPUT();
+
+
+--A1L23 is r_out~4
+A1L23 = (i_value[4] & !i_value[7]);
+
+
+--i_value[5] is i_value[5]
+i_value[5] = INPUT();
+
+
+--A1L24 is r_out~5
+A1L24 = (i_value[5] & !i_value[7]);
+
+
+--i_value[6] is i_value[6]
+i_value[6] = INPUT();
+
+
+--A1L25 is r_out~6
+A1L25 = (i_value[6] & !i_value[7]);
+
+
+--A1L26 is ~GND
+A1L26 = GND;
+
+
