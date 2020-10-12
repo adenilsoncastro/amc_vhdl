@@ -1,0 +1,1287 @@
+-- Copyright (C) 2020  Intel Corporation. All rights reserved.
+-- Your use of Intel Corporation's design tools, logic functions 
+-- and other software and tools, and any partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Intel Program License 
+-- Subscription Agreement, the Intel Quartus Prime License Agreement,
+-- the Intel FPGA IP License Agreement, or other applicable license
+-- agreement, including, without limitation, that your use is for
+-- the sole purpose of programming logic devices manufactured by
+-- Intel and sold by Intel or its authorized distributors.  Please
+-- refer to the applicable agreement for further details, at
+-- https://fpgasoftware.intel.com/eula.
+--r_single_value[-11] is r_single_value[-11]
+--register power-up is low
+
+r_single_value[-11] = DFFEAS(A1L277, i_clk,  ,  , A1L314, A1L194,  ,  , !r_index[2]);
+
+
+--A1L1 is Add0~0
+A1L1 = (r_single_value[-11] & (r_result[-11] $ (VCC))) # (!r_single_value[-11] & (r_result[-11] & VCC));
+
+--A1L2 is Add0~1
+A1L2 = CARRY((r_single_value[-11] & r_result[-11]));
+
+
+--r_single_value[4] is r_single_value[4]
+--register power-up is low
+
+r_single_value[4] = DFFEAS(A1L292, i_clk,  ,  , A1L314, A1L164,  ,  , !r_index[2]);
+
+
+--r_single_value[3] is r_single_value[3]
+--register power-up is low
+
+r_single_value[3] = DFFEAS(A1L289, i_clk,  ,  , A1L314, A1L166,  ,  , !r_index[2]);
+
+
+--r_single_value[2] is r_single_value[2]
+--register power-up is low
+
+r_single_value[2] = DFFEAS(A1L286, i_clk,  ,  , A1L314, A1L168,  ,  , !r_index[2]);
+
+
+--r_single_value[1] is r_single_value[1]
+--register power-up is low
+
+r_single_value[1] = DFFEAS(A1L283, i_clk,  ,  , A1L314, A1L170,  ,  , !r_index[2]);
+
+
+--r_single_value[0] is r_single_value[0]
+--register power-up is low
+
+r_single_value[0] = DFFEAS(A1L280, i_clk,  ,  , A1L314, A1L172,  ,  , !r_index[2]);
+
+
+--r_single_value[-1] is r_single_value[-1]
+--register power-up is low
+
+r_single_value[-1] = DFFEAS(A1L247, i_clk,  ,  , A1L314, A1L174,  ,  , !r_index[2]);
+
+
+--r_single_value[-2] is r_single_value[-2]
+--register power-up is low
+
+r_single_value[-2] = DFFEAS(A1L250, i_clk,  ,  , A1L314, A1L176,  ,  , !r_index[2]);
+
+
+--r_single_value[-3] is r_single_value[-3]
+--register power-up is low
+
+r_single_value[-3] = DFFEAS(A1L253, i_clk,  ,  , A1L314, A1L178,  ,  , !r_index[2]);
+
+
+--r_single_value[-4] is r_single_value[-4]
+--register power-up is low
+
+r_single_value[-4] = DFFEAS(A1L256, i_clk,  ,  , A1L314, A1L180,  ,  , !r_index[2]);
+
+
+--r_single_value[-5] is r_single_value[-5]
+--register power-up is low
+
+r_single_value[-5] = DFFEAS(A1L259, i_clk,  ,  , A1L314, A1L182,  ,  , !r_index[2]);
+
+
+--r_single_value[-6] is r_single_value[-6]
+--register power-up is low
+
+r_single_value[-6] = DFFEAS(A1L262, i_clk,  ,  , A1L314, A1L184,  ,  , !r_index[2]);
+
+
+--r_single_value[-7] is r_single_value[-7]
+--register power-up is low
+
+r_single_value[-7] = DFFEAS(A1L265, i_clk,  ,  , A1L314, A1L186,  ,  , !r_index[2]);
+
+
+--r_single_value[-8] is r_single_value[-8]
+--register power-up is low
+
+r_single_value[-8] = DFFEAS(A1L268, i_clk,  ,  , A1L314, A1L188,  ,  , !r_index[2]);
+
+
+--r_single_value[-9] is r_single_value[-9]
+--register power-up is low
+
+r_single_value[-9] = DFFEAS(A1L271, i_clk,  ,  , A1L314, A1L190,  ,  , !r_index[2]);
+
+
+--r_single_value[-10] is r_single_value[-10]
+--register power-up is low
+
+r_single_value[-10] = DFFEAS(A1L274, i_clk,  ,  , A1L314, A1L192,  ,  , !r_index[2]);
+
+
+--A1L3 is Add0~2
+A1L3 = (r_single_value[-10] & ((r_result[-10] & (A1L2 & VCC)) # (!r_result[-10] & (!A1L2)))) # (!r_single_value[-10] & ((r_result[-10] & (!A1L2)) # (!r_result[-10] & ((A1L2) # (GND)))));
+
+--A1L4 is Add0~3
+A1L4 = CARRY((r_single_value[-10] & (!r_result[-10] & !A1L2)) # (!r_single_value[-10] & ((!A1L2) # (!r_result[-10]))));
+
+
+--A1L5 is Add0~4
+A1L5 = ((r_single_value[-9] $ (r_result[-9] $ (!A1L4)))) # (GND);
+
+--A1L6 is Add0~5
+A1L6 = CARRY((r_single_value[-9] & ((r_result[-9]) # (!A1L4))) # (!r_single_value[-9] & (r_result[-9] & !A1L4)));
+
+
+--A1L7 is Add0~6
+A1L7 = (r_single_value[-8] & ((r_result[-8] & (A1L6 & VCC)) # (!r_result[-8] & (!A1L6)))) # (!r_single_value[-8] & ((r_result[-8] & (!A1L6)) # (!r_result[-8] & ((A1L6) # (GND)))));
+
+--A1L8 is Add0~7
+A1L8 = CARRY((r_single_value[-8] & (!r_result[-8] & !A1L6)) # (!r_single_value[-8] & ((!A1L6) # (!r_result[-8]))));
+
+
+--A1L9 is Add0~8
+A1L9 = ((r_single_value[-7] $ (r_result[-7] $ (!A1L8)))) # (GND);
+
+--A1L10 is Add0~9
+A1L10 = CARRY((r_single_value[-7] & ((r_result[-7]) # (!A1L8))) # (!r_single_value[-7] & (r_result[-7] & !A1L8)));
+
+
+--A1L11 is Add0~10
+A1L11 = (r_single_value[-6] & ((r_result[-6] & (A1L10 & VCC)) # (!r_result[-6] & (!A1L10)))) # (!r_single_value[-6] & ((r_result[-6] & (!A1L10)) # (!r_result[-6] & ((A1L10) # (GND)))));
+
+--A1L12 is Add0~11
+A1L12 = CARRY((r_single_value[-6] & (!r_result[-6] & !A1L10)) # (!r_single_value[-6] & ((!A1L10) # (!r_result[-6]))));
+
+
+--A1L13 is Add0~12
+A1L13 = ((r_single_value[-5] $ (r_result[-5] $ (!A1L12)))) # (GND);
+
+--A1L14 is Add0~13
+A1L14 = CARRY((r_single_value[-5] & ((r_result[-5]) # (!A1L12))) # (!r_single_value[-5] & (r_result[-5] & !A1L12)));
+
+
+--A1L15 is Add0~14
+A1L15 = (r_single_value[-4] & ((r_result[-4] & (A1L14 & VCC)) # (!r_result[-4] & (!A1L14)))) # (!r_single_value[-4] & ((r_result[-4] & (!A1L14)) # (!r_result[-4] & ((A1L14) # (GND)))));
+
+--A1L16 is Add0~15
+A1L16 = CARRY((r_single_value[-4] & (!r_result[-4] & !A1L14)) # (!r_single_value[-4] & ((!A1L14) # (!r_result[-4]))));
+
+
+--A1L17 is Add0~16
+A1L17 = ((r_single_value[-3] $ (r_result[-3] $ (!A1L16)))) # (GND);
+
+--A1L18 is Add0~17
+A1L18 = CARRY((r_single_value[-3] & ((r_result[-3]) # (!A1L16))) # (!r_single_value[-3] & (r_result[-3] & !A1L16)));
+
+
+--A1L19 is Add0~18
+A1L19 = (r_single_value[-2] & ((r_result[-2] & (A1L18 & VCC)) # (!r_result[-2] & (!A1L18)))) # (!r_single_value[-2] & ((r_result[-2] & (!A1L18)) # (!r_result[-2] & ((A1L18) # (GND)))));
+
+--A1L20 is Add0~19
+A1L20 = CARRY((r_single_value[-2] & (!r_result[-2] & !A1L18)) # (!r_single_value[-2] & ((!A1L18) # (!r_result[-2]))));
+
+
+--A1L21 is Add0~20
+A1L21 = ((r_single_value[-1] $ (r_result[-1] $ (!A1L20)))) # (GND);
+
+--A1L22 is Add0~21
+A1L22 = CARRY((r_single_value[-1] & ((r_result[-1]) # (!A1L20))) # (!r_single_value[-1] & (r_result[-1] & !A1L20)));
+
+
+--A1L23 is Add0~22
+A1L23 = (r_single_value[0] & ((r_result[0] & (A1L22 & VCC)) # (!r_result[0] & (!A1L22)))) # (!r_single_value[0] & ((r_result[0] & (!A1L22)) # (!r_result[0] & ((A1L22) # (GND)))));
+
+--A1L24 is Add0~23
+A1L24 = CARRY((r_single_value[0] & (!r_result[0] & !A1L22)) # (!r_single_value[0] & ((!A1L22) # (!r_result[0]))));
+
+
+--A1L25 is Add0~24
+A1L25 = ((r_single_value[1] $ (r_result[1] $ (!A1L24)))) # (GND);
+
+--A1L26 is Add0~25
+A1L26 = CARRY((r_single_value[1] & ((r_result[1]) # (!A1L24))) # (!r_single_value[1] & (r_result[1] & !A1L24)));
+
+
+--A1L27 is Add0~26
+A1L27 = (r_single_value[2] & ((r_result[2] & (A1L26 & VCC)) # (!r_result[2] & (!A1L26)))) # (!r_single_value[2] & ((r_result[2] & (!A1L26)) # (!r_result[2] & ((A1L26) # (GND)))));
+
+--A1L28 is Add0~27
+A1L28 = CARRY((r_single_value[2] & (!r_result[2] & !A1L26)) # (!r_single_value[2] & ((!A1L26) # (!r_result[2]))));
+
+
+--A1L29 is Add0~28
+A1L29 = ((r_single_value[3] $ (r_result[3] $ (!A1L28)))) # (GND);
+
+--A1L30 is Add0~29
+A1L30 = CARRY((r_single_value[3] & ((r_result[3]) # (!A1L28))) # (!r_single_value[3] & (r_result[3] & !A1L28)));
+
+
+--A1L31 is Add0~30
+A1L31 = (r_single_value[4] & ((r_result[4] & (A1L30 & VCC)) # (!r_result[4] & (!A1L30)))) # (!r_single_value[4] & ((r_result[4] & (!A1L30)) # (!r_result[4] & ((A1L30) # (GND)))));
+
+--A1L32 is Add0~31
+A1L32 = CARRY((r_single_value[4] & (!r_result[4] & !A1L30)) # (!r_single_value[4] & ((!A1L30) # (!r_result[4]))));
+
+
+--A1L33 is Add0~32
+A1L33 = r_single_value[4] $ (r_result[4] $ (A1L32));
+
+
+--A1L277 is r_single_value[-11]~1
+A1L277 = (r_index[0] & ((i_frame[5][0]))) # (!r_index[0] & (i_frame[4][0]));
+
+
+--A1L292 is r_single_value[4]~0
+A1L292 = (r_index[0] & ((i_frame[5][15]))) # (!r_index[0] & (i_frame[4][15]));
+
+
+--A1L289 is r_single_value[3]~15
+A1L289 = (r_index[0] & ((i_frame[5][14]))) # (!r_index[0] & (i_frame[4][14]));
+
+
+--A1L286 is r_single_value[2]~14
+A1L286 = (r_index[0] & ((i_frame[5][13]))) # (!r_index[0] & (i_frame[4][13]));
+
+
+--A1L283 is r_single_value[1]~13
+A1L283 = (r_index[0] & ((i_frame[5][12]))) # (!r_index[0] & (i_frame[4][12]));
+
+
+--A1L280 is r_single_value[0]~12
+A1L280 = (r_index[0] & ((i_frame[5][11]))) # (!r_index[0] & (i_frame[4][11]));
+
+
+--A1L247 is r_single_value[-1]~11
+A1L247 = (r_index[0] & ((i_frame[5][10]))) # (!r_index[0] & (i_frame[4][10]));
+
+
+--A1L250 is r_single_value[-2]~10
+A1L250 = (r_index[0] & ((i_frame[5][9]))) # (!r_index[0] & (i_frame[4][9]));
+
+
+--A1L253 is r_single_value[-3]~9
+A1L253 = (r_index[0] & ((i_frame[5][8]))) # (!r_index[0] & (i_frame[4][8]));
+
+
+--A1L256 is r_single_value[-4]~8
+A1L256 = (r_index[0] & ((i_frame[5][7]))) # (!r_index[0] & (i_frame[4][7]));
+
+
+--A1L259 is r_single_value[-5]~7
+A1L259 = (r_index[0] & ((i_frame[5][6]))) # (!r_index[0] & (i_frame[4][6]));
+
+
+--A1L262 is r_single_value[-6]~6
+A1L262 = (r_index[0] & ((i_frame[5][5]))) # (!r_index[0] & (i_frame[4][5]));
+
+
+--A1L265 is r_single_value[-7]~5
+A1L265 = (r_index[0] & ((i_frame[5][4]))) # (!r_index[0] & (i_frame[4][4]));
+
+
+--A1L268 is r_single_value[-8]~4
+A1L268 = (r_index[0] & ((i_frame[5][3]))) # (!r_index[0] & (i_frame[4][3]));
+
+
+--A1L271 is r_single_value[-9]~3
+A1L271 = (r_index[0] & ((i_frame[5][2]))) # (!r_index[0] & (i_frame[4][2]));
+
+
+--A1L274 is r_single_value[-10]~2
+A1L274 = (r_index[0] & ((i_frame[5][1]))) # (!r_index[0] & (i_frame[4][1]));
+
+
+--A1L35 is Add1~0
+A1L35 = r_index[0] $ (VCC);
+
+--A1L36 is Add1~1
+A1L36 = CARRY(r_index[0]);
+
+
+--A1L37 is Add1~2
+A1L37 = (r_index[1] & (!A1L36)) # (!r_index[1] & ((A1L36) # (GND)));
+
+--A1L38 is Add1~3
+A1L38 = CARRY((!A1L36) # (!r_index[1]));
+
+
+--A1L39 is Add1~4
+A1L39 = (r_index[2] & (A1L38 $ (GND))) # (!r_index[2] & (!A1L38 & VCC));
+
+--A1L40 is Add1~5
+A1L40 = CARRY((r_index[2] & !A1L38));
+
+
+--A1L41 is Add1~6
+A1L41 = (r_index[3] & (!A1L40)) # (!r_index[3] & ((A1L40) # (GND)));
+
+--A1L42 is Add1~7
+A1L42 = CARRY((!A1L40) # (!r_index[3]));
+
+
+--A1L43 is Add1~8
+A1L43 = (r_index[4] & (A1L42 $ (GND))) # (!r_index[4] & (!A1L42 & VCC));
+
+--A1L44 is Add1~9
+A1L44 = CARRY((r_index[4] & !A1L42));
+
+
+--A1L45 is Add1~10
+A1L45 = (r_index[5] & (!A1L44)) # (!r_index[5] & ((A1L44) # (GND)));
+
+--A1L46 is Add1~11
+A1L46 = CARRY((!A1L44) # (!r_index[5]));
+
+
+--A1L47 is Add1~12
+A1L47 = (r_index[6] & (A1L46 $ (GND))) # (!r_index[6] & (!A1L46 & VCC));
+
+--A1L48 is Add1~13
+A1L48 = CARRY((r_index[6] & !A1L46));
+
+
+--A1L49 is Add1~14
+A1L49 = (r_index[7] & (!A1L48)) # (!r_index[7] & ((A1L48) # (GND)));
+
+--A1L50 is Add1~15
+A1L50 = CARRY((!A1L48) # (!r_index[7]));
+
+
+--A1L51 is Add1~16
+A1L51 = (r_index[8] & (A1L50 $ (GND))) # (!r_index[8] & (!A1L50 & VCC));
+
+--A1L52 is Add1~17
+A1L52 = CARRY((r_index[8] & !A1L50));
+
+
+--A1L53 is Add1~18
+A1L53 = (r_index[9] & (!A1L52)) # (!r_index[9] & ((A1L52) # (GND)));
+
+--A1L54 is Add1~19
+A1L54 = CARRY((!A1L52) # (!r_index[9]));
+
+
+--A1L55 is Add1~20
+A1L55 = (r_index[10] & (A1L54 $ (GND))) # (!r_index[10] & (!A1L54 & VCC));
+
+--A1L56 is Add1~21
+A1L56 = CARRY((r_index[10] & !A1L54));
+
+
+--A1L57 is Add1~22
+A1L57 = r_index[11] $ (A1L56);
+
+
+--o_result[0] is o_result[0]
+o_result[0] = OUTPUT(r_result[-11]);
+
+
+--o_result[1] is o_result[1]
+o_result[1] = OUTPUT(r_result[-10]);
+
+
+--o_result[2] is o_result[2]
+o_result[2] = OUTPUT(r_result[-9]);
+
+
+--o_result[3] is o_result[3]
+o_result[3] = OUTPUT(r_result[-8]);
+
+
+--o_result[4] is o_result[4]
+o_result[4] = OUTPUT(r_result[-7]);
+
+
+--o_result[5] is o_result[5]
+o_result[5] = OUTPUT(r_result[-6]);
+
+
+--o_result[6] is o_result[6]
+o_result[6] = OUTPUT(r_result[-5]);
+
+
+--o_result[7] is o_result[7]
+o_result[7] = OUTPUT(r_result[-4]);
+
+
+--o_result[8] is o_result[8]
+o_result[8] = OUTPUT(r_result[-3]);
+
+
+--o_result[9] is o_result[9]
+o_result[9] = OUTPUT(r_result[-2]);
+
+
+--o_result[10] is o_result[10]
+o_result[10] = OUTPUT(r_result[-1]);
+
+
+--o_result[11] is o_result[11]
+o_result[11] = OUTPUT(r_result[0]);
+
+
+--o_result[12] is o_result[12]
+o_result[12] = OUTPUT(r_result[1]);
+
+
+--o_result[13] is o_result[13]
+o_result[13] = OUTPUT(r_result[2]);
+
+
+--o_result[14] is o_result[14]
+o_result[14] = OUTPUT(r_result[3]);
+
+
+--o_result[15] is o_result[15]
+o_result[15] = OUTPUT(r_result[4]);
+
+
+--o_done is o_done
+o_done = OUTPUT(r_done);
+
+
+--r_result[-11] is r_result[-11]
+--register power-up is low
+
+r_result[-11] = DFFEAS(A1L298, i_clk,  ,  , A1L314,  ,  ,  ,  );
+
+
+--r_result[-10] is r_result[-10]
+--register power-up is low
+
+r_result[-10] = DFFEAS(A1L299, i_clk,  ,  , A1L314,  ,  ,  ,  );
+
+
+--r_result[-9] is r_result[-9]
+--register power-up is low
+
+r_result[-9] = DFFEAS(A1L300, i_clk,  ,  , A1L314,  ,  ,  ,  );
+
+
+--r_result[-8] is r_result[-8]
+--register power-up is low
+
+r_result[-8] = DFFEAS(A1L301, i_clk,  ,  , A1L314,  ,  ,  ,  );
+
+
+--r_result[-7] is r_result[-7]
+--register power-up is low
+
+r_result[-7] = DFFEAS(A1L302, i_clk,  ,  , A1L314,  ,  ,  ,  );
+
+
+--r_result[-6] is r_result[-6]
+--register power-up is low
+
+r_result[-6] = DFFEAS(A1L303, i_clk,  ,  , A1L314,  ,  ,  ,  );
+
+
+--r_result[-5] is r_result[-5]
+--register power-up is low
+
+r_result[-5] = DFFEAS(A1L304, i_clk,  ,  , A1L314,  ,  ,  ,  );
+
+
+--r_result[-4] is r_result[-4]
+--register power-up is low
+
+r_result[-4] = DFFEAS(A1L305, i_clk,  ,  , A1L314,  ,  ,  ,  );
+
+
+--r_result[-3] is r_result[-3]
+--register power-up is low
+
+r_result[-3] = DFFEAS(A1L306, i_clk,  ,  , A1L314,  ,  ,  ,  );
+
+
+--r_result[-2] is r_result[-2]
+--register power-up is low
+
+r_result[-2] = DFFEAS(A1L307, i_clk,  ,  , A1L314,  ,  ,  ,  );
+
+
+--r_result[-1] is r_result[-1]
+--register power-up is low
+
+r_result[-1] = DFFEAS(A1L308, i_clk,  ,  , A1L314,  ,  ,  ,  );
+
+
+--r_result[0] is r_result[0]
+--register power-up is low
+
+r_result[0] = DFFEAS(A1L309, i_clk,  ,  , A1L314,  ,  ,  ,  );
+
+
+--r_result[1] is r_result[1]
+--register power-up is low
+
+r_result[1] = DFFEAS(A1L310, i_clk,  ,  , A1L314,  ,  ,  ,  );
+
+
+--r_result[2] is r_result[2]
+--register power-up is low
+
+r_result[2] = DFFEAS(A1L311, i_clk,  ,  , A1L314,  ,  ,  ,  );
+
+
+--r_result[3] is r_result[3]
+--register power-up is low
+
+r_result[3] = DFFEAS(A1L312, i_clk,  ,  , A1L314,  ,  ,  ,  );
+
+
+--r_result[4] is r_result[4]
+--register power-up is low
+
+r_result[4] = DFFEAS(A1L244, i_clk,  ,  , A1L314,  ,  ,  ,  );
+
+
+--r_done is r_done
+--register power-up is low
+
+r_done = DFFEAS(A1L329, i_clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--A1L298 is result~0
+A1L298 = (A1L1 & ((A1L31) # (A1L33))) # (!A1L1 & (A1L31 & A1L33));
+
+
+--i_clk is i_clk
+i_clk = INPUT();
+
+
+--r_sm.s_calculus is r_sm.s_calculus
+--register power-up is low
+
+r_sm.s_calculus = DFFEAS(A1L315, i_clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--r_index[11] is r_index[11]
+--register power-up is low
+
+r_index[11] = DFFEAS(A1L316, i_clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--A1L314 is Selector1~0
+A1L314 = (r_sm.s_calculus & !r_index[11]);
+
+
+--A1L299 is result~1
+A1L299 = (A1L3 & ((A1L31) # (A1L33))) # (!A1L3 & (A1L31 & A1L33));
+
+
+--A1L300 is result~2
+A1L300 = (A1L5 & ((A1L31) # (A1L33))) # (!A1L5 & (A1L31 & A1L33));
+
+
+--A1L301 is result~3
+A1L301 = (A1L7 & ((A1L31) # (A1L33))) # (!A1L7 & (A1L31 & A1L33));
+
+
+--A1L302 is result~4
+A1L302 = (A1L9 & ((A1L31) # (A1L33))) # (!A1L9 & (A1L31 & A1L33));
+
+
+--A1L303 is result~5
+A1L303 = (A1L11 & ((A1L31) # (A1L33))) # (!A1L11 & (A1L31 & A1L33));
+
+
+--A1L304 is result~6
+A1L304 = (A1L13 & ((A1L31) # (A1L33))) # (!A1L13 & (A1L31 & A1L33));
+
+
+--A1L305 is result~7
+A1L305 = (A1L15 & ((A1L31) # (A1L33))) # (!A1L15 & (A1L31 & A1L33));
+
+
+--A1L306 is result~8
+A1L306 = (A1L17 & ((A1L31) # (A1L33))) # (!A1L17 & (A1L31 & A1L33));
+
+
+--A1L307 is result~9
+A1L307 = (A1L19 & ((A1L31) # (A1L33))) # (!A1L19 & (A1L31 & A1L33));
+
+
+--A1L308 is result~10
+A1L308 = (A1L21 & ((A1L31) # (A1L33))) # (!A1L21 & (A1L31 & A1L33));
+
+
+--A1L309 is result~11
+A1L309 = (A1L23 & ((A1L31) # (A1L33))) # (!A1L23 & (A1L31 & A1L33));
+
+
+--A1L310 is result~12
+A1L310 = (A1L25 & ((A1L31) # (A1L33))) # (!A1L25 & (A1L31 & A1L33));
+
+
+--A1L311 is result~13
+A1L311 = (A1L27 & ((A1L31) # (A1L33))) # (!A1L27 & (A1L31 & A1L33));
+
+
+--A1L312 is result~14
+A1L312 = (A1L29 & ((A1L31) # (A1L33))) # (!A1L29 & (A1L31 & A1L33));
+
+
+--r_sm.s_idle is r_sm.s_idle
+--register power-up is low
+
+r_sm.s_idle = DFFEAS(A1L313, i_clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--A1L329 is Selector14~0
+A1L329 = (r_done & ((r_sm.s_calculus) # ((!r_sm.s_idle)))) # (!r_done & (r_sm.s_calculus & ((!r_index[11]))));
+
+
+--i_frame[4][0] is i_frame[4][0]
+i_frame[4][0] = INPUT();
+
+
+--i_frame[5][0] is i_frame[5][0]
+i_frame[5][0] = INPUT();
+
+
+--r_index[0] is r_index[0]
+--register power-up is low
+
+r_index[0] = DFFEAS(A1L328, i_clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--i_frame[2][0] is i_frame[2][0]
+i_frame[2][0] = INPUT();
+
+
+--r_index[1] is r_index[1]
+--register power-up is low
+
+r_index[1] = DFFEAS(A1L326, i_clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--i_frame[1][0] is i_frame[1][0]
+i_frame[1][0] = INPUT();
+
+
+--i_frame[0][0] is i_frame[0][0]
+i_frame[0][0] = INPUT();
+
+
+--A1L193 is Mux15~0
+A1L193 = (r_index[1] & (((r_index[0])))) # (!r_index[1] & ((r_index[0] & (i_frame[1][0])) # (!r_index[0] & ((i_frame[0][0])))));
+
+
+--i_frame[3][0] is i_frame[3][0]
+i_frame[3][0] = INPUT();
+
+
+--A1L194 is Mux15~1
+A1L194 = (r_index[1] & ((A1L193 & ((i_frame[3][0]))) # (!A1L193 & (i_frame[2][0])))) # (!r_index[1] & (((A1L193))));
+
+
+--r_index[2] is r_index[2]
+--register power-up is low
+
+r_index[2] = DFFEAS(A1L325, i_clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--i_frame[4][15] is i_frame[4][15]
+i_frame[4][15] = INPUT();
+
+
+--i_frame[5][15] is i_frame[5][15]
+i_frame[5][15] = INPUT();
+
+
+--i_frame[2][15] is i_frame[2][15]
+i_frame[2][15] = INPUT();
+
+
+--i_frame[1][15] is i_frame[1][15]
+i_frame[1][15] = INPUT();
+
+
+--i_frame[0][15] is i_frame[0][15]
+i_frame[0][15] = INPUT();
+
+
+--A1L163 is Mux0~0
+A1L163 = (r_index[1] & (((r_index[0])))) # (!r_index[1] & ((r_index[0] & (i_frame[1][15])) # (!r_index[0] & ((i_frame[0][15])))));
+
+
+--i_frame[3][15] is i_frame[3][15]
+i_frame[3][15] = INPUT();
+
+
+--A1L164 is Mux0~1
+A1L164 = (r_index[1] & ((A1L163 & ((i_frame[3][15]))) # (!A1L163 & (i_frame[2][15])))) # (!r_index[1] & (((A1L163))));
+
+
+--i_frame[4][14] is i_frame[4][14]
+i_frame[4][14] = INPUT();
+
+
+--i_frame[5][14] is i_frame[5][14]
+i_frame[5][14] = INPUT();
+
+
+--i_frame[2][14] is i_frame[2][14]
+i_frame[2][14] = INPUT();
+
+
+--i_frame[1][14] is i_frame[1][14]
+i_frame[1][14] = INPUT();
+
+
+--i_frame[0][14] is i_frame[0][14]
+i_frame[0][14] = INPUT();
+
+
+--A1L165 is Mux1~0
+A1L165 = (r_index[1] & (((r_index[0])))) # (!r_index[1] & ((r_index[0] & (i_frame[1][14])) # (!r_index[0] & ((i_frame[0][14])))));
+
+
+--i_frame[3][14] is i_frame[3][14]
+i_frame[3][14] = INPUT();
+
+
+--A1L166 is Mux1~1
+A1L166 = (r_index[1] & ((A1L165 & ((i_frame[3][14]))) # (!A1L165 & (i_frame[2][14])))) # (!r_index[1] & (((A1L165))));
+
+
+--i_frame[4][13] is i_frame[4][13]
+i_frame[4][13] = INPUT();
+
+
+--i_frame[5][13] is i_frame[5][13]
+i_frame[5][13] = INPUT();
+
+
+--i_frame[2][13] is i_frame[2][13]
+i_frame[2][13] = INPUT();
+
+
+--i_frame[1][13] is i_frame[1][13]
+i_frame[1][13] = INPUT();
+
+
+--i_frame[0][13] is i_frame[0][13]
+i_frame[0][13] = INPUT();
+
+
+--A1L167 is Mux2~0
+A1L167 = (r_index[1] & (((r_index[0])))) # (!r_index[1] & ((r_index[0] & (i_frame[1][13])) # (!r_index[0] & ((i_frame[0][13])))));
+
+
+--i_frame[3][13] is i_frame[3][13]
+i_frame[3][13] = INPUT();
+
+
+--A1L168 is Mux2~1
+A1L168 = (r_index[1] & ((A1L167 & ((i_frame[3][13]))) # (!A1L167 & (i_frame[2][13])))) # (!r_index[1] & (((A1L167))));
+
+
+--i_frame[4][12] is i_frame[4][12]
+i_frame[4][12] = INPUT();
+
+
+--i_frame[5][12] is i_frame[5][12]
+i_frame[5][12] = INPUT();
+
+
+--i_frame[2][12] is i_frame[2][12]
+i_frame[2][12] = INPUT();
+
+
+--i_frame[1][12] is i_frame[1][12]
+i_frame[1][12] = INPUT();
+
+
+--i_frame[0][12] is i_frame[0][12]
+i_frame[0][12] = INPUT();
+
+
+--A1L169 is Mux3~0
+A1L169 = (r_index[1] & (((r_index[0])))) # (!r_index[1] & ((r_index[0] & (i_frame[1][12])) # (!r_index[0] & ((i_frame[0][12])))));
+
+
+--i_frame[3][12] is i_frame[3][12]
+i_frame[3][12] = INPUT();
+
+
+--A1L170 is Mux3~1
+A1L170 = (r_index[1] & ((A1L169 & ((i_frame[3][12]))) # (!A1L169 & (i_frame[2][12])))) # (!r_index[1] & (((A1L169))));
+
+
+--i_frame[4][11] is i_frame[4][11]
+i_frame[4][11] = INPUT();
+
+
+--i_frame[5][11] is i_frame[5][11]
+i_frame[5][11] = INPUT();
+
+
+--i_frame[2][11] is i_frame[2][11]
+i_frame[2][11] = INPUT();
+
+
+--i_frame[1][11] is i_frame[1][11]
+i_frame[1][11] = INPUT();
+
+
+--i_frame[0][11] is i_frame[0][11]
+i_frame[0][11] = INPUT();
+
+
+--A1L171 is Mux4~0
+A1L171 = (r_index[1] & (((r_index[0])))) # (!r_index[1] & ((r_index[0] & (i_frame[1][11])) # (!r_index[0] & ((i_frame[0][11])))));
+
+
+--i_frame[3][11] is i_frame[3][11]
+i_frame[3][11] = INPUT();
+
+
+--A1L172 is Mux4~1
+A1L172 = (r_index[1] & ((A1L171 & ((i_frame[3][11]))) # (!A1L171 & (i_frame[2][11])))) # (!r_index[1] & (((A1L171))));
+
+
+--i_frame[4][10] is i_frame[4][10]
+i_frame[4][10] = INPUT();
+
+
+--i_frame[5][10] is i_frame[5][10]
+i_frame[5][10] = INPUT();
+
+
+--i_frame[2][10] is i_frame[2][10]
+i_frame[2][10] = INPUT();
+
+
+--i_frame[1][10] is i_frame[1][10]
+i_frame[1][10] = INPUT();
+
+
+--i_frame[0][10] is i_frame[0][10]
+i_frame[0][10] = INPUT();
+
+
+--A1L173 is Mux5~0
+A1L173 = (r_index[1] & (((r_index[0])))) # (!r_index[1] & ((r_index[0] & (i_frame[1][10])) # (!r_index[0] & ((i_frame[0][10])))));
+
+
+--i_frame[3][10] is i_frame[3][10]
+i_frame[3][10] = INPUT();
+
+
+--A1L174 is Mux5~1
+A1L174 = (r_index[1] & ((A1L173 & ((i_frame[3][10]))) # (!A1L173 & (i_frame[2][10])))) # (!r_index[1] & (((A1L173))));
+
+
+--i_frame[4][9] is i_frame[4][9]
+i_frame[4][9] = INPUT();
+
+
+--i_frame[5][9] is i_frame[5][9]
+i_frame[5][9] = INPUT();
+
+
+--i_frame[2][9] is i_frame[2][9]
+i_frame[2][9] = INPUT();
+
+
+--i_frame[1][9] is i_frame[1][9]
+i_frame[1][9] = INPUT();
+
+
+--i_frame[0][9] is i_frame[0][9]
+i_frame[0][9] = INPUT();
+
+
+--A1L175 is Mux6~0
+A1L175 = (r_index[1] & (((r_index[0])))) # (!r_index[1] & ((r_index[0] & (i_frame[1][9])) # (!r_index[0] & ((i_frame[0][9])))));
+
+
+--i_frame[3][9] is i_frame[3][9]
+i_frame[3][9] = INPUT();
+
+
+--A1L176 is Mux6~1
+A1L176 = (r_index[1] & ((A1L175 & ((i_frame[3][9]))) # (!A1L175 & (i_frame[2][9])))) # (!r_index[1] & (((A1L175))));
+
+
+--i_frame[4][8] is i_frame[4][8]
+i_frame[4][8] = INPUT();
+
+
+--i_frame[5][8] is i_frame[5][8]
+i_frame[5][8] = INPUT();
+
+
+--i_frame[2][8] is i_frame[2][8]
+i_frame[2][8] = INPUT();
+
+
+--i_frame[1][8] is i_frame[1][8]
+i_frame[1][8] = INPUT();
+
+
+--i_frame[0][8] is i_frame[0][8]
+i_frame[0][8] = INPUT();
+
+
+--A1L177 is Mux7~0
+A1L177 = (r_index[1] & (((r_index[0])))) # (!r_index[1] & ((r_index[0] & (i_frame[1][8])) # (!r_index[0] & ((i_frame[0][8])))));
+
+
+--i_frame[3][8] is i_frame[3][8]
+i_frame[3][8] = INPUT();
+
+
+--A1L178 is Mux7~1
+A1L178 = (r_index[1] & ((A1L177 & ((i_frame[3][8]))) # (!A1L177 & (i_frame[2][8])))) # (!r_index[1] & (((A1L177))));
+
+
+--i_frame[4][7] is i_frame[4][7]
+i_frame[4][7] = INPUT();
+
+
+--i_frame[5][7] is i_frame[5][7]
+i_frame[5][7] = INPUT();
+
+
+--i_frame[2][7] is i_frame[2][7]
+i_frame[2][7] = INPUT();
+
+
+--i_frame[1][7] is i_frame[1][7]
+i_frame[1][7] = INPUT();
+
+
+--i_frame[0][7] is i_frame[0][7]
+i_frame[0][7] = INPUT();
+
+
+--A1L179 is Mux8~0
+A1L179 = (r_index[1] & (((r_index[0])))) # (!r_index[1] & ((r_index[0] & (i_frame[1][7])) # (!r_index[0] & ((i_frame[0][7])))));
+
+
+--i_frame[3][7] is i_frame[3][7]
+i_frame[3][7] = INPUT();
+
+
+--A1L180 is Mux8~1
+A1L180 = (r_index[1] & ((A1L179 & ((i_frame[3][7]))) # (!A1L179 & (i_frame[2][7])))) # (!r_index[1] & (((A1L179))));
+
+
+--i_frame[4][6] is i_frame[4][6]
+i_frame[4][6] = INPUT();
+
+
+--i_frame[5][6] is i_frame[5][6]
+i_frame[5][6] = INPUT();
+
+
+--i_frame[2][6] is i_frame[2][6]
+i_frame[2][6] = INPUT();
+
+
+--i_frame[1][6] is i_frame[1][6]
+i_frame[1][6] = INPUT();
+
+
+--i_frame[0][6] is i_frame[0][6]
+i_frame[0][6] = INPUT();
+
+
+--A1L181 is Mux9~0
+A1L181 = (r_index[1] & (((r_index[0])))) # (!r_index[1] & ((r_index[0] & (i_frame[1][6])) # (!r_index[0] & ((i_frame[0][6])))));
+
+
+--i_frame[3][6] is i_frame[3][6]
+i_frame[3][6] = INPUT();
+
+
+--A1L182 is Mux9~1
+A1L182 = (r_index[1] & ((A1L181 & ((i_frame[3][6]))) # (!A1L181 & (i_frame[2][6])))) # (!r_index[1] & (((A1L181))));
+
+
+--i_frame[4][5] is i_frame[4][5]
+i_frame[4][5] = INPUT();
+
+
+--i_frame[5][5] is i_frame[5][5]
+i_frame[5][5] = INPUT();
+
+
+--i_frame[2][5] is i_frame[2][5]
+i_frame[2][5] = INPUT();
+
+
+--i_frame[1][5] is i_frame[1][5]
+i_frame[1][5] = INPUT();
+
+
+--i_frame[0][5] is i_frame[0][5]
+i_frame[0][5] = INPUT();
+
+
+--A1L183 is Mux10~0
+A1L183 = (r_index[1] & (((r_index[0])))) # (!r_index[1] & ((r_index[0] & (i_frame[1][5])) # (!r_index[0] & ((i_frame[0][5])))));
+
+
+--i_frame[3][5] is i_frame[3][5]
+i_frame[3][5] = INPUT();
+
+
+--A1L184 is Mux10~1
+A1L184 = (r_index[1] & ((A1L183 & ((i_frame[3][5]))) # (!A1L183 & (i_frame[2][5])))) # (!r_index[1] & (((A1L183))));
+
+
+--i_frame[4][4] is i_frame[4][4]
+i_frame[4][4] = INPUT();
+
+
+--i_frame[5][4] is i_frame[5][4]
+i_frame[5][4] = INPUT();
+
+
+--i_frame[2][4] is i_frame[2][4]
+i_frame[2][4] = INPUT();
+
+
+--i_frame[1][4] is i_frame[1][4]
+i_frame[1][4] = INPUT();
+
+
+--i_frame[0][4] is i_frame[0][4]
+i_frame[0][4] = INPUT();
+
+
+--A1L185 is Mux11~0
+A1L185 = (r_index[1] & (((r_index[0])))) # (!r_index[1] & ((r_index[0] & (i_frame[1][4])) # (!r_index[0] & ((i_frame[0][4])))));
+
+
+--i_frame[3][4] is i_frame[3][4]
+i_frame[3][4] = INPUT();
+
+
+--A1L186 is Mux11~1
+A1L186 = (r_index[1] & ((A1L185 & ((i_frame[3][4]))) # (!A1L185 & (i_frame[2][4])))) # (!r_index[1] & (((A1L185))));
+
+
+--i_frame[4][3] is i_frame[4][3]
+i_frame[4][3] = INPUT();
+
+
+--i_frame[5][3] is i_frame[5][3]
+i_frame[5][3] = INPUT();
+
+
+--i_frame[2][3] is i_frame[2][3]
+i_frame[2][3] = INPUT();
+
+
+--i_frame[1][3] is i_frame[1][3]
+i_frame[1][3] = INPUT();
+
+
+--i_frame[0][3] is i_frame[0][3]
+i_frame[0][3] = INPUT();
+
+
+--A1L187 is Mux12~0
+A1L187 = (r_index[1] & (((r_index[0])))) # (!r_index[1] & ((r_index[0] & (i_frame[1][3])) # (!r_index[0] & ((i_frame[0][3])))));
+
+
+--i_frame[3][3] is i_frame[3][3]
+i_frame[3][3] = INPUT();
+
+
+--A1L188 is Mux12~1
+A1L188 = (r_index[1] & ((A1L187 & ((i_frame[3][3]))) # (!A1L187 & (i_frame[2][3])))) # (!r_index[1] & (((A1L187))));
+
+
+--i_frame[4][2] is i_frame[4][2]
+i_frame[4][2] = INPUT();
+
+
+--i_frame[5][2] is i_frame[5][2]
+i_frame[5][2] = INPUT();
+
+
+--i_frame[2][2] is i_frame[2][2]
+i_frame[2][2] = INPUT();
+
+
+--i_frame[1][2] is i_frame[1][2]
+i_frame[1][2] = INPUT();
+
+
+--i_frame[0][2] is i_frame[0][2]
+i_frame[0][2] = INPUT();
+
+
+--A1L189 is Mux13~0
+A1L189 = (r_index[1] & (((r_index[0])))) # (!r_index[1] & ((r_index[0] & (i_frame[1][2])) # (!r_index[0] & ((i_frame[0][2])))));
+
+
+--i_frame[3][2] is i_frame[3][2]
+i_frame[3][2] = INPUT();
+
+
+--A1L190 is Mux13~1
+A1L190 = (r_index[1] & ((A1L189 & ((i_frame[3][2]))) # (!A1L189 & (i_frame[2][2])))) # (!r_index[1] & (((A1L189))));
+
+
+--i_frame[4][1] is i_frame[4][1]
+i_frame[4][1] = INPUT();
+
+
+--i_frame[5][1] is i_frame[5][1]
+i_frame[5][1] = INPUT();
+
+
+--i_frame[2][1] is i_frame[2][1]
+i_frame[2][1] = INPUT();
+
+
+--i_frame[1][1] is i_frame[1][1]
+i_frame[1][1] = INPUT();
+
+
+--i_frame[0][1] is i_frame[0][1]
+i_frame[0][1] = INPUT();
+
+
+--A1L191 is Mux14~0
+A1L191 = (r_index[1] & (((r_index[0])))) # (!r_index[1] & ((r_index[0] & (i_frame[1][1])) # (!r_index[0] & ((i_frame[0][1])))));
+
+
+--i_frame[3][1] is i_frame[3][1]
+i_frame[3][1] = INPUT();
+
+
+--A1L192 is Mux14~1
+A1L192 = (r_index[1] & ((A1L191 & ((i_frame[3][1]))) # (!A1L191 & (i_frame[2][1])))) # (!r_index[1] & (((A1L191))));
+
+
+--i_enable is i_enable
+i_enable = INPUT();
+
+
+--A1L315 is Selector1~1
+A1L315 = (r_sm.s_calculus & (((i_enable & !r_sm.s_idle)) # (!r_index[11]))) # (!r_sm.s_calculus & (i_enable & ((!r_sm.s_idle))));
+
+
+--r_index[10] is r_index[10]
+--register power-up is low
+
+r_index[10] = DFFEAS(A1L317, i_clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--r_index[9] is r_index[9]
+--register power-up is low
+
+r_index[9] = DFFEAS(A1L318, i_clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--r_index[8] is r_index[8]
+--register power-up is low
+
+r_index[8] = DFFEAS(A1L319, i_clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--r_index[7] is r_index[7]
+--register power-up is low
+
+r_index[7] = DFFEAS(A1L320, i_clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--r_index[6] is r_index[6]
+--register power-up is low
+
+r_index[6] = DFFEAS(A1L321, i_clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--r_index[5] is r_index[5]
+--register power-up is low
+
+r_index[5] = DFFEAS(A1L322, i_clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--r_index[4] is r_index[4]
+--register power-up is low
+
+r_index[4] = DFFEAS(A1L323, i_clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--r_index[3] is r_index[3]
+--register power-up is low
+
+r_index[3] = DFFEAS(A1L324, i_clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--A1L316 is Selector2~0
+A1L316 = (r_sm.s_calculus & ((r_index[11]) # ((A1L57)))) # (!r_sm.s_calculus & (r_index[11] & ((!r_sm.s_idle))));
+
+
+--r_sm.s_clean is r_sm.s_clean
+--register power-up is low
+
+r_sm.s_clean = DFFEAS(A1L297, i_clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--A1L313 is Selector0~0
+A1L313 = (!r_sm.s_clean & ((r_sm.s_idle) # (i_enable)));
+
+
+--A1L327 is Selector13~0
+A1L327 = ((r_index[11] & r_sm.s_calculus)) # (!r_sm.s_idle);
+
+
+--A1L328 is Selector13~1
+A1L328 = (A1L314 & ((A1L35) # ((r_index[0] & A1L327)))) # (!A1L314 & (r_index[0] & (A1L327)));
+
+
+--A1L326 is Selector12~0
+A1L326 = (A1L314 & ((A1L37) # ((r_index[1] & A1L327)))) # (!A1L314 & (r_index[1] & (A1L327)));
+
+
+--A1L325 is Selector11~0
+A1L325 = (A1L314 & ((A1L39) # ((r_index[2] & A1L327)))) # (!A1L314 & (r_index[2] & (A1L327)));
+
+
+--A1L317 is Selector3~0
+A1L317 = (A1L314 & ((A1L55) # ((r_index[10] & A1L327)))) # (!A1L314 & (r_index[10] & (A1L327)));
+
+
+--A1L318 is Selector4~0
+A1L318 = (A1L314 & ((A1L53) # ((r_index[9] & A1L327)))) # (!A1L314 & (r_index[9] & (A1L327)));
+
+
+--A1L319 is Selector5~0
+A1L319 = (A1L314 & ((A1L51) # ((r_index[8] & A1L327)))) # (!A1L314 & (r_index[8] & (A1L327)));
+
+
+--A1L320 is Selector6~0
+A1L320 = (A1L314 & ((A1L49) # ((r_index[7] & A1L327)))) # (!A1L314 & (r_index[7] & (A1L327)));
+
+
+--A1L321 is Selector7~0
+A1L321 = (A1L314 & ((A1L47) # ((r_index[6] & A1L327)))) # (!A1L314 & (r_index[6] & (A1L327)));
+
+
+--A1L322 is Selector8~0
+A1L322 = (A1L314 & ((A1L45) # ((r_index[5] & A1L327)))) # (!A1L314 & (r_index[5] & (A1L327)));
+
+
+--A1L323 is Selector9~0
+A1L323 = (A1L314 & ((A1L43) # ((r_index[4] & A1L327)))) # (!A1L314 & (r_index[4] & (A1L327)));
+
+
+--A1L324 is Selector10~0
+A1L324 = (A1L314 & ((A1L41) # ((r_index[3] & A1L327)))) # (!A1L314 & (r_index[3] & (A1L327)));
+
+
+--A1L297 is r_sm~5
+A1L297 = (r_index[11] & r_sm.s_calculus);
+
+
+--A1L244 is r_result[4]~0
+A1L244 = !A1L33;
+
+

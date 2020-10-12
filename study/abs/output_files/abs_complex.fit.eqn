@@ -1,0 +1,322 @@
+-- Copyright (C) 2020  Intel Corporation. All rights reserved.
+-- Your use of Intel Corporation's design tools, logic functions 
+-- and other software and tools, and any partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Intel Program License 
+-- Subscription Agreement, the Intel Quartus Prime License Agreement,
+-- the Intel FPGA IP License Agreement, or other applicable license
+-- agreement, including, without limitation, that your use is for
+-- the sole purpose of programming logic devices manufactured by
+-- Intel and sold by Intel or its authorized distributors.  Please
+-- refer to the applicable agreement for further details, at
+-- https://fpgasoftware.intel.com/eula.
+
+--i_clk is i_clk at PIN_L21
+i_clk = INPUT();
+
+
+
+--i_enable is i_enable at PIN_D4
+i_enable = INPUT();
+
+
+
+--i_complex.img[0] is i_complex.img[0] at PIN_D5
+i_complex.img[0] = INPUT();
+
+
+
+--i_complex.img[1] is i_complex.img[1] at PIN_E4
+i_complex.img[1] = INPUT();
+
+
+
+--i_complex.img[2] is i_complex.img[2] at PIN_C5
+i_complex.img[2] = INPUT();
+
+
+
+--i_complex.img[3] is i_complex.img[3] at PIN_AF14
+i_complex.img[3] = INPUT();
+
+
+
+--i_complex.img[4] is i_complex.img[4] at PIN_E25
+i_complex.img[4] = INPUT();
+
+
+
+--i_complex.img[5] is i_complex.img[5] at PIN_D16
+i_complex.img[5] = INPUT();
+
+
+
+--i_complex.img[6] is i_complex.img[6] at PIN_A22
+i_complex.img[6] = INPUT();
+
+
+
+--i_complex.img[7] is i_complex.img[7] at PIN_F7
+i_complex.img[7] = INPUT();
+
+
+
+--i_complex.img[8] is i_complex.img[8] at PIN_AE12
+i_complex.img[8] = INPUT();
+
+
+
+--i_complex.img[9] is i_complex.img[9] at PIN_AE21
+i_complex.img[9] = INPUT();
+
+
+
+--i_complex.img[10] is i_complex.img[10] at PIN_AB6
+i_complex.img[10] = INPUT();
+
+
+
+--i_complex.img[11] is i_complex.img[11] at PIN_AD11
+i_complex.img[11] = INPUT();
+
+
+
+--i_complex.img[12] is i_complex.img[12] at PIN_D18
+i_complex.img[12] = INPUT();
+
+
+
+--i_complex.img[13] is i_complex.img[13] at PIN_U8
+i_complex.img[13] = INPUT();
+
+
+
+--i_complex.img[14] is i_complex.img[14] at PIN_Y19
+i_complex.img[14] = INPUT();
+
+
+
+--i_complex.img[15] is i_complex.img[15] at PIN_D25
+i_complex.img[15] = INPUT();
+
+
+
+--i_complex.re[0] is i_complex.re[0] at PIN_C9
+i_complex.re[0] = INPUT();
+
+
+
+--i_complex.re[1] is i_complex.re[1] at PIN_F21
+i_complex.re[1] = INPUT();
+
+
+
+--i_complex.re[2] is i_complex.re[2] at PIN_C16
+i_complex.re[2] = INPUT();
+
+
+
+--i_complex.re[3] is i_complex.re[3] at PIN_AF21
+i_complex.re[3] = INPUT();
+
+
+
+--i_complex.re[4] is i_complex.re[4] at PIN_AF12
+i_complex.re[4] = INPUT();
+
+
+
+--i_complex.re[5] is i_complex.re[5] at PIN_V28
+i_complex.re[5] = INPUT();
+
+
+
+--i_complex.re[6] is i_complex.re[6] at PIN_F8
+i_complex.re[6] = INPUT();
+
+
+
+--i_complex.re[7] is i_complex.re[7] at PIN_AE5
+i_complex.re[7] = INPUT();
+
+
+
+--i_complex.re[8] is i_complex.re[8] at PIN_G14
+i_complex.re[8] = INPUT();
+
+
+
+--i_complex.re[9] is i_complex.re[9] at PIN_AE4
+i_complex.re[9] = INPUT();
+
+
+
+--i_complex.re[10] is i_complex.re[10] at PIN_R23
+i_complex.re[10] = INPUT();
+
+
+
+--i_complex.re[11] is i_complex.re[11] at PIN_G13
+i_complex.re[11] = INPUT();
+
+
+
+--i_complex.re[12] is i_complex.re[12] at PIN_AE28
+i_complex.re[12] = INPUT();
+
+
+
+--i_complex.re[13] is i_complex.re[13] at PIN_L24
+i_complex.re[13] = INPUT();
+
+
+
+--i_complex.re[14] is i_complex.re[14] at PIN_M5
+i_complex.re[14] = INPUT();
+
+
+
+--i_complex.re[15] is i_complex.re[15] at PIN_D14
+i_complex.re[15] = INPUT();
+
+
+--A1L74 is o_complex[0]~output at IOOBUF_X54_Y73_N2
+A1L74 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
+
+
+--o_complex[0] is o_complex[0] at PIN_C13
+o_complex[0] = OUTPUT();
+
+
+--A1L76 is o_complex[1]~output at IOOBUF_X105_Y73_N9
+A1L76 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
+
+
+--o_complex[1] is o_complex[1] at PIN_C25
+o_complex[1] = OUTPUT();
+
+
+--A1L78 is o_complex[2]~output at IOOBUF_X105_Y0_N9
+A1L78 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
+
+
+--o_complex[2] is o_complex[2] at PIN_AF23
+o_complex[2] = OUTPUT();
+
+
+--A1L80 is o_complex[3]~output at IOOBUF_X115_Y25_N16
+A1L80 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
+
+
+--o_complex[3] is o_complex[3] at PIN_V21
+o_complex[3] = OUTPUT();
+
+
+--A1L82 is o_complex[4]~output at IOOBUF_X7_Y0_N16
+A1L82 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
+
+
+--o_complex[4] is o_complex[4] at PIN_AF6
+o_complex[4] = OUTPUT();
+
+
+--A1L84 is o_complex[5]~output at IOOBUF_X100_Y73_N16
+A1L84 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
+
+
+--o_complex[5] is o_complex[5] at PIN_D23
+o_complex[5] = OUTPUT();
+
+
+--A1L86 is o_complex[6]~output at IOOBUF_X0_Y30_N2
+A1L86 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
+
+
+--o_complex[6] is o_complex[6] at PIN_U2
+o_complex[6] = OUTPUT();
+
+
+--A1L88 is o_complex[7]~output at IOOBUF_X42_Y73_N9
+A1L88 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
+
+
+--o_complex[7] is o_complex[7] at PIN_B11
+o_complex[7] = OUTPUT();
+
+
+--A1L90 is o_complex[8]~output at IOOBUF_X67_Y73_N9
+A1L90 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
+
+
+--o_complex[8] is o_complex[8] at PIN_H17
+o_complex[8] = OUTPUT();
+
+
+--A1L92 is o_complex[9]~output at IOOBUF_X0_Y7_N9
+A1L92 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
+
+
+--o_complex[9] is o_complex[9] at PIN_AE3
+o_complex[9] = OUTPUT();
+
+
+--A1L94 is o_complex[10]~output at IOOBUF_X115_Y33_N9
+A1L94 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
+
+
+--o_complex[10] is o_complex[10] at PIN_R26
+o_complex[10] = OUTPUT();
+
+
+--A1L96 is o_complex[11]~output at IOOBUF_X85_Y0_N23
+A1L96 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
+
+
+--o_complex[11] is o_complex[11] at PIN_AE20
+o_complex[11] = OUTPUT();
+
+
+--A1L98 is o_complex[12]~output at IOOBUF_X18_Y0_N23
+A1L98 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
+
+
+--o_complex[12] is o_complex[12] at PIN_AC8
+o_complex[12] = OUTPUT();
+
+
+--A1L100 is o_complex[13]~output at IOOBUF_X18_Y73_N23
+A1L100 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
+
+
+--o_complex[13] is o_complex[13] at PIN_A8
+o_complex[13] = OUTPUT();
+
+
+--A1L102 is o_complex[14]~output at IOOBUF_X96_Y0_N16
+A1L102 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
+
+
+--o_complex[14] is o_complex[14] at PIN_Y16
+o_complex[14] = OUTPUT();
+
+
+--A1L104 is o_complex[15]~output at IOOBUF_X49_Y0_N9
+A1L104 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
+
+
+--o_complex[15] is o_complex[15] at PIN_AC11
+o_complex[15] = OUTPUT();
+
+
+
+
+
+
+
+
+
+
+
+
