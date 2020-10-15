@@ -1,0 +1,3374 @@
+-- Copyright (C) 2020  Intel Corporation. All rights reserved.
+-- Your use of Intel Corporation's design tools, logic functions 
+-- and other software and tools, and any partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Intel Program License 
+-- Subscription Agreement, the Intel Quartus Prime License Agreement,
+-- the Intel FPGA IP License Agreement, or other applicable license
+-- agreement, including, without limitation, that your use is for
+-- the sole purpose of programming logic devices manufactured by
+-- Intel and sold by Intel or its authorized distributors.  Please
+-- refer to the applicable agreement for further details, at
+-- https://fpgasoftware.intel.com/eula.
+--D1_r_fifo_count[3] is uart:uart_unit|fifo:fifo_rx|r_fifo_count[3] at FF_X42_Y43_N13
+--register power-up is low
+
+D1_r_fifo_count[3] = DFFEAS(D1L23, GLOBAL(A1L132),  ,  , D1L15,  ,  , !A1L135,  );
+
+
+--D1_r_fifo_count[1] is uart:uart_unit|fifo:fifo_rx|r_fifo_count[1] at FF_X42_Y43_N9
+--register power-up is low
+
+D1_r_fifo_count[1] = DFFEAS(D1L17, GLOBAL(A1L132),  ,  , D1L15,  ,  , !A1L135,  );
+
+
+--D1_r_fifo_count[0] is uart:uart_unit|fifo:fifo_rx|r_fifo_count[0] at FF_X42_Y43_N7
+--register power-up is low
+
+D1_r_fifo_count[0] = DFFEAS(D1L13, GLOBAL(A1L132),  ,  , D1L15,  ,  , !A1L135,  );
+
+
+--D1_r_fifo_count[2] is uart:uart_unit|fifo:fifo_rx|r_fifo_count[2] at FF_X42_Y43_N11
+--register power-up is low
+
+D1_r_fifo_count[2] = DFFEAS(D1L20, GLOBAL(A1L132),  ,  , D1L15,  ,  , !A1L135,  );
+
+
+--D1_r_fifo_count[4] is uart:uart_unit|fifo:fifo_rx|r_fifo_count[4] at FF_X42_Y43_N15
+--register power-up is low
+
+D1_r_fifo_count[4] = DFFEAS(D1L26, GLOBAL(A1L132),  ,  , D1L15,  ,  , !A1L135,  );
+
+
+--D2_r_fifo_count[3] is uart:uart_unit|fifo:fifo_tx|r_fifo_count[3] at FF_X111_Y71_N23
+--register power-up is low
+
+D2_r_fifo_count[3] = DFFEAS(D2L16, GLOBAL(A1L132),  ,  , D2L11,  ,  , !A1L135,  );
+
+
+--D2_r_fifo_count[1] is uart:uart_unit|fifo:fifo_tx|r_fifo_count[1] at FF_X111_Y71_N19
+--register power-up is low
+
+D2_r_fifo_count[1] = DFFEAS(D2L9, GLOBAL(A1L132),  ,  , D2L11,  ,  , !A1L135,  );
+
+
+--D2_r_fifo_count[0] is uart:uart_unit|fifo:fifo_tx|r_fifo_count[0] at FF_X111_Y71_N17
+--register power-up is low
+
+D2_r_fifo_count[0] = DFFEAS(D2L6, GLOBAL(A1L132),  ,  , D2L11,  ,  , !A1L135,  );
+
+
+--D2_r_fifo_count[2] is uart:uart_unit|fifo:fifo_tx|r_fifo_count[2] at FF_X111_Y71_N21
+--register power-up is low
+
+D2_r_fifo_count[2] = DFFEAS(D2L13, GLOBAL(A1L132),  ,  , D2L11,  ,  , !A1L135,  );
+
+
+--D2_r_fifo_count[4] is uart:uart_unit|fifo:fifo_tx|r_fifo_count[4] at FF_X111_Y71_N25
+--register power-up is low
+
+D2_r_fifo_count[4] = DFFEAS(D2L19, GLOBAL(A1L132),  ,  , D2L11,  ,  , !A1L135,  );
+
+
+--r_addr[0] is r_addr[0] at FF_X30_Y38_N1
+--register power-up is low
+
+r_addr[0] = DFFEAS(A1L272, GLOBAL(A1L132),  ,  , A1L136, A1L476,  ,  , !r_sm.s_process);
+
+
+--r_addr[1] is r_addr[1] at FF_X27_Y40_N13
+--register power-up is low
+
+r_addr[1] = DFFEAS(A1L275, GLOBAL(A1L132),  ,  , A1L136, A1L475,  ,  , !r_sm.s_process);
+
+
+--r_addr[2] is r_addr[2] at FF_X30_Y38_N27
+--register power-up is low
+
+r_addr[2] = DFFEAS(A1L278, GLOBAL(A1L132),  ,  , A1L136, A1L474,  ,  , !r_sm.s_process);
+
+
+--r_addr[3] is r_addr[3] at FF_X29_Y39_N1
+--register power-up is low
+
+r_addr[3] = DFFEAS(A1L281, GLOBAL(A1L132),  ,  , A1L136, A1L473,  ,  , !r_sm.s_process);
+
+
+--r_addr[4] is r_addr[4] at FF_X28_Y40_N13
+--register power-up is low
+
+r_addr[4] = DFFEAS(A1L284, GLOBAL(A1L132),  ,  , A1L136, A1L472,  ,  , !r_sm.s_process);
+
+
+--r_addr[5] is r_addr[5] at FF_X28_Y40_N11
+--register power-up is low
+
+r_addr[5] = DFFEAS(A1L287, GLOBAL(A1L132),  ,  , A1L136, A1L471,  ,  , !r_sm.s_process);
+
+
+--r_addr[6] is r_addr[6] at FF_X30_Y38_N17
+--register power-up is low
+
+r_addr[6] = DFFEAS(A1L290, GLOBAL(A1L132),  ,  , A1L136, A1L470,  ,  , !r_sm.s_process);
+
+
+--r_addr[7] is r_addr[7] at FF_X29_Y39_N7
+--register power-up is low
+
+r_addr[7] = DFFEAS(A1L293, GLOBAL(A1L132),  ,  , A1L136, A1L469,  ,  , !r_sm.s_process);
+
+
+--r_addr[8] is r_addr[8] at FF_X28_Y40_N29
+--register power-up is low
+
+r_addr[8] = DFFEAS(A1L296, GLOBAL(A1L132),  ,  , A1L136, A1L468,  ,  , !r_sm.s_process);
+
+
+--r_addr[9] is r_addr[9] at FF_X28_Y40_N27
+--register power-up is low
+
+r_addr[9] = DFFEAS(A1L299, GLOBAL(A1L132),  ,  , A1L136, A1L467,  ,  , !r_sm.s_process);
+
+
+--r_addr[10] is r_addr[10] at FF_X29_Y38_N17
+--register power-up is low
+
+r_addr[10] = DFFEAS(A1L302, GLOBAL(A1L132),  ,  , A1L136, A1L466,  ,  , !r_sm.s_process);
+
+
+--r_addr[11] is r_addr[11] at FF_X29_Y38_N31
+--register power-up is low
+
+r_addr[11] = DFFEAS(A1L305, GLOBAL(A1L132),  ,  , A1L136, A1L465,  ,  , !r_sm.s_process);
+
+
+--r_addr[12] is r_addr[12] at FF_X29_Y38_N25
+--register power-up is low
+
+r_addr[12] = DFFEAS(A1L308, GLOBAL(A1L132),  ,  , A1L136, A1L464,  ,  , !r_sm.s_process);
+
+
+--r_addr[13] is r_addr[13] at FF_X27_Y40_N31
+--register power-up is low
+
+r_addr[13] = DFFEAS(A1L311, GLOBAL(A1L132),  ,  , A1L136, A1L463,  ,  , !r_sm.s_process);
+
+
+--r_addr[14] is r_addr[14] at FF_X29_Y38_N23
+--register power-up is low
+
+r_addr[14] = DFFEAS(A1L314, GLOBAL(A1L132),  ,  , A1L136, A1L462,  ,  , !r_sm.s_process);
+
+
+--r_addr[15] is r_addr[15] at FF_X29_Y38_N1
+--register power-up is low
+
+r_addr[15] = DFFEAS(A1L317, GLOBAL(A1L132),  ,  , A1L136, A1L461,  ,  , !r_sm.s_process);
+
+
+--r_addr[16] is r_addr[16] at FF_X30_Y38_N15
+--register power-up is low
+
+r_addr[16] = DFFEAS(A1L320, GLOBAL(A1L132),  ,  , A1L136, A1L460,  ,  , !r_sm.s_process);
+
+
+--r_addr[17] is r_addr[17] at FF_X27_Y40_N21
+--register power-up is low
+
+r_addr[17] = DFFEAS(A1L323, GLOBAL(A1L132),  ,  , A1L136, A1L459,  ,  , !r_sm.s_process);
+
+
+--r_addr[18] is r_addr[18] at FF_X30_Y38_N13
+--register power-up is low
+
+r_addr[18] = DFFEAS(A1L326, GLOBAL(A1L132),  ,  , A1L136, A1L458,  ,  , !r_sm.s_process);
+
+
+--r_addr[19] is r_addr[19] at FF_X29_Y39_N9
+--register power-up is low
+
+r_addr[19] = DFFEAS(A1L329, GLOBAL(A1L132),  ,  , A1L136, A1L457,  ,  , !r_sm.s_process);
+
+
+--r_sram_data[0] is r_sram_data[0] at FF_X28_Y40_N1
+--register power-up is low
+
+r_sram_data[0] = DFFEAS(A1L389, GLOBAL(A1L132),  ,  , A1L136, A1L492,  ,  , !r_sm.s_process);
+
+
+--r_sram_data[1] is r_sram_data[1] at FF_X32_Y40_N13
+--register power-up is low
+
+r_sram_data[1] = DFFEAS(A1L392, GLOBAL(A1L132),  ,  , A1L136, A1L491,  ,  , !r_sm.s_process);
+
+
+--r_sram_data[2] is r_sram_data[2] at FF_X32_Y40_N27
+--register power-up is low
+
+r_sram_data[2] = DFFEAS(A1L395, GLOBAL(A1L132),  ,  , A1L136, A1L490,  ,  , !r_sm.s_process);
+
+
+--r_sram_data[3] is r_sram_data[3] at FF_X32_Y40_N1
+--register power-up is low
+
+r_sram_data[3] = DFFEAS(A1L398, GLOBAL(A1L132),  ,  , A1L136, A1L489,  ,  , !r_sm.s_process);
+
+
+--r_sram_data[4] is r_sram_data[4] at FF_X32_Y40_N11
+--register power-up is low
+
+r_sram_data[4] = DFFEAS(A1L401, GLOBAL(A1L132),  ,  , A1L136, A1L488,  ,  , !r_sm.s_process);
+
+
+--r_sram_data[5] is r_sram_data[5] at FF_X33_Y40_N25
+--register power-up is low
+
+r_sram_data[5] = DFFEAS(A1L404, GLOBAL(A1L132),  ,  , A1L136, A1L487,  ,  , !r_sm.s_process);
+
+
+--r_sram_data[6] is r_sram_data[6] at FF_X27_Y40_N15
+--register power-up is low
+
+r_sram_data[6] = DFFEAS(A1L407, GLOBAL(A1L132),  ,  , A1L136, A1L486,  ,  , !r_sm.s_process);
+
+
+--r_sram_data[7] is r_sram_data[7] at FF_X27_Y40_N1
+--register power-up is low
+
+r_sram_data[7] = DFFEAS(A1L410, GLOBAL(A1L132),  ,  , A1L136, A1L485,  ,  , !r_sm.s_process);
+
+
+--r_sram_data[8] is r_sram_data[8] at FF_X27_Y40_N7
+--register power-up is low
+
+r_sram_data[8] = DFFEAS(A1L413, GLOBAL(A1L132),  ,  , A1L136, A1L484,  ,  , !r_sm.s_process);
+
+
+--r_sram_data[9] is r_sram_data[9] at FF_X33_Y40_N31
+--register power-up is low
+
+r_sram_data[9] = DFFEAS(A1L416, GLOBAL(A1L132),  ,  , A1L136, A1L483,  ,  , !r_sm.s_process);
+
+
+--r_sram_data[10] is r_sram_data[10] at FF_X33_Y40_N21
+--register power-up is low
+
+r_sram_data[10] = DFFEAS(A1L419, GLOBAL(A1L132),  ,  , A1L136, A1L482,  ,  , !r_sm.s_process);
+
+
+--r_sram_data[11] is r_sram_data[11] at FF_X33_Y40_N3
+--register power-up is low
+
+r_sram_data[11] = DFFEAS(A1L422, GLOBAL(A1L132),  ,  , A1L136, A1L481,  ,  , !r_sm.s_process);
+
+
+--r_sram_data[12] is r_sram_data[12] at FF_X33_Y40_N1
+--register power-up is low
+
+r_sram_data[12] = DFFEAS(A1L425, GLOBAL(A1L132),  ,  , A1L136, A1L480,  ,  , !r_sm.s_process);
+
+
+--r_sram_data[13] is r_sram_data[13] at FF_X29_Y40_N9
+--register power-up is low
+
+r_sram_data[13] = DFFEAS(A1L428, GLOBAL(A1L132),  ,  , A1L136, A1L479,  ,  , !r_sm.s_process);
+
+
+--r_sram_data[14] is r_sram_data[14] at FF_X29_Y40_N7
+--register power-up is low
+
+r_sram_data[14] = DFFEAS(A1L431, GLOBAL(A1L132),  ,  , A1L136, A1L478,  ,  , !r_sm.s_process);
+
+
+--r_sram_data[15] is r_sram_data[15] at FF_X29_Y40_N13
+--register power-up is low
+
+r_sram_data[15] = DFFEAS(A1L434, GLOBAL(A1L132),  ,  , A1L136, A1L477,  ,  , !r_sm.s_process);
+
+
+--D1L13 is uart:uart_unit|fifo:fifo_rx|r_fifo_count[0]~5 at LCCOMB_X42_Y43_N6
+D1L13 = D1_r_fifo_count[0] $ (VCC);
+
+--D1L14 is uart:uart_unit|fifo:fifo_rx|r_fifo_count[0]~6 at LCCOMB_X42_Y43_N6
+D1L14 = CARRY(D1_r_fifo_count[0]);
+
+
+--D1L17 is uart:uart_unit|fifo:fifo_rx|r_fifo_count[1]~7 at LCCOMB_X42_Y43_N8
+D1L17 = (D1L9 & ((D1_r_fifo_count[1] & (!D1L14)) # (!D1_r_fifo_count[1] & ((D1L14) # (GND))))) # (!D1L9 & ((D1_r_fifo_count[1] & (D1L14 & VCC)) # (!D1_r_fifo_count[1] & (!D1L14))));
+
+--D1L18 is uart:uart_unit|fifo:fifo_rx|r_fifo_count[1]~8 at LCCOMB_X42_Y43_N8
+D1L18 = CARRY((D1L9 & ((!D1L14) # (!D1_r_fifo_count[1]))) # (!D1L9 & (!D1_r_fifo_count[1] & !D1L14)));
+
+
+--D1L20 is uart:uart_unit|fifo:fifo_rx|r_fifo_count[2]~9 at LCCOMB_X42_Y43_N10
+D1L20 = ((D1_r_fifo_count[2] $ (D1L9 $ (D1L18)))) # (GND);
+
+--D1L21 is uart:uart_unit|fifo:fifo_rx|r_fifo_count[2]~10 at LCCOMB_X42_Y43_N10
+D1L21 = CARRY((D1_r_fifo_count[2] & ((!D1L18) # (!D1L9))) # (!D1_r_fifo_count[2] & (!D1L9 & !D1L18)));
+
+
+--D1L23 is uart:uart_unit|fifo:fifo_rx|r_fifo_count[3]~11 at LCCOMB_X42_Y43_N12
+D1L23 = (D1_r_fifo_count[3] & ((D1L9 & (!D1L21)) # (!D1L9 & (D1L21 & VCC)))) # (!D1_r_fifo_count[3] & ((D1L9 & ((D1L21) # (GND))) # (!D1L9 & (!D1L21))));
+
+--D1L24 is uart:uart_unit|fifo:fifo_rx|r_fifo_count[3]~12 at LCCOMB_X42_Y43_N12
+D1L24 = CARRY((D1_r_fifo_count[3] & (D1L9 & !D1L21)) # (!D1_r_fifo_count[3] & ((D1L9) # (!D1L21))));
+
+
+--D1L26 is uart:uart_unit|fifo:fifo_rx|r_fifo_count[4]~14 at LCCOMB_X42_Y43_N14
+D1L26 = D1L9 $ (D1_r_fifo_count[4] $ (D1L24));
+
+
+--D2L6 is uart:uart_unit|fifo:fifo_tx|r_fifo_count[0]~5 at LCCOMB_X111_Y71_N16
+D2L6 = D2_r_fifo_count[0] $ (VCC);
+
+--D2L7 is uart:uart_unit|fifo:fifo_tx|r_fifo_count[0]~6 at LCCOMB_X111_Y71_N16
+D2L7 = CARRY(D2_r_fifo_count[0]);
+
+
+--D2L9 is uart:uart_unit|fifo:fifo_tx|r_fifo_count[1]~7 at LCCOMB_X111_Y71_N18
+D2L9 = (D2_r_fifo_count[1] & (D2L7 & VCC)) # (!D2_r_fifo_count[1] & (!D2L7));
+
+--D2L10 is uart:uart_unit|fifo:fifo_tx|r_fifo_count[1]~8 at LCCOMB_X111_Y71_N18
+D2L10 = CARRY((!D2_r_fifo_count[1] & !D2L7));
+
+
+--D2L13 is uart:uart_unit|fifo:fifo_tx|r_fifo_count[2]~9 at LCCOMB_X111_Y71_N20
+D2L13 = (D2_r_fifo_count[2] & ((GND) # (!D2L10))) # (!D2_r_fifo_count[2] & (D2L10 $ (GND)));
+
+--D2L14 is uart:uart_unit|fifo:fifo_tx|r_fifo_count[2]~10 at LCCOMB_X111_Y71_N20
+D2L14 = CARRY((D2_r_fifo_count[2]) # (!D2L10));
+
+
+--D2L16 is uart:uart_unit|fifo:fifo_tx|r_fifo_count[3]~11 at LCCOMB_X111_Y71_N22
+D2L16 = (D2_r_fifo_count[3] & (D2L14 & VCC)) # (!D2_r_fifo_count[3] & (!D2L14));
+
+--D2L17 is uart:uart_unit|fifo:fifo_tx|r_fifo_count[3]~12 at LCCOMB_X111_Y71_N22
+D2L17 = CARRY((!D2_r_fifo_count[3] & !D2L14));
+
+
+--D2L19 is uart:uart_unit|fifo:fifo_tx|r_fifo_count[4]~14 at LCCOMB_X111_Y71_N24
+D2L19 = D2L17 $ (D2_r_fifo_count[4]);
+
+
+--A1L272 is r_addr[0]~0 at LCCOMB_X30_Y38_N0
+A1L272 = (A1L67 & (A1L114)) # (!A1L67 & ((r_addr[0])));
+
+
+--A1L275 is r_addr[1]~1 at LCCOMB_X27_Y40_N12
+A1L275 = (A1L69 & (A1L114)) # (!A1L69 & ((r_addr[1])));
+
+
+--A1L278 is r_addr[2]~2 at LCCOMB_X30_Y38_N26
+A1L278 = (A1L71 & (A1L114)) # (!A1L71 & ((r_addr[2])));
+
+
+--A1L281 is r_addr[3]~3 at LCCOMB_X29_Y39_N0
+A1L281 = (A1L72 & (A1L114)) # (!A1L72 & ((r_addr[3])));
+
+
+--A1L284 is r_addr[4]~4 at LCCOMB_X28_Y40_N12
+A1L284 = (A1L74 & (A1L114)) # (!A1L74 & ((r_addr[4])));
+
+
+--A1L287 is r_addr[5]~5 at LCCOMB_X28_Y40_N10
+A1L287 = (A1L75 & (A1L114)) # (!A1L75 & ((r_addr[5])));
+
+
+--A1L290 is r_addr[6]~6 at LCCOMB_X30_Y38_N16
+A1L290 = (A1L76 & (A1L114)) # (!A1L76 & ((r_addr[6])));
+
+
+--A1L293 is r_addr[7]~7 at LCCOMB_X29_Y39_N6
+A1L293 = (A1L77 & (A1L114)) # (!A1L77 & ((r_addr[7])));
+
+
+--A1L296 is r_addr[8]~8 at LCCOMB_X28_Y40_N28
+A1L296 = (A1L79 & (A1L114)) # (!A1L79 & ((r_addr[8])));
+
+
+--A1L299 is r_addr[9]~9 at LCCOMB_X28_Y40_N26
+A1L299 = (A1L80 & (A1L114)) # (!A1L80 & ((r_addr[9])));
+
+
+--A1L302 is r_addr[10]~10 at LCCOMB_X29_Y38_N16
+A1L302 = (A1L81 & (A1L114)) # (!A1L81 & ((r_addr[10])));
+
+
+--A1L305 is r_addr[11]~11 at LCCOMB_X29_Y38_N30
+A1L305 = (A1L82 & (A1L114)) # (!A1L82 & ((r_addr[11])));
+
+
+--A1L308 is r_addr[12]~12 at LCCOMB_X29_Y38_N24
+A1L308 = (A1L84 & (A1L114)) # (!A1L84 & ((r_addr[12])));
+
+
+--A1L311 is r_addr[13]~13 at LCCOMB_X27_Y40_N30
+A1L311 = (A1L85 & (A1L114)) # (!A1L85 & ((r_addr[13])));
+
+
+--A1L314 is r_addr[14]~14 at LCCOMB_X29_Y38_N22
+A1L314 = (A1L86 & (A1L114)) # (!A1L86 & ((r_addr[14])));
+
+
+--A1L317 is r_addr[15]~15 at LCCOMB_X29_Y38_N0
+A1L317 = (A1L87 & (A1L114)) # (!A1L87 & ((r_addr[15])));
+
+
+--A1L320 is r_addr[16]~16 at LCCOMB_X30_Y38_N14
+A1L320 = (A1L88 & (A1L114)) # (!A1L88 & ((r_addr[16])));
+
+
+--A1L323 is r_addr[17]~17 at LCCOMB_X27_Y40_N20
+A1L323 = (A1L89 & (A1L114)) # (!A1L89 & ((r_addr[17])));
+
+
+--A1L326 is r_addr[18]~18 at LCCOMB_X30_Y38_N12
+A1L326 = (A1L90 & (A1L114)) # (!A1L90 & ((r_addr[18])));
+
+
+--A1L329 is r_addr[19]~19 at LCCOMB_X29_Y39_N8
+A1L329 = (A1L91 & (A1L114)) # (!A1L91 & ((r_addr[19])));
+
+
+--A1L389 is r_sram_data[0]~0 at LCCOMB_X28_Y40_N0
+A1L389 = (A1L92 & (A1L114)) # (!A1L92 & ((r_sram_data[0])));
+
+
+--A1L392 is r_sram_data[1]~1 at LCCOMB_X32_Y40_N12
+A1L392 = (A1L97 & (A1L114)) # (!A1L97 & ((r_sram_data[1])));
+
+
+--A1L395 is r_sram_data[2]~2 at LCCOMB_X32_Y40_N26
+A1L395 = (A1L98 & (A1L114)) # (!A1L98 & ((r_sram_data[2])));
+
+
+--A1L398 is r_sram_data[3]~3 at LCCOMB_X32_Y40_N0
+A1L398 = (A1L99 & (A1L114)) # (!A1L99 & ((r_sram_data[3])));
+
+
+--A1L401 is r_sram_data[4]~4 at LCCOMB_X32_Y40_N10
+A1L401 = (A1L100 & (A1L114)) # (!A1L100 & ((r_sram_data[4])));
+
+
+--A1L404 is r_sram_data[5]~5 at LCCOMB_X33_Y40_N24
+A1L404 = (A1L101 & (A1L114)) # (!A1L101 & ((r_sram_data[5])));
+
+
+--A1L407 is r_sram_data[6]~6 at LCCOMB_X27_Y40_N14
+A1L407 = (A1L102 & (A1L114)) # (!A1L102 & ((r_sram_data[6])));
+
+
+--A1L410 is r_sram_data[7]~7 at LCCOMB_X27_Y40_N0
+A1L410 = (A1L103 & (A1L114)) # (!A1L103 & ((r_sram_data[7])));
+
+
+--A1L413 is r_sram_data[8]~8 at LCCOMB_X27_Y40_N6
+A1L413 = (A1L104 & (A1L114)) # (!A1L104 & ((r_sram_data[8])));
+
+
+--A1L416 is r_sram_data[9]~9 at LCCOMB_X33_Y40_N30
+A1L416 = (A1L105 & (A1L114)) # (!A1L105 & ((r_sram_data[9])));
+
+
+--A1L419 is r_sram_data[10]~10 at LCCOMB_X33_Y40_N20
+A1L419 = (A1L106 & (A1L114)) # (!A1L106 & ((r_sram_data[10])));
+
+
+--A1L422 is r_sram_data[11]~11 at LCCOMB_X33_Y40_N2
+A1L422 = (A1L107 & (A1L114)) # (!A1L107 & ((r_sram_data[11])));
+
+
+--A1L425 is r_sram_data[12]~12 at LCCOMB_X33_Y40_N0
+A1L425 = (A1L108 & (A1L114)) # (!A1L108 & ((r_sram_data[12])));
+
+
+--A1L428 is r_sram_data[13]~13 at LCCOMB_X29_Y40_N8
+A1L428 = (A1L109 & (A1L114)) # (!A1L109 & ((r_sram_data[13])));
+
+
+--A1L431 is r_sram_data[14]~14 at LCCOMB_X29_Y40_N6
+A1L431 = (A1L110 & (A1L114)) # (!A1L110 & ((r_sram_data[14])));
+
+
+--A1L434 is r_sram_data[15]~15 at LCCOMB_X29_Y40_N12
+A1L434 = (A1L111 & (A1L114)) # (!A1L111 & ((r_sram_data[15])));
+
+
+--E1_r_clk_count[12] is uart:uart_unit|uart_rx:receiver|r_clk_count[12] at FF_X35_Y47_N31
+--register power-up is low
+
+E1_r_clk_count[12] = DFFEAS(E1L63, GLOBAL(A1L132),  ,  , E1L49,  ,  , E1L48,  );
+
+
+--E1_r_clk_count[3] is uart:uart_unit|uart_rx:receiver|r_clk_count[3] at FF_X35_Y47_N13
+--register power-up is low
+
+E1_r_clk_count[3] = DFFEAS(E1L33, GLOBAL(A1L132),  ,  , E1L49,  ,  , E1L48,  );
+
+
+--E1_r_clk_count[4] is uart:uart_unit|uart_rx:receiver|r_clk_count[4] at FF_X35_Y47_N15
+--register power-up is low
+
+E1_r_clk_count[4] = DFFEAS(E1L36, GLOBAL(A1L132),  ,  , E1L49,  ,  , E1L48,  );
+
+
+--E1_r_clk_count[5] is uart:uart_unit|uart_rx:receiver|r_clk_count[5] at FF_X35_Y47_N17
+--register power-up is low
+
+E1_r_clk_count[5] = DFFEAS(E1L39, GLOBAL(A1L132),  ,  , E1L49,  ,  , E1L48,  );
+
+
+--E1_r_clk_count[6] is uart:uart_unit|uart_rx:receiver|r_clk_count[6] at FF_X35_Y47_N19
+--register power-up is low
+
+E1_r_clk_count[6] = DFFEAS(E1L42, GLOBAL(A1L132),  ,  , E1L49,  ,  , E1L48,  );
+
+
+--E1_r_clk_count[11] is uart:uart_unit|uart_rx:receiver|r_clk_count[11] at FF_X35_Y47_N29
+--register power-up is low
+
+E1_r_clk_count[11] = DFFEAS(E1L60, GLOBAL(A1L132),  ,  , E1L49,  ,  , E1L48,  );
+
+
+--E1_r_clk_count[7] is uart:uart_unit|uart_rx:receiver|r_clk_count[7] at FF_X35_Y47_N21
+--register power-up is low
+
+E1_r_clk_count[7] = DFFEAS(E1L45, GLOBAL(A1L132),  ,  , E1L49,  ,  , E1L48,  );
+
+
+--E1_r_clk_count[8] is uart:uart_unit|uart_rx:receiver|r_clk_count[8] at FF_X35_Y47_N23
+--register power-up is low
+
+E1_r_clk_count[8] = DFFEAS(E1L51, GLOBAL(A1L132),  ,  , E1L49,  ,  , E1L48,  );
+
+
+--E1_r_clk_count[9] is uart:uart_unit|uart_rx:receiver|r_clk_count[9] at FF_X35_Y47_N25
+--register power-up is low
+
+E1_r_clk_count[9] = DFFEAS(E1L54, GLOBAL(A1L132),  ,  , E1L49,  ,  , E1L48,  );
+
+
+--E1_r_clk_count[10] is uart:uart_unit|uart_rx:receiver|r_clk_count[10] at FF_X35_Y47_N27
+--register power-up is low
+
+E1_r_clk_count[10] = DFFEAS(E1L57, GLOBAL(A1L132),  ,  , E1L49,  ,  , E1L48,  );
+
+
+--F1_r_clk_count[12] is uart:uart_unit|uart_tx:transmitter|r_clk_count[12] at FF_X109_Y71_N31
+--register power-up is low
+
+F1_r_clk_count[12] = DFFEAS(F1L50, GLOBAL(A1L132),  ,  , !F1_r_sm_main.s_cleanup,  ,  , F1L33,  );
+
+
+--F1_r_clk_count[3] is uart:uart_unit|uart_tx:transmitter|r_clk_count[3] at FF_X109_Y71_N13
+--register power-up is low
+
+F1_r_clk_count[3] = DFFEAS(F1L22, GLOBAL(A1L132),  ,  , !F1_r_sm_main.s_cleanup,  ,  , F1L33,  );
+
+
+--F1_r_clk_count[4] is uart:uart_unit|uart_tx:transmitter|r_clk_count[4] at FF_X109_Y71_N15
+--register power-up is low
+
+F1_r_clk_count[4] = DFFEAS(F1L25, GLOBAL(A1L132),  ,  , !F1_r_sm_main.s_cleanup,  ,  , F1L33,  );
+
+
+--F1_r_clk_count[5] is uart:uart_unit|uart_tx:transmitter|r_clk_count[5] at FF_X109_Y71_N17
+--register power-up is low
+
+F1_r_clk_count[5] = DFFEAS(F1L28, GLOBAL(A1L132),  ,  , !F1_r_sm_main.s_cleanup,  ,  , F1L33,  );
+
+
+--F1_r_clk_count[6] is uart:uart_unit|uart_tx:transmitter|r_clk_count[6] at FF_X109_Y71_N19
+--register power-up is low
+
+F1_r_clk_count[6] = DFFEAS(F1L31, GLOBAL(A1L132),  ,  , !F1_r_sm_main.s_cleanup,  ,  , F1L33,  );
+
+
+--F1_r_clk_count[11] is uart:uart_unit|uart_tx:transmitter|r_clk_count[11] at FF_X109_Y71_N29
+--register power-up is low
+
+F1_r_clk_count[11] = DFFEAS(F1L47, GLOBAL(A1L132),  ,  , !F1_r_sm_main.s_cleanup,  ,  , F1L33,  );
+
+
+--F1_r_clk_count[7] is uart:uart_unit|uart_tx:transmitter|r_clk_count[7] at FF_X109_Y71_N21
+--register power-up is low
+
+F1_r_clk_count[7] = DFFEAS(F1L35, GLOBAL(A1L132),  ,  , !F1_r_sm_main.s_cleanup,  ,  , F1L33,  );
+
+
+--F1_r_clk_count[8] is uart:uart_unit|uart_tx:transmitter|r_clk_count[8] at FF_X109_Y71_N23
+--register power-up is low
+
+F1_r_clk_count[8] = DFFEAS(F1L38, GLOBAL(A1L132),  ,  , !F1_r_sm_main.s_cleanup,  ,  , F1L33,  );
+
+
+--F1_r_clk_count[9] is uart:uart_unit|uart_tx:transmitter|r_clk_count[9] at FF_X109_Y71_N25
+--register power-up is low
+
+F1_r_clk_count[9] = DFFEAS(F1L41, GLOBAL(A1L132),  ,  , !F1_r_sm_main.s_cleanup,  ,  , F1L33,  );
+
+
+--F1_r_clk_count[10] is uart:uart_unit|uart_tx:transmitter|r_clk_count[10] at FF_X109_Y71_N27
+--register power-up is low
+
+F1_r_clk_count[10] = DFFEAS(F1L44, GLOBAL(A1L132),  ,  , !F1_r_sm_main.s_cleanup,  ,  , F1L33,  );
+
+
+--H1_ram_block1a0 is uart:uart_unit|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_tcg1:auto_generated|ram_block1a0 at M9K_X37_Y43_N0
+--RAM Block Operation Mode: Simple Dual-Port
+--Port A Depth: 16, Port A Width: 36, Port B Depth: 16, Port B Width: 36
+--Port A Logical Depth: 10, Port A Logical Width: 8, Port B Logical Depth: 10, Port B Logical Width: 8
+--Port A Input: Registered, Port B Input: Registered, Port B Output: Un-registered
+H1_ram_block1a0_PORT_A_data_in = BUS(E1_r_rx_byte[0], E1_r_rx_byte[1], E1_r_rx_byte[2], E1_r_rx_byte[3], E1_r_rx_byte[4], E1_r_rx_byte[5], E1_r_rx_byte[6], E1_r_rx_byte[7], , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+H1_ram_block1a0_PORT_A_data_in_reg = DFFE(H1_ram_block1a0_PORT_A_data_in, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_A_address = BUS(D1_r_wr_index[0], D1_r_wr_index[1], D1_r_wr_index[2], D1_r_wr_index[3]);
+H1_ram_block1a0_PORT_A_address_reg = DFFE(H1_ram_block1a0_PORT_A_address, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_B_address = BUS(D1L85, D1L87, D1L88, D1L90);
+H1_ram_block1a0_PORT_B_address_reg = DFFE(H1_ram_block1a0_PORT_B_address, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_A_write_enable = D1L75;
+H1_ram_block1a0_PORT_A_write_enable_reg = DFFE(H1_ram_block1a0_PORT_A_write_enable, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_B_read_enable = VCC;
+H1_ram_block1a0_PORT_B_read_enable_reg = DFFE(H1_ram_block1a0_PORT_B_read_enable, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_clock_0 = GLOBAL(A1L132);
+H1_ram_block1a0_PORT_B_data_out = MEMORY(H1_ram_block1a0_PORT_A_data_in_reg, , H1_ram_block1a0_PORT_A_address_reg, H1_ram_block1a0_PORT_B_address_reg, H1_ram_block1a0_PORT_A_write_enable_reg, , , H1_ram_block1a0_PORT_B_read_enable_reg, , , H1_ram_block1a0_clock_0, , , , , , , );
+H1_ram_block1a0 = H1_ram_block1a0_PORT_B_data_out[0];
+
+--H1_ram_block1a7 is uart:uart_unit|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_tcg1:auto_generated|ram_block1a7 at M9K_X37_Y43_N0
+H1_ram_block1a0_PORT_A_data_in = BUS(E1_r_rx_byte[0], E1_r_rx_byte[1], E1_r_rx_byte[2], E1_r_rx_byte[3], E1_r_rx_byte[4], E1_r_rx_byte[5], E1_r_rx_byte[6], E1_r_rx_byte[7], , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+H1_ram_block1a0_PORT_A_data_in_reg = DFFE(H1_ram_block1a0_PORT_A_data_in, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_A_address = BUS(D1_r_wr_index[0], D1_r_wr_index[1], D1_r_wr_index[2], D1_r_wr_index[3]);
+H1_ram_block1a0_PORT_A_address_reg = DFFE(H1_ram_block1a0_PORT_A_address, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_B_address = BUS(D1L85, D1L87, D1L88, D1L90);
+H1_ram_block1a0_PORT_B_address_reg = DFFE(H1_ram_block1a0_PORT_B_address, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_A_write_enable = D1L75;
+H1_ram_block1a0_PORT_A_write_enable_reg = DFFE(H1_ram_block1a0_PORT_A_write_enable, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_B_read_enable = VCC;
+H1_ram_block1a0_PORT_B_read_enable_reg = DFFE(H1_ram_block1a0_PORT_B_read_enable, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_clock_0 = GLOBAL(A1L132);
+H1_ram_block1a0_PORT_B_data_out = MEMORY(H1_ram_block1a0_PORT_A_data_in_reg, , H1_ram_block1a0_PORT_A_address_reg, H1_ram_block1a0_PORT_B_address_reg, H1_ram_block1a0_PORT_A_write_enable_reg, , , H1_ram_block1a0_PORT_B_read_enable_reg, , , H1_ram_block1a0_clock_0, , , , , , , );
+H1_ram_block1a7 = H1_ram_block1a0_PORT_B_data_out[7];
+
+--H1_ram_block1a6 is uart:uart_unit|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_tcg1:auto_generated|ram_block1a6 at M9K_X37_Y43_N0
+H1_ram_block1a0_PORT_A_data_in = BUS(E1_r_rx_byte[0], E1_r_rx_byte[1], E1_r_rx_byte[2], E1_r_rx_byte[3], E1_r_rx_byte[4], E1_r_rx_byte[5], E1_r_rx_byte[6], E1_r_rx_byte[7], , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+H1_ram_block1a0_PORT_A_data_in_reg = DFFE(H1_ram_block1a0_PORT_A_data_in, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_A_address = BUS(D1_r_wr_index[0], D1_r_wr_index[1], D1_r_wr_index[2], D1_r_wr_index[3]);
+H1_ram_block1a0_PORT_A_address_reg = DFFE(H1_ram_block1a0_PORT_A_address, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_B_address = BUS(D1L85, D1L87, D1L88, D1L90);
+H1_ram_block1a0_PORT_B_address_reg = DFFE(H1_ram_block1a0_PORT_B_address, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_A_write_enable = D1L75;
+H1_ram_block1a0_PORT_A_write_enable_reg = DFFE(H1_ram_block1a0_PORT_A_write_enable, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_B_read_enable = VCC;
+H1_ram_block1a0_PORT_B_read_enable_reg = DFFE(H1_ram_block1a0_PORT_B_read_enable, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_clock_0 = GLOBAL(A1L132);
+H1_ram_block1a0_PORT_B_data_out = MEMORY(H1_ram_block1a0_PORT_A_data_in_reg, , H1_ram_block1a0_PORT_A_address_reg, H1_ram_block1a0_PORT_B_address_reg, H1_ram_block1a0_PORT_A_write_enable_reg, , , H1_ram_block1a0_PORT_B_read_enable_reg, , , H1_ram_block1a0_clock_0, , , , , , , );
+H1_ram_block1a6 = H1_ram_block1a0_PORT_B_data_out[6];
+
+--H1_ram_block1a5 is uart:uart_unit|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_tcg1:auto_generated|ram_block1a5 at M9K_X37_Y43_N0
+H1_ram_block1a0_PORT_A_data_in = BUS(E1_r_rx_byte[0], E1_r_rx_byte[1], E1_r_rx_byte[2], E1_r_rx_byte[3], E1_r_rx_byte[4], E1_r_rx_byte[5], E1_r_rx_byte[6], E1_r_rx_byte[7], , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+H1_ram_block1a0_PORT_A_data_in_reg = DFFE(H1_ram_block1a0_PORT_A_data_in, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_A_address = BUS(D1_r_wr_index[0], D1_r_wr_index[1], D1_r_wr_index[2], D1_r_wr_index[3]);
+H1_ram_block1a0_PORT_A_address_reg = DFFE(H1_ram_block1a0_PORT_A_address, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_B_address = BUS(D1L85, D1L87, D1L88, D1L90);
+H1_ram_block1a0_PORT_B_address_reg = DFFE(H1_ram_block1a0_PORT_B_address, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_A_write_enable = D1L75;
+H1_ram_block1a0_PORT_A_write_enable_reg = DFFE(H1_ram_block1a0_PORT_A_write_enable, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_B_read_enable = VCC;
+H1_ram_block1a0_PORT_B_read_enable_reg = DFFE(H1_ram_block1a0_PORT_B_read_enable, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_clock_0 = GLOBAL(A1L132);
+H1_ram_block1a0_PORT_B_data_out = MEMORY(H1_ram_block1a0_PORT_A_data_in_reg, , H1_ram_block1a0_PORT_A_address_reg, H1_ram_block1a0_PORT_B_address_reg, H1_ram_block1a0_PORT_A_write_enable_reg, , , H1_ram_block1a0_PORT_B_read_enable_reg, , , H1_ram_block1a0_clock_0, , , , , , , );
+H1_ram_block1a5 = H1_ram_block1a0_PORT_B_data_out[5];
+
+--H1_ram_block1a4 is uart:uart_unit|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_tcg1:auto_generated|ram_block1a4 at M9K_X37_Y43_N0
+H1_ram_block1a0_PORT_A_data_in = BUS(E1_r_rx_byte[0], E1_r_rx_byte[1], E1_r_rx_byte[2], E1_r_rx_byte[3], E1_r_rx_byte[4], E1_r_rx_byte[5], E1_r_rx_byte[6], E1_r_rx_byte[7], , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+H1_ram_block1a0_PORT_A_data_in_reg = DFFE(H1_ram_block1a0_PORT_A_data_in, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_A_address = BUS(D1_r_wr_index[0], D1_r_wr_index[1], D1_r_wr_index[2], D1_r_wr_index[3]);
+H1_ram_block1a0_PORT_A_address_reg = DFFE(H1_ram_block1a0_PORT_A_address, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_B_address = BUS(D1L85, D1L87, D1L88, D1L90);
+H1_ram_block1a0_PORT_B_address_reg = DFFE(H1_ram_block1a0_PORT_B_address, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_A_write_enable = D1L75;
+H1_ram_block1a0_PORT_A_write_enable_reg = DFFE(H1_ram_block1a0_PORT_A_write_enable, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_B_read_enable = VCC;
+H1_ram_block1a0_PORT_B_read_enable_reg = DFFE(H1_ram_block1a0_PORT_B_read_enable, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_clock_0 = GLOBAL(A1L132);
+H1_ram_block1a0_PORT_B_data_out = MEMORY(H1_ram_block1a0_PORT_A_data_in_reg, , H1_ram_block1a0_PORT_A_address_reg, H1_ram_block1a0_PORT_B_address_reg, H1_ram_block1a0_PORT_A_write_enable_reg, , , H1_ram_block1a0_PORT_B_read_enable_reg, , , H1_ram_block1a0_clock_0, , , , , , , );
+H1_ram_block1a4 = H1_ram_block1a0_PORT_B_data_out[4];
+
+--H1_ram_block1a3 is uart:uart_unit|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_tcg1:auto_generated|ram_block1a3 at M9K_X37_Y43_N0
+H1_ram_block1a0_PORT_A_data_in = BUS(E1_r_rx_byte[0], E1_r_rx_byte[1], E1_r_rx_byte[2], E1_r_rx_byte[3], E1_r_rx_byte[4], E1_r_rx_byte[5], E1_r_rx_byte[6], E1_r_rx_byte[7], , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+H1_ram_block1a0_PORT_A_data_in_reg = DFFE(H1_ram_block1a0_PORT_A_data_in, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_A_address = BUS(D1_r_wr_index[0], D1_r_wr_index[1], D1_r_wr_index[2], D1_r_wr_index[3]);
+H1_ram_block1a0_PORT_A_address_reg = DFFE(H1_ram_block1a0_PORT_A_address, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_B_address = BUS(D1L85, D1L87, D1L88, D1L90);
+H1_ram_block1a0_PORT_B_address_reg = DFFE(H1_ram_block1a0_PORT_B_address, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_A_write_enable = D1L75;
+H1_ram_block1a0_PORT_A_write_enable_reg = DFFE(H1_ram_block1a0_PORT_A_write_enable, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_B_read_enable = VCC;
+H1_ram_block1a0_PORT_B_read_enable_reg = DFFE(H1_ram_block1a0_PORT_B_read_enable, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_clock_0 = GLOBAL(A1L132);
+H1_ram_block1a0_PORT_B_data_out = MEMORY(H1_ram_block1a0_PORT_A_data_in_reg, , H1_ram_block1a0_PORT_A_address_reg, H1_ram_block1a0_PORT_B_address_reg, H1_ram_block1a0_PORT_A_write_enable_reg, , , H1_ram_block1a0_PORT_B_read_enable_reg, , , H1_ram_block1a0_clock_0, , , , , , , );
+H1_ram_block1a3 = H1_ram_block1a0_PORT_B_data_out[3];
+
+--H1_ram_block1a2 is uart:uart_unit|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_tcg1:auto_generated|ram_block1a2 at M9K_X37_Y43_N0
+H1_ram_block1a0_PORT_A_data_in = BUS(E1_r_rx_byte[0], E1_r_rx_byte[1], E1_r_rx_byte[2], E1_r_rx_byte[3], E1_r_rx_byte[4], E1_r_rx_byte[5], E1_r_rx_byte[6], E1_r_rx_byte[7], , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+H1_ram_block1a0_PORT_A_data_in_reg = DFFE(H1_ram_block1a0_PORT_A_data_in, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_A_address = BUS(D1_r_wr_index[0], D1_r_wr_index[1], D1_r_wr_index[2], D1_r_wr_index[3]);
+H1_ram_block1a0_PORT_A_address_reg = DFFE(H1_ram_block1a0_PORT_A_address, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_B_address = BUS(D1L85, D1L87, D1L88, D1L90);
+H1_ram_block1a0_PORT_B_address_reg = DFFE(H1_ram_block1a0_PORT_B_address, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_A_write_enable = D1L75;
+H1_ram_block1a0_PORT_A_write_enable_reg = DFFE(H1_ram_block1a0_PORT_A_write_enable, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_B_read_enable = VCC;
+H1_ram_block1a0_PORT_B_read_enable_reg = DFFE(H1_ram_block1a0_PORT_B_read_enable, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_clock_0 = GLOBAL(A1L132);
+H1_ram_block1a0_PORT_B_data_out = MEMORY(H1_ram_block1a0_PORT_A_data_in_reg, , H1_ram_block1a0_PORT_A_address_reg, H1_ram_block1a0_PORT_B_address_reg, H1_ram_block1a0_PORT_A_write_enable_reg, , , H1_ram_block1a0_PORT_B_read_enable_reg, , , H1_ram_block1a0_clock_0, , , , , , , );
+H1_ram_block1a2 = H1_ram_block1a0_PORT_B_data_out[2];
+
+--H1_ram_block1a1 is uart:uart_unit|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_tcg1:auto_generated|ram_block1a1 at M9K_X37_Y43_N0
+H1_ram_block1a0_PORT_A_data_in = BUS(E1_r_rx_byte[0], E1_r_rx_byte[1], E1_r_rx_byte[2], E1_r_rx_byte[3], E1_r_rx_byte[4], E1_r_rx_byte[5], E1_r_rx_byte[6], E1_r_rx_byte[7], , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+H1_ram_block1a0_PORT_A_data_in_reg = DFFE(H1_ram_block1a0_PORT_A_data_in, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_A_address = BUS(D1_r_wr_index[0], D1_r_wr_index[1], D1_r_wr_index[2], D1_r_wr_index[3]);
+H1_ram_block1a0_PORT_A_address_reg = DFFE(H1_ram_block1a0_PORT_A_address, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_B_address = BUS(D1L85, D1L87, D1L88, D1L90);
+H1_ram_block1a0_PORT_B_address_reg = DFFE(H1_ram_block1a0_PORT_B_address, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_A_write_enable = D1L75;
+H1_ram_block1a0_PORT_A_write_enable_reg = DFFE(H1_ram_block1a0_PORT_A_write_enable, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_PORT_B_read_enable = VCC;
+H1_ram_block1a0_PORT_B_read_enable_reg = DFFE(H1_ram_block1a0_PORT_B_read_enable, H1_ram_block1a0_clock_0, , , );
+H1_ram_block1a0_clock_0 = GLOBAL(A1L132);
+H1_ram_block1a0_PORT_B_data_out = MEMORY(H1_ram_block1a0_PORT_A_data_in_reg, , H1_ram_block1a0_PORT_A_address_reg, H1_ram_block1a0_PORT_B_address_reg, H1_ram_block1a0_PORT_A_write_enable_reg, , , H1_ram_block1a0_PORT_B_read_enable_reg, , , H1_ram_block1a0_clock_0, , , , , , , );
+H1_ram_block1a1 = H1_ram_block1a0_PORT_B_data_out[1];
+
+
+--A1L1 is Add1~0 at LCCOMB_X31_Y40_N0
+A1L1 = r_index[0] $ (VCC);
+
+--A1L2 is Add1~1 at LCCOMB_X31_Y40_N0
+A1L2 = CARRY(r_index[0]);
+
+
+--A1L3 is Add1~2 at LCCOMB_X31_Y40_N2
+A1L3 = (r_index[1] & (!A1L2)) # (!r_index[1] & ((A1L2) # (GND)));
+
+--A1L4 is Add1~3 at LCCOMB_X31_Y40_N2
+A1L4 = CARRY((!A1L2) # (!r_index[1]));
+
+
+--A1L5 is Add1~4 at LCCOMB_X31_Y40_N4
+A1L5 = (r_index[2] & (A1L4 $ (GND))) # (!r_index[2] & (!A1L4 & VCC));
+
+--A1L6 is Add1~5 at LCCOMB_X31_Y40_N4
+A1L6 = CARRY((r_index[2] & !A1L4));
+
+
+--A1L7 is Add1~6 at LCCOMB_X31_Y40_N6
+A1L7 = (r_index[3] & (!A1L6)) # (!r_index[3] & ((A1L6) # (GND)));
+
+--A1L8 is Add1~7 at LCCOMB_X31_Y40_N6
+A1L8 = CARRY((!A1L6) # (!r_index[3]));
+
+
+--A1L9 is Add1~8 at LCCOMB_X31_Y40_N8
+A1L9 = (r_index[4] & (A1L8 $ (GND))) # (!r_index[4] & (!A1L8 & VCC));
+
+--A1L10 is Add1~9 at LCCOMB_X31_Y40_N8
+A1L10 = CARRY((r_index[4] & !A1L8));
+
+
+--A1L11 is Add1~10 at LCCOMB_X31_Y40_N10
+A1L11 = (r_index[5] & (!A1L10)) # (!r_index[5] & ((A1L10) # (GND)));
+
+--A1L12 is Add1~11 at LCCOMB_X31_Y40_N10
+A1L12 = CARRY((!A1L10) # (!r_index[5]));
+
+
+--A1L13 is Add1~12 at LCCOMB_X31_Y40_N12
+A1L13 = (r_index[6] & (A1L12 $ (GND))) # (!r_index[6] & (!A1L12 & VCC));
+
+--A1L14 is Add1~13 at LCCOMB_X31_Y40_N12
+A1L14 = CARRY((r_index[6] & !A1L12));
+
+
+--A1L15 is Add1~14 at LCCOMB_X31_Y40_N14
+A1L15 = (r_index[7] & (!A1L14)) # (!r_index[7] & ((A1L14) # (GND)));
+
+--A1L16 is Add1~15 at LCCOMB_X31_Y40_N14
+A1L16 = CARRY((!A1L14) # (!r_index[7]));
+
+
+--A1L17 is Add1~16 at LCCOMB_X31_Y40_N16
+A1L17 = (r_index[8] & (A1L16 $ (GND))) # (!r_index[8] & (!A1L16 & VCC));
+
+--A1L18 is Add1~17 at LCCOMB_X31_Y40_N16
+A1L18 = CARRY((r_index[8] & !A1L16));
+
+
+--A1L19 is Add1~18 at LCCOMB_X31_Y40_N18
+A1L19 = (r_index[9] & (!A1L18)) # (!r_index[9] & ((A1L18) # (GND)));
+
+--A1L20 is Add1~19 at LCCOMB_X31_Y40_N18
+A1L20 = CARRY((!A1L18) # (!r_index[9]));
+
+
+--A1L21 is Add1~20 at LCCOMB_X31_Y40_N20
+A1L21 = (r_index[10] & (A1L20 $ (GND))) # (!r_index[10] & (!A1L20 & VCC));
+
+--A1L22 is Add1~21 at LCCOMB_X31_Y40_N20
+A1L22 = CARRY((r_index[10] & !A1L20));
+
+
+--A1L23 is Add1~22 at LCCOMB_X31_Y40_N22
+A1L23 = (r_index[11] & (!A1L22)) # (!r_index[11] & ((A1L22) # (GND)));
+
+--A1L24 is Add1~23 at LCCOMB_X31_Y40_N22
+A1L24 = CARRY((!A1L22) # (!r_index[11]));
+
+
+--A1L25 is Add1~24 at LCCOMB_X31_Y40_N24
+A1L25 = (r_index[12] & (A1L24 $ (GND))) # (!r_index[12] & (!A1L24 & VCC));
+
+--A1L26 is Add1~25 at LCCOMB_X31_Y40_N24
+A1L26 = CARRY((r_index[12] & !A1L24));
+
+
+--A1L27 is Add1~26 at LCCOMB_X31_Y40_N26
+A1L27 = (r_index[13] & (!A1L26)) # (!r_index[13] & ((A1L26) # (GND)));
+
+--A1L28 is Add1~27 at LCCOMB_X31_Y40_N26
+A1L28 = CARRY((!A1L26) # (!r_index[13]));
+
+
+--A1L29 is Add1~28 at LCCOMB_X31_Y40_N28
+A1L29 = (r_index[14] & (A1L28 $ (GND))) # (!r_index[14] & (!A1L28 & VCC));
+
+--A1L30 is Add1~29 at LCCOMB_X31_Y40_N28
+A1L30 = CARRY((r_index[14] & !A1L28));
+
+
+--A1L31 is Add1~30 at LCCOMB_X31_Y40_N30
+A1L31 = (r_index[15] & (!A1L30)) # (!r_index[15] & ((A1L30) # (GND)));
+
+--A1L32 is Add1~31 at LCCOMB_X31_Y40_N30
+A1L32 = CARRY((!A1L30) # (!r_index[15]));
+
+
+--A1L33 is Add1~32 at LCCOMB_X31_Y39_N0
+A1L33 = (r_index[16] & (A1L32 $ (GND))) # (!r_index[16] & (!A1L32 & VCC));
+
+--A1L34 is Add1~33 at LCCOMB_X31_Y39_N0
+A1L34 = CARRY((r_index[16] & !A1L32));
+
+
+--A1L35 is Add1~34 at LCCOMB_X31_Y39_N2
+A1L35 = (r_index[17] & (!A1L34)) # (!r_index[17] & ((A1L34) # (GND)));
+
+--A1L36 is Add1~35 at LCCOMB_X31_Y39_N2
+A1L36 = CARRY((!A1L34) # (!r_index[17]));
+
+
+--A1L37 is Add1~36 at LCCOMB_X31_Y39_N4
+A1L37 = (r_index[18] & (A1L36 $ (GND))) # (!r_index[18] & (!A1L36 & VCC));
+
+--A1L38 is Add1~37 at LCCOMB_X31_Y39_N4
+A1L38 = CARRY((r_index[18] & !A1L36));
+
+
+--A1L39 is Add1~38 at LCCOMB_X31_Y39_N6
+A1L39 = (r_index[19] & (!A1L38)) # (!r_index[19] & ((A1L38) # (GND)));
+
+--A1L40 is Add1~39 at LCCOMB_X31_Y39_N6
+A1L40 = CARRY((!A1L38) # (!r_index[19]));
+
+
+--A1L41 is Add1~40 at LCCOMB_X31_Y39_N8
+A1L41 = (r_index[20] & (A1L40 $ (GND))) # (!r_index[20] & (!A1L40 & VCC));
+
+--A1L42 is Add1~41 at LCCOMB_X31_Y39_N8
+A1L42 = CARRY((r_index[20] & !A1L40));
+
+
+--A1L43 is Add1~42 at LCCOMB_X31_Y39_N10
+A1L43 = (r_index[21] & (!A1L42)) # (!r_index[21] & ((A1L42) # (GND)));
+
+--A1L44 is Add1~43 at LCCOMB_X31_Y39_N10
+A1L44 = CARRY((!A1L42) # (!r_index[21]));
+
+
+--A1L45 is Add1~44 at LCCOMB_X31_Y39_N12
+A1L45 = (r_index[22] & (A1L44 $ (GND))) # (!r_index[22] & (!A1L44 & VCC));
+
+--A1L46 is Add1~45 at LCCOMB_X31_Y39_N12
+A1L46 = CARRY((r_index[22] & !A1L44));
+
+
+--A1L47 is Add1~46 at LCCOMB_X31_Y39_N14
+A1L47 = (r_index[23] & (!A1L46)) # (!r_index[23] & ((A1L46) # (GND)));
+
+--A1L48 is Add1~47 at LCCOMB_X31_Y39_N14
+A1L48 = CARRY((!A1L46) # (!r_index[23]));
+
+
+--A1L49 is Add1~48 at LCCOMB_X31_Y39_N16
+A1L49 = (r_index[24] & (A1L48 $ (GND))) # (!r_index[24] & (!A1L48 & VCC));
+
+--A1L50 is Add1~49 at LCCOMB_X31_Y39_N16
+A1L50 = CARRY((r_index[24] & !A1L48));
+
+
+--A1L51 is Add1~50 at LCCOMB_X31_Y39_N18
+A1L51 = (r_index[25] & (!A1L50)) # (!r_index[25] & ((A1L50) # (GND)));
+
+--A1L52 is Add1~51 at LCCOMB_X31_Y39_N18
+A1L52 = CARRY((!A1L50) # (!r_index[25]));
+
+
+--A1L53 is Add1~52 at LCCOMB_X31_Y39_N20
+A1L53 = (r_index[26] & (A1L52 $ (GND))) # (!r_index[26] & (!A1L52 & VCC));
+
+--A1L54 is Add1~53 at LCCOMB_X31_Y39_N20
+A1L54 = CARRY((r_index[26] & !A1L52));
+
+
+--A1L55 is Add1~54 at LCCOMB_X31_Y39_N22
+A1L55 = (r_index[27] & (!A1L54)) # (!r_index[27] & ((A1L54) # (GND)));
+
+--A1L56 is Add1~55 at LCCOMB_X31_Y39_N22
+A1L56 = CARRY((!A1L54) # (!r_index[27]));
+
+
+--A1L57 is Add1~56 at LCCOMB_X31_Y39_N24
+A1L57 = (r_index[28] & (A1L56 $ (GND))) # (!r_index[28] & (!A1L56 & VCC));
+
+--A1L58 is Add1~57 at LCCOMB_X31_Y39_N24
+A1L58 = CARRY((r_index[28] & !A1L56));
+
+
+--A1L59 is Add1~58 at LCCOMB_X31_Y39_N26
+A1L59 = (r_index[29] & (!A1L58)) # (!r_index[29] & ((A1L58) # (GND)));
+
+--A1L60 is Add1~59 at LCCOMB_X31_Y39_N26
+A1L60 = CARRY((!A1L58) # (!r_index[29]));
+
+
+--A1L61 is Add1~60 at LCCOMB_X31_Y39_N28
+A1L61 = (r_index[30] & (A1L60 $ (GND))) # (!r_index[30] & (!A1L60 & VCC));
+
+--A1L62 is Add1~61 at LCCOMB_X31_Y39_N28
+A1L62 = CARRY((r_index[30] & !A1L60));
+
+
+--A1L63 is Add1~62 at LCCOMB_X31_Y39_N30
+A1L63 = r_index[31] $ (A1L62);
+
+
+--E1_r_clk_count[2] is uart:uart_unit|uart_rx:receiver|r_clk_count[2] at FF_X35_Y47_N11
+--register power-up is low
+
+E1_r_clk_count[2] = DFFEAS(E1L30, GLOBAL(A1L132),  ,  , E1L49,  ,  , E1L48,  );
+
+
+--E1_r_clk_count[1] is uart:uart_unit|uart_rx:receiver|r_clk_count[1] at FF_X35_Y47_N9
+--register power-up is low
+
+E1_r_clk_count[1] = DFFEAS(E1L27, GLOBAL(A1L132),  ,  , E1L49,  ,  , E1L48,  );
+
+
+--E1_r_clk_count[0] is uart:uart_unit|uart_rx:receiver|r_clk_count[0] at FF_X35_Y47_N7
+--register power-up is low
+
+E1_r_clk_count[0] = DFFEAS(E1L24, GLOBAL(A1L132),  ,  , E1L49,  ,  , E1L48,  );
+
+
+--E1L24 is uart:uart_unit|uart_rx:receiver|r_clk_count[0]~13 at LCCOMB_X35_Y47_N6
+E1L24 = E1_r_clk_count[0] $ (VCC);
+
+--E1L25 is uart:uart_unit|uart_rx:receiver|r_clk_count[0]~14 at LCCOMB_X35_Y47_N6
+E1L25 = CARRY(E1_r_clk_count[0]);
+
+
+--E1L27 is uart:uart_unit|uart_rx:receiver|r_clk_count[1]~15 at LCCOMB_X35_Y47_N8
+E1L27 = (E1_r_clk_count[1] & (!E1L25)) # (!E1_r_clk_count[1] & ((E1L25) # (GND)));
+
+--E1L28 is uart:uart_unit|uart_rx:receiver|r_clk_count[1]~16 at LCCOMB_X35_Y47_N8
+E1L28 = CARRY((!E1L25) # (!E1_r_clk_count[1]));
+
+
+--E1L30 is uart:uart_unit|uart_rx:receiver|r_clk_count[2]~17 at LCCOMB_X35_Y47_N10
+E1L30 = (E1_r_clk_count[2] & (E1L28 $ (GND))) # (!E1_r_clk_count[2] & (!E1L28 & VCC));
+
+--E1L31 is uart:uart_unit|uart_rx:receiver|r_clk_count[2]~18 at LCCOMB_X35_Y47_N10
+E1L31 = CARRY((E1_r_clk_count[2] & !E1L28));
+
+
+--E1L33 is uart:uart_unit|uart_rx:receiver|r_clk_count[3]~19 at LCCOMB_X35_Y47_N12
+E1L33 = (E1_r_clk_count[3] & (!E1L31)) # (!E1_r_clk_count[3] & ((E1L31) # (GND)));
+
+--E1L34 is uart:uart_unit|uart_rx:receiver|r_clk_count[3]~20 at LCCOMB_X35_Y47_N12
+E1L34 = CARRY((!E1L31) # (!E1_r_clk_count[3]));
+
+
+--E1L36 is uart:uart_unit|uart_rx:receiver|r_clk_count[4]~21 at LCCOMB_X35_Y47_N14
+E1L36 = (E1_r_clk_count[4] & (E1L34 $ (GND))) # (!E1_r_clk_count[4] & (!E1L34 & VCC));
+
+--E1L37 is uart:uart_unit|uart_rx:receiver|r_clk_count[4]~22 at LCCOMB_X35_Y47_N14
+E1L37 = CARRY((E1_r_clk_count[4] & !E1L34));
+
+
+--E1L39 is uart:uart_unit|uart_rx:receiver|r_clk_count[5]~23 at LCCOMB_X35_Y47_N16
+E1L39 = (E1_r_clk_count[5] & (!E1L37)) # (!E1_r_clk_count[5] & ((E1L37) # (GND)));
+
+--E1L40 is uart:uart_unit|uart_rx:receiver|r_clk_count[5]~24 at LCCOMB_X35_Y47_N16
+E1L40 = CARRY((!E1L37) # (!E1_r_clk_count[5]));
+
+
+--E1L42 is uart:uart_unit|uart_rx:receiver|r_clk_count[6]~25 at LCCOMB_X35_Y47_N18
+E1L42 = (E1_r_clk_count[6] & (E1L40 $ (GND))) # (!E1_r_clk_count[6] & (!E1L40 & VCC));
+
+--E1L43 is uart:uart_unit|uart_rx:receiver|r_clk_count[6]~26 at LCCOMB_X35_Y47_N18
+E1L43 = CARRY((E1_r_clk_count[6] & !E1L40));
+
+
+--E1L45 is uart:uart_unit|uart_rx:receiver|r_clk_count[7]~27 at LCCOMB_X35_Y47_N20
+E1L45 = (E1_r_clk_count[7] & (!E1L43)) # (!E1_r_clk_count[7] & ((E1L43) # (GND)));
+
+--E1L46 is uart:uart_unit|uart_rx:receiver|r_clk_count[7]~28 at LCCOMB_X35_Y47_N20
+E1L46 = CARRY((!E1L43) # (!E1_r_clk_count[7]));
+
+
+--E1L51 is uart:uart_unit|uart_rx:receiver|r_clk_count[8]~29 at LCCOMB_X35_Y47_N22
+E1L51 = (E1_r_clk_count[8] & (E1L46 $ (GND))) # (!E1_r_clk_count[8] & (!E1L46 & VCC));
+
+--E1L52 is uart:uart_unit|uart_rx:receiver|r_clk_count[8]~30 at LCCOMB_X35_Y47_N22
+E1L52 = CARRY((E1_r_clk_count[8] & !E1L46));
+
+
+--E1L54 is uart:uart_unit|uart_rx:receiver|r_clk_count[9]~31 at LCCOMB_X35_Y47_N24
+E1L54 = (E1_r_clk_count[9] & (!E1L52)) # (!E1_r_clk_count[9] & ((E1L52) # (GND)));
+
+--E1L55 is uart:uart_unit|uart_rx:receiver|r_clk_count[9]~32 at LCCOMB_X35_Y47_N24
+E1L55 = CARRY((!E1L52) # (!E1_r_clk_count[9]));
+
+
+--E1L57 is uart:uart_unit|uart_rx:receiver|r_clk_count[10]~33 at LCCOMB_X35_Y47_N26
+E1L57 = (E1_r_clk_count[10] & (E1L55 $ (GND))) # (!E1_r_clk_count[10] & (!E1L55 & VCC));
+
+--E1L58 is uart:uart_unit|uart_rx:receiver|r_clk_count[10]~34 at LCCOMB_X35_Y47_N26
+E1L58 = CARRY((E1_r_clk_count[10] & !E1L55));
+
+
+--E1L60 is uart:uart_unit|uart_rx:receiver|r_clk_count[11]~35 at LCCOMB_X35_Y47_N28
+E1L60 = (E1_r_clk_count[11] & (!E1L58)) # (!E1_r_clk_count[11] & ((E1L58) # (GND)));
+
+--E1L61 is uart:uart_unit|uart_rx:receiver|r_clk_count[11]~36 at LCCOMB_X35_Y47_N28
+E1L61 = CARRY((!E1L58) # (!E1_r_clk_count[11]));
+
+
+--E1L63 is uart:uart_unit|uart_rx:receiver|r_clk_count[12]~37 at LCCOMB_X35_Y47_N30
+E1L63 = E1_r_clk_count[12] $ (!E1L61);
+
+
+--F1_r_clk_count[2] is uart:uart_unit|uart_tx:transmitter|r_clk_count[2] at FF_X109_Y71_N11
+--register power-up is low
+
+F1_r_clk_count[2] = DFFEAS(F1L19, GLOBAL(A1L132),  ,  , !F1_r_sm_main.s_cleanup,  ,  , F1L33,  );
+
+
+--F1_r_clk_count[1] is uart:uart_unit|uart_tx:transmitter|r_clk_count[1] at FF_X109_Y71_N9
+--register power-up is low
+
+F1_r_clk_count[1] = DFFEAS(F1L16, GLOBAL(A1L132),  ,  , !F1_r_sm_main.s_cleanup,  ,  , F1L33,  );
+
+
+--F1_r_clk_count[0] is uart:uart_unit|uart_tx:transmitter|r_clk_count[0] at FF_X109_Y71_N7
+--register power-up is low
+
+F1_r_clk_count[0] = DFFEAS(F1L13, GLOBAL(A1L132),  ,  , !F1_r_sm_main.s_cleanup,  ,  , F1L33,  );
+
+
+--F1L13 is uart:uart_unit|uart_tx:transmitter|r_clk_count[0]~13 at LCCOMB_X109_Y71_N6
+F1L13 = F1_r_clk_count[0] $ (VCC);
+
+--F1L14 is uart:uart_unit|uart_tx:transmitter|r_clk_count[0]~14 at LCCOMB_X109_Y71_N6
+F1L14 = CARRY(F1_r_clk_count[0]);
+
+
+--F1L16 is uart:uart_unit|uart_tx:transmitter|r_clk_count[1]~15 at LCCOMB_X109_Y71_N8
+F1L16 = (F1_r_clk_count[1] & (!F1L14)) # (!F1_r_clk_count[1] & ((F1L14) # (GND)));
+
+--F1L17 is uart:uart_unit|uart_tx:transmitter|r_clk_count[1]~16 at LCCOMB_X109_Y71_N8
+F1L17 = CARRY((!F1L14) # (!F1_r_clk_count[1]));
+
+
+--F1L19 is uart:uart_unit|uart_tx:transmitter|r_clk_count[2]~17 at LCCOMB_X109_Y71_N10
+F1L19 = (F1_r_clk_count[2] & (F1L17 $ (GND))) # (!F1_r_clk_count[2] & (!F1L17 & VCC));
+
+--F1L20 is uart:uart_unit|uart_tx:transmitter|r_clk_count[2]~18 at LCCOMB_X109_Y71_N10
+F1L20 = CARRY((F1_r_clk_count[2] & !F1L17));
+
+
+--F1L22 is uart:uart_unit|uart_tx:transmitter|r_clk_count[3]~19 at LCCOMB_X109_Y71_N12
+F1L22 = (F1_r_clk_count[3] & (!F1L20)) # (!F1_r_clk_count[3] & ((F1L20) # (GND)));
+
+--F1L23 is uart:uart_unit|uart_tx:transmitter|r_clk_count[3]~20 at LCCOMB_X109_Y71_N12
+F1L23 = CARRY((!F1L20) # (!F1_r_clk_count[3]));
+
+
+--F1L25 is uart:uart_unit|uart_tx:transmitter|r_clk_count[4]~21 at LCCOMB_X109_Y71_N14
+F1L25 = (F1_r_clk_count[4] & (F1L23 $ (GND))) # (!F1_r_clk_count[4] & (!F1L23 & VCC));
+
+--F1L26 is uart:uart_unit|uart_tx:transmitter|r_clk_count[4]~22 at LCCOMB_X109_Y71_N14
+F1L26 = CARRY((F1_r_clk_count[4] & !F1L23));
+
+
+--F1L28 is uart:uart_unit|uart_tx:transmitter|r_clk_count[5]~23 at LCCOMB_X109_Y71_N16
+F1L28 = (F1_r_clk_count[5] & (!F1L26)) # (!F1_r_clk_count[5] & ((F1L26) # (GND)));
+
+--F1L29 is uart:uart_unit|uart_tx:transmitter|r_clk_count[5]~24 at LCCOMB_X109_Y71_N16
+F1L29 = CARRY((!F1L26) # (!F1_r_clk_count[5]));
+
+
+--F1L31 is uart:uart_unit|uart_tx:transmitter|r_clk_count[6]~25 at LCCOMB_X109_Y71_N18
+F1L31 = (F1_r_clk_count[6] & (F1L29 $ (GND))) # (!F1_r_clk_count[6] & (!F1L29 & VCC));
+
+--F1L32 is uart:uart_unit|uart_tx:transmitter|r_clk_count[6]~26 at LCCOMB_X109_Y71_N18
+F1L32 = CARRY((F1_r_clk_count[6] & !F1L29));
+
+
+--F1L35 is uart:uart_unit|uart_tx:transmitter|r_clk_count[7]~27 at LCCOMB_X109_Y71_N20
+F1L35 = (F1_r_clk_count[7] & (!F1L32)) # (!F1_r_clk_count[7] & ((F1L32) # (GND)));
+
+--F1L36 is uart:uart_unit|uart_tx:transmitter|r_clk_count[7]~28 at LCCOMB_X109_Y71_N20
+F1L36 = CARRY((!F1L32) # (!F1_r_clk_count[7]));
+
+
+--F1L38 is uart:uart_unit|uart_tx:transmitter|r_clk_count[8]~29 at LCCOMB_X109_Y71_N22
+F1L38 = (F1_r_clk_count[8] & (F1L36 $ (GND))) # (!F1_r_clk_count[8] & (!F1L36 & VCC));
+
+--F1L39 is uart:uart_unit|uart_tx:transmitter|r_clk_count[8]~30 at LCCOMB_X109_Y71_N22
+F1L39 = CARRY((F1_r_clk_count[8] & !F1L36));
+
+
+--F1L41 is uart:uart_unit|uart_tx:transmitter|r_clk_count[9]~31 at LCCOMB_X109_Y71_N24
+F1L41 = (F1_r_clk_count[9] & (!F1L39)) # (!F1_r_clk_count[9] & ((F1L39) # (GND)));
+
+--F1L42 is uart:uart_unit|uart_tx:transmitter|r_clk_count[9]~32 at LCCOMB_X109_Y71_N24
+F1L42 = CARRY((!F1L39) # (!F1_r_clk_count[9]));
+
+
+--F1L44 is uart:uart_unit|uart_tx:transmitter|r_clk_count[10]~33 at LCCOMB_X109_Y71_N26
+F1L44 = (F1_r_clk_count[10] & (F1L42 $ (GND))) # (!F1_r_clk_count[10] & (!F1L42 & VCC));
+
+--F1L45 is uart:uart_unit|uart_tx:transmitter|r_clk_count[10]~34 at LCCOMB_X109_Y71_N26
+F1L45 = CARRY((F1_r_clk_count[10] & !F1L42));
+
+
+--F1L47 is uart:uart_unit|uart_tx:transmitter|r_clk_count[11]~35 at LCCOMB_X109_Y71_N28
+F1L47 = (F1_r_clk_count[11] & (!F1L45)) # (!F1_r_clk_count[11] & ((F1L45) # (GND)));
+
+--F1L48 is uart:uart_unit|uart_tx:transmitter|r_clk_count[11]~36 at LCCOMB_X109_Y71_N28
+F1L48 = CARRY((!F1L45) # (!F1_r_clk_count[11]));
+
+
+--F1L50 is uart:uart_unit|uart_tx:transmitter|r_clk_count[12]~37 at LCCOMB_X109_Y71_N30
+F1L50 = F1L48 $ (!F1_r_clk_count[12]);
+
+
+--D1L6 is uart:uart_unit|fifo:fifo_rx|Equal2~0 at LCCOMB_X42_Y43_N20
+D1L6 = (!D1_r_fifo_count[0] & (!D1_r_fifo_count[4] & !D1_r_fifo_count[2]));
+
+
+--D1L7 is uart:uart_unit|fifo:fifo_rx|Equal2~1 at LCCOMB_X42_Y43_N2
+D1L7 = (D1_r_fifo_count[3] & (D1_r_fifo_count[1] & D1L6));
+
+
+--D1L8 is uart:uart_unit|fifo:fifo_rx|Equal3~0 at LCCOMB_X42_Y43_N4
+D1L8 = (D1_r_fifo_count[3]) # ((D1_r_fifo_count[1]) # (!D1L6));
+
+
+--F1_o_tx_serial is uart:uart_unit|uart_tx:transmitter|o_tx_serial at FF_X110_Y71_N21
+--register power-up is low
+
+F1_o_tx_serial = DFFEAS(F1L61, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--D2L1 is uart:uart_unit|fifo:fifo_tx|Equal2~0 at LCCOMB_X111_Y71_N28
+D2L1 = (!D2_r_fifo_count[2] & (!D2_r_fifo_count[4] & !D2_r_fifo_count[0]));
+
+
+--D2L2 is uart:uart_unit|fifo:fifo_tx|Equal2~1 at LCCOMB_X111_Y71_N30
+D2L2 = (D2_r_fifo_count[1] & (D2_r_fifo_count[3] & D2L1));
+
+
+--D2L3 is uart:uart_unit|fifo:fifo_tx|Equal3~0 at LCCOMB_X111_Y71_N8
+D2L3 = (!D2_r_fifo_count[1] & (!D2_r_fifo_count[3] & D2L1));
+
+
+--E1_r_rx_dv is uart:uart_unit|uart_rx:receiver|r_rx_dv at FF_X34_Y47_N5
+--register power-up is low
+
+E1_r_rx_dv = DFFEAS(E1L95, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--r_rd_rx is r_rd_rx at FF_X42_Y43_N1
+--register power-up is low
+
+r_rd_rx = DFFEAS(A1L436, GLOBAL(A1L132), A1L136,  ,  ,  ,  ,  ,  );
+
+
+--D1L9 is uart:uart_unit|fifo:fifo_rx|p_control~0 at LCCOMB_X42_Y43_N30
+D1L9 = (E1_r_rx_dv & !r_rd_rx);
+
+
+--D1L15 is uart:uart_unit|fifo:fifo_rx|r_fifo_count[0]~13 at LCCOMB_X42_Y43_N16
+D1L15 = (E1_r_rx_dv $ (r_rd_rx)) # (!A1L135);
+
+
+--F1_r_sm_main.s_tx_stop_bit is uart:uart_unit|uart_tx:transmitter|r_sm_main.s_tx_stop_bit at FF_X110_Y71_N27
+--register power-up is low
+
+F1_r_sm_main.s_tx_stop_bit = DFFEAS(F1L58, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--F1_r_sm_main.s_cleanup is uart:uart_unit|uart_tx:transmitter|r_sm_main.s_cleanup at FF_X110_Y71_N29
+--register power-up is low
+
+F1_r_sm_main.s_cleanup = DFFEAS(F1L59, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--F1_r_sm_main.s_idle is uart:uart_unit|uart_tx:transmitter|r_sm_main.s_idle at FF_X108_Y71_N1
+--register power-up is low
+
+F1_r_sm_main.s_idle = DFFEAS(F1L70, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--F1L61 is uart:uart_unit|uart_tx:transmitter|Selector1~0 at LCCOMB_X110_Y71_N20
+F1L61 = (F1_r_sm_main.s_tx_stop_bit) # (((F1_o_tx_serial & F1_r_sm_main.s_cleanup)) # (!F1_r_sm_main.s_idle));
+
+
+--F1_r_tx_done is uart:uart_unit|uart_tx:transmitter|r_tx_done at FF_X110_Y71_N15
+--register power-up is low
+
+F1_r_tx_done = DFFEAS(F1L63, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--D2L11 is uart:uart_unit|fifo:fifo_tx|r_fifo_count[1]~13 at LCCOMB_X111_Y71_N2
+D2L11 = (F1_r_tx_done) # (!A1L135);
+
+
+--r_data[0] is r_data[0] at FF_X38_Y43_N1
+--register power-up is low
+
+r_data[0] = DFFEAS(A1L456, GLOBAL(A1L132), A1L136,  , A1L440,  ,  ,  ,  );
+
+
+--r_data[5] is r_data[5] at FF_X38_Y43_N23
+--register power-up is low
+
+r_data[5] = DFFEAS(A1L446, GLOBAL(A1L132), A1L136,  , A1L440,  ,  ,  ,  );
+
+
+--r_data[4] is r_data[4] at FF_X38_Y43_N29
+--register power-up is low
+
+r_data[4] = DFFEAS(A1L448, GLOBAL(A1L132), A1L136,  , A1L440,  ,  ,  ,  );
+
+
+--r_data[7] is r_data[7] at FF_X38_Y43_N27
+--register power-up is low
+
+r_data[7] = DFFEAS(A1L442, GLOBAL(A1L132), A1L136,  , A1L440,  ,  ,  ,  );
+
+
+--r_data[6] is r_data[6] at FF_X38_Y43_N21
+--register power-up is low
+
+r_data[6] = DFFEAS(A1L444, GLOBAL(A1L132), A1L136,  , A1L440,  ,  ,  ,  );
+
+
+--A1L112 is Equal0~0 at LCCOMB_X38_Y43_N18
+A1L112 = (r_data[5] & (r_data[4] & (!r_data[7] & !r_data[6])));
+
+
+--r_data[3] is r_data[3] at FF_X38_Y43_N13
+--register power-up is low
+
+r_data[3] = DFFEAS(A1L450, GLOBAL(A1L132), A1L136,  , A1L440,  ,  ,  ,  );
+
+
+--r_data[2] is r_data[2] at FF_X38_Y43_N31
+--register power-up is low
+
+r_data[2] = DFFEAS(A1L452, GLOBAL(A1L132), A1L136,  , A1L440,  ,  ,  ,  );
+
+
+--r_data[1] is r_data[1] at FF_X38_Y43_N17
+--register power-up is low
+
+r_data[1] = DFFEAS(A1L454, GLOBAL(A1L132), A1L136,  , A1L440,  ,  ,  ,  );
+
+
+--A1L113 is Equal0~1 at LCCOMB_X38_Y43_N6
+A1L113 = (!r_data[3] & (!r_data[1] & (!r_data[2] & A1L112)));
+
+
+--A1L114 is Equal0~2 at LCCOMB_X38_Y43_N4
+A1L114 = (r_data[0]) # (!A1L113);
+
+
+--r_index[3] is r_index[3] at FF_X31_Y40_N7
+--register power-up is low
+
+r_index[3] = DFFEAS(A1L7, GLOBAL(A1L132),  ,  , A1L378,  ,  ,  ,  );
+
+
+--r_index[2] is r_index[2] at FF_X29_Y40_N27
+--register power-up is low
+
+r_index[2] = DFFEAS(A1L344, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--A1L115 is Equal2~0 at LCCOMB_X29_Y41_N4
+A1L115 = (!r_index[3] & !r_index[2]);
+
+
+--r_index[31] is r_index[31] at FF_X31_Y39_N31
+--register power-up is low
+
+r_index[31] = DFFEAS(A1L63, GLOBAL(A1L132),  ,  , A1L378,  ,  ,  ,  );
+
+
+--r_index[26] is r_index[26] at FF_X31_Y39_N21
+--register power-up is low
+
+r_index[26] = DFFEAS(A1L53, GLOBAL(A1L132),  ,  , A1L378,  ,  ,  ,  );
+
+
+--r_index[25] is r_index[25] at FF_X31_Y39_N19
+--register power-up is low
+
+r_index[25] = DFFEAS(A1L51, GLOBAL(A1L132),  ,  , A1L378,  ,  ,  ,  );
+
+
+--r_index[24] is r_index[24] at FF_X30_Y40_N1
+--register power-up is low
+
+r_index[24] = DFFEAS( , GLOBAL(A1L132),  ,  , A1L378, A1L49,  ,  , VCC);
+
+
+--r_index[23] is r_index[23] at FF_X31_Y39_N15
+--register power-up is low
+
+r_index[23] = DFFEAS(A1L47, GLOBAL(A1L132),  ,  , A1L378,  ,  ,  ,  );
+
+
+--A1L116 is Equal2~1 at LCCOMB_X30_Y40_N0
+A1L116 = (!r_index[23] & (!r_index[26] & (!r_index[24] & !r_index[25])));
+
+
+--r_index[22] is r_index[22] at FF_X30_Y40_N23
+--register power-up is low
+
+r_index[22] = DFFEAS( , GLOBAL(A1L132),  ,  , A1L378, A1L45,  ,  , VCC);
+
+
+--r_index[21] is r_index[21] at FF_X31_Y40_N11
+--register power-up is low
+
+r_index[21] = DFFEAS( , GLOBAL(A1L132),  ,  , A1L378, A1L43,  ,  , VCC);
+
+
+--r_index[20] is r_index[20] at FF_X31_Y39_N9
+--register power-up is low
+
+r_index[20] = DFFEAS(A1L41, GLOBAL(A1L132),  ,  , A1L378,  ,  ,  ,  );
+
+
+--r_index[19] is r_index[19] at FF_X31_Y39_N7
+--register power-up is low
+
+r_index[19] = DFFEAS(A1L39, GLOBAL(A1L132),  ,  , A1L378,  ,  ,  ,  );
+
+
+--A1L117 is Equal2~2 at LCCOMB_X30_Y40_N22
+A1L117 = (!r_index[20] & (!r_index[21] & (!r_index[22] & !r_index[19])));
+
+
+--r_index[18] is r_index[18] at FF_X30_Y40_N5
+--register power-up is low
+
+r_index[18] = DFFEAS( , GLOBAL(A1L132),  ,  , A1L378, A1L37,  ,  , VCC);
+
+
+--r_index[17] is r_index[17] at FF_X30_Y40_N19
+--register power-up is low
+
+r_index[17] = DFFEAS( , GLOBAL(A1L132),  ,  , A1L378, A1L35,  ,  , VCC);
+
+
+--r_index[16] is r_index[16] at FF_X30_Y40_N13
+--register power-up is low
+
+r_index[16] = DFFEAS( , GLOBAL(A1L132),  ,  , A1L378, A1L33,  ,  , VCC);
+
+
+--r_index[15] is r_index[15] at FF_X31_Y40_N31
+--register power-up is low
+
+r_index[15] = DFFEAS(A1L31, GLOBAL(A1L132),  ,  , A1L378,  ,  ,  ,  );
+
+
+--A1L118 is Equal2~3 at LCCOMB_X30_Y40_N18
+A1L118 = (!r_index[16] & (!r_index[18] & (!r_index[17] & !r_index[15])));
+
+
+--r_index[14] is r_index[14] at FF_X31_Y40_N29
+--register power-up is low
+
+r_index[14] = DFFEAS(A1L29, GLOBAL(A1L132),  ,  , A1L378,  ,  ,  ,  );
+
+
+--r_index[13] is r_index[13] at FF_X31_Y40_N27
+--register power-up is low
+
+r_index[13] = DFFEAS(A1L27, GLOBAL(A1L132),  ,  , A1L378,  ,  ,  ,  );
+
+
+--r_index[12] is r_index[12] at FF_X31_Y40_N25
+--register power-up is low
+
+r_index[12] = DFFEAS(A1L25, GLOBAL(A1L132),  ,  , A1L378,  ,  ,  ,  );
+
+
+--r_index[11] is r_index[11] at FF_X31_Y40_N23
+--register power-up is low
+
+r_index[11] = DFFEAS(A1L23, GLOBAL(A1L132),  ,  , A1L378,  ,  ,  ,  );
+
+
+--A1L119 is Equal2~4 at LCCOMB_X30_Y40_N26
+A1L119 = (!r_index[13] & (!r_index[14] & (!r_index[12] & !r_index[11])));
+
+
+--A1L120 is Equal2~5 at LCCOMB_X30_Y40_N24
+A1L120 = (A1L119 & (A1L118 & (A1L117 & A1L116)));
+
+
+--r_index[10] is r_index[10] at FF_X31_Y40_N21
+--register power-up is low
+
+r_index[10] = DFFEAS(A1L21, GLOBAL(A1L132),  ,  , A1L378,  ,  ,  ,  );
+
+
+--r_index[9] is r_index[9] at FF_X31_Y40_N19
+--register power-up is low
+
+r_index[9] = DFFEAS(A1L19, GLOBAL(A1L132),  ,  , A1L378,  ,  ,  ,  );
+
+
+--r_index[8] is r_index[8] at FF_X31_Y40_N17
+--register power-up is low
+
+r_index[8] = DFFEAS(A1L17, GLOBAL(A1L132),  ,  , A1L378,  ,  ,  ,  );
+
+
+--r_index[7] is r_index[7] at FF_X31_Y40_N15
+--register power-up is low
+
+r_index[7] = DFFEAS(A1L15, GLOBAL(A1L132),  ,  , A1L378,  ,  ,  ,  );
+
+
+--A1L121 is Equal2~6 at LCCOMB_X30_Y40_N10
+A1L121 = (!r_index[8] & (!r_index[9] & (!r_index[10] & !r_index[7])));
+
+
+--r_index[6] is r_index[6] at FF_X31_Y40_N13
+--register power-up is low
+
+r_index[6] = DFFEAS(A1L13, GLOBAL(A1L132),  ,  , A1L378,  ,  ,  ,  );
+
+
+--A1L122 is Equal2~7 at LCCOMB_X29_Y40_N20
+A1L122 = (!r_index[6] & (A1L121 & A1L120));
+
+
+--r_index[1] is r_index[1] at FF_X31_Y40_N3
+--register power-up is low
+
+r_index[1] = DFFEAS(A1L3, GLOBAL(A1L132),  ,  , A1L378,  ,  ,  ,  );
+
+
+--r_index[0] is r_index[0] at FF_X31_Y40_N1
+--register power-up is low
+
+r_index[0] = DFFEAS(A1L1, GLOBAL(A1L132),  ,  , A1L378,  ,  ,  ,  );
+
+
+--A1L139 is LessThan0~0 at LCCOMB_X29_Y40_N30
+A1L139 = (!r_index[2] & (!r_index[3] & ((!r_index[0]) # (!r_index[1]))));
+
+
+--r_index[4] is r_index[4] at FF_X31_Y40_N9
+--register power-up is low
+
+r_index[4] = DFFEAS(A1L9, GLOBAL(A1L132),  ,  , A1L378,  ,  ,  ,  );
+
+
+--r_index[5] is r_index[5] at FF_X29_Y40_N5
+--register power-up is low
+
+r_index[5] = DFFEAS(A1L348, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--A1L140 is LessThan0~1 at LCCOMB_X29_Y40_N14
+A1L140 = (!r_index[5] & (A1L122 & ((A1L139) # (!r_index[4]))));
+
+
+--r_index[27] is r_index[27] at FF_X31_Y40_N5
+--register power-up is low
+
+r_index[27] = DFFEAS( , GLOBAL(A1L132),  ,  , A1L378, A1L55,  ,  , VCC);
+
+
+--A1L141 is LessThan0~2 at LCCOMB_X30_Y40_N12
+A1L141 = (!r_index[27] & A1L140);
+
+
+--r_index[30] is r_index[30] at FF_X31_Y39_N29
+--register power-up is low
+
+r_index[30] = DFFEAS(A1L61, GLOBAL(A1L132),  ,  , A1L378,  ,  ,  ,  );
+
+
+--r_index[29] is r_index[29] at FF_X31_Y39_N27
+--register power-up is low
+
+r_index[29] = DFFEAS(A1L59, GLOBAL(A1L132),  ,  , A1L378,  ,  ,  ,  );
+
+
+--r_index[28] is r_index[28] at FF_X31_Y39_N25
+--register power-up is low
+
+r_index[28] = DFFEAS(A1L57, GLOBAL(A1L132),  ,  , A1L378,  ,  ,  ,  );
+
+
+--A1L123 is Equal2~8 at LCCOMB_X30_Y39_N0
+A1L123 = (!r_index[30] & (!r_index[29] & !r_index[28]));
+
+
+--A1L375 is r_index[31]~0 at LCCOMB_X30_Y40_N20
+A1L375 = (A1L113 & ((r_index[31]) # ((A1L123 & A1L141))));
+
+
+--A1L66 is Decoder0~0 at LCCOMB_X29_Y39_N10
+A1L66 = (!r_index[0] & !r_index[1]);
+
+
+--A1L67 is Decoder0~1 at LCCOMB_X30_Y38_N10
+A1L67 = (A1L66 & (!r_index[4] & (A1L115 & A1L375)));
+
+
+--r_sm.s_clear is r_sm.s_clear at FF_X32_Y40_N25
+--register power-up is low
+
+r_sm.s_clear = DFFEAS(A1L381, GLOBAL(A1L132), A1L136,  ,  ,  ,  ,  ,  );
+
+
+--A1L476 is Selector29~0 at LCCOMB_X30_Y38_N8
+A1L476 = (r_addr[0] & !r_sm.s_clear);
+
+
+--r_sm.s_process is r_sm.s_process at FF_X30_Y40_N31
+--register power-up is low
+
+r_sm.s_process = DFFEAS( , GLOBAL(A1L132), A1L136,  ,  , r_sm.s_get_fifo_data,  ,  , VCC);
+
+
+--A1L68 is Decoder0~2 at LCCOMB_X32_Y40_N18
+A1L68 = (r_index[0] & !r_index[1]);
+
+
+--A1L69 is Decoder0~3 at LCCOMB_X27_Y40_N16
+A1L69 = (A1L68 & (!r_index[4] & (A1L115 & A1L375)));
+
+
+--A1L475 is Selector28~0 at LCCOMB_X27_Y40_N22
+A1L475 = (!r_sm.s_clear & r_addr[1]);
+
+
+--A1L70 is Decoder0~4 at LCCOMB_X29_Y39_N20
+A1L70 = (!r_index[0] & r_index[1]);
+
+
+--A1L71 is Decoder0~5 at LCCOMB_X30_Y38_N18
+A1L71 = (A1L70 & (!r_index[4] & (A1L115 & A1L375)));
+
+
+--A1L474 is Selector27~0 at LCCOMB_X30_Y38_N28
+A1L474 = (r_addr[2] & !r_sm.s_clear);
+
+
+--A1L124 is Equal2~9 at LCCOMB_X29_Y39_N30
+A1L124 = (r_index[0] & r_index[1]);
+
+
+--A1L72 is Decoder0~6 at LCCOMB_X29_Y39_N12
+A1L72 = (A1L115 & (!r_index[4] & (A1L124 & A1L375)));
+
+
+--A1L473 is Selector26~0 at LCCOMB_X29_Y39_N26
+A1L473 = (r_addr[3] & !r_sm.s_clear);
+
+
+--A1L73 is Decoder0~7 at LCCOMB_X30_Y41_N28
+A1L73 = (!r_index[3] & r_index[2]);
+
+
+--A1L74 is Decoder0~8 at LCCOMB_X28_Y40_N6
+A1L74 = (!r_index[4] & (A1L66 & (A1L73 & A1L375)));
+
+
+--A1L472 is Selector25~0 at LCCOMB_X28_Y40_N8
+A1L472 = (!r_sm.s_clear & r_addr[4]);
+
+
+--A1L75 is Decoder0~9 at LCCOMB_X28_Y40_N18
+A1L75 = (A1L73 & (!r_index[4] & (A1L68 & A1L375)));
+
+
+--A1L471 is Selector24~0 at LCCOMB_X28_Y40_N4
+A1L471 = (!r_sm.s_clear & r_addr[5]);
+
+
+--A1L76 is Decoder0~10 at LCCOMB_X30_Y38_N30
+A1L76 = (A1L70 & (!r_index[4] & (A1L73 & A1L375)));
+
+
+--A1L470 is Selector23~0 at LCCOMB_X30_Y38_N20
+A1L470 = (r_addr[6] & !r_sm.s_clear);
+
+
+--A1L77 is Decoder0~11 at LCCOMB_X29_Y39_N28
+A1L77 = (A1L73 & (!r_index[4] & (A1L124 & A1L375)));
+
+
+--A1L469 is Selector22~0 at LCCOMB_X29_Y39_N22
+A1L469 = (r_addr[7] & !r_sm.s_clear);
+
+
+--A1L78 is Decoder0~12 at LCCOMB_X28_Y40_N2
+A1L78 = (r_index[3] & !r_index[2]);
+
+
+--A1L79 is Decoder0~13 at LCCOMB_X28_Y40_N16
+A1L79 = (!r_index[4] & (A1L78 & (A1L66 & A1L375)));
+
+
+--A1L468 is Selector21~0 at LCCOMB_X28_Y40_N22
+A1L468 = (!r_sm.s_clear & r_addr[8]);
+
+
+--A1L80 is Decoder0~14 at LCCOMB_X28_Y40_N20
+A1L80 = (!r_index[4] & (A1L78 & (A1L68 & A1L375)));
+
+
+--A1L467 is Selector20~0 at LCCOMB_X28_Y40_N30
+A1L467 = (!r_sm.s_clear & r_addr[9]);
+
+
+--A1L81 is Decoder0~15 at LCCOMB_X29_Y38_N18
+A1L81 = (!r_index[4] & (A1L78 & (A1L375 & A1L70)));
+
+
+--A1L466 is Selector19~0 at LCCOMB_X29_Y38_N4
+A1L466 = (!r_sm.s_clear & r_addr[10]);
+
+
+--A1L82 is Decoder0~16 at LCCOMB_X29_Y38_N26
+A1L82 = (A1L124 & (A1L78 & (A1L375 & !r_index[4])));
+
+
+--A1L465 is Selector18~0 at LCCOMB_X29_Y38_N8
+A1L465 = (r_addr[11] & !r_sm.s_clear);
+
+
+--A1L83 is Decoder0~17 at LCCOMB_X30_Y41_N30
+A1L83 = (r_index[3] & r_index[2]);
+
+
+--A1L84 is Decoder0~18 at LCCOMB_X29_Y38_N2
+A1L84 = (A1L83 & (A1L66 & (A1L375 & !r_index[4])));
+
+
+--A1L464 is Selector17~0 at LCCOMB_X29_Y38_N20
+A1L464 = (!r_sm.s_clear & r_addr[12]);
+
+
+--A1L85 is Decoder0~19 at LCCOMB_X27_Y40_N28
+A1L85 = (A1L68 & (!r_index[4] & (A1L83 & A1L375)));
+
+
+--A1L463 is Selector16~0 at LCCOMB_X26_Y40_N16
+A1L463 = (r_addr[13] & !r_sm.s_clear);
+
+
+--A1L86 is Decoder0~20 at LCCOMB_X29_Y38_N10
+A1L86 = (A1L83 & (A1L70 & (A1L375 & !r_index[4])));
+
+
+--A1L462 is Selector15~0 at LCCOMB_X29_Y38_N12
+A1L462 = (r_addr[14] & !r_sm.s_clear);
+
+
+--A1L87 is Decoder0~21 at LCCOMB_X29_Y38_N6
+A1L87 = (A1L83 & (A1L124 & (A1L375 & !r_index[4])));
+
+
+--A1L461 is Selector14~0 at LCCOMB_X29_Y38_N28
+A1L461 = (!r_sm.s_clear & r_addr[15]);
+
+
+--A1L88 is Decoder0~22 at LCCOMB_X30_Y38_N6
+A1L88 = (A1L66 & (r_index[4] & (A1L115 & A1L375)));
+
+
+--A1L460 is Selector13~0 at LCCOMB_X30_Y38_N4
+A1L460 = (r_addr[16] & !r_sm.s_clear);
+
+
+--A1L89 is Decoder0~23 at LCCOMB_X27_Y40_N2
+A1L89 = (A1L68 & (r_index[4] & (A1L115 & A1L375)));
+
+
+--A1L459 is Selector12~0 at LCCOMB_X26_Y40_N6
+A1L459 = (r_addr[17] & !r_sm.s_clear);
+
+
+--A1L90 is Decoder0~24 at LCCOMB_X30_Y38_N2
+A1L90 = (A1L70 & (r_index[4] & (A1L115 & A1L375)));
+
+
+--A1L458 is Selector11~0 at LCCOMB_X30_Y38_N24
+A1L458 = (r_addr[18] & !r_sm.s_clear);
+
+
+--A1L91 is Decoder0~25 at LCCOMB_X29_Y39_N24
+A1L91 = (A1L115 & (r_index[4] & (A1L124 & A1L375)));
+
+
+--A1L457 is Selector10~0 at LCCOMB_X29_Y39_N14
+A1L457 = (r_addr[19] & !r_sm.s_clear);
+
+
+--A1L125 is Equal2~10 at LCCOMB_X29_Y40_N16
+A1L125 = (!r_index[2] & (!r_index[3] & (r_index[1] & r_index[0])));
+
+
+--A1L142 is LessThan2~0 at LCCOMB_X29_Y40_N22
+A1L142 = ((A1L139 & !r_index[4])) # (!r_index[5]);
+
+
+--A1L126 is Equal2~11 at LCCOMB_X32_Y40_N28
+A1L126 = (!r_index[27] & !r_index[6]);
+
+
+--A1L127 is Equal2~12 at LCCOMB_X30_Y40_N8
+A1L127 = (A1L126 & (A1L120 & (A1L123 & A1L121)));
+
+
+--A1L376 is r_index[31]~1 at LCCOMB_X30_Y40_N14
+A1L376 = (A1L142 & (A1L127 & A1L113));
+
+
+--A1L92 is Decoder1~30 at LCCOMB_X28_Y40_N24
+A1L92 = (A1L125 & (!r_index[31] & (!A1L141 & A1L376)));
+
+
+--A1L492 is Selector45~0 at LCCOMB_X28_Y40_N14
+A1L492 = (r_sram_data[0] & !r_sm.s_clear);
+
+
+--A1L93 is Decoder1~31 at LCCOMB_X30_Y40_N16
+A1L93 = (A1L73 & (!r_index[31] & (A1L376 & !A1L141)));
+
+
+--A1L491 is Selector44~0 at LCCOMB_X32_Y40_N30
+A1L491 = (!r_sm.s_clear & r_sram_data[1]);
+
+
+--A1L490 is Selector43~0 at LCCOMB_X32_Y40_N4
+A1L490 = (!r_sm.s_clear & r_sram_data[2]);
+
+
+--A1L489 is Selector42~0 at LCCOMB_X32_Y40_N22
+A1L489 = (!r_sm.s_clear & r_sram_data[3]);
+
+
+--A1L488 is Selector41~0 at LCCOMB_X32_Y40_N8
+A1L488 = (!r_sm.s_clear & r_sram_data[4]);
+
+
+--A1L94 is Decoder1~32 at LCCOMB_X30_Y40_N6
+A1L94 = (!r_index[31] & (A1L78 & (A1L376 & !A1L141)));
+
+
+--A1L487 is Selector40~0 at LCCOMB_X33_Y40_N22
+A1L487 = (!r_sm.s_clear & r_sram_data[5]);
+
+
+--A1L486 is Selector39~0 at LCCOMB_X27_Y40_N8
+A1L486 = (r_sram_data[6] & !r_sm.s_clear);
+
+
+--A1L485 is Selector38~0 at LCCOMB_X27_Y40_N26
+A1L485 = (!r_sm.s_clear & r_sram_data[7]);
+
+
+--A1L484 is Selector37~0 at LCCOMB_X27_Y40_N4
+A1L484 = (!r_sm.s_clear & r_sram_data[8]);
+
+
+--A1L95 is Decoder1~33 at LCCOMB_X30_Y40_N28
+A1L95 = (A1L83 & (!r_index[31] & (A1L376 & !A1L141)));
+
+
+--A1L483 is Selector36~0 at LCCOMB_X33_Y40_N4
+A1L483 = (r_sram_data[9] & !r_sm.s_clear);
+
+
+--A1L482 is Selector35~0 at LCCOMB_X33_Y40_N26
+A1L482 = (!r_sm.s_clear & r_sram_data[10]);
+
+
+--A1L481 is Selector34~0 at LCCOMB_X33_Y40_N8
+A1L481 = (!r_sm.s_clear & r_sram_data[11]);
+
+
+--A1L480 is Selector33~0 at LCCOMB_X33_Y40_N14
+A1L480 = (!r_sm.s_clear & r_sram_data[12]);
+
+
+--A1L96 is Decoder1~34 at LCCOMB_X29_Y40_N0
+A1L96 = (!r_index[31] & (A1L376 & (!A1L141 & A1L115)));
+
+
+--A1L479 is Selector32~0 at LCCOMB_X29_Y40_N2
+A1L479 = (r_sram_data[13] & !r_sm.s_clear);
+
+
+--A1L478 is Selector31~0 at LCCOMB_X26_Y40_N28
+A1L478 = (r_sram_data[14] & !r_sm.s_clear);
+
+
+--A1L477 is Selector30~0 at LCCOMB_X26_Y40_N22
+A1L477 = (r_sram_data[15] & !r_sm.s_clear);
+
+
+--E1_r_sm_main.s_rx_stop_bit is uart:uart_unit|uart_rx:receiver|r_sm_main.s_rx_stop_bit at FF_X34_Y47_N9
+--register power-up is low
+
+E1_r_sm_main.s_rx_stop_bit = DFFEAS(E1L92, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--E1L14 is uart:uart_unit|uart_rx:receiver|LessThan1~0 at LCCOMB_X36_Y47_N28
+E1L14 = ((!E1_r_clk_count[5] & ((!E1_r_clk_count[3]) # (!E1_r_clk_count[4])))) # (!E1_r_clk_count[6]);
+
+
+--E1L15 is uart:uart_unit|uart_rx:receiver|LessThan1~1 at LCCOMB_X36_Y47_N22
+E1L15 = (!E1_r_clk_count[9] & (!E1_r_clk_count[11] & (!E1_r_clk_count[7] & !E1_r_clk_count[8])));
+
+
+--E1L16 is uart:uart_unit|uart_rx:receiver|LessThan1~2 at LCCOMB_X36_Y47_N24
+E1L16 = (E1_r_clk_count[10] & (((E1L15 & E1L14)))) # (!E1_r_clk_count[10] & (((E1L15 & E1L14)) # (!E1_r_clk_count[11])));
+
+
+--E1L93 is uart:uart_unit|uart_rx:receiver|r_sm_main~7 at LCCOMB_X34_Y47_N16
+E1L93 = (E1_r_clk_count[12] & (E1_r_sm_main.s_rx_stop_bit & !E1L16));
+
+
+--E1_r_sm_main.s_rx_start_bit is uart:uart_unit|uart_rx:receiver|r_sm_main.s_rx_start_bit at FF_X34_Y47_N23
+--register power-up is low
+
+E1_r_sm_main.s_rx_start_bit = DFFEAS(E1L104, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--E1_r_sm_main.s_rx_data_bits is uart:uart_unit|uart_rx:receiver|r_sm_main.s_rx_data_bits at FF_X34_Y47_N29
+--register power-up is low
+
+E1_r_sm_main.s_rx_data_bits = DFFEAS(E1L107, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--E1L94 is uart:uart_unit|uart_rx:receiver|Selector0~0 at LCCOMB_X34_Y47_N26
+E1L94 = (!E1_r_sm_main.s_rx_stop_bit & !E1_r_sm_main.s_rx_data_bits);
+
+
+--E1L95 is uart:uart_unit|uart_rx:receiver|Selector0~1 at LCCOMB_X34_Y47_N4
+E1L95 = (E1L93) # ((E1_r_rx_dv & ((E1_r_sm_main.s_rx_start_bit) # (!E1L94))));
+
+
+--r_sm.s_idle is r_sm.s_idle at FF_X33_Y40_N17
+--register power-up is low
+
+r_sm.s_idle = DFFEAS(A1L439, GLOBAL(A1L132), A1L136,  ,  ,  ,  ,  ,  );
+
+
+--r_sm.s_get_fifo_data is r_sm.s_get_fifo_data at FF_X42_Y43_N23
+--register power-up is low
+
+r_sm.s_get_fifo_data = DFFEAS(A1L437, GLOBAL(A1L132), A1L136,  ,  ,  ,  ,  ,  );
+
+
+--A1L436 is Selector0~0 at LCCOMB_X42_Y43_N0
+A1L436 = (r_sm.s_idle & (!r_sm.s_get_fifo_data & (r_rd_rx))) # (!r_sm.s_idle & (((D1L8))));
+
+
+--F1_r_sm_main.s_tx_data_bits is uart:uart_unit|uart_tx:transmitter|r_sm_main.s_tx_data_bits at FF_X110_Y71_N1
+--register power-up is low
+
+F1_r_sm_main.s_tx_data_bits = DFFEAS(F1L72, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--F1_r_bit_index[0] is uart:uart_unit|uart_tx:transmitter|r_bit_index[0] at FF_X110_Y71_N19
+--register power-up is low
+
+F1_r_bit_index[0] = DFFEAS(F1L69, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--F1_r_bit_index[1] is uart:uart_unit|uart_tx:transmitter|r_bit_index[1] at FF_X110_Y71_N5
+--register power-up is low
+
+F1_r_bit_index[1] = DFFEAS(F1L67, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--F1_r_bit_index[2] is uart:uart_unit|uart_tx:transmitter|r_bit_index[2] at FF_X110_Y71_N11
+--register power-up is low
+
+F1_r_bit_index[2] = DFFEAS(F1L65, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--F1L1 is uart:uart_unit|uart_tx:transmitter|LessThan1~0 at LCCOMB_X109_Y71_N0
+F1L1 = ((!F1_r_clk_count[5] & ((!F1_r_clk_count[4]) # (!F1_r_clk_count[3])))) # (!F1_r_clk_count[6]);
+
+
+--F1L2 is uart:uart_unit|uart_tx:transmitter|LessThan1~1 at LCCOMB_X109_Y71_N2
+F1L2 = (!F1_r_clk_count[7] & (!F1_r_clk_count[11] & (!F1_r_clk_count[8] & !F1_r_clk_count[9])));
+
+
+--F1L3 is uart:uart_unit|uart_tx:transmitter|LessThan1~2 at LCCOMB_X110_Y71_N8
+F1L3 = (!F1_r_clk_count[10] & !F1_r_clk_count[11]);
+
+
+--F1L4 is uart:uart_unit|uart_tx:transmitter|LessThan1~3 at LCCOMB_X110_Y71_N6
+F1L4 = ((F1L3) # ((F1L1 & F1L2))) # (!F1_r_clk_count[12]);
+
+
+--F1L57 is uart:uart_unit|uart_tx:transmitter|r_sm_main.s_tx_stop_bit~0 at LCCOMB_X110_Y71_N16
+F1L57 = (F1_r_bit_index[2] & (F1_r_bit_index[0] & (F1_r_bit_index[1] & !F1L4)));
+
+
+--F1L58 is uart:uart_unit|uart_tx:transmitter|r_sm_main.s_tx_stop_bit~1 at LCCOMB_X110_Y71_N26
+F1L58 = (F1L4 & ((F1_r_sm_main.s_tx_stop_bit) # ((F1_r_sm_main.s_tx_data_bits & F1L57)))) # (!F1L4 & (F1_r_sm_main.s_tx_data_bits & ((F1L57))));
+
+
+--F1L5 is uart:uart_unit|uart_tx:transmitter|LessThan1~4 at LCCOMB_X109_Y71_N4
+F1L5 = (F1_r_clk_count[10] & (((F1L2 & F1L1)))) # (!F1_r_clk_count[10] & (((F1L2 & F1L1)) # (!F1_r_clk_count[11])));
+
+
+--F1L59 is uart:uart_unit|uart_tx:transmitter|r_sm_main~7 at LCCOMB_X110_Y71_N28
+F1L59 = (F1_r_sm_main.s_tx_stop_bit & (!F1L5 & F1_r_clk_count[12]));
+
+
+--F1L70 is uart:uart_unit|uart_tx:transmitter|Selector19~0 at LCCOMB_X108_Y71_N0
+F1L70 = (!F1_r_sm_main.s_cleanup & ((F1_r_sm_main.s_idle) # (!D2L3)));
+
+
+--F1_r_sm_main.s_tx_start_bit is uart:uart_unit|uart_tx:transmitter|r_sm_main.s_tx_start_bit at FF_X110_Y71_N23
+--register power-up is low
+
+F1_r_sm_main.s_tx_start_bit = DFFEAS(F1L71, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--F1L62 is uart:uart_unit|uart_tx:transmitter|Selector2~0 at LCCOMB_X110_Y71_N24
+F1L62 = (F1_r_tx_done & ((F1_r_sm_main.s_tx_stop_bit) # ((F1_r_sm_main.s_tx_data_bits) # (F1_r_sm_main.s_tx_start_bit))));
+
+
+--F1L63 is uart:uart_unit|uart_tx:transmitter|Selector2~1 at LCCOMB_X110_Y71_N14
+F1L63 = (F1L62) # ((F1_r_sm_main.s_tx_stop_bit & (F1_r_clk_count[12] & !F1L5)));
+
+
+--D1L44Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[9] at FF_X38_Y43_N11
+--register power-up is low
+
+D1L44Q = DFFEAS( , GLOBAL(A1L132),  ,  ,  , E1_r_rx_byte[0],  ,  , VCC);
+
+
+--D1L45Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[10] at FF_X39_Y43_N29
+--register power-up is low
+
+D1L45Q = DFFEAS(D1L46, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1L31Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[1] at FF_X40_Y43_N21
+--register power-up is low
+
+D1L31Q = DFFEAS( , GLOBAL(A1L132),  ,  ,  , D1_r_wr_index[0],  ,  , VCC);
+
+
+--D1L33Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[3] at FF_X40_Y43_N31
+--register power-up is low
+
+D1L33Q = DFFEAS(D1L34, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1L35Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[4] at FF_X41_Y43_N29
+--register power-up is low
+
+D1L35Q = DFFEAS(D1L36, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1L32Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[2] at FF_X40_Y43_N17
+--register power-up is low
+
+D1L32Q = DFFEAS( , GLOBAL(A1L132),  ,  ,  , D1L85,  ,  , VCC);
+
+
+--D1L73 is uart:uart_unit|fifo:fifo_rx|r_fifo_data~13 at LCCOMB_X40_Y43_N16
+D1L73 = (D1L33Q & (D1L35Q & (D1L31Q $ (!D1L32Q)))) # (!D1L33Q & (!D1L35Q & (D1L31Q $ (!D1L32Q))));
+
+
+--D1L30Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[0] at FF_X40_Y43_N23
+--register power-up is low
+
+D1L30Q = DFFEAS(D1L75, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1L37Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[5] at FF_X40_Y43_N5
+--register power-up is low
+
+D1L37Q = DFFEAS(D1L38, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1L41Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[7] at FF_X40_Y43_N11
+--register power-up is low
+
+D1L41Q = DFFEAS( , GLOBAL(A1L132),  ,  ,  , D1_r_wr_index[3],  ,  , VCC);
+
+
+--D1L42Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[8] at FF_X41_Y43_N31
+--register power-up is low
+
+D1L42Q = DFFEAS(D1L43, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1L39Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[6] at FF_X41_Y43_N5
+--register power-up is low
+
+D1L39Q = DFFEAS(D1L40, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1L74 is uart:uart_unit|fifo:fifo_rx|r_fifo_data~14 at LCCOMB_X40_Y43_N10
+D1L74 = (D1L42Q & (D1L41Q & (D1L37Q $ (!D1L39Q)))) # (!D1L42Q & (!D1L41Q & (D1L37Q $ (!D1L39Q))));
+
+
+--A1L455 is Selector9~0 at LCCOMB_X39_Y43_N26
+A1L455 = (D1L45Q & (((!D1L73) # (!D1L74)) # (!D1L30Q)));
+
+
+--A1L456 is Selector9~1 at LCCOMB_X38_Y43_N0
+A1L456 = (r_sm.s_get_fifo_data & ((A1L455 & ((H1_ram_block1a0))) # (!A1L455 & (D1L44Q))));
+
+
+--A1L440 is Selector2~0 at LCCOMB_X38_Y43_N8
+A1L440 = (r_sm.s_get_fifo_data) # (r_sm.s_clear);
+
+
+--D1L61Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[19] at FF_X38_Y43_N3
+--register power-up is low
+
+D1L61Q = DFFEAS(D1L62, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1L63Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[20] at FF_X39_Y43_N21
+--register power-up is low
+
+D1L63Q = DFFEAS(D1L64, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--A1L445 is Selector4~0 at LCCOMB_X39_Y43_N2
+A1L445 = (D1L63Q & (((!D1L73) # (!D1L74)) # (!D1L30Q)));
+
+
+--A1L446 is Selector4~1 at LCCOMB_X38_Y43_N22
+A1L446 = (r_sm.s_get_fifo_data & ((A1L445 & ((H1_ram_block1a5))) # (!A1L445 & (D1L61Q))));
+
+
+--D1L57Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[17] at FF_X38_Y43_N25
+--register power-up is low
+
+D1L57Q = DFFEAS(D1L58, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1L59Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[18] at FF_X39_Y43_N1
+--register power-up is low
+
+D1L59Q = DFFEAS(D1L60, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--A1L447 is Selector5~0 at LCCOMB_X39_Y43_N10
+A1L447 = (D1L59Q & (((!D1L73) # (!D1L74)) # (!D1L30Q)));
+
+
+--A1L448 is Selector5~1 at LCCOMB_X38_Y43_N28
+A1L448 = (r_sm.s_get_fifo_data & ((A1L447 & ((H1_ram_block1a4))) # (!A1L447 & (D1L57Q))));
+
+
+--D1L69Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[23] at FF_X36_Y43_N13
+--register power-up is low
+
+D1L69Q = DFFEAS(D1L70, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1L71Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[24] at FF_X39_Y43_N25
+--register power-up is low
+
+D1L71Q = DFFEAS(D1L72, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--A1L441 is Selector2~1 at LCCOMB_X39_Y43_N22
+A1L441 = (D1L71Q & (((!D1L73) # (!D1L74)) # (!D1L30Q)));
+
+
+--A1L442 is Selector2~2 at LCCOMB_X38_Y43_N26
+A1L442 = (r_sm.s_get_fifo_data & ((A1L441 & ((H1_ram_block1a7))) # (!A1L441 & (D1L69Q))));
+
+
+--D1L65Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[21] at FF_X38_Y43_N15
+--register power-up is low
+
+D1L65Q = DFFEAS(D1L66, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1L67Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[22] at FF_X39_Y43_N13
+--register power-up is low
+
+D1L67Q = DFFEAS(D1L68, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--A1L443 is Selector3~0 at LCCOMB_X39_Y43_N6
+A1L443 = (D1L67Q & (((!D1L73) # (!D1L74)) # (!D1L30Q)));
+
+
+--A1L444 is Selector3~1 at LCCOMB_X38_Y43_N20
+A1L444 = (r_sm.s_get_fifo_data & ((A1L443 & ((H1_ram_block1a6))) # (!A1L443 & (D1L65Q))));
+
+
+--D1L54Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[15] at FF_X38_Y43_N5
+--register power-up is low
+
+D1L54Q = DFFEAS( , GLOBAL(A1L132),  ,  ,  , E1_r_rx_byte[3],  ,  , VCC);
+
+
+--D1L55Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[16] at FF_X39_Y43_N5
+--register power-up is low
+
+D1L55Q = DFFEAS(D1L56, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--A1L449 is Selector6~0 at LCCOMB_X39_Y43_N14
+A1L449 = (D1L55Q & (((!D1L73) # (!D1L74)) # (!D1L30Q)));
+
+
+--A1L450 is Selector6~1 at LCCOMB_X38_Y43_N12
+A1L450 = (r_sm.s_get_fifo_data & ((A1L449 & ((H1_ram_block1a3))) # (!A1L449 & (D1L54Q))));
+
+
+--D1L51Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[13] at FF_X38_Y43_N9
+--register power-up is low
+
+D1L51Q = DFFEAS( , GLOBAL(A1L132),  ,  ,  , E1_r_rx_byte[2],  ,  , VCC);
+
+
+--D1L52Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[14] at FF_X39_Y43_N9
+--register power-up is low
+
+D1L52Q = DFFEAS(D1L53, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--A1L451 is Selector7~0 at LCCOMB_X39_Y43_N30
+A1L451 = (D1L52Q & (((!D1L73) # (!D1L74)) # (!D1L30Q)));
+
+
+--A1L452 is Selector7~1 at LCCOMB_X38_Y43_N30
+A1L452 = (r_sm.s_get_fifo_data & ((A1L451 & ((H1_ram_block1a2))) # (!A1L451 & (D1L51Q))));
+
+
+--D1L47Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[11] at FF_X36_Y43_N7
+--register power-up is low
+
+D1L47Q = DFFEAS(D1L48, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1L49Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[12] at FF_X39_Y43_N17
+--register power-up is low
+
+D1L49Q = DFFEAS(D1L50, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--A1L453 is Selector8~0 at LCCOMB_X39_Y43_N18
+A1L453 = (D1L49Q & (((!D1L73) # (!D1L74)) # (!D1L30Q)));
+
+
+--A1L454 is Selector8~1 at LCCOMB_X38_Y43_N16
+A1L454 = (r_sm.s_get_fifo_data & ((A1L453 & ((H1_ram_block1a1))) # (!A1L453 & (D1L47Q))));
+
+
+--A1L128 is Equal2~13 at LCCOMB_X29_Y40_N24
+A1L128 = (r_index[5] & (!r_index[31] & !r_index[4]));
+
+
+--A1L129 is Equal2~14 at LCCOMB_X30_Y40_N4
+A1L129 = (A1L125 & (A1L127 & A1L128));
+
+
+--A1L377 is r_index[31]~2 at LCCOMB_X30_Y40_N2
+A1L377 = (A1L129) # ((!A1L140 & A1L376));
+
+
+--A1L378 is r_index[31]~3 at LCCOMB_X30_Y40_N30
+A1L378 = (A1L136 & (r_sm.s_process & ((A1L377) # (A1L375))));
+
+
+--A1L344 is r_index[2]~4 at LCCOMB_X29_Y40_N26
+A1L344 = (A1L378 & (A1L5 & ((!A1L129)))) # (!A1L378 & (((r_index[2]))));
+
+
+--A1L348 is r_index[5]~5 at LCCOMB_X29_Y40_N4
+A1L348 = (A1L378 & (A1L11 & ((!A1L129)))) # (!A1L378 & (((r_index[5]))));
+
+
+--r_sm.s_write_sram is r_sm.s_write_sram at FF_X32_Y40_N15
+--register power-up is low
+
+r_sm.s_write_sram = DFFEAS(A1L386, GLOBAL(A1L132), A1L136,  ,  ,  ,  ,  ,  );
+
+
+--E1L10 is uart:uart_unit|uart_rx:receiver|Equal0~0 at LCCOMB_X35_Y47_N0
+E1L10 = (!E1_r_clk_count[8] & (!E1_r_clk_count[7] & (!E1_r_clk_count[4] & E1_r_clk_count[3])));
+
+
+--E1L11 is uart:uart_unit|uart_rx:receiver|Equal0~1 at LCCOMB_X36_Y47_N26
+E1L11 = (!E1_r_clk_count[10] & (E1_r_clk_count[9] & (E1_r_clk_count[5] & !E1_r_clk_count[6])));
+
+
+--E1L12 is uart:uart_unit|uart_rx:receiver|Equal0~2 at LCCOMB_X35_Y47_N2
+E1L12 = (!E1_r_clk_count[0] & (!E1_r_clk_count[1] & (!E1_r_clk_count[12] & E1_r_clk_count[11])));
+
+
+--E1L13 is uart:uart_unit|uart_rx:receiver|Equal0~3 at LCCOMB_X35_Y47_N4
+E1L13 = (E1_r_clk_count[2] & (E1L10 & (E1L12 & E1L11)));
+
+
+--E1L47 is uart:uart_unit|uart_rx:receiver|r_clk_count[7]~39 at LCCOMB_X34_Y47_N30
+E1L47 = (E1_r_sm_main.s_rx_start_bit & E1L13);
+
+
+--E1L17 is uart:uart_unit|uart_rx:receiver|LessThan1~3 at LCCOMB_X34_Y47_N24
+E1L17 = (E1_r_clk_count[12] & !E1L16);
+
+
+--E1_r_sm_main.s_idle is uart:uart_unit|uart_rx:receiver|r_sm_main.s_idle at FF_X34_Y47_N21
+--register power-up is low
+
+E1_r_sm_main.s_idle = DFFEAS(E1L103, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--E1L48 is uart:uart_unit|uart_rx:receiver|r_clk_count[7]~40 at LCCOMB_X34_Y47_N6
+E1L48 = ((E1L47) # ((!E1L94 & E1L17))) # (!E1_r_sm_main.s_idle);
+
+
+--E1_r_sm_main.s_cleanup is uart:uart_unit|uart_rx:receiver|r_sm_main.s_cleanup at FF_X34_Y47_N17
+--register power-up is low
+
+E1_r_sm_main.s_cleanup = DFFEAS(E1L93, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--E1_r_rx_data is uart:uart_unit|uart_rx:receiver|r_rx_data at FF_X34_Y47_N19
+--register power-up is low
+
+E1_r_rx_data = DFFEAS( , GLOBAL(A1L132),  ,  ,  , E1_r_rx_data_r,  ,  , VCC);
+
+
+--E1L49 is uart:uart_unit|uart_rx:receiver|r_clk_count[7]~41 at LCCOMB_X34_Y47_N18
+E1L49 = (!E1_r_sm_main.s_cleanup & (((!E1L13) # (!E1_r_rx_data)) # (!E1_r_sm_main.s_rx_start_bit)));
+
+
+--E1_r_bit_index[0] is uart:uart_unit|uart_rx:receiver|r_bit_index[0] at FF_X34_Y47_N1
+--register power-up is low
+
+E1_r_bit_index[0] = DFFEAS(E1L102, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--E1L1 is uart:uart_unit|uart_rx:receiver|Decoder0~0 at LCCOMB_X33_Y47_N0
+E1L1 = (E1_r_sm_main.s_rx_data_bits & (E1_r_clk_count[12] & !E1L16));
+
+
+--E1_r_bit_index[1] is uart:uart_unit|uart_rx:receiver|r_bit_index[1] at FF_X33_Y47_N23
+--register power-up is low
+
+E1_r_bit_index[1] = DFFEAS(E1L100, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--E1_r_bit_index[2] is uart:uart_unit|uart_rx:receiver|r_bit_index[2] at FF_X33_Y47_N13
+--register power-up is low
+
+E1_r_bit_index[2] = DFFEAS(E1L98, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--E1L91 is uart:uart_unit|uart_rx:receiver|r_sm_main.s_rx_stop_bit~2 at LCCOMB_X33_Y47_N26
+E1L91 = (E1_r_bit_index[2] & (E1_r_bit_index[0] & (E1_r_bit_index[1] & E1L1)));
+
+
+--E1L104 is uart:uart_unit|uart_rx:receiver|Selector18~0 at LCCOMB_X34_Y47_N22
+E1L104 = (E1_r_sm_main.s_idle & (((E1_r_sm_main.s_rx_start_bit & !E1L13)))) # (!E1_r_sm_main.s_idle & (((E1_r_sm_main.s_rx_start_bit & !E1L13)) # (!E1_r_rx_data)));
+
+
+--E1L105 is uart:uart_unit|uart_rx:receiver|Selector19~0 at LCCOMB_X34_Y47_N2
+E1L105 = (E1_r_sm_main.s_rx_data_bits & ((E1L16) # (!E1_r_clk_count[12])));
+
+
+--E1L106 is uart:uart_unit|uart_rx:receiver|Selector19~1 at LCCOMB_X33_Y47_N4
+E1L106 = (E1_r_sm_main.s_rx_data_bits & (((!E1_r_bit_index[1]) # (!E1_r_bit_index[0])) # (!E1_r_bit_index[2])));
+
+
+--E1L107 is uart:uart_unit|uart_rx:receiver|Selector19~2 at LCCOMB_X34_Y47_N28
+E1L107 = (E1L105) # ((E1L106) # ((E1L47 & !E1_r_rx_data)));
+
+
+--A1L438 is Selector1~0 at LCCOMB_X38_Y43_N10
+A1L438 = (r_sm.s_clear) # ((!r_sm.s_idle & !D1L8));
+
+
+--A1L439 is Selector1~1 at LCCOMB_X33_Y40_N16
+A1L439 = (!A1L438 & ((A1L129) # (!r_sm.s_process)));
+
+
+--A1L437 is Selector0~1 at LCCOMB_X42_Y43_N22
+A1L437 = (!r_sm.s_idle & (((D1_r_fifo_count[1]) # (D1_r_fifo_count[3])) # (!D1L6)));
+
+
+--F1L72 is uart:uart_unit|uart_tx:transmitter|Selector21~0 at LCCOMB_X110_Y71_N0
+F1L72 = (F1L4 & (((F1_r_sm_main.s_tx_data_bits & !F1L57)))) # (!F1L4 & ((F1_r_sm_main.s_tx_start_bit) # ((F1_r_sm_main.s_tx_data_bits & !F1L57))));
+
+
+--F1L68 is uart:uart_unit|uart_tx:transmitter|Selector18~0 at LCCOMB_X110_Y71_N30
+F1L68 = (F1_r_sm_main.s_tx_data_bits & (F1_r_clk_count[12])) # (!F1_r_sm_main.s_tx_data_bits & ((F1_r_sm_main.s_idle)));
+
+
+--F1L69 is uart:uart_unit|uart_tx:transmitter|Selector18~1 at LCCOMB_X110_Y71_N18
+F1L69 = (F1L68 & (F1_r_bit_index[0] $ (((!F1L5 & F1_r_sm_main.s_tx_data_bits))))) # (!F1L68 & (((F1_r_bit_index[0] & F1_r_sm_main.s_tx_data_bits))));
+
+
+--F1L66 is uart:uart_unit|uart_tx:transmitter|Selector17~0 at LCCOMB_X110_Y71_N12
+F1L66 = (F1L4) # (!F1_r_bit_index[0]);
+
+
+--F1L67 is uart:uart_unit|uart_tx:transmitter|Selector17~1 at LCCOMB_X110_Y71_N4
+F1L67 = (F1_r_sm_main.s_tx_data_bits & ((F1_r_bit_index[1] $ (!F1L66)))) # (!F1_r_sm_main.s_tx_data_bits & (F1_r_sm_main.s_idle & (F1_r_bit_index[1])));
+
+
+--F1L64 is uart:uart_unit|uart_tx:transmitter|Selector16~0 at LCCOMB_X110_Y71_N2
+F1L64 = (F1_r_bit_index[1] & (F1_r_bit_index[0] & (!F1L5 & F1_r_clk_count[12])));
+
+
+--F1L65 is uart:uart_unit|uart_tx:transmitter|Selector16~1 at LCCOMB_X110_Y71_N10
+F1L65 = (F1_r_sm_main.s_tx_data_bits & ((F1_r_bit_index[2] $ (F1L64)))) # (!F1_r_sm_main.s_tx_data_bits & (F1_r_sm_main.s_idle & (F1_r_bit_index[2])));
+
+
+--F1L33 is uart:uart_unit|uart_tx:transmitter|r_clk_count[6]~39 at LCCOMB_X108_Y71_N6
+F1L33 = ((F1_r_clk_count[12] & !F1L5)) # (!F1_r_sm_main.s_idle);
+
+
+--F1L71 is uart:uart_unit|uart_tx:transmitter|Selector20~0 at LCCOMB_X110_Y71_N22
+F1L71 = (D2L3 & (((F1_r_sm_main.s_tx_start_bit & F1L4)))) # (!D2L3 & (((F1_r_sm_main.s_tx_start_bit & F1L4)) # (!F1_r_sm_main.s_idle)));
+
+
+--D1L75 is uart:uart_unit|fifo:fifo_rx|r_fifo_data~15 at LCCOMB_X40_Y43_N22
+D1L75 = (A1L135 & E1_r_rx_dv);
+
+
+--E1_r_rx_byte[0] is uart:uart_unit|uart_rx:receiver|r_rx_byte[0] at FF_X36_Y47_N5
+--register power-up is low
+
+E1_r_rx_byte[0] = DFFEAS(E1L67, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1_r_wr_index[0] is uart:uart_unit|fifo:fifo_rx|r_wr_index[0] at FF_X40_Y43_N9
+--register power-up is low
+
+D1_r_wr_index[0] = DFFEAS(D1L98, GLOBAL(A1L132),  ,  , D1L96,  ,  ,  ,  );
+
+
+--D1_r_wr_index[1] is uart:uart_unit|fifo:fifo_rx|r_wr_index[1] at FF_X40_Y43_N7
+--register power-up is low
+
+D1_r_wr_index[1] = DFFEAS(D1L99, GLOBAL(A1L132),  ,  , D1L96,  ,  ,  ,  );
+
+
+--D1_r_wr_index[2] is uart:uart_unit|fifo:fifo_rx|r_wr_index[2] at FF_X40_Y43_N29
+--register power-up is low
+
+D1_r_wr_index[2] = DFFEAS(D1L100, GLOBAL(A1L132),  ,  , D1L96,  ,  ,  ,  );
+
+
+--D1_r_wr_index[3] is uart:uart_unit|fifo:fifo_rx|r_wr_index[3] at FF_X40_Y43_N3
+--register power-up is low
+
+D1_r_wr_index[3] = DFFEAS(D1L101, GLOBAL(A1L132),  ,  , D1L96,  ,  ,  ,  );
+
+
+--D1_r_rd_index[0] is uart:uart_unit|fifo:fifo_rx|r_rd_index[0] at FF_X42_Y43_N29
+--register power-up is low
+
+D1_r_rd_index[0] = DFFEAS(D1L78, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1L85 is uart:uart_unit|fifo:fifo_rx|r_rd_index~0 at LCCOMB_X42_Y43_N26
+D1L85 = (A1L135 & (D1_r_rd_index[0] $ (((r_rd_rx & D1L8)))));
+
+
+--D1_r_rd_index[1] is uart:uart_unit|fifo:fifo_rx|r_rd_index[1] at FF_X41_Y43_N19
+--register power-up is low
+
+D1_r_rd_index[1] = DFFEAS(D1L80, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1_r_rd_index[3] is uart:uart_unit|fifo:fifo_rx|r_rd_index[3] at FF_X41_Y43_N13
+--register power-up is low
+
+D1_r_rd_index[3] = DFFEAS(D1L84, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1_r_rd_index[2] is uart:uart_unit|fifo:fifo_rx|r_rd_index[2] at FF_X41_Y43_N15
+--register power-up is low
+
+D1_r_rd_index[2] = DFFEAS(D1L82, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--D1L5 is uart:uart_unit|fifo:fifo_rx|Equal1~0 at LCCOMB_X41_Y43_N16
+D1L5 = (D1_r_rd_index[3] & (!D1_r_rd_index[1] & (!D1_r_rd_index[2] & D1_r_rd_index[0])));
+
+
+--D1L10 is uart:uart_unit|fifo:fifo_rx|p_control~1 at LCCOMB_X42_Y43_N24
+D1L10 = (r_rd_rx & ((D1_r_fifo_count[3]) # ((D1_r_fifo_count[1]) # (!D1L6))));
+
+
+--D1L86 is uart:uart_unit|fifo:fifo_rx|r_rd_index~1 at LCCOMB_X41_Y43_N6
+D1L86 = (D1L10 & (!D1L5 & (D1_r_rd_index[1] $ (D1_r_rd_index[0])))) # (!D1L10 & (D1_r_rd_index[1]));
+
+
+--D1L87 is uart:uart_unit|fifo:fifo_rx|r_rd_index~2 at LCCOMB_X41_Y43_N8
+D1L87 = (A1L135 & D1L86);
+
+
+--D1L3 is uart:uart_unit|fifo:fifo_rx|Add3~0 at LCCOMB_X41_Y43_N10
+D1L3 = (D1_r_rd_index[1] & D1_r_rd_index[0]);
+
+
+--D1L88 is uart:uart_unit|fifo:fifo_rx|r_rd_index~3 at LCCOMB_X41_Y43_N24
+D1L88 = (A1L135 & (D1_r_rd_index[2] $ (((D1L3 & D1L10)))));
+
+
+--D1L4 is uart:uart_unit|fifo:fifo_rx|Add3~1 at LCCOMB_X41_Y43_N22
+D1L4 = D1_r_rd_index[3] $ (((D1_r_rd_index[1] & (D1_r_rd_index[2] & D1_r_rd_index[0]))));
+
+
+--D1L89 is uart:uart_unit|fifo:fifo_rx|r_rd_index~4 at LCCOMB_X41_Y43_N20
+D1L89 = (!D1L5 & (D1L4 & D1L10));
+
+
+--D1L90 is uart:uart_unit|fifo:fifo_rx|r_rd_index~5 at LCCOMB_X41_Y43_N2
+D1L90 = (A1L135 & ((D1L89) # ((D1_r_rd_index[3] & !D1L10))));
+
+
+--E1_r_rx_byte[5] is uart:uart_unit|uart_rx:receiver|r_rx_byte[5] at FF_X36_Y47_N11
+--register power-up is low
+
+E1_r_rx_byte[5] = DFFEAS(E1L77, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--E1_r_rx_byte[4] is uart:uart_unit|uart_rx:receiver|r_rx_byte[4] at FF_X36_Y47_N21
+--register power-up is low
+
+E1_r_rx_byte[4] = DFFEAS(E1L75, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--E1_r_rx_byte[7] is uart:uart_unit|uart_rx:receiver|r_rx_byte[7] at FF_X36_Y47_N19
+--register power-up is low
+
+E1_r_rx_byte[7] = DFFEAS(E1L81, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--E1_r_rx_byte[6] is uart:uart_unit|uart_rx:receiver|r_rx_byte[6] at FF_X34_Y47_N13
+--register power-up is low
+
+E1_r_rx_byte[6] = DFFEAS(E1L79, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--E1_r_rx_byte[3] is uart:uart_unit|uart_rx:receiver|r_rx_byte[3] at FF_X36_Y47_N13
+--register power-up is low
+
+E1_r_rx_byte[3] = DFFEAS(E1L73, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--E1_r_rx_byte[2] is uart:uart_unit|uart_rx:receiver|r_rx_byte[2] at FF_X36_Y47_N15
+--register power-up is low
+
+E1_r_rx_byte[2] = DFFEAS(E1L71, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--E1_r_rx_byte[1] is uart:uart_unit|uart_rx:receiver|r_rx_byte[1] at FF_X36_Y47_N9
+--register power-up is low
+
+E1_r_rx_byte[1] = DFFEAS(E1L69, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--A1L386 is r_sm~9 at LCCOMB_X32_Y40_N14
+A1L386 = (A1L127 & (r_sm.s_process & (A1L125 & A1L128)));
+
+
+--E1L103 is uart:uart_unit|uart_rx:receiver|Selector17~0 at LCCOMB_X34_Y47_N20
+E1L103 = (!E1_r_sm_main.s_cleanup & (((!E1L47 & E1_r_sm_main.s_idle)) # (!E1_r_rx_data)));
+
+
+--E1_r_rx_data_r is uart:uart_unit|uart_rx:receiver|r_rx_data_r at FF_X34_Y47_N15
+--register power-up is low
+
+E1_r_rx_data_r = DFFEAS(E1L84, GLOBAL(A1L132),  ,  ,  ,  ,  ,  ,  );
+
+
+--E1L101 is uart:uart_unit|uart_rx:receiver|Selector16~0 at LCCOMB_X34_Y47_N10
+E1L101 = (E1_r_sm_main.s_rx_data_bits & ((E1_r_clk_count[12]))) # (!E1_r_sm_main.s_rx_data_bits & (E1_r_sm_main.s_idle));
+
+
+--E1L102 is uart:uart_unit|uart_rx:receiver|Selector16~1 at LCCOMB_X34_Y47_N0
+E1L102 = (E1L101 & (E1_r_bit_index[0] $ (((E1_r_sm_main.s_rx_data_bits & !E1L16))))) # (!E1L101 & (E1_r_sm_main.s_rx_data_bits & (E1_r_bit_index[0])));
+
+
+--E1L99 is uart:uart_unit|uart_rx:receiver|Selector15~2 at LCCOMB_X33_Y47_N18
+E1L99 = (E1_r_sm_main.s_rx_data_bits & (E1_r_bit_index[1] $ (((E1_r_bit_index[0] & E1L17)))));
+
+
+--E1L96 is uart:uart_unit|uart_rx:receiver|Selector14~0 at LCCOMB_X33_Y47_N20
+E1L96 = (E1_r_bit_index[0] & (E1L1 & (E1_r_bit_index[2] $ (E1_r_bit_index[1]))));
+
+
+--E1L2 is uart:uart_unit|uart_rx:receiver|Decoder0~1 at LCCOMB_X33_Y47_N6
+E1L2 = (!E1_r_bit_index[2] & (!E1_r_bit_index[0] & (!E1_r_bit_index[1] & E1L1)));
+
+
+--E1L67 is uart:uart_unit|uart_rx:receiver|r_rx_byte[0]~0 at LCCOMB_X36_Y47_N4
+E1L67 = (E1L2 & (E1_r_rx_data)) # (!E1L2 & ((E1_r_rx_byte[0])));
+
+
+--D1L98 is uart:uart_unit|fifo:fifo_rx|r_wr_index~0 at LCCOMB_X40_Y43_N8
+D1L98 = (A1L135 & !D1_r_wr_index[0]);
+
+
+--D1L96 is uart:uart_unit|fifo:fifo_rx|r_wr_index[3]~1 at LCCOMB_X42_Y43_N18
+D1L96 = ((E1_r_rx_dv & !D1L7)) # (!A1L135);
+
+
+--D1L97 is uart:uart_unit|fifo:fifo_rx|r_wr_index[3]~2 at LCCOMB_X40_Y43_N24
+D1L97 = (D1_r_wr_index[1]) # ((D1_r_wr_index[2]) # ((!D1_r_wr_index[3]) # (!D1_r_wr_index[0])));
+
+
+--D1L99 is uart:uart_unit|fifo:fifo_rx|r_wr_index~3 at LCCOMB_X40_Y43_N6
+D1L99 = (A1L135 & (D1L97 & (D1_r_wr_index[0] $ (D1_r_wr_index[1]))));
+
+
+--D1L1 is uart:uart_unit|fifo:fifo_rx|Add2~0 at LCCOMB_X40_Y43_N18
+D1L1 = D1_r_wr_index[2] $ (((D1_r_wr_index[0] & D1_r_wr_index[1])));
+
+
+--D1L100 is uart:uart_unit|fifo:fifo_rx|r_wr_index~4 at LCCOMB_X40_Y43_N28
+D1L100 = (D1L97 & (A1L135 & D1L1));
+
+
+--D1L2 is uart:uart_unit|fifo:fifo_rx|Add2~1 at LCCOMB_X40_Y43_N12
+D1L2 = D1_r_wr_index[3] $ (((D1_r_wr_index[1] & (D1_r_wr_index[2] & D1_r_wr_index[0]))));
+
+
+--D1L101 is uart:uart_unit|fifo:fifo_rx|r_wr_index~5 at LCCOMB_X40_Y43_N2
+D1L101 = (D1L2 & (A1L135 & D1L97));
+
+
+--E1L3 is uart:uart_unit|uart_rx:receiver|Decoder0~2 at LCCOMB_X33_Y47_N28
+E1L3 = (E1_r_bit_index[2] & (E1_r_bit_index[0] & (!E1_r_bit_index[1] & E1L1)));
+
+
+--E1L77 is uart:uart_unit|uart_rx:receiver|r_rx_byte[5]~1 at LCCOMB_X36_Y47_N10
+E1L77 = (E1L3 & (E1_r_rx_data)) # (!E1L3 & ((E1_r_rx_byte[5])));
+
+
+--E1L4 is uart:uart_unit|uart_rx:receiver|Decoder0~3 at LCCOMB_X33_Y47_N30
+E1L4 = (E1_r_bit_index[2] & (!E1_r_bit_index[0] & (!E1_r_bit_index[1] & E1L1)));
+
+
+--E1L75 is uart:uart_unit|uart_rx:receiver|r_rx_byte[4]~2 at LCCOMB_X36_Y47_N20
+E1L75 = (E1L4 & (E1_r_rx_data)) # (!E1L4 & ((E1_r_rx_byte[4])));
+
+
+--E1L5 is uart:uart_unit|uart_rx:receiver|Decoder0~4 at LCCOMB_X33_Y47_N24
+E1L5 = (E1_r_bit_index[2] & (E1_r_bit_index[0] & (E1_r_bit_index[1] & E1L1)));
+
+
+--E1L81 is uart:uart_unit|uart_rx:receiver|r_rx_byte[7]~3 at LCCOMB_X36_Y47_N18
+E1L81 = (E1L5 & (E1_r_rx_data)) # (!E1L5 & ((E1_r_rx_byte[7])));
+
+
+--E1L6 is uart:uart_unit|uart_rx:receiver|Decoder0~5 at LCCOMB_X33_Y47_N14
+E1L6 = (E1_r_bit_index[2] & (!E1_r_bit_index[0] & (E1_r_bit_index[1] & E1L1)));
+
+
+--E1L79 is uart:uart_unit|uart_rx:receiver|r_rx_byte[6]~4 at LCCOMB_X34_Y47_N12
+E1L79 = (E1L6 & (E1_r_rx_data)) # (!E1L6 & ((E1_r_rx_byte[6])));
+
+
+--E1L7 is uart:uart_unit|uart_rx:receiver|Decoder0~6 at LCCOMB_X33_Y47_N16
+E1L7 = (!E1_r_bit_index[2] & (E1_r_bit_index[0] & (E1_r_bit_index[1] & E1L1)));
+
+
+--E1L73 is uart:uart_unit|uart_rx:receiver|r_rx_byte[3]~5 at LCCOMB_X36_Y47_N12
+E1L73 = (E1L7 & (E1_r_rx_data)) # (!E1L7 & ((E1_r_rx_byte[3])));
+
+
+--E1L8 is uart:uart_unit|uart_rx:receiver|Decoder0~7 at LCCOMB_X33_Y47_N2
+E1L8 = (!E1_r_bit_index[2] & (!E1_r_bit_index[0] & (E1_r_bit_index[1] & E1L1)));
+
+
+--E1L71 is uart:uart_unit|uart_rx:receiver|r_rx_byte[2]~6 at LCCOMB_X36_Y47_N14
+E1L71 = (E1L8 & (E1_r_rx_data)) # (!E1L8 & ((E1_r_rx_byte[2])));
+
+
+--E1L9 is uart:uart_unit|uart_rx:receiver|Decoder0~8 at LCCOMB_X33_Y47_N8
+E1L9 = (!E1_r_bit_index[2] & (E1_r_bit_index[0] & (!E1_r_bit_index[1] & E1L1)));
+
+
+--E1L69 is uart:uart_unit|uart_rx:receiver|r_rx_byte[1]~7 at LCCOMB_X36_Y47_N8
+E1L69 = (E1L9 & (E1_r_rx_data)) # (!E1L9 & ((E1_r_rx_byte[1])));
+
+
+--A1L97 is Decoder1~35 at LCCOMB_X32_Y40_N16
+A1L97 = (!r_index[1] & (!r_index[0] & A1L93));
+
+
+--A1L98 is Decoder1~36 at LCCOMB_X32_Y40_N2
+A1L98 = (!r_index[1] & (r_index[0] & A1L93));
+
+
+--A1L99 is Decoder1~37 at LCCOMB_X32_Y40_N20
+A1L99 = (r_index[1] & (!r_index[0] & A1L93));
+
+
+--A1L100 is Decoder1~38 at LCCOMB_X32_Y40_N6
+A1L100 = (r_index[1] & (r_index[0] & A1L93));
+
+
+--A1L101 is Decoder1~39 at LCCOMB_X33_Y40_N18
+A1L101 = (!r_index[0] & (!r_index[1] & A1L94));
+
+
+--A1L102 is Decoder1~40 at LCCOMB_X27_Y40_N10
+A1L102 = (!r_index[1] & (r_index[0] & A1L94));
+
+
+--A1L103 is Decoder1~41 at LCCOMB_X27_Y40_N24
+A1L103 = (r_index[1] & (!r_index[0] & A1L94));
+
+
+--A1L104 is Decoder1~42 at LCCOMB_X27_Y40_N18
+A1L104 = (r_index[1] & (r_index[0] & A1L94));
+
+
+--A1L105 is Decoder1~43 at LCCOMB_X33_Y40_N12
+A1L105 = (!r_index[0] & (!r_index[1] & A1L95));
+
+
+--A1L106 is Decoder1~44 at LCCOMB_X33_Y40_N6
+A1L106 = (r_index[0] & (!r_index[1] & A1L95));
+
+
+--A1L107 is Decoder1~45 at LCCOMB_X33_Y40_N28
+A1L107 = (!r_index[0] & (r_index[1] & A1L95));
+
+
+--A1L108 is Decoder1~46 at LCCOMB_X33_Y40_N10
+A1L108 = (r_index[0] & (r_index[1] & A1L95));
+
+
+--A1L109 is Decoder1~47 at LCCOMB_X29_Y40_N18
+A1L109 = (!r_index[0] & (!r_index[1] & A1L96));
+
+
+--A1L110 is Decoder1~48 at LCCOMB_X29_Y40_N28
+A1L110 = (r_index[0] & (!r_index[1] & A1L96));
+
+
+--A1L111 is Decoder1~49 at LCCOMB_X29_Y40_N10
+A1L111 = (!r_index[0] & (r_index[1] & A1L96));
+
+
+--E1L92 is uart:uart_unit|uart_rx:receiver|r_sm_main.s_rx_stop_bit~3 at LCCOMB_X34_Y47_N8
+E1L92 = (E1L91) # ((E1_r_sm_main.s_rx_stop_bit & ((E1L16) # (!E1_r_clk_count[12]))));
+
+
+--E1L100 is uart:uart_unit|uart_rx:receiver|Selector15~3 at LCCOMB_X33_Y47_N22
+E1L100 = (E1L99) # ((E1_r_sm_main.s_idle & (!E1_r_sm_main.s_rx_data_bits & E1_r_bit_index[1])));
+
+
+--E1L97 is uart:uart_unit|uart_rx:receiver|Selector14~1 at LCCOMB_X33_Y47_N10
+E1L97 = (E1_r_sm_main.s_rx_data_bits & (((!E1L17) # (!E1_r_bit_index[0])))) # (!E1_r_sm_main.s_rx_data_bits & (E1_r_sm_main.s_idle));
+
+
+--E1L98 is uart:uart_unit|uart_rx:receiver|Selector14~2 at LCCOMB_X33_Y47_N12
+E1L98 = (E1L96) # ((E1_r_bit_index[2] & E1L97));
+
+
+--A1L259 is o_rx_full~output at IOOBUF_X83_Y73_N2
+A1L259 = OUTPUT_BUFFER.O(.I(D1L7), , , , , , , , , , , , , , , , , );
+
+
+--o_rx_full is o_rx_full at PIN_E25
+o_rx_full = OUTPUT();
+
+
+--A1L257 is o_rx_empty~output at IOOBUF_X85_Y73_N23
+A1L257 = OUTPUT_BUFFER.O(.I(!D1L8), , , , , , , , , , , , , , , , , );
+
+
+--o_rx_empty is o_rx_empty at PIN_E24
+o_rx_empty = OUTPUT();
+
+
+--A1L265 is o_tx~output at IOOBUF_X13_Y73_N23
+A1L265 = OUTPUT_BUFFER.O(.I(F1_o_tx_serial), , , , , , , , , , , , , , , , , );
+
+
+--o_tx is o_tx at PIN_G9
+o_tx = OUTPUT();
+
+
+--A1L264 is o_tx_full~output at IOOBUF_X107_Y73_N9
+A1L264 = OUTPUT_BUFFER.O(.I(D2L2), , , , , , , , , , , , , , , , , );
+
+
+--o_tx_full is o_tx_full at PIN_E21
+o_tx_full = OUTPUT();
+
+
+--A1L262 is o_tx_empty~output at IOOBUF_X111_Y73_N9
+A1L262 = OUTPUT_BUFFER.O(.I(D2L3), , , , , , , , , , , , , , , , , );
+
+
+--o_tx_empty is o_tx_empty at PIN_E22
+o_tx_empty = OUTPUT();
+
+
+--A1L145 is o_addr[0]~output at IOOBUF_X16_Y0_N2
+A1L145 = OUTPUT_BUFFER.O(.I(r_addr[0]), , , , , , , , , , , , , , , , , );
+
+
+--o_addr[0] is o_addr[0] at PIN_AB7
+o_addr[0] = OUTPUT();
+
+
+--A1L147 is o_addr[1]~output at IOOBUF_X3_Y0_N2
+A1L147 = OUTPUT_BUFFER.O(.I(r_addr[1]), , , , , , , , , , , , , , , , , );
+
+
+--o_addr[1] is o_addr[1] at PIN_AD7
+o_addr[1] = OUTPUT();
+
+
+--A1L149 is o_addr[2]~output at IOOBUF_X20_Y0_N16
+A1L149 = OUTPUT_BUFFER.O(.I(r_addr[2]), , , , , , , , , , , , , , , , , );
+
+
+--o_addr[2] is o_addr[2] at PIN_AE7
+o_addr[2] = OUTPUT();
+
+
+--A1L151 is o_addr[3]~output at IOOBUF_X9_Y0_N2
+A1L151 = OUTPUT_BUFFER.O(.I(r_addr[3]), , , , , , , , , , , , , , , , , );
+
+
+--o_addr[3] is o_addr[3] at PIN_AC7
+o_addr[3] = OUTPUT();
+
+
+--A1L153 is o_addr[4]~output at IOOBUF_X0_Y4_N9
+A1L153 = OUTPUT_BUFFER.O(.I(r_addr[4]), , , , , , , , , , , , , , , , , );
+
+
+--o_addr[4] is o_addr[4] at PIN_AB6
+o_addr[4] = OUTPUT();
+
+
+--A1L155 is o_addr[5]~output at IOOBUF_X1_Y0_N16
+A1L155 = OUTPUT_BUFFER.O(.I(r_addr[5]), , , , , , , , , , , , , , , , , );
+
+
+--o_addr[5] is o_addr[5] at PIN_AE6
+o_addr[5] = OUTPUT();
+
+
+--A1L157 is o_addr[6]~output at IOOBUF_X0_Y4_N23
+A1L157 = OUTPUT_BUFFER.O(.I(r_addr[6]), , , , , , , , , , , , , , , , , );
+
+
+--o_addr[6] is o_addr[6] at PIN_AB5
+o_addr[6] = OUTPUT();
+
+
+--A1L159 is o_addr[7]~output at IOOBUF_X0_Y5_N16
+A1L159 = OUTPUT_BUFFER.O(.I(r_addr[7]), , , , , , , , , , , , , , , , , );
+
+
+--o_addr[7] is o_addr[7] at PIN_AC5
+o_addr[7] = OUTPUT();
+
+
+--A1L161 is o_addr[8]~output at IOOBUF_X5_Y0_N16
+A1L161 = OUTPUT_BUFFER.O(.I(r_addr[8]), , , , , , , , , , , , , , , , , );
+
+
+--o_addr[8] is o_addr[8] at PIN_AF5
+o_addr[8] = OUTPUT();
+
+
+--A1L163 is o_addr[9]~output at IOOBUF_X0_Y31_N16
+A1L163 = OUTPUT_BUFFER.O(.I(r_addr[9]), , , , , , , , , , , , , , , , , );
+
+
+--o_addr[9] is o_addr[9] at PIN_T7
+o_addr[9] = OUTPUT();
+
+
+--A1L165 is o_addr[10]~output at IOOBUF_X0_Y6_N2
+A1L165 = OUTPUT_BUFFER.O(.I(r_addr[10]), , , , , , , , , , , , , , , , , );
+
+
+--o_addr[10] is o_addr[10] at PIN_AF2
+o_addr[10] = OUTPUT();
+
+
+--A1L167 is o_addr[11]~output at IOOBUF_X0_Y22_N16
+A1L167 = OUTPUT_BUFFER.O(.I(r_addr[11]), , , , , , , , , , , , , , , , , );
+
+
+--o_addr[11] is o_addr[11] at PIN_AD3
+o_addr[11] = OUTPUT();
+
+
+--A1L169 is o_addr[12]~output at IOOBUF_X0_Y8_N23
+A1L169 = OUTPUT_BUFFER.O(.I(r_addr[12]), , , , , , , , , , , , , , , , , );
+
+
+--o_addr[12] is o_addr[12] at PIN_AB4
+o_addr[12] = OUTPUT();
+
+
+--A1L171 is o_addr[13]~output at IOOBUF_X0_Y23_N23
+A1L171 = OUTPUT_BUFFER.O(.I(r_addr[13]), , , , , , , , , , , , , , , , , );
+
+
+--o_addr[13] is o_addr[13] at PIN_AC3
+o_addr[13] = OUTPUT();
+
+
+--A1L173 is o_addr[14]~output at IOOBUF_X0_Y19_N2
+A1L173 = OUTPUT_BUFFER.O(.I(r_addr[14]), , , , , , , , , , , , , , , , , );
+
+
+--o_addr[14] is o_addr[14] at PIN_AA4
+o_addr[14] = OUTPUT();
+
+
+--A1L175 is o_addr[15]~output at IOOBUF_X27_Y0_N9
+A1L175 = OUTPUT_BUFFER.O(.I(r_addr[15]), , , , , , , , , , , , , , , , , );
+
+
+--o_addr[15] is o_addr[15] at PIN_AB11
+o_addr[15] = OUTPUT();
+
+
+--A1L177 is o_addr[16]~output at IOOBUF_X49_Y0_N9
+A1L177 = OUTPUT_BUFFER.O(.I(r_addr[16]), , , , , , , , , , , , , , , , , );
+
+
+--o_addr[16] is o_addr[16] at PIN_AC11
+o_addr[16] = OUTPUT();
+
+
+--A1L179 is o_addr[17]~output at IOOBUF_X11_Y0_N9
+A1L179 = OUTPUT_BUFFER.O(.I(r_addr[17]), , , , , , , , , , , , , , , , , );
+
+
+--o_addr[17] is o_addr[17] at PIN_AB9
+o_addr[17] = OUTPUT();
+
+
+--A1L181 is o_addr[18]~output at IOOBUF_X11_Y0_N2
+A1L181 = OUTPUT_BUFFER.O(.I(r_addr[18]), , , , , , , , , , , , , , , , , );
+
+
+--o_addr[18] is o_addr[18] at PIN_AB8
+o_addr[18] = OUTPUT();
+
+
+--A1L183 is o_addr[19]~output at IOOBUF_X0_Y20_N16
+A1L183 = OUTPUT_BUFFER.O(.I(r_addr[19]), , , , , , , , , , , , , , , , , );
+
+
+--o_addr[19] is o_addr[19] at PIN_T8
+o_addr[19] = OUTPUT();
+
+
+--A1L188 is o_data[0]~output at IOOBUF_X5_Y0_N9
+A1L188 = OUTPUT_BUFFER.O(.I(r_sram_data[0]), , , , , , , , , , , , , , , , , );
+
+
+--o_data[0] is o_data[0] at PIN_AH3
+o_data[0] = OUTPUT();
+
+
+--A1L190 is o_data[1]~output at IOOBUF_X1_Y0_N2
+A1L190 = OUTPUT_BUFFER.O(.I(r_sram_data[1]), , , , , , , , , , , , , , , , , );
+
+
+--o_data[1] is o_data[1] at PIN_AF4
+o_data[1] = OUTPUT();
+
+
+--A1L192 is o_data[2]~output at IOOBUF_X9_Y0_N23
+A1L192 = OUTPUT_BUFFER.O(.I(r_sram_data[2]), , , , , , , , , , , , , , , , , );
+
+
+--o_data[2] is o_data[2] at PIN_AG4
+o_data[2] = OUTPUT();
+
+
+--A1L194 is o_data[3]~output at IOOBUF_X9_Y0_N16
+A1L194 = OUTPUT_BUFFER.O(.I(r_sram_data[3]), , , , , , , , , , , , , , , , , );
+
+
+--o_data[3] is o_data[3] at PIN_AH4
+o_data[3] = OUTPUT();
+
+
+--A1L196 is o_data[4]~output at IOOBUF_X7_Y0_N16
+A1L196 = OUTPUT_BUFFER.O(.I(r_sram_data[4]), , , , , , , , , , , , , , , , , );
+
+
+--o_data[4] is o_data[4] at PIN_AF6
+o_data[4] = OUTPUT();
+
+
+--A1L198 is o_data[5]~output at IOOBUF_X11_Y0_N23
+A1L198 = OUTPUT_BUFFER.O(.I(r_sram_data[5]), , , , , , , , , , , , , , , , , );
+
+
+--o_data[5] is o_data[5] at PIN_AG6
+o_data[5] = OUTPUT();
+
+
+--A1L200 is o_data[6]~output at IOOBUF_X11_Y0_N16
+A1L200 = OUTPUT_BUFFER.O(.I(r_sram_data[6]), , , , , , , , , , , , , , , , , );
+
+
+--o_data[6] is o_data[6] at PIN_AH6
+o_data[6] = OUTPUT();
+
+
+--A1L202 is o_data[7]~output at IOOBUF_X20_Y0_N9
+A1L202 = OUTPUT_BUFFER.O(.I(r_sram_data[7]), , , , , , , , , , , , , , , , , );
+
+
+--o_data[7] is o_data[7] at PIN_AF7
+o_data[7] = OUTPUT();
+
+
+--A1L204 is o_data[8]~output at IOOBUF_X0_Y21_N16
+A1L204 = OUTPUT_BUFFER.O(.I(r_sram_data[8]), , , , , , , , , , , , , , , , , );
+
+
+--o_data[8] is o_data[8] at PIN_AD1
+o_data[8] = OUTPUT();
+
+
+--A1L206 is o_data[9]~output at IOOBUF_X0_Y22_N23
+A1L206 = OUTPUT_BUFFER.O(.I(r_sram_data[9]), , , , , , , , , , , , , , , , , );
+
+
+--o_data[9] is o_data[9] at PIN_AD2
+o_data[9] = OUTPUT();
+
+
+--A1L208 is o_data[10]~output at IOOBUF_X0_Y17_N16
+A1L208 = OUTPUT_BUFFER.O(.I(r_sram_data[10]), , , , , , , , , , , , , , , , , );
+
+
+--o_data[10] is o_data[10] at PIN_AE2
+o_data[10] = OUTPUT();
+
+
+--A1L210 is o_data[11]~output at IOOBUF_X0_Y16_N16
+A1L210 = OUTPUT_BUFFER.O(.I(r_sram_data[11]), , , , , , , , , , , , , , , , , );
+
+
+--o_data[11] is o_data[11] at PIN_AE1
+o_data[11] = OUTPUT();
+
+
+--A1L212 is o_data[12]~output at IOOBUF_X0_Y7_N9
+A1L212 = OUTPUT_BUFFER.O(.I(r_sram_data[12]), , , , , , , , , , , , , , , , , );
+
+
+--o_data[12] is o_data[12] at PIN_AE3
+o_data[12] = OUTPUT();
+
+
+--A1L214 is o_data[13]~output at IOOBUF_X3_Y0_N23
+A1L214 = OUTPUT_BUFFER.O(.I(r_sram_data[13]), , , , , , , , , , , , , , , , , );
+
+
+--o_data[13] is o_data[13] at PIN_AE4
+o_data[13] = OUTPUT();
+
+
+--A1L216 is o_data[14]~output at IOOBUF_X7_Y0_N23
+A1L216 = OUTPUT_BUFFER.O(.I(r_sram_data[14]), , , , , , , , , , , , , , , , , );
+
+
+--o_data[14] is o_data[14] at PIN_AF3
+o_data[14] = OUTPUT();
+
+
+--A1L218 is o_data[15]~output at IOOBUF_X3_Y0_N16
+A1L218 = OUTPUT_BUFFER.O(.I(r_sram_data[15]), , , , , , , , , , , , , , , , , );
+
+
+--o_data[15] is o_data[15] at PIN_AG3
+o_data[15] = OUTPUT();
+
+
+--A1L269 is o_we~output at IOOBUF_X23_Y0_N23
+A1L269 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
+
+
+--o_we is o_we at PIN_AE8
+o_we = OUTPUT();
+
+
+--A1L185 is o_ce~output at IOOBUF_X23_Y0_N16
+A1L185 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
+
+
+--o_ce is o_ce at PIN_AF8
+o_ce = OUTPUT();
+
+
+--A1L255 is o_oe~output at IOOBUF_X1_Y0_N23
+A1L255 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
+
+
+--o_oe is o_oe at PIN_AD5
+o_oe = OUTPUT();
+
+
+--A1L267 is o_ub~output at IOOBUF_X0_Y4_N2
+A1L267 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
+
+
+--o_ub is o_ub at PIN_AC4
+o_ub = OUTPUT();
+
+
+--A1L220 is o_lb~output at IOOBUF_X1_Y0_N9
+A1L220 = OUTPUT_BUFFER.O(.I(GND), , , , , , , , , , , , , , , , , );
+
+
+--o_lb is o_lb at PIN_AD4
+o_lb = OUTPUT();
+
+
+--A1L223 is o_leds[0]~output at IOOBUF_X69_Y73_N16
+A1L223 = OUTPUT_BUFFER.O(.I(r_sram_data[0]), , , , , , , , , , , , , , , , , );
+
+
+--o_leds[0] is o_leds[0] at PIN_G19
+o_leds[0] = OUTPUT();
+
+
+--A1L225 is o_leds[1]~output at IOOBUF_X94_Y73_N2
+A1L225 = OUTPUT_BUFFER.O(.I(r_sram_data[1]), , , , , , , , , , , , , , , , , );
+
+
+--o_leds[1] is o_leds[1] at PIN_F19
+o_leds[1] = OUTPUT();
+
+
+--A1L227 is o_leds[2]~output at IOOBUF_X94_Y73_N9
+A1L227 = OUTPUT_BUFFER.O(.I(r_sram_data[2]), , , , , , , , , , , , , , , , , );
+
+
+--o_leds[2] is o_leds[2] at PIN_E19
+o_leds[2] = OUTPUT();
+
+
+--A1L229 is o_leds[3]~output at IOOBUF_X107_Y73_N16
+A1L229 = OUTPUT_BUFFER.O(.I(r_sram_data[3]), , , , , , , , , , , , , , , , , );
+
+
+--o_leds[3] is o_leds[3] at PIN_F21
+o_leds[3] = OUTPUT();
+
+
+--A1L231 is o_leds[4]~output at IOOBUF_X87_Y73_N16
+A1L231 = OUTPUT_BUFFER.O(.I(r_sram_data[4]), , , , , , , , , , , , , , , , , );
+
+
+--o_leds[4] is o_leds[4] at PIN_F18
+o_leds[4] = OUTPUT();
+
+
+--A1L233 is o_leds[5]~output at IOOBUF_X87_Y73_N9
+A1L233 = OUTPUT_BUFFER.O(.I(r_sram_data[5]), , , , , , , , , , , , , , , , , );
+
+
+--o_leds[5] is o_leds[5] at PIN_E18
+o_leds[5] = OUTPUT();
+
+
+--A1L235 is o_leds[6]~output at IOOBUF_X72_Y73_N9
+A1L235 = OUTPUT_BUFFER.O(.I(r_sram_data[6]), , , , , , , , , , , , , , , , , );
+
+
+--o_leds[6] is o_leds[6] at PIN_J19
+o_leds[6] = OUTPUT();
+
+
+--A1L237 is o_leds[7]~output at IOOBUF_X72_Y73_N2
+A1L237 = OUTPUT_BUFFER.O(.I(r_sram_data[7]), , , , , , , , , , , , , , , , , );
+
+
+--o_leds[7] is o_leds[7] at PIN_H19
+o_leds[7] = OUTPUT();
+
+
+--A1L239 is o_leds[8]~output at IOOBUF_X69_Y73_N2
+A1L239 = OUTPUT_BUFFER.O(.I(r_sram_data[8]), , , , , , , , , , , , , , , , , );
+
+
+--o_leds[8] is o_leds[8] at PIN_J17
+o_leds[8] = OUTPUT();
+
+
+--A1L241 is o_leds[9]~output at IOOBUF_X83_Y73_N23
+A1L241 = OUTPUT_BUFFER.O(.I(r_sram_data[9]), , , , , , , , , , , , , , , , , );
+
+
+--o_leds[9] is o_leds[9] at PIN_G17
+o_leds[9] = OUTPUT();
+
+
+--A1L243 is o_leds[10]~output at IOOBUF_X60_Y73_N23
+A1L243 = OUTPUT_BUFFER.O(.I(r_sram_data[10]), , , , , , , , , , , , , , , , , );
+
+
+--o_leds[10] is o_leds[10] at PIN_J15
+o_leds[10] = OUTPUT();
+
+
+--A1L245 is o_leds[11]~output at IOOBUF_X65_Y73_N23
+A1L245 = OUTPUT_BUFFER.O(.I(r_sram_data[11]), , , , , , , , , , , , , , , , , );
+
+
+--o_leds[11] is o_leds[11] at PIN_H16
+o_leds[11] = OUTPUT();
+
+
+--A1L247 is o_leds[12]~output at IOOBUF_X65_Y73_N16
+A1L247 = OUTPUT_BUFFER.O(.I(r_sram_data[12]), , , , , , , , , , , , , , , , , );
+
+
+--o_leds[12] is o_leds[12] at PIN_J16
+o_leds[12] = OUTPUT();
+
+
+--A1L249 is o_leds[13]~output at IOOBUF_X67_Y73_N9
+A1L249 = OUTPUT_BUFFER.O(.I(r_sram_data[13]), , , , , , , , , , , , , , , , , );
+
+
+--o_leds[13] is o_leds[13] at PIN_H17
+o_leds[13] = OUTPUT();
+
+
+--A1L251 is o_leds[14]~output at IOOBUF_X58_Y73_N2
+A1L251 = OUTPUT_BUFFER.O(.I(r_sram_data[14]), , , , , , , , , , , , , , , , , );
+
+
+--o_leds[14] is o_leds[14] at PIN_F15
+o_leds[14] = OUTPUT();
+
+
+--A1L253 is o_leds[15]~output at IOOBUF_X65_Y73_N9
+A1L253 = OUTPUT_BUFFER.O(.I(r_sram_data[15]), , , , , , , , , , , , , , , , , );
+
+
+--o_leds[15] is o_leds[15] at PIN_G15
+o_leds[15] = OUTPUT();
+
+
+--A1L131 is i_clk~input at IOIBUF_X0_Y36_N15
+A1L131 = INPUT_BUFFER(.I(i_clk), );
+
+
+--i_clk is i_clk at PIN_Y2
+i_clk = INPUT();
+
+
+--A1L135 is i_rst_sync~input at IOIBUF_X115_Y53_N15
+A1L135 = INPUT_BUFFER(.I(i_rst_sync), );
+
+
+--i_rst_sync is i_rst_sync at PIN_M21
+i_rst_sync = INPUT();
+
+
+--A1L136 is i_rst~input at IOIBUF_X115_Y40_N8
+A1L136 = INPUT_BUFFER(.I(i_rst), );
+
+
+--i_rst is i_rst at PIN_M23
+i_rst = INPUT();
+
+
+--A1L138 is i_rx~input at IOIBUF_X27_Y73_N8
+A1L138 = INPUT_BUFFER(.I(i_rx), );
+
+
+--i_rx is i_rx at PIN_G12
+i_rx = INPUT();
+
+
+
+
+
+
+
+
+
+
+
+
+--A1L132 is i_clk~inputclkctrl at CLKCTRL_G4
+A1L132 = cycloneive_clkctrl(.INCLK[0] = A1L131) WITH (clock_type = "Global Clock", ena_register_mode = "none");
+
+
+--A1L381 is r_sm.s_clear~feeder at LCCOMB_X32_Y40_N24
+A1L381 = r_sm.s_write_sram;
+
+
+--D1L34 is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[3]~feeder at LCCOMB_X40_Y43_N30
+D1L34 = D1_r_wr_index[1];
+
+
+--D1L38 is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[5]~feeder at LCCOMB_X40_Y43_N4
+D1L38 = D1_r_wr_index[2];
+
+
+--D1L78 is uart:uart_unit|fifo:fifo_rx|r_rd_index[0]~feeder at LCCOMB_X42_Y43_N28
+D1L78 = D1L85;
+
+
+--D1L36 is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[4]~feeder at LCCOMB_X41_Y43_N28
+D1L36 = D1L87;
+
+
+--D1L80 is uart:uart_unit|fifo:fifo_rx|r_rd_index[1]~feeder at LCCOMB_X41_Y43_N18
+D1L80 = D1L87;
+
+
+--D1L40 is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[6]~feeder at LCCOMB_X41_Y43_N4
+D1L40 = D1L88;
+
+
+--D1L82 is uart:uart_unit|fifo:fifo_rx|r_rd_index[2]~feeder at LCCOMB_X41_Y43_N14
+D1L82 = D1L88;
+
+
+--D1L43 is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[8]~feeder at LCCOMB_X41_Y43_N30
+D1L43 = D1L90;
+
+
+--D1L84 is uart:uart_unit|fifo:fifo_rx|r_rd_index[3]~feeder at LCCOMB_X41_Y43_N12
+D1L84 = D1L90;
+
+
+--D1L62 is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[19]~feeder at LCCOMB_X38_Y43_N2
+D1L62 = E1_r_rx_byte[5];
+
+
+--D1L58 is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[17]~feeder at LCCOMB_X38_Y43_N24
+D1L58 = E1_r_rx_byte[4];
+
+
+--D1L70 is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[23]~feeder at LCCOMB_X36_Y43_N12
+D1L70 = E1_r_rx_byte[7];
+
+
+--D1L66 is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[21]~feeder at LCCOMB_X38_Y43_N14
+D1L66 = E1_r_rx_byte[6];
+
+
+--D1L48 is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[11]~feeder at LCCOMB_X36_Y43_N6
+D1L48 = E1_r_rx_byte[1];
+
+
+--E1L84 is uart:uart_unit|uart_rx:receiver|r_rx_data_r~feeder at LCCOMB_X34_Y47_N14
+E1L84 = A1L138;
+
+
+--D1L46 is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[10]~feeder at LCCOMB_X39_Y43_N28
+D1L46 = VCC;
+
+
+--D1L64 is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[20]~feeder at LCCOMB_X39_Y43_N20
+D1L64 = VCC;
+
+
+--D1L60 is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[18]~feeder at LCCOMB_X39_Y43_N0
+D1L60 = VCC;
+
+
+--D1L72 is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[24]~feeder at LCCOMB_X39_Y43_N24
+D1L72 = VCC;
+
+
+--D1L68 is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[22]~feeder at LCCOMB_X39_Y43_N12
+D1L68 = VCC;
+
+
+--D1L56 is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[16]~feeder at LCCOMB_X39_Y43_N4
+D1L56 = VCC;
+
+
+--D1L53 is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[14]~feeder at LCCOMB_X39_Y43_N8
+D1L53 = VCC;
+
+
+--D1L50 is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[12]~feeder at LCCOMB_X39_Y43_N16
+D1L50 = VCC;
+
+

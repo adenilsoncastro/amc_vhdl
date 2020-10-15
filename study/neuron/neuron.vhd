@@ -9,7 +9,7 @@
  
  entity neuron is
 	generic(
-		g_addr		: std_logic_vector(15 downto 0);
+		g_addr		: std_logic_vector(18 downto 0);
 		g_bits_data	: natural := 16;
 		g_bits_ctrl	: natural := 4);
 	
@@ -17,7 +17,7 @@
 		i_clk			: in std_logic;
 		i_enable		: in std_logic;
 		i_ctrl		: in std_logic_vector((g_bits_ctrl-1) downto 0);
-		i_fxp_data	: in std_logic_vector((g_bits_data-1) downto 0)
+		i_fxp_data	: in std_logic_vector((g_bits_data-1) downto 0);
 		
 		o_fxp_data	: out std_logic_vector((g_bits_data -1) downto 0));
  end neuron;

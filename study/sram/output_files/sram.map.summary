@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Wed Oct 14 22:33:23 2020
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Revision Name : sram
+Top-level Entity Name : sram
+Family : Cyclone IV E
+Total logic elements : 360
+    Total combinational functions : 332
+    Dedicated logic registers : 180
+Total registers : 180
+Total pins : 66
+Total virtual pins : 0
+Total memory bits : 80
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

@@ -22,11 +22,11 @@
 		i_rst				: in std_logic;
 		i_rst_sync			: in std_logic;
 		
-		i_rx					: in std_logic;
+		i_rx				: in std_logic;
 		o_rx_full			: out std_logic;
 		o_rx_empty			: out std_logic;
 				
-		o_tx					: out std_logic;
+		o_tx				: out std_logic;
 		o_tx_full			: out std_logic;
 		o_tx_empty			: out std_logic;
 		
@@ -80,8 +80,7 @@ begin
 					r_rd_rx		<= '0';
 					r_data		<= r_rx_data;
 					r_sm_main	<= s_calculus;
-					
-				
+
 				when s_calculus =>
 					r_data 		<= std_logic_vector(unsigned(r_data) + 1);
 					r_sm_main 	<= s_put_fifo_data;

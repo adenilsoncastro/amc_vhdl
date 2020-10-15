@@ -1,0 +1,462 @@
+-- Copyright (C) 2020  Intel Corporation. All rights reserved.
+-- Your use of Intel Corporation's design tools, logic functions 
+-- and other software and tools, and any partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Intel Program License 
+-- Subscription Agreement, the Intel Quartus Prime License Agreement,
+-- the Intel FPGA IP License Agreement, or other applicable license
+-- agreement, including, without limitation, that your use is for
+-- the sole purpose of programming logic devices manufactured by
+-- Intel and sold by Intel or its authorized distributors.  Please
+-- refer to the applicable agreement for further details, at
+-- https://fpgasoftware.intel.com/eula.
+--E1_mac_out4 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_out4
+--DSP Block Operation Mode: Simple Multiplier (9-bit)
+E1_mac_out4 = DFFE(E1_mac_mult3, clk, , , );
+
+--E1L34Q is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_out4~DATAOUT1
+E1L34Q = DFFE(E1L2, clk, , , );
+
+--E1L35Q is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_out4~DATAOUT2
+E1L35Q = DFFE(E1L3, clk, , , );
+
+--E1L36Q is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_out4~DATAOUT3
+E1L36Q = DFFE(E1L4, clk, , , );
+
+--E1L37Q is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_out4~DATAOUT4
+E1L37Q = DFFE(E1L5, clk, , , );
+
+--E1L38Q is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_out4~DATAOUT5
+E1L38Q = DFFE(E1L6, clk, , , );
+
+--E1L39Q is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_out4~DATAOUT6
+E1L39Q = DFFE(E1L7, clk, , , );
+
+--E1L40Q is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_out4~DATAOUT7
+E1L40Q = DFFE(E1L8, clk, , , );
+
+--E1L41Q is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_out4~DATAOUT8
+E1L41Q = DFFE(E1L9, clk, , , );
+
+--E1L42Q is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_out4~DATAOUT9
+E1L42Q = DFFE(E1L10, clk, , , );
+
+--E1L43Q is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_out4~DATAOUT10
+E1L43Q = DFFE(E1L11, clk, , , );
+
+--E1L44Q is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_out4~DATAOUT11
+E1L44Q = DFFE(E1L12, clk, , , );
+
+--E1L45Q is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_out4~DATAOUT12
+E1L45Q = DFFE(E1L13, clk, , , );
+
+--E1L46Q is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_out4~DATAOUT13
+E1L46Q = DFFE(E1L14, clk, , , );
+
+--E1L47Q is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_out4~DATAOUT14
+E1L47Q = DFFE(E1L15, clk, , , );
+
+--E1L48Q is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_out4~DATAOUT15
+E1L48Q = DFFE(E1L16, clk, , , );
+
+
+--H1_acc_cella[0] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[0]
+H1_acc_cella[0] = (H1_acc_ffa[0] & (E1_mac_out4 $ (VCC))) # (!H1_acc_ffa[0] & (E1_mac_out4 & VCC));
+
+--H1L3 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[0]~COUT
+H1L3 = CARRY((H1_acc_ffa[0] & E1_mac_out4));
+
+
+--H1_acc_cella[1] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[1]
+H1_acc_cella[1] = (H1_acc_ffa[1] & ((E1L34Q & (H1L3 & VCC)) # (!E1L34Q & (!H1L3)))) # (!H1_acc_ffa[1] & ((E1L34Q & (!H1L3)) # (!E1L34Q & ((H1L3) # (GND)))));
+
+--H1L5 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[1]~COUT
+H1L5 = CARRY((H1_acc_ffa[1] & (!E1L34Q & !H1L3)) # (!H1_acc_ffa[1] & ((!H1L3) # (!E1L34Q))));
+
+
+--H1_acc_cella[2] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[2]
+H1_acc_cella[2] = ((H1_acc_ffa[2] $ (E1L35Q $ (!H1L5)))) # (GND);
+
+--H1L7 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[2]~COUT
+H1L7 = CARRY((H1_acc_ffa[2] & ((E1L35Q) # (!H1L5))) # (!H1_acc_ffa[2] & (E1L35Q & !H1L5)));
+
+
+--H1_acc_cella[3] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[3]
+H1_acc_cella[3] = (H1_acc_ffa[3] & ((E1L36Q & (H1L7 & VCC)) # (!E1L36Q & (!H1L7)))) # (!H1_acc_ffa[3] & ((E1L36Q & (!H1L7)) # (!E1L36Q & ((H1L7) # (GND)))));
+
+--H1L9 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[3]~COUT
+H1L9 = CARRY((H1_acc_ffa[3] & (!E1L36Q & !H1L7)) # (!H1_acc_ffa[3] & ((!H1L7) # (!E1L36Q))));
+
+
+--H1_acc_cella[4] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[4]
+H1_acc_cella[4] = ((H1_acc_ffa[4] $ (E1L37Q $ (!H1L9)))) # (GND);
+
+--H1L11 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[4]~COUT
+H1L11 = CARRY((H1_acc_ffa[4] & ((E1L37Q) # (!H1L9))) # (!H1_acc_ffa[4] & (E1L37Q & !H1L9)));
+
+
+--H1_acc_cella[5] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[5]
+H1_acc_cella[5] = (H1_acc_ffa[5] & ((E1L38Q & (H1L11 & VCC)) # (!E1L38Q & (!H1L11)))) # (!H1_acc_ffa[5] & ((E1L38Q & (!H1L11)) # (!E1L38Q & ((H1L11) # (GND)))));
+
+--H1L13 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[5]~COUT
+H1L13 = CARRY((H1_acc_ffa[5] & (!E1L38Q & !H1L11)) # (!H1_acc_ffa[5] & ((!H1L11) # (!E1L38Q))));
+
+
+--H1_acc_cella[6] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[6]
+H1_acc_cella[6] = ((H1_acc_ffa[6] $ (E1L39Q $ (!H1L13)))) # (GND);
+
+--H1L15 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[6]~COUT
+H1L15 = CARRY((H1_acc_ffa[6] & ((E1L39Q) # (!H1L13))) # (!H1_acc_ffa[6] & (E1L39Q & !H1L13)));
+
+
+--H1_acc_cella[7] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[7]
+H1_acc_cella[7] = (H1_acc_ffa[7] & ((E1L40Q & (H1L15 & VCC)) # (!E1L40Q & (!H1L15)))) # (!H1_acc_ffa[7] & ((E1L40Q & (!H1L15)) # (!E1L40Q & ((H1L15) # (GND)))));
+
+--H1L17 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[7]~COUT
+H1L17 = CARRY((H1_acc_ffa[7] & (!E1L40Q & !H1L15)) # (!H1_acc_ffa[7] & ((!H1L15) # (!E1L40Q))));
+
+
+--H1_acc_cella[8] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[8]
+H1_acc_cella[8] = ((H1_acc_ffa[8] $ (E1L41Q $ (!H1L17)))) # (GND);
+
+--H1L19 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[8]~COUT
+H1L19 = CARRY((H1_acc_ffa[8] & ((E1L41Q) # (!H1L17))) # (!H1_acc_ffa[8] & (E1L41Q & !H1L17)));
+
+
+--H1_acc_cella[9] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[9]
+H1_acc_cella[9] = (H1_acc_ffa[9] & ((E1L42Q & (H1L19 & VCC)) # (!E1L42Q & (!H1L19)))) # (!H1_acc_ffa[9] & ((E1L42Q & (!H1L19)) # (!E1L42Q & ((H1L19) # (GND)))));
+
+--H1L21 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[9]~COUT
+H1L21 = CARRY((H1_acc_ffa[9] & (!E1L42Q & !H1L19)) # (!H1_acc_ffa[9] & ((!H1L19) # (!E1L42Q))));
+
+
+--H1_acc_cella[10] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[10]
+H1_acc_cella[10] = ((H1_acc_ffa[10] $ (E1L43Q $ (!H1L21)))) # (GND);
+
+--H1L23 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[10]~COUT
+H1L23 = CARRY((H1_acc_ffa[10] & ((E1L43Q) # (!H1L21))) # (!H1_acc_ffa[10] & (E1L43Q & !H1L21)));
+
+
+--H1_acc_cella[11] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[11]
+H1_acc_cella[11] = (H1_acc_ffa[11] & ((E1L44Q & (H1L23 & VCC)) # (!E1L44Q & (!H1L23)))) # (!H1_acc_ffa[11] & ((E1L44Q & (!H1L23)) # (!E1L44Q & ((H1L23) # (GND)))));
+
+--H1L25 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[11]~COUT
+H1L25 = CARRY((H1_acc_ffa[11] & (!E1L44Q & !H1L23)) # (!H1_acc_ffa[11] & ((!H1L23) # (!E1L44Q))));
+
+
+--H1_acc_cella[12] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[12]
+H1_acc_cella[12] = ((H1_acc_ffa[12] $ (E1L45Q $ (!H1L25)))) # (GND);
+
+--H1L27 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[12]~COUT
+H1L27 = CARRY((H1_acc_ffa[12] & ((E1L45Q) # (!H1L25))) # (!H1_acc_ffa[12] & (E1L45Q & !H1L25)));
+
+
+--H1_acc_cella[13] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[13]
+H1_acc_cella[13] = (H1_acc_ffa[13] & ((E1L46Q & (H1L27 & VCC)) # (!E1L46Q & (!H1L27)))) # (!H1_acc_ffa[13] & ((E1L46Q & (!H1L27)) # (!E1L46Q & ((H1L27) # (GND)))));
+
+--H1L29 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[13]~COUT
+H1L29 = CARRY((H1_acc_ffa[13] & (!E1L46Q & !H1L27)) # (!H1_acc_ffa[13] & ((!H1L27) # (!E1L46Q))));
+
+
+--H1_acc_cella[14] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[14]
+H1_acc_cella[14] = ((H1_acc_ffa[14] $ (E1L47Q $ (!H1L29)))) # (GND);
+
+--H1L31 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[14]~COUT
+H1L31 = CARRY((H1_acc_ffa[14] & ((E1L47Q) # (!H1L29))) # (!H1_acc_ffa[14] & (E1L47Q & !H1L29)));
+
+
+--H1_acc_cella[15] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_cella[15]
+H1_acc_cella[15] = H1_acc_ffa[15] $ (E1L48Q $ (H1L31));
+
+
+--E1_mac_mult3 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_mult3
+--DSP Block Multiplier Base Width: 9-bits
+E1_mac_mult3_a_data = DATA(a[7], a[6], a[5], a[4], a[3], a[2], a[1], a[0]);
+E1_mac_mult3_a_reg = DFFE(E1_mac_mult3_a_data, clk, , , );
+E1_mac_mult3_a_rep = SIGNED(E1_mac_mult3_a_reg);
+E1_mac_mult3_b_data = DATA(b[7], b[6], b[5], b[4], b[3], b[2], b[1], b[0]);
+E1_mac_mult3_b_reg = DFFE(E1_mac_mult3_b_data, clk, , , );
+E1_mac_mult3_b_rep = SIGNED(E1_mac_mult3_b_reg);
+E1_mac_mult3_result = E1_mac_mult3_a_rep * E1_mac_mult3_b_rep;
+E1_mac_mult3 = E1_mac_mult3_result[0];
+
+--E1L2 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_mult3~DATAOUT1
+E1L2 = E1_mac_mult3_result[1];
+
+--E1L3 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_mult3~DATAOUT2
+E1L3 = E1_mac_mult3_result[2];
+
+--E1L4 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_mult3~DATAOUT3
+E1L4 = E1_mac_mult3_result[3];
+
+--E1L5 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_mult3~DATAOUT4
+E1L5 = E1_mac_mult3_result[4];
+
+--E1L6 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_mult3~DATAOUT5
+E1L6 = E1_mac_mult3_result[5];
+
+--E1L7 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_mult3~DATAOUT6
+E1L7 = E1_mac_mult3_result[6];
+
+--E1L8 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_mult3~DATAOUT7
+E1L8 = E1_mac_mult3_result[7];
+
+--E1L9 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_mult3~DATAOUT8
+E1L9 = E1_mac_mult3_result[8];
+
+--E1L10 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_mult3~DATAOUT9
+E1L10 = E1_mac_mult3_result[9];
+
+--E1L11 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_mult3~DATAOUT10
+E1L11 = E1_mac_mult3_result[10];
+
+--E1L12 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_mult3~DATAOUT11
+E1L12 = E1_mac_mult3_result[11];
+
+--E1L13 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_mult3~DATAOUT12
+E1L13 = E1_mac_mult3_result[12];
+
+--E1L14 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_mult3~DATAOUT13
+E1L14 = E1_mac_mult3_result[13];
+
+--E1L15 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_mult3~DATAOUT14
+E1L15 = E1_mac_mult3_result[14];
+
+--E1L16 is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|ded_mult_i381:ded_mult1|mac_mult3~DATAOUT15
+E1L16 = E1_mac_mult3_result[15];
+
+
+--sload is sload
+sload = INPUT();
+
+
+--accum_out[0] is accum_out[0]
+accum_out[0] = OUTPUT(H1_acc_ffa[0]);
+
+
+--accum_out[1] is accum_out[1]
+accum_out[1] = OUTPUT(H1_acc_ffa[1]);
+
+
+--accum_out[2] is accum_out[2]
+accum_out[2] = OUTPUT(H1_acc_ffa[2]);
+
+
+--accum_out[3] is accum_out[3]
+accum_out[3] = OUTPUT(H1_acc_ffa[3]);
+
+
+--accum_out[4] is accum_out[4]
+accum_out[4] = OUTPUT(H1_acc_ffa[4]);
+
+
+--accum_out[5] is accum_out[5]
+accum_out[5] = OUTPUT(H1_acc_ffa[5]);
+
+
+--accum_out[6] is accum_out[6]
+accum_out[6] = OUTPUT(H1_acc_ffa[6]);
+
+
+--accum_out[7] is accum_out[7]
+accum_out[7] = OUTPUT(H1_acc_ffa[7]);
+
+
+--accum_out[8] is accum_out[8]
+accum_out[8] = OUTPUT(H1_acc_ffa[8]);
+
+
+--accum_out[9] is accum_out[9]
+accum_out[9] = OUTPUT(H1_acc_ffa[9]);
+
+
+--accum_out[10] is accum_out[10]
+accum_out[10] = OUTPUT(H1_acc_ffa[10]);
+
+
+--accum_out[11] is accum_out[11]
+accum_out[11] = OUTPUT(H1_acc_ffa[11]);
+
+
+--accum_out[12] is accum_out[12]
+accum_out[12] = OUTPUT(H1_acc_ffa[12]);
+
+
+--accum_out[13] is accum_out[13]
+accum_out[13] = OUTPUT(H1_acc_ffa[13]);
+
+
+--accum_out[14] is accum_out[14]
+accum_out[14] = OUTPUT(H1_acc_ffa[14]);
+
+
+--accum_out[15] is accum_out[15]
+accum_out[15] = OUTPUT(H1_acc_ffa[15]);
+
+
+--H1_acc_ffa[0] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_ffa[0]
+--register power-up is low
+
+H1_acc_ffa[0] = DFFEAS(H1_acc_cella[0], clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--H1_acc_ffa[1] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_ffa[1]
+--register power-up is low
+
+H1_acc_ffa[1] = DFFEAS(H1_acc_cella[1], clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--H1_acc_ffa[2] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_ffa[2]
+--register power-up is low
+
+H1_acc_ffa[2] = DFFEAS(H1_acc_cella[2], clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--H1_acc_ffa[3] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_ffa[3]
+--register power-up is low
+
+H1_acc_ffa[3] = DFFEAS(H1_acc_cella[3], clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--H1_acc_ffa[4] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_ffa[4]
+--register power-up is low
+
+H1_acc_ffa[4] = DFFEAS(H1_acc_cella[4], clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--H1_acc_ffa[5] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_ffa[5]
+--register power-up is low
+
+H1_acc_ffa[5] = DFFEAS(H1_acc_cella[5], clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--H1_acc_ffa[6] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_ffa[6]
+--register power-up is low
+
+H1_acc_ffa[6] = DFFEAS(H1_acc_cella[6], clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--H1_acc_ffa[7] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_ffa[7]
+--register power-up is low
+
+H1_acc_ffa[7] = DFFEAS(H1_acc_cella[7], clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--H1_acc_ffa[8] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_ffa[8]
+--register power-up is low
+
+H1_acc_ffa[8] = DFFEAS(H1_acc_cella[8], clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--H1_acc_ffa[9] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_ffa[9]
+--register power-up is low
+
+H1_acc_ffa[9] = DFFEAS(H1_acc_cella[9], clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--H1_acc_ffa[10] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_ffa[10]
+--register power-up is low
+
+H1_acc_ffa[10] = DFFEAS(H1_acc_cella[10], clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--H1_acc_ffa[11] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_ffa[11]
+--register power-up is low
+
+H1_acc_ffa[11] = DFFEAS(H1_acc_cella[11], clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--H1_acc_ffa[12] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_ffa[12]
+--register power-up is low
+
+H1_acc_ffa[12] = DFFEAS(H1_acc_cella[12], clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--H1_acc_ffa[13] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_ffa[13]
+--register power-up is low
+
+H1_acc_ffa[13] = DFFEAS(H1_acc_cella[13], clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--H1_acc_ffa[14] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_ffa[14]
+--register power-up is low
+
+H1_acc_ffa[14] = DFFEAS(H1_acc_cella[14], clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--H1_acc_ffa[15] is mac_alt:mac|altmult_accum:altmult_accum_component|mult_accum_cf22:auto_generated|zaccum_t6k:zaccum2|accum_vgk:accum|acc_ffa[15]
+--register power-up is low
+
+H1_acc_ffa[15] = DFFEAS(H1_acc_cella[15], clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--clk is clk
+clk = INPUT();
+
+
+--a[0] is a[0]
+a[0] = INPUT();
+
+
+--a[1] is a[1]
+a[1] = INPUT();
+
+
+--a[2] is a[2]
+a[2] = INPUT();
+
+
+--a[3] is a[3]
+a[3] = INPUT();
+
+
+--a[4] is a[4]
+a[4] = INPUT();
+
+
+--a[5] is a[5]
+a[5] = INPUT();
+
+
+--a[6] is a[6]
+a[6] = INPUT();
+
+
+--a[7] is a[7]
+a[7] = INPUT();
+
+
+--b[0] is b[0]
+b[0] = INPUT();
+
+
+--b[1] is b[1]
+b[1] = INPUT();
+
+
+--b[2] is b[2]
+b[2] = INPUT();
+
+
+--b[3] is b[3]
+b[3] = INPUT();
+
+
+--b[4] is b[4]
+b[4] = INPUT();
+
+
+--b[5] is b[5]
+b[5] = INPUT();
+
+
+--b[6] is b[6]
+b[6] = INPUT();
+
+
+--b[7] is b[7]
+b[7] = INPUT();
+
+
