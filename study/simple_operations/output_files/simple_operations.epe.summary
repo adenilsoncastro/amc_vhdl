@@ -1,7 +1,0 @@
-Early Power Estimator File Generator Status : Successful - Mon Aug 10 10:56:27 2020
-Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-Revision Name : simple_operations
-Top-level Entity Name : simple_operations
-Family : Cyclone IV E
-Device : EP4CE115F29C7
-Power Estimation Confidence : Low: user provided insufficient toggle rate data
