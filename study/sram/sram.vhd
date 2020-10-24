@@ -6,7 +6,9 @@
  
  entity sram is
 	generic(
-		g_bits	: natural := 8);
+		g_uart_bits		: natural := 8;
+		g_data_bits		: natural := 16;
+		g_addr_bits		: natural := 20);
 		
 	port(
 		i_clk			: in std_logic;
@@ -21,15 +23,13 @@
 		o_tx_full	: out std_logic;
 		o_tx_empty	: out std_logic;
 		
-		o_addr		: out std_logic_vector(19 downto 0);
-		o_data		: out std_logic_vector(15 downto 0);
+		o_addr		: out std_logic_vector((g_addr_bits-1) downto 0);
+		o_data		: out std_logic_vector((g_data_bits-1) downto 0);
 		o_we			: out std_logic;
 		o_ce			: out std_logic;
 		o_oe			: out std_logic;
 		o_ub			: out std_logic;
-		o_lb			: out std_logic;
-		
-		o_leds		: out std_logic_vector(15 downto 0));
+		o_lb			: out std_logic);
 		
  end sram;
  
@@ -42,13 +42,13 @@
 	signal r_rst_sync		: std_logic;
 	signal r_rd_rx			: std_logic;
 	signal r_wr_tx			: std_logic;	
-	signal r_rx_data 		: std_logic_vector(g_bits-1 downto 0) := (others => '0');	
-	signal r_tx_data 		: std_logic_vector(g_bits-1 downto 0) := (others => '0');	
-	signal r_data 			: std_logic_vector(g_bits-1 downto 0) := (others => '0');
+	signal r_rx_data 		: std_logic_vector((g_uart_bits-1) downto 0) := (others => '0');	
+	signal r_tx_data 		: std_logic_vector((g_uart_bits-1) downto 0) := (others => '0');	
+	signal r_data 			: std_logic_vector((g_uart_bits-1) downto 0) := (others => '0');
 	
 	signal r_index 		: integer := 0;
-	signal r_addr		 	: std_logic_vector(19 downto 0);
-	signal r_sram_data	: std_logic_vector(15 downto 0);
+	signal r_addr		 	: std_logic_vector((g_addr_bits-1) downto 0);
+	signal r_sram_data	: std_logic_vector((g_data_bits-1) downto 0);
 	signal r_we				: std_logic := '0';
 	signal r_ce				: std_logic := '1';		
 	signal r_oe				: std_logic := '0';
@@ -72,9 +72,11 @@
 				when s_idle =>
 					if o_rx_empty = '0' then
 						r_rd_rx 	<= '1';
+						r_wr_tx	<= '0';
 						r_sm		<= s_get_fifo_data;
 					else
 						r_rd_rx	<= '0';
+						r_wr_tx	<= '0';
 						r_sm		<= s_idle;
 					end if;
 				
@@ -84,25 +86,35 @@
 					r_sm		<= s_process;
 					
 				when s_process =>
-					if r_index < 19 then
+					if r_index < (g_addr_bits) then
 						if r_data = "00110000" then
 							r_addr(r_index) <= '0';
 							r_index <= r_index + 1;
 						elsif r_data = "00110001" then
 							r_addr(r_index) <= '1';
 							r_index <= r_index + 1;
+						else
+							r_tx_data <= "00000110";
+							r_wr_tx	 <= '1';
+							--r_index	 <= 0;
+							--r_sm		 <= s_idle;
 						end if;
-					elsif r_index >=19 and r_index < 35 then
+					elsif r_index >=20 and r_index < 36 then
 						if r_data = "00110000" then
-							r_sram_data(r_index - 19) <= '0';
+							r_sram_data(r_index - 20) <= '0';
 							r_index <= r_index + 1;
 						elsif r_data = "00110001" then
-							r_sram_data(r_index - 19) <= '1';
+							r_sram_data(r_index - 20) <= '1';
 							r_index <= r_index + 1;
+						else
+							r_tx_data <= "00000110";
+							r_wr_tx	 <= '1';
+							--r_index	 <= 0;
+							--r_sm		 <= s_idle;
 						end if;
 					end if;
 					
-					if r_index = 35 then
+					if r_index = 36 then
 						r_index	<= 0;
 						r_sm 		<= s_write_sram;
 					else
@@ -110,17 +122,18 @@
 					end if;
 						
 				when s_write_sram =>
-					r_we <= '0';
-					r_ce <= '0';
-					r_oe <= '0';
-					r_lb <= '0';
-					r_ub <= '0';					
-					r_sm <= s_clear;
+					r_we 		<= '0';
+					r_ce 		<= '0';
+					r_oe 		<= '0';
+					r_lb 		<= '0';
+					r_ub 		<= '0';
+					r_wr_tx	<= '0';
+					r_sm 		<= s_clear;
 					
 				when s_clear =>
 					r_ce <= '1';
 					r_data		<= (others => '0');
-					r_sram_data	<= (others => '0');
+					--r_sram_data	<= (others => '0');
 					r_addr		<= (others => '0');					
 					r_sm			<= s_idle;
 					
@@ -142,8 +155,5 @@
 	o_ce			<= r_we;
 	o_oe			<= r_we;
 	o_ub			<= r_we;
-	o_lb			<= r_we;
-	
-	o_leds <= r_sram_data(15 downto 0);
-		
+	o_lb			<= r_we;		
  end bhv;

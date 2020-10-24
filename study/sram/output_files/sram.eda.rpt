@@ -1,5 +1,5 @@
 EDA Netlist Writer report for sram
-Wed Oct 14 22:33:45 2020
+Sun Oct 18 14:47:52 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Wed Oct 14 22:33:45 2020 ;
+; EDA Netlist Writer Status ; Successful - Sun Oct 18 14:47:52 2020 ;
 ; Revision Name             ; sram                                  ;
 ; Top-level Entity Name     ; sram                                  ;
 ; Family                    ; Cyclone IV E                          ;
@@ -81,13 +81,13 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Wed Oct 14 22:33:45 2020
+    Info: Processing started: Sun Oct 18 14:47:51 2020
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off sram -c sram
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (204019): Generated file sram.vho in folder "C:/Users/adeni/Documents/Mestrado/amc_vhdl/study/sram/simulation/modelsim/" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4649 megabytes
-    Info: Processing ended: Wed Oct 14 22:33:46 2020
+    Info: Peak virtual memory: 4648 megabytes
+    Info: Processing ended: Sun Oct 18 14:47:52 2020
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
