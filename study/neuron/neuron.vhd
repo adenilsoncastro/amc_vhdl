@@ -7,9 +7,12 @@
  library rna_library;
  use rna_library.data_types_pkg.all;
  
+ library work;
+ use work.all;
+ 
  entity neuron is
 	generic(
-		g_addr		: std_logic_vector(18 downto 0);
+		g_addr		: std_logic_vector(18 downto 0) := "0000000000000000000";
 		g_bits_data	: natural := 16;
 		g_bits_ctrl	: natural := 4);
 	
@@ -21,7 +24,7 @@
 		
 		o_fxp_data	: out std_logic_vector((g_bits_data -1) downto 0));
  end neuron;
- 
+  
  architecture rtl of neuron is
 	
 --	fsm deve:
