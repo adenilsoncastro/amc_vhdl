@@ -84,6 +84,17 @@
 		 r_neuron_2 <= "0000000000000000";
 		 wait for 10ns;
 		 
+		 -- Real signals:
+		 r_neuron_1 <= "1101111100111111";
+		 r_neuron_2 <= "0001011000111100";
+		 r_neuron_3 <= "1111110100001101";
+		 r_neuron_4 <= "0100010110000111";
+		 r_neuron_5 <= "1000011111011010";
+		 r_enable   <= '1';
+		 wait for 10 ns;
+		 r_enable  <= '0';
+		 wait for 30 ns;
+		 
 		 assert false report "Tests completed." severity failure;
 	 end process p_test;
  
