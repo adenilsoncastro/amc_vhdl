@@ -1,11 +1,9 @@
  library ieee;
  use ieee.std_logic_1164.all;
+ use ieee.numeric_std.all;
  
  library ieee_proposed;
  use ieee_proposed.fixed_pkg.all;
- 
- library rna_library;
- use rna_library.data_types_pkg.all;
  
  library work;
  use work.all;
@@ -18,6 +16,7 @@
 	
 	port(
 		i_clk			: in std_logic;
+		i_rst			: in std_logic;
 		i_enable		: in std_logic;
 		i_ctrl		: in std_logic_vector((g_bits_ctrl-1) downto 0);
 		i_fxp_data	: in std_logic_vector((g_bits_data-1) downto 0);
@@ -26,15 +25,96 @@
  end neuron;
   
  architecture rtl of neuron is
-	
---	fsm deve:
---		1)verificar se enable esta em nível alto
---		2)consultar o peso na ram
---		3)enviar para o MAC o fxp da entrada e o peso consultado na ram
---		4)repetir o passo três até ter completado todos os pesos da respectiva layer
---		5)enviar o resultado do MAC para a ACTF
---		6)retornar na saída o resultado da ACTF
  
+	type t_sm is (s_idle, s_get_weight, s_mac, s_act_func, s_clear);
+	signal r_sm					: t_sm := s_idle;
+	signal r_sinapse_count	: integer := 0;
+	
+	constant c_bias			: std_logic_vector(g_bits_data-1 downto 0) 	:= "0000000000100110";
+	constant c_neurons		: natural := 6;
+	
+	--RAM signals
+	signal r_wr					: std_logic							 					:= '0';
+	signal r_addr				: std_logic_vector(3 downto 0) 					:= "0000";
+	signal r_data_in_ram		: std_logic_vector(g_bits_data-1 downto 0)	:= (others => '0');
+	signal r_data_out_ram	: std_logic_vector(g_bits_data-1 downto 0)	:= (others => '0');
+	--MAC signals
+	signal r_mac_enable		: std_logic												:= '0';
+	signal r_mac_out			: std_logic_vector(g_bits_data-1 downto 0)	:= (others => '0'); 
+	
+	component ram is
+		generic(
+			g_width 		: natural := 16;
+			g_depth 		: natural := 50;
+			g_addr_bits : natural := 4);
+		port(
+			i_clk			: in std_logic;
+			i_wr			: in std_logic;
+			i_addr		: in std_logic_vector(g_addr_bits-1 downto 0);
+			i_data		: in std_logic_vector(g_width-1 downto 0);
+			o_data		: out std_logic_vector(g_width-1 downto 0));
+	end component;
+	
+	component mac is 
+		generic(
+			g_bits		: natural := 16;
+			g_fxp_high	: natural := 4;
+			g_fxp_low	: integer := -11);
+		
+		port(
+			i_clk			: in std_logic;
+			i_rst			: in std_logic;
+			i_enable		: in std_logic;
+			i_data		: in std_logic_vector(g_bits-1 downto 0);
+			i_weight		: in std_logic_vector(g_bits-1 downto 0);
+			o_data		: out std_logic_vector(g_bits-1 downto 0));
+	end component;
+	 
  begin
+ 
+	ram_n1 : ram port map(i_clk, r_wr, r_addr, r_data_in_ram, r_data_out_ram);
+	mac_n1 : mac port map(i_clk, i_rst, r_mac_enable, i_fxp_data, r_data_out_ram, r_mac_out);
+	
+	p_neuron : process(i_clk)
+	begin
+		if rising_edge(i_clk) then
+			case r_sm is
+				when s_idle =>
+					if i_enable = '0' then
+						r_sm <= s_idle;
+					else
+						r_sm <= s_get_weight;
+					end if;
+				
+				when s_get_weight =>
+					r_mac_enable <= '0';
+					r_addr <= std_logic_vector(to_unsigned(r_sinapse_count, r_addr'length));
+					r_sinapse_count <= r_sinapse_count + 1;
+					r_sm <= s_mac;
+				
+				when s_mac =>
+					r_mac_enable <= '1';
+					
+					if r_sinapse_count < c_neurons then
+						r_sm <= s_get_weight;
+					else
+						r_sm <= s_act_func;
+					end if;
+				
+				when s_act_func =>
+					r_mac_enable <= '0';
+					r_sm 			 <= s_clear;
+				
+				when s_clear =>
+					r_sinapse_count <= 0;
+					r_sm <= s_idle;
+					
+				when others =>
+					r_sm <= s_idle;
+			end case;				
+		end if;
+	end process p_neuron;
+	
+	o_fxp_data <= r_mac_out;
   
  end rtl;

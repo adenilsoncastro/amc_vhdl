@@ -5,7 +5,7 @@
  entity ram is
 	generic(
 		g_width 		: natural := 16;
-		g_depth 		: natural := 30;
+		g_depth 		: natural := 10;
 		g_addr_bits : natural := 5);
 	
 	port(
@@ -19,8 +19,8 @@
  architecture rtl of ram is
 	type t_mem is array (0 to g_depth-1) of std_logic_vector(g_width-1 downto 0);
 	signal r_mem 	: t_mem := ("1110111100111010", "0000000010000100", "0000000001110000",
-									 	"0000000010011101", "1111111000111000", "1111111111110111", others => (others=>'0'));
-
+									 "0000000010011101", "1111111000111000", "1111111111110111", others => (others=>'0') );
+	
  begin
 	p_ram : process(i_clk)
 	begin
