@@ -17,6 +17,7 @@
 		i_enable		: in std_logic;
 		i_data		: in std_logic_vector(g_bits-1 downto 0);
 		i_weight		: in std_logic_vector(g_bits-1 downto 0);
+		o_done		: out std_logic;
 		o_data		: out std_logic_vector(g_bits-1 downto 0));
  end mac;
  
@@ -33,7 +34,10 @@
 		r_data_out <= (others => '0');
 	elsif rising_edge(i_clk) then
 		if i_enable = '1' then
-			r_data_out <= resize(r_data_out + r_mult, g_fxp_high, g_fxp_low);
+			r_data_out 	<= resize(r_data_out + r_mult, g_fxp_high, g_fxp_low);
+			o_done		<= '1';
+		else
+			o_done		<= '0';
 		end if;
 	end if;
  end process p_add;
