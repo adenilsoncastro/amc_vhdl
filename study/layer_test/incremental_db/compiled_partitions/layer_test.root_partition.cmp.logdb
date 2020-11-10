@@ -1,0 +1,8 @@
+v1
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,neuron_l1_n5:n5|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,neuron_l1_n4:n4|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,neuron_l1_n3:n3|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,neuron_l1_n2:n2|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,neuron_l1_n1:n1|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2,
+PORT_SWAPPING,PORT_SWAPPING_FINISHED,neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1,

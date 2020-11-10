@@ -8,7 +8,7 @@
  library work;
  use work.all;
  
- entity neuron is
+ entity neuron_l1_n4 is
 	generic(
 		g_bits_data	: natural := 16;
 		g_fxp_high	: natural := 4;
@@ -22,21 +22,21 @@
 		o_done		: out std_logic;
 		i_fxp_data	: in std_logic_vector((g_bits_data-1) downto 0);		
 		o_fxp_data	: out std_logic_vector((g_bits_data -1) downto 0));
- end neuron;
+ end neuron_l1_n4;
   
- architecture rtl of neuron is
+ architecture rtl of neuron_l1_n4 is
  
 	--Control FSM signals
 	type t_sm is (s_idle, s_get_weight, s_wait_weight, s_mac, s_wait_mac, s_mac_result, s_bias, s_relu, s_wait_relu, s_clear);
 	signal r_sm					: t_sm := s_idle;
 	signal r_sinapse_count	: integer := 0;
 	signal r_done				: std_logic := '0';
-	constant c_bias			: std_logic_vector(g_bits_data-1 downto 0) 	:= "0000000000100110";
+	constant c_bias			: std_logic_vector(g_bits_data-1 downto 0) 	:= "0000000011011111";
 	constant c_inputs			: natural := 6;
 	
 	--RAM signals
 	signal r_wr					: std_logic							 					:= '0';
-	signal r_addr				: std_logic_vector(3 downto 0) 					:= "0000";
+	signal r_addr				: std_logic_vector(4 downto 0) 					:= "00000";
 	signal r_data_in_ram		: std_logic_vector(g_bits_data-1 downto 0)	:= (others => '0');
 	signal r_data_out_ram	: std_logic_vector(g_bits_data-1 downto 0)	:= (others => '0');
 	--MAC signals
@@ -94,7 +94,7 @@
 	 
  begin
  
-	ram_n1 	: ram port map(i_clk, r_wr, r_addr, r_data_in_ram, r_data_out_ram);
+	ram_n1 	: ram_l1_n4 port map(i_clk, r_wr, r_addr, r_data_in_ram, r_data_out_ram);
 	mac_n1 	: mac port map(i_clk, i_rst, r_mac_enable, i_fxp_data, r_data_out_ram, r_mac_done, r_mac_out);
 	act_relu	: lut_relu port map(i_clk, r_relu_enable, r_relu_in, r_relu_out);
 	

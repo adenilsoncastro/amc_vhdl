@@ -31,7 +31,7 @@
 	signal r_sm					: t_sm := s_idle;
 	signal r_sinapse_count	: integer := 0;
 	signal r_done				: std_logic := '0';
-	constant c_bias			: std_logic_vector(g_bits_data-1 downto 0) 	:= "0000000000100110";
+	constant c_bias			: std_logic_vector(g_bits_data-1 downto 0) 	:= "0000000001101000";
 	constant c_inputs			: natural := 6;
 	
 	--RAM signals

@@ -24,7 +24,8 @@
  component neuron is
 	generic(
 		g_bits_data	: natural := 16;
-		g_bits_ctrl	: natural := 4);
+		g_fxp_high	: natural := 4;
+		g_fxp_low	: integer := -11);
 	
 	port(
 		i_clk			: in std_logic;
