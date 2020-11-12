@@ -51,11 +51,11 @@
 	signal r_relu_out			: std_logic_vector(g_bits_data-1 downto 0)	:= (others => '0'); 
 	
 	
-	component ram is
+	component ram_l1_n4 is
 		generic(
 			g_width 		: natural := 16;
 			g_depth 		: natural := 50;
-			g_addr_bits : natural := 4);
+			g_addr_bits : natural := 5);
 		port(
 			i_clk			: in std_logic;
 			i_wr			: in std_logic;
@@ -101,67 +101,65 @@
 	p_neuron : process(i_clk, i_enable, r_mac_done)
 	begin
 		if rising_edge(i_clk) then
-			if i_enable = '1' then
-				case r_sm is
-					when s_idle =>
-						if i_enable = '0' then
-							r_sm <= s_idle;
-						else
-							r_sm <= s_get_weight;
-						end if;
-					
-					when s_get_weight =>
-						r_addr 				<= std_logic_vector(to_unsigned(r_sinapse_count, r_addr'length));
-						r_sinapse_count 	<= r_sinapse_count + 1;
-						r_sm 					<= s_wait_weight;
-						
-					when s_wait_weight =>
-						r_sm				<= s_mac;
-					
-					when s_mac =>
-						r_mac_enable <= '1';	
-						r_sm 			 <= s_wait_mac;
-						
-					when s_wait_mac =>
-						r_mac_enable 		<= '0';
-						r_sm 					<= s_mac_result;
-					
-					when s_mac_result =>						
-						if r_mac_done = '1' then
-							if r_sinapse_count < c_inputs then
-								r_sm <= s_get_weight;
-							else
-								r_sm <= s_bias;
-							end if;
-						else
-							r_sm <= s_mac;
-						end if;
-						
-					when s_bias =>
-						r_bias 	<= to_slv(resize(to_sfixed(r_mac_out, g_fxp_high, g_fxp_low) + to_sfixed(c_bias, g_fxp_high, g_fxp_low), g_fxp_high, g_fxp_low));
-						r_sm		<= s_relu;
-					
-					when s_relu =>
-						r_mac_enable	<= '0';
-						r_relu_enable 	<= '1';
-						r_relu_in		<= r_bias;
-						r_sm 			 	<= s_wait_relu;
-					
-					when s_wait_relu =>
-						r_relu_enable 	<= '0';
-						r_done			<= '1';
-						r_sm 				<= s_clear;
-					
-					when s_clear =>
-						r_done 				<= '0';
-						r_sinapse_count 	<= 0;
-						r_mac_enable 		<= '0';
-						r_sm 					<= s_idle;
-						
-					when others =>
+			case r_sm is
+				when s_idle =>
+					if i_enable = '1' then
+						r_sm <= s_get_weight;
+					else
 						r_sm <= s_idle;
-				end case;
-			end if;
+					end if;
+				
+				when s_get_weight =>
+					r_addr 				<= std_logic_vector(to_unsigned(r_sinapse_count, r_addr'length));
+					r_sinapse_count 	<= r_sinapse_count + 1;
+					r_sm 					<= s_wait_weight;
+					
+				when s_wait_weight =>
+					r_sm				<= s_mac;
+				
+				when s_mac =>
+					r_mac_enable <= '1';	
+					r_sm 			 <= s_wait_mac;
+					
+				when s_wait_mac =>
+					r_mac_enable 		<= '0';
+					r_sm 					<= s_mac_result;
+				
+				when s_mac_result =>						
+					if r_mac_done = '1' then
+						if r_sinapse_count < c_inputs then
+							r_sm <= s_get_weight;
+						else
+							r_sm <= s_bias;
+						end if;
+					else
+						r_sm <= s_mac;
+					end if;
+					
+				when s_bias =>
+					r_bias 	<= to_slv(resize(to_sfixed(r_mac_out, g_fxp_high, g_fxp_low) + to_sfixed(c_bias, g_fxp_high, g_fxp_low), g_fxp_high, g_fxp_low));
+					r_sm		<= s_relu;
+				
+				when s_relu =>
+					r_mac_enable	<= '0';
+					r_relu_enable 	<= '1';
+					r_relu_in		<= r_bias;
+					r_sm 			 	<= s_wait_relu;
+				
+				when s_wait_relu =>
+					r_relu_enable 	<= '0';
+					r_done			<= '1';
+					r_sm 				<= s_clear;
+				
+				when s_clear =>
+					r_done 				<= '0';
+					r_sinapse_count 	<= 0;
+					r_mac_enable 		<= '0';
+					r_sm 					<= s_idle;
+					
+				when others =>
+					r_sm <= s_idle;
+			end case;
 		end if;
 	end process p_neuron;
 	

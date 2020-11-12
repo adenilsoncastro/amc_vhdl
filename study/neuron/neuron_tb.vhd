@@ -71,12 +71,13 @@
  wait until r_mac_done = '1';
  wait until rising_edge(r_clk);
  
- wait for 500 ns;
+ wait until r_done = '1';
  wait until rising_edge(r_clk);
  r_rst <= '1';
+ r_enable <= '0';
  wait until rising_edge(r_clk);
  r_rst <= '0';
- wait until rising_edge(r_clk);
+ wait for 50 ns;
  
  assert false report "Test finished." severity failure;
  end process p_test;

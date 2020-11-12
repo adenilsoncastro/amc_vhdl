@@ -27,7 +27,7 @@
  
  architecture bhv of layer_test is
 	
-	type t_sm is (s_idle, s_get_data, s_sinapse, s_wait_sinapse, s_clear);
+	type t_sm is (s_idle, s_get_data, s_sinapse, s_wait_sinapse, s_wait_activation, s_clear);
 	signal r_sm 			: t_sm		:= s_idle;
  
 	signal r_enable_n0	: std_logic := '0';
@@ -172,9 +172,8 @@
 		if rising_edge(i_clk) then
 			case r_sm is
 				when s_idle =>
-					r_done <= '0';
 					if i_enable = '1' then 
-						r_sm <= s_sinapse;
+						r_sm <= s_get_data;
 					else
 						r_sm <= s_idle;
 					end if;
@@ -199,20 +198,31 @@
 						if r_sinapse < c_inputs then
 							r_sm <= s_get_data;
 						else
-							r_sm <= s_clear;
+							r_sm <= s_wait_activation;
 						end if;
 					else
 						r_sm <= s_wait_sinapse;
 					end if;
+					
+				when s_wait_activation =>				
+					r_mac_done	<= '0';
+					if (r_done_n0 = '1') and (r_done_n1 = '1') and (r_done_n2 = '1') and (r_done_n3 = '1') and (r_done_n4 = '1') and (r_done_n5 = '1') then
+						r_done 	<= '1';
+						r_sm		<= s_clear;
+					else
+						r_sm 		<= s_wait_activation;
+						r_done	<= '0';
+					end if;
 				
 				when s_clear =>
+					r_mac_done	<= '0';
 					r_enable_n0 <= '0';
 					r_enable_n1 <= '0';
 		         r_enable_n2 <= '0';
                r_enable_n3 <= '0';
                r_enable_n4 <= '0';
 		         r_enable_n5 <= '0';
-					r_done		<= '1';
+					r_done		<= '0';
 					r_sinapse	<= 0;
 					r_sm			<= s_idle;
 									

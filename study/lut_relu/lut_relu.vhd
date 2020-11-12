@@ -30,8 +30,6 @@
 				if r_value > zero then r_out <= to_slv(r_value);
 				else r_out <= to_slv(zero);
 				end if;
-			else
-				r_out <= (others => '0');
 			end if;
 		end if;
 	 end process p_func;
