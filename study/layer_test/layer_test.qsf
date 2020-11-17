@@ -55,20 +55,6 @@ set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_symbol
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_signal_integrity
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
-set_global_assignment -name VHDL_FILE ram_l1_n5.vhd
-set_global_assignment -name VHDL_FILE ram_l1_n4.vhd
-set_global_assignment -name VHDL_FILE ram_l1_n3.vhd
-set_global_assignment -name VHDL_FILE ram_l1_n2.vhd
-set_global_assignment -name VHDL_FILE ram_l1_n1.vhd
-set_global_assignment -name VHDL_FILE ram_l1_n0.vhd
-set_global_assignment -name VHDL_FILE neuron_l1_n5.vhd
-set_global_assignment -name VHDL_FILE neuron_l1_n4.vhd
-set_global_assignment -name VHDL_FILE neuron_l1_n3.vhd
-set_global_assignment -name VHDL_FILE neuron_l1_n2.vhd
-set_global_assignment -name VHDL_FILE neuron_l1_n1.vhd
-set_global_assignment -name VHDL_FILE neuron_l1_n0.vhd
-set_global_assignment -name VHDL_FILE mac.vhd
-set_global_assignment -name VHDL_FILE lut_relu.vhd
 set_global_assignment -name VHDL_FILE layer_test_tb.vhd
 set_global_assignment -name VHDL_FILE ../ieee_proposed/fixed_pkg_c.vhdl
 set_global_assignment -name VHDL_FILE ../ieee_proposed/fixed_float_types_c.vhdl

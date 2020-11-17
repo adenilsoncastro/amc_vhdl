@@ -12,2264 +12,3202 @@
 -- Intel and sold by Intel or its authorized distributors.  Please
 -- refer to the applicable agreement for further details, at
 -- https://fpgasoftware.intel.com/eula.
---C1_r_fifo_count[3] is uart:uart_unit|fifo:fifo_rx|r_fifo_count[3]
---register power-up is low
+--C1L1 is layer_0:layer0|neuron_l1_n0:n0|Add1~0
+C1L1 = K1_r_data_out[-10] $ (VCC);
 
-C1_r_fifo_count[3] = DFFEAS(C1L24, i_clk,  ,  , C1L22,  ,  , !i_rst_sync,  );
+--C1L2 is layer_0:layer0|neuron_l1_n0:n0|Add1~1
+C1L2 = CARRY(K1_r_data_out[-10]);
 
 
---C1_r_fifo_count[1] is uart:uart_unit|fifo:fifo_rx|r_fifo_count[1]
---register power-up is low
+--C1L3 is layer_0:layer0|neuron_l1_n0:n0|Add1~2
+C1L3 = (K1_r_data_out[-9] & (C1L2 & VCC)) # (!K1_r_data_out[-9] & (!C1L2));
 
-C1_r_fifo_count[1] = DFFEAS(C1L17, i_clk,  ,  , C1L22,  ,  , !i_rst_sync,  );
+--C1L4 is layer_0:layer0|neuron_l1_n0:n0|Add1~3
+C1L4 = CARRY((!K1_r_data_out[-9] & !C1L2));
 
 
---C1_r_fifo_count[0] is uart:uart_unit|fifo:fifo_rx|r_fifo_count[0]
---register power-up is low
+--C1L5 is layer_0:layer0|neuron_l1_n0:n0|Add1~4
+C1L5 = (K1_r_data_out[-8] & (C1L4 $ (GND))) # (!K1_r_data_out[-8] & (!C1L4 & VCC));
 
-C1_r_fifo_count[0] = DFFEAS(C1L14, i_clk,  ,  , C1L22,  ,  , !i_rst_sync,  );
+--C1L6 is layer_0:layer0|neuron_l1_n0:n0|Add1~5
+C1L6 = CARRY((K1_r_data_out[-8] & !C1L4));
 
 
---C1_r_fifo_count[2] is uart:uart_unit|fifo:fifo_rx|r_fifo_count[2]
---register power-up is low
+--C1L7 is layer_0:layer0|neuron_l1_n0:n0|Add1~6
+C1L7 = (K1_r_data_out[-7] & (!C1L6)) # (!K1_r_data_out[-7] & ((C1L6) # (GND)));
 
-C1_r_fifo_count[2] = DFFEAS(C1L20, i_clk,  ,  , C1L22,  ,  , !i_rst_sync,  );
+--C1L8 is layer_0:layer0|neuron_l1_n0:n0|Add1~7
+C1L8 = CARRY((!C1L6) # (!K1_r_data_out[-7]));
 
 
---C1_r_fifo_count[4] is uart:uart_unit|fifo:fifo_rx|r_fifo_count[4]
---register power-up is low
+--C1L9 is layer_0:layer0|neuron_l1_n0:n0|Add1~8
+C1L9 = (K1_r_data_out[-6] & ((GND) # (!C1L8))) # (!K1_r_data_out[-6] & (C1L8 $ (GND)));
 
-C1_r_fifo_count[4] = DFFEAS(C1L27, i_clk,  ,  , C1L22,  ,  , !i_rst_sync,  );
+--C1L10 is layer_0:layer0|neuron_l1_n0:n0|Add1~9
+C1L10 = CARRY((K1_r_data_out[-6]) # (!C1L8));
 
 
---C2_r_fifo_count[3] is uart:uart_unit|fifo:fifo_tx|r_fifo_count[3]
---register power-up is low
+--C1L11 is layer_0:layer0|neuron_l1_n0:n0|Add1~10
+C1L11 = (K1_r_data_out[-5] & (!C1L10)) # (!K1_r_data_out[-5] & ((C1L10) # (GND)));
 
-C2_r_fifo_count[3] = DFFEAS(C2L23, i_clk,  ,  , C2L21,  ,  , !i_rst_sync,  );
+--C1L12 is layer_0:layer0|neuron_l1_n0:n0|Add1~11
+C1L12 = CARRY((!C1L10) # (!K1_r_data_out[-5]));
 
 
---C2_r_fifo_count[1] is uart:uart_unit|fifo:fifo_tx|r_fifo_count[1]
---register power-up is low
+--C1L13 is layer_0:layer0|neuron_l1_n0:n0|Add1~12
+C1L13 = (K1_r_data_out[-4] & (C1L12 $ (GND))) # (!K1_r_data_out[-4] & (!C1L12 & VCC));
 
-C2_r_fifo_count[1] = DFFEAS(C2L16, i_clk,  ,  , C2L21,  ,  , !i_rst_sync,  );
+--C1L14 is layer_0:layer0|neuron_l1_n0:n0|Add1~13
+C1L14 = CARRY((K1_r_data_out[-4] & !C1L12));
 
 
---C2_r_fifo_count[0] is uart:uart_unit|fifo:fifo_tx|r_fifo_count[0]
---register power-up is low
+--C1L15 is layer_0:layer0|neuron_l1_n0:n0|Add1~14
+C1L15 = (K1_r_data_out[-3] & (!C1L14)) # (!K1_r_data_out[-3] & ((C1L14) # (GND)));
 
-C2_r_fifo_count[0] = DFFEAS(C2L13, i_clk,  ,  , C2L21,  ,  , !i_rst_sync,  );
+--C1L16 is layer_0:layer0|neuron_l1_n0:n0|Add1~15
+C1L16 = CARRY((!C1L14) # (!K1_r_data_out[-3]));
 
 
---C2_r_fifo_count[2] is uart:uart_unit|fifo:fifo_tx|r_fifo_count[2]
---register power-up is low
+--C1L17 is layer_0:layer0|neuron_l1_n0:n0|Add1~16
+C1L17 = (K1_r_data_out[-2] & (C1L16 $ (GND))) # (!K1_r_data_out[-2] & (!C1L16 & VCC));
 
-C2_r_fifo_count[2] = DFFEAS(C2L19, i_clk,  ,  , C2L21,  ,  , !i_rst_sync,  );
+--C1L18 is layer_0:layer0|neuron_l1_n0:n0|Add1~17
+C1L18 = CARRY((K1_r_data_out[-2] & !C1L16));
 
 
---C2_r_fifo_count[4] is uart:uart_unit|fifo:fifo_tx|r_fifo_count[4]
---register power-up is low
+--C1L19 is layer_0:layer0|neuron_l1_n0:n0|Add1~18
+C1L19 = (K1_r_data_out[-1] & (!C1L18)) # (!K1_r_data_out[-1] & ((C1L18) # (GND)));
+
+--C1L20 is layer_0:layer0|neuron_l1_n0:n0|Add1~19
+C1L20 = CARRY((!C1L18) # (!K1_r_data_out[-1]));
+
+
+--C1L21 is layer_0:layer0|neuron_l1_n0:n0|Add1~20
+C1L21 = (K1_r_data_out[0] & (C1L20 $ (GND))) # (!K1_r_data_out[0] & (!C1L20 & VCC));
+
+--C1L22 is layer_0:layer0|neuron_l1_n0:n0|Add1~21
+C1L22 = CARRY((K1_r_data_out[0] & !C1L20));
+
+
+--C1L23 is layer_0:layer0|neuron_l1_n0:n0|Add1~22
+C1L23 = (K1_r_data_out[1] & (!C1L22)) # (!K1_r_data_out[1] & ((C1L22) # (GND)));
+
+--C1L24 is layer_0:layer0|neuron_l1_n0:n0|Add1~23
+C1L24 = CARRY((!C1L22) # (!K1_r_data_out[1]));
+
+
+--C1L25 is layer_0:layer0|neuron_l1_n0:n0|Add1~24
+C1L25 = (K1_r_data_out[2] & (C1L24 $ (GND))) # (!K1_r_data_out[2] & (!C1L24 & VCC));
+
+--C1L26 is layer_0:layer0|neuron_l1_n0:n0|Add1~25
+C1L26 = CARRY((K1_r_data_out[2] & !C1L24));
+
+
+--C1L27 is layer_0:layer0|neuron_l1_n0:n0|Add1~26
+C1L27 = (K1_r_data_out[3] & (!C1L26)) # (!K1_r_data_out[3] & ((C1L26) # (GND)));
+
+--C1L28 is layer_0:layer0|neuron_l1_n0:n0|Add1~27
+C1L28 = CARRY((!C1L26) # (!K1_r_data_out[3]));
+
+
+--C1L29 is layer_0:layer0|neuron_l1_n0:n0|Add1~28
+C1L29 = (K1_r_data_out[4] & (C1L28 $ (GND))) # (!K1_r_data_out[4] & (!C1L28 & VCC));
+
+--C1L30 is layer_0:layer0|neuron_l1_n0:n0|Add1~29
+C1L30 = CARRY((K1_r_data_out[4] & !C1L28));
+
+
+--C1L31 is layer_0:layer0|neuron_l1_n0:n0|Add1~30
+C1L31 = K1_r_data_out[4] $ (!C1L30);
+
+
+--N1_mac_out2 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2
+--DSP Block Operation Mode: Simple Multiplier (18-bit)
+N1_mac_out2 = N1_mac_mult1;
+
+--N1L34 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT1
+N1L34 = N1L2;
+
+--N1L35 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT2
+N1L35 = N1L3;
+
+--N1L36 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT3
+N1L36 = N1L4;
+
+--N1L37 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT4
+N1L37 = N1L5;
+
+--N1L38 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT5
+N1L38 = N1L6;
+
+--N1L39 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT6
+N1L39 = N1L7;
+
+--N1L40 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT7
+N1L40 = N1L8;
+
+--N1L41 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT8
+N1L41 = N1L9;
+
+--N1L42 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT9
+N1L42 = N1L10;
+
+--N1L43 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT10
+N1L43 = N1L11;
+
+--N1L44 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT11
+N1L44 = N1L12;
+
+--N1L45 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT12
+N1L45 = N1L13;
+
+--N1L46 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT13
+N1L46 = N1L14;
+
+--N1L47 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT14
+N1L47 = N1L15;
+
+--N1L48 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT15
+N1L48 = N1L16;
+
+--N1L49 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT16
+N1L49 = N1L17;
+
+--N1L50 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT17
+N1L50 = N1L18;
+
+--N1L51 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT18
+N1L51 = N1L19;
+
+--N1L52 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT19
+N1L52 = N1L20;
+
+--N1L53 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT20
+N1L53 = N1L21;
+
+--N1L54 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT21
+N1L54 = N1L22;
+
+--N1L55 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT22
+N1L55 = N1L23;
+
+--N1L56 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT23
+N1L56 = N1L24;
+
+--N1L57 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT24
+N1L57 = N1L25;
+
+--N1L58 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT25
+N1L58 = N1L26;
+
+--N1L59 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT26
+N1L59 = N1L27;
+
+--N1L60 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT27
+N1L60 = N1L28;
+
+--N1L61 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT28
+N1L61 = N1L29;
+
+--N1L62 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT29
+N1L62 = N1L30;
+
+--N1L63 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT30
+N1L63 = N1L31;
+
+--N1L64 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_out2~DATAOUT31
+N1L64 = N1L32;
+
+
+--K1L35 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~0
+K1L35 = K1L124 $ (VCC);
+
+--K1L36 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~1
+K1L36 = CARRY(K1L124);
+
+
+--K1L37 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~2
+K1L37 = (K1L138 & (!K1L36)) # (!K1L138 & ((K1L36) # (GND)));
+
+--K1L38 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~3
+K1L38 = CARRY((!K1L36) # (!K1L138));
+
+
+--K1L39 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~4
+K1L39 = (K1L137 & (K1L38 $ (GND))) # (!K1L137 & (!K1L38 & VCC));
+
+--K1L40 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~5
+K1L40 = CARRY((K1L137 & !K1L38));
+
+
+--K1L41 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~6
+K1L41 = (K1L136 & (!K1L40)) # (!K1L136 & ((K1L40) # (GND)));
+
+--K1L42 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~7
+K1L42 = CARRY((!K1L40) # (!K1L136));
+
+
+--K1L43 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~8
+K1L43 = (K1L135 & (K1L42 $ (GND))) # (!K1L135 & (!K1L42 & VCC));
+
+--K1L44 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~9
+K1L44 = CARRY((K1L135 & !K1L42));
+
+
+--K1L45 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~10
+K1L45 = (K1L134 & (!K1L44)) # (!K1L134 & ((K1L44) # (GND)));
+
+--K1L46 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~11
+K1L46 = CARRY((!K1L44) # (!K1L134));
+
+
+--K1L47 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~12
+K1L47 = (K1L133 & (K1L46 $ (GND))) # (!K1L133 & (!K1L46 & VCC));
+
+--K1L48 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~13
+K1L48 = CARRY((K1L133 & !K1L46));
+
+
+--K1L49 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~14
+K1L49 = (K1L132 & (!K1L48)) # (!K1L132 & ((K1L48) # (GND)));
+
+--K1L50 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~15
+K1L50 = CARRY((!K1L48) # (!K1L132));
+
+
+--K1L51 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~16
+K1L51 = (K1L131 & (K1L50 $ (GND))) # (!K1L131 & (!K1L50 & VCC));
+
+--K1L52 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~17
+K1L52 = CARRY((K1L131 & !K1L50));
+
+
+--K1L53 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~18
+K1L53 = (K1L130 & (!K1L52)) # (!K1L130 & ((K1L52) # (GND)));
+
+--K1L54 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~19
+K1L54 = CARRY((!K1L52) # (!K1L130));
+
+
+--K1L55 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~20
+K1L55 = (K1L129 & (K1L54 $ (GND))) # (!K1L129 & (!K1L54 & VCC));
+
+--K1L56 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~21
+K1L56 = CARRY((K1L129 & !K1L54));
+
+
+--K1L57 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~22
+K1L57 = (K1L128 & (!K1L56)) # (!K1L128 & ((K1L56) # (GND)));
+
+--K1L58 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~23
+K1L58 = CARRY((!K1L56) # (!K1L128));
+
+
+--K1L59 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~24
+K1L59 = (K1L127 & (K1L58 $ (GND))) # (!K1L127 & (!K1L58 & VCC));
+
+--K1L60 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~25
+K1L60 = CARRY((K1L127 & !K1L58));
+
+
+--K1L61 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~26
+K1L61 = (K1L126 & (!K1L60)) # (!K1L126 & ((K1L60) # (GND)));
+
+--K1L62 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~27
+K1L62 = CARRY((!K1L60) # (!K1L126));
+
+
+--K1L63 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~28
+K1L63 = (K1L125 & (K1L62 $ (GND))) # (!K1L125 & (!K1L62 & VCC));
+
+--K1L64 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~29
+K1L64 = CARRY((K1L125 & !K1L62));
+
+
+--K1L65 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~30
+K1L65 = (N1L64 & (!K1L64)) # (!N1L64 & ((K1L64) # (GND)));
+
+--K1L66 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~31
+K1L66 = CARRY((!K1L64) # (!N1L64));
+
+
+--K1L67 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add1~32
+K1L67 = N1L64 $ (!K1L66);
+
+
+--K1L1 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~0
+K1L1 = (K1L109 & (K1_r_data_out[-11] $ (VCC))) # (!K1L109 & (K1_r_data_out[-11] & VCC));
+
+--K1L2 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~1
+K1L2 = CARRY((K1L109 & K1_r_data_out[-11]));
+
+
+--K1L3 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~2
+K1L3 = (K1L107 & ((K1_r_data_out[-10] & (K1L2 & VCC)) # (!K1_r_data_out[-10] & (!K1L2)))) # (!K1L107 & ((K1_r_data_out[-10] & (!K1L2)) # (!K1_r_data_out[-10] & ((K1L2) # (GND)))));
+
+--K1L4 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~3
+K1L4 = CARRY((K1L107 & (!K1_r_data_out[-10] & !K1L2)) # (!K1L107 & ((!K1L2) # (!K1_r_data_out[-10]))));
 
-C2_r_fifo_count[4] = DFFEAS(C2L26, i_clk,  ,  , C2L21,  ,  , !i_rst_sync,  );
 
+--K1L5 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~4
+K1L5 = ((K1L105 $ (K1_r_data_out[-9] $ (!K1L4)))) # (GND);
 
---G1_ram_block1a0 is uart:uart_unit|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_r8g1:auto_generated|ram_block1a0
---RAM Block Operation Mode: Simple Dual-Port
---Port A Depth: 10, Port A Width: 1, Port B Depth: 10, Port B Width: 1
---Port A Logical Depth: 10, Port A Logical Width: 8, Port B Logical Depth: 10, Port B Logical Width: 8
---Port A Input: Registered, Port B Input: Registered, Port B Output: Un-registered
-G1_ram_block1a0_PORT_A_data_in = D1_r_rx_byte[0];
-G1_ram_block1a0_PORT_A_data_in_reg = DFFE(G1_ram_block1a0_PORT_A_data_in, G1_ram_block1a0_clock_0, , , );
-G1_ram_block1a0_PORT_A_address = BUS(C1_r_wr_index[0], C1_r_wr_index[1], C1_r_wr_index[2], C1_r_wr_index[3]);
-G1_ram_block1a0_PORT_A_address_reg = DFFE(G1_ram_block1a0_PORT_A_address, G1_ram_block1a0_clock_0, , , );
-G1_ram_block1a0_PORT_B_address = BUS(C1L72, C1L75, C1L76, C1L77);
-G1_ram_block1a0_PORT_B_address_reg = DFFE(G1_ram_block1a0_PORT_B_address, G1_ram_block1a0_clock_0, , , );
-G1_ram_block1a0_PORT_A_write_enable = C1L66;
-G1_ram_block1a0_PORT_A_write_enable_reg = DFFE(G1_ram_block1a0_PORT_A_write_enable, G1_ram_block1a0_clock_0, , , );
-G1_ram_block1a0_PORT_B_read_enable = VCC;
-G1_ram_block1a0_PORT_B_read_enable_reg = DFFE(G1_ram_block1a0_PORT_B_read_enable, G1_ram_block1a0_clock_0, , , );
-G1_ram_block1a0_clock_0 = i_clk;
-G1_ram_block1a0_PORT_B_data_out = MEMORY(G1_ram_block1a0_PORT_A_data_in_reg, , G1_ram_block1a0_PORT_A_address_reg, G1_ram_block1a0_PORT_B_address_reg, G1_ram_block1a0_PORT_A_write_enable_reg, , , G1_ram_block1a0_PORT_B_read_enable_reg, , , G1_ram_block1a0_clock_0, , , , , , , );
-G1_ram_block1a0 = G1_ram_block1a0_PORT_B_data_out[0];
+--K1L6 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~5
+K1L6 = CARRY((K1L105 & ((K1_r_data_out[-9]) # (!K1L4))) # (!K1L105 & (K1_r_data_out[-9] & !K1L4)));
 
 
---G1_ram_block1a1 is uart:uart_unit|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_r8g1:auto_generated|ram_block1a1
---RAM Block Operation Mode: Simple Dual-Port
---Port A Depth: 10, Port A Width: 1, Port B Depth: 10, Port B Width: 1
---Port A Logical Depth: 10, Port A Logical Width: 8, Port B Logical Depth: 10, Port B Logical Width: 8
---Port A Input: Registered, Port B Input: Registered, Port B Output: Un-registered
-G1_ram_block1a1_PORT_A_data_in = D1_r_rx_byte[1];
-G1_ram_block1a1_PORT_A_data_in_reg = DFFE(G1_ram_block1a1_PORT_A_data_in, G1_ram_block1a1_clock_0, , , );
-G1_ram_block1a1_PORT_A_address = BUS(C1_r_wr_index[0], C1_r_wr_index[1], C1_r_wr_index[2], C1_r_wr_index[3]);
-G1_ram_block1a1_PORT_A_address_reg = DFFE(G1_ram_block1a1_PORT_A_address, G1_ram_block1a1_clock_0, , , );
-G1_ram_block1a1_PORT_B_address = BUS(C1L72, C1L75, C1L76, C1L77);
-G1_ram_block1a1_PORT_B_address_reg = DFFE(G1_ram_block1a1_PORT_B_address, G1_ram_block1a1_clock_0, , , );
-G1_ram_block1a1_PORT_A_write_enable = C1L66;
-G1_ram_block1a1_PORT_A_write_enable_reg = DFFE(G1_ram_block1a1_PORT_A_write_enable, G1_ram_block1a1_clock_0, , , );
-G1_ram_block1a1_PORT_B_read_enable = VCC;
-G1_ram_block1a1_PORT_B_read_enable_reg = DFFE(G1_ram_block1a1_PORT_B_read_enable, G1_ram_block1a1_clock_0, , , );
-G1_ram_block1a1_clock_0 = i_clk;
-G1_ram_block1a1_PORT_B_data_out = MEMORY(G1_ram_block1a1_PORT_A_data_in_reg, , G1_ram_block1a1_PORT_A_address_reg, G1_ram_block1a1_PORT_B_address_reg, G1_ram_block1a1_PORT_A_write_enable_reg, , , G1_ram_block1a1_PORT_B_read_enable_reg, , , G1_ram_block1a1_clock_0, , , , , , , );
-G1_ram_block1a1 = G1_ram_block1a1_PORT_B_data_out[0];
+--K1L7 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~6
+K1L7 = (K1L103 & ((K1_r_data_out[-8] & (K1L6 & VCC)) # (!K1_r_data_out[-8] & (!K1L6)))) # (!K1L103 & ((K1_r_data_out[-8] & (!K1L6)) # (!K1_r_data_out[-8] & ((K1L6) # (GND)))));
 
+--K1L8 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~7
+K1L8 = CARRY((K1L103 & (!K1_r_data_out[-8] & !K1L6)) # (!K1L103 & ((!K1L6) # (!K1_r_data_out[-8]))));
 
---G1_ram_block1a2 is uart:uart_unit|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_r8g1:auto_generated|ram_block1a2
---RAM Block Operation Mode: Simple Dual-Port
---Port A Depth: 10, Port A Width: 1, Port B Depth: 10, Port B Width: 1
---Port A Logical Depth: 10, Port A Logical Width: 8, Port B Logical Depth: 10, Port B Logical Width: 8
---Port A Input: Registered, Port B Input: Registered, Port B Output: Un-registered
-G1_ram_block1a2_PORT_A_data_in = D1_r_rx_byte[2];
-G1_ram_block1a2_PORT_A_data_in_reg = DFFE(G1_ram_block1a2_PORT_A_data_in, G1_ram_block1a2_clock_0, , , );
-G1_ram_block1a2_PORT_A_address = BUS(C1_r_wr_index[0], C1_r_wr_index[1], C1_r_wr_index[2], C1_r_wr_index[3]);
-G1_ram_block1a2_PORT_A_address_reg = DFFE(G1_ram_block1a2_PORT_A_address, G1_ram_block1a2_clock_0, , , );
-G1_ram_block1a2_PORT_B_address = BUS(C1L72, C1L75, C1L76, C1L77);
-G1_ram_block1a2_PORT_B_address_reg = DFFE(G1_ram_block1a2_PORT_B_address, G1_ram_block1a2_clock_0, , , );
-G1_ram_block1a2_PORT_A_write_enable = C1L66;
-G1_ram_block1a2_PORT_A_write_enable_reg = DFFE(G1_ram_block1a2_PORT_A_write_enable, G1_ram_block1a2_clock_0, , , );
-G1_ram_block1a2_PORT_B_read_enable = VCC;
-G1_ram_block1a2_PORT_B_read_enable_reg = DFFE(G1_ram_block1a2_PORT_B_read_enable, G1_ram_block1a2_clock_0, , , );
-G1_ram_block1a2_clock_0 = i_clk;
-G1_ram_block1a2_PORT_B_data_out = MEMORY(G1_ram_block1a2_PORT_A_data_in_reg, , G1_ram_block1a2_PORT_A_address_reg, G1_ram_block1a2_PORT_B_address_reg, G1_ram_block1a2_PORT_A_write_enable_reg, , , G1_ram_block1a2_PORT_B_read_enable_reg, , , G1_ram_block1a2_clock_0, , , , , , , );
-G1_ram_block1a2 = G1_ram_block1a2_PORT_B_data_out[0];
-
-
---G1_ram_block1a3 is uart:uart_unit|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_r8g1:auto_generated|ram_block1a3
---RAM Block Operation Mode: Simple Dual-Port
---Port A Depth: 10, Port A Width: 1, Port B Depth: 10, Port B Width: 1
---Port A Logical Depth: 10, Port A Logical Width: 8, Port B Logical Depth: 10, Port B Logical Width: 8
---Port A Input: Registered, Port B Input: Registered, Port B Output: Un-registered
-G1_ram_block1a3_PORT_A_data_in = D1_r_rx_byte[3];
-G1_ram_block1a3_PORT_A_data_in_reg = DFFE(G1_ram_block1a3_PORT_A_data_in, G1_ram_block1a3_clock_0, , , );
-G1_ram_block1a3_PORT_A_address = BUS(C1_r_wr_index[0], C1_r_wr_index[1], C1_r_wr_index[2], C1_r_wr_index[3]);
-G1_ram_block1a3_PORT_A_address_reg = DFFE(G1_ram_block1a3_PORT_A_address, G1_ram_block1a3_clock_0, , , );
-G1_ram_block1a3_PORT_B_address = BUS(C1L72, C1L75, C1L76, C1L77);
-G1_ram_block1a3_PORT_B_address_reg = DFFE(G1_ram_block1a3_PORT_B_address, G1_ram_block1a3_clock_0, , , );
-G1_ram_block1a3_PORT_A_write_enable = C1L66;
-G1_ram_block1a3_PORT_A_write_enable_reg = DFFE(G1_ram_block1a3_PORT_A_write_enable, G1_ram_block1a3_clock_0, , , );
-G1_ram_block1a3_PORT_B_read_enable = VCC;
-G1_ram_block1a3_PORT_B_read_enable_reg = DFFE(G1_ram_block1a3_PORT_B_read_enable, G1_ram_block1a3_clock_0, , , );
-G1_ram_block1a3_clock_0 = i_clk;
-G1_ram_block1a3_PORT_B_data_out = MEMORY(G1_ram_block1a3_PORT_A_data_in_reg, , G1_ram_block1a3_PORT_A_address_reg, G1_ram_block1a3_PORT_B_address_reg, G1_ram_block1a3_PORT_A_write_enable_reg, , , G1_ram_block1a3_PORT_B_read_enable_reg, , , G1_ram_block1a3_clock_0, , , , , , , );
-G1_ram_block1a3 = G1_ram_block1a3_PORT_B_data_out[0];
-
-
---G1_ram_block1a4 is uart:uart_unit|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_r8g1:auto_generated|ram_block1a4
---RAM Block Operation Mode: Simple Dual-Port
---Port A Depth: 10, Port A Width: 1, Port B Depth: 10, Port B Width: 1
---Port A Logical Depth: 10, Port A Logical Width: 8, Port B Logical Depth: 10, Port B Logical Width: 8
---Port A Input: Registered, Port B Input: Registered, Port B Output: Un-registered
-G1_ram_block1a4_PORT_A_data_in = D1_r_rx_byte[4];
-G1_ram_block1a4_PORT_A_data_in_reg = DFFE(G1_ram_block1a4_PORT_A_data_in, G1_ram_block1a4_clock_0, , , );
-G1_ram_block1a4_PORT_A_address = BUS(C1_r_wr_index[0], C1_r_wr_index[1], C1_r_wr_index[2], C1_r_wr_index[3]);
-G1_ram_block1a4_PORT_A_address_reg = DFFE(G1_ram_block1a4_PORT_A_address, G1_ram_block1a4_clock_0, , , );
-G1_ram_block1a4_PORT_B_address = BUS(C1L72, C1L75, C1L76, C1L77);
-G1_ram_block1a4_PORT_B_address_reg = DFFE(G1_ram_block1a4_PORT_B_address, G1_ram_block1a4_clock_0, , , );
-G1_ram_block1a4_PORT_A_write_enable = C1L66;
-G1_ram_block1a4_PORT_A_write_enable_reg = DFFE(G1_ram_block1a4_PORT_A_write_enable, G1_ram_block1a4_clock_0, , , );
-G1_ram_block1a4_PORT_B_read_enable = VCC;
-G1_ram_block1a4_PORT_B_read_enable_reg = DFFE(G1_ram_block1a4_PORT_B_read_enable, G1_ram_block1a4_clock_0, , , );
-G1_ram_block1a4_clock_0 = i_clk;
-G1_ram_block1a4_PORT_B_data_out = MEMORY(G1_ram_block1a4_PORT_A_data_in_reg, , G1_ram_block1a4_PORT_A_address_reg, G1_ram_block1a4_PORT_B_address_reg, G1_ram_block1a4_PORT_A_write_enable_reg, , , G1_ram_block1a4_PORT_B_read_enable_reg, , , G1_ram_block1a4_clock_0, , , , , , , );
-G1_ram_block1a4 = G1_ram_block1a4_PORT_B_data_out[0];
-
-
---G1_ram_block1a5 is uart:uart_unit|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_r8g1:auto_generated|ram_block1a5
---RAM Block Operation Mode: Simple Dual-Port
---Port A Depth: 10, Port A Width: 1, Port B Depth: 10, Port B Width: 1
---Port A Logical Depth: 10, Port A Logical Width: 8, Port B Logical Depth: 10, Port B Logical Width: 8
---Port A Input: Registered, Port B Input: Registered, Port B Output: Un-registered
-G1_ram_block1a5_PORT_A_data_in = D1_r_rx_byte[5];
-G1_ram_block1a5_PORT_A_data_in_reg = DFFE(G1_ram_block1a5_PORT_A_data_in, G1_ram_block1a5_clock_0, , , );
-G1_ram_block1a5_PORT_A_address = BUS(C1_r_wr_index[0], C1_r_wr_index[1], C1_r_wr_index[2], C1_r_wr_index[3]);
-G1_ram_block1a5_PORT_A_address_reg = DFFE(G1_ram_block1a5_PORT_A_address, G1_ram_block1a5_clock_0, , , );
-G1_ram_block1a5_PORT_B_address = BUS(C1L72, C1L75, C1L76, C1L77);
-G1_ram_block1a5_PORT_B_address_reg = DFFE(G1_ram_block1a5_PORT_B_address, G1_ram_block1a5_clock_0, , , );
-G1_ram_block1a5_PORT_A_write_enable = C1L66;
-G1_ram_block1a5_PORT_A_write_enable_reg = DFFE(G1_ram_block1a5_PORT_A_write_enable, G1_ram_block1a5_clock_0, , , );
-G1_ram_block1a5_PORT_B_read_enable = VCC;
-G1_ram_block1a5_PORT_B_read_enable_reg = DFFE(G1_ram_block1a5_PORT_B_read_enable, G1_ram_block1a5_clock_0, , , );
-G1_ram_block1a5_clock_0 = i_clk;
-G1_ram_block1a5_PORT_B_data_out = MEMORY(G1_ram_block1a5_PORT_A_data_in_reg, , G1_ram_block1a5_PORT_A_address_reg, G1_ram_block1a5_PORT_B_address_reg, G1_ram_block1a5_PORT_A_write_enable_reg, , , G1_ram_block1a5_PORT_B_read_enable_reg, , , G1_ram_block1a5_clock_0, , , , , , , );
-G1_ram_block1a5 = G1_ram_block1a5_PORT_B_data_out[0];
-
-
---G1_ram_block1a6 is uart:uart_unit|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_r8g1:auto_generated|ram_block1a6
---RAM Block Operation Mode: Simple Dual-Port
---Port A Depth: 10, Port A Width: 1, Port B Depth: 10, Port B Width: 1
---Port A Logical Depth: 10, Port A Logical Width: 8, Port B Logical Depth: 10, Port B Logical Width: 8
---Port A Input: Registered, Port B Input: Registered, Port B Output: Un-registered
-G1_ram_block1a6_PORT_A_data_in = D1_r_rx_byte[6];
-G1_ram_block1a6_PORT_A_data_in_reg = DFFE(G1_ram_block1a6_PORT_A_data_in, G1_ram_block1a6_clock_0, , , );
-G1_ram_block1a6_PORT_A_address = BUS(C1_r_wr_index[0], C1_r_wr_index[1], C1_r_wr_index[2], C1_r_wr_index[3]);
-G1_ram_block1a6_PORT_A_address_reg = DFFE(G1_ram_block1a6_PORT_A_address, G1_ram_block1a6_clock_0, , , );
-G1_ram_block1a6_PORT_B_address = BUS(C1L72, C1L75, C1L76, C1L77);
-G1_ram_block1a6_PORT_B_address_reg = DFFE(G1_ram_block1a6_PORT_B_address, G1_ram_block1a6_clock_0, , , );
-G1_ram_block1a6_PORT_A_write_enable = C1L66;
-G1_ram_block1a6_PORT_A_write_enable_reg = DFFE(G1_ram_block1a6_PORT_A_write_enable, G1_ram_block1a6_clock_0, , , );
-G1_ram_block1a6_PORT_B_read_enable = VCC;
-G1_ram_block1a6_PORT_B_read_enable_reg = DFFE(G1_ram_block1a6_PORT_B_read_enable, G1_ram_block1a6_clock_0, , , );
-G1_ram_block1a6_clock_0 = i_clk;
-G1_ram_block1a6_PORT_B_data_out = MEMORY(G1_ram_block1a6_PORT_A_data_in_reg, , G1_ram_block1a6_PORT_A_address_reg, G1_ram_block1a6_PORT_B_address_reg, G1_ram_block1a6_PORT_A_write_enable_reg, , , G1_ram_block1a6_PORT_B_read_enable_reg, , , G1_ram_block1a6_clock_0, , , , , , , );
-G1_ram_block1a6 = G1_ram_block1a6_PORT_B_data_out[0];
-
 
---G1_ram_block1a7 is uart:uart_unit|fifo:fifo_rx|altsyncram:r_fifo_data_rtl_0|altsyncram_r8g1:auto_generated|ram_block1a7
---RAM Block Operation Mode: Simple Dual-Port
---Port A Depth: 10, Port A Width: 1, Port B Depth: 10, Port B Width: 1
---Port A Logical Depth: 10, Port A Logical Width: 8, Port B Logical Depth: 10, Port B Logical Width: 8
---Port A Input: Registered, Port B Input: Registered, Port B Output: Un-registered
-G1_ram_block1a7_PORT_A_data_in = D1_r_rx_byte[7];
-G1_ram_block1a7_PORT_A_data_in_reg = DFFE(G1_ram_block1a7_PORT_A_data_in, G1_ram_block1a7_clock_0, , , );
-G1_ram_block1a7_PORT_A_address = BUS(C1_r_wr_index[0], C1_r_wr_index[1], C1_r_wr_index[2], C1_r_wr_index[3]);
-G1_ram_block1a7_PORT_A_address_reg = DFFE(G1_ram_block1a7_PORT_A_address, G1_ram_block1a7_clock_0, , , );
-G1_ram_block1a7_PORT_B_address = BUS(C1L72, C1L75, C1L76, C1L77);
-G1_ram_block1a7_PORT_B_address_reg = DFFE(G1_ram_block1a7_PORT_B_address, G1_ram_block1a7_clock_0, , , );
-G1_ram_block1a7_PORT_A_write_enable = C1L66;
-G1_ram_block1a7_PORT_A_write_enable_reg = DFFE(G1_ram_block1a7_PORT_A_write_enable, G1_ram_block1a7_clock_0, , , );
-G1_ram_block1a7_PORT_B_read_enable = VCC;
-G1_ram_block1a7_PORT_B_read_enable_reg = DFFE(G1_ram_block1a7_PORT_B_read_enable, G1_ram_block1a7_clock_0, , , );
-G1_ram_block1a7_clock_0 = i_clk;
-G1_ram_block1a7_PORT_B_data_out = MEMORY(G1_ram_block1a7_PORT_A_data_in_reg, , G1_ram_block1a7_PORT_A_address_reg, G1_ram_block1a7_PORT_B_address_reg, G1_ram_block1a7_PORT_A_write_enable_reg, , , G1_ram_block1a7_PORT_B_read_enable_reg, , , G1_ram_block1a7_clock_0, , , , , , , );
-G1_ram_block1a7 = G1_ram_block1a7_PORT_B_data_out[0];
+--K1L9 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~8
+K1L9 = ((K1L101 $ (K1_r_data_out[-7] $ (!K1L8)))) # (GND);
 
+--K1L10 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~9
+K1L10 = CARRY((K1L101 & ((K1_r_data_out[-7]) # (!K1L8))) # (!K1L101 & (K1_r_data_out[-7] & !K1L8)));
 
---C1L14 is uart:uart_unit|fifo:fifo_rx|r_fifo_count[0]~5
-C1L14 = C1_r_fifo_count[0] $ (VCC);
 
---C1L15 is uart:uart_unit|fifo:fifo_rx|r_fifo_count[0]~6
-C1L15 = CARRY(C1_r_fifo_count[0]);
+--K1L11 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~10
+K1L11 = (K1L99 & ((K1_r_data_out[-6] & (K1L10 & VCC)) # (!K1_r_data_out[-6] & (!K1L10)))) # (!K1L99 & ((K1_r_data_out[-6] & (!K1L10)) # (!K1_r_data_out[-6] & ((K1L10) # (GND)))));
 
+--K1L12 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~11
+K1L12 = CARRY((K1L99 & (!K1_r_data_out[-6] & !K1L10)) # (!K1L99 & ((!K1L10) # (!K1_r_data_out[-6]))));
 
---C1L17 is uart:uart_unit|fifo:fifo_rx|r_fifo_count[1]~7
-C1L17 = (C1_r_fifo_count[1] & ((C1L10 & (!C1L15)) # (!C1L10 & (C1L15 & VCC)))) # (!C1_r_fifo_count[1] & ((C1L10 & ((C1L15) # (GND))) # (!C1L10 & (!C1L15))));
 
---C1L18 is uart:uart_unit|fifo:fifo_rx|r_fifo_count[1]~8
-C1L18 = CARRY((C1_r_fifo_count[1] & (C1L10 & !C1L15)) # (!C1_r_fifo_count[1] & ((C1L10) # (!C1L15))));
+--K1L13 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~12
+K1L13 = ((K1L97 $ (K1_r_data_out[-5] $ (!K1L12)))) # (GND);
 
+--K1L14 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~13
+K1L14 = CARRY((K1L97 & ((K1_r_data_out[-5]) # (!K1L12))) # (!K1L97 & (K1_r_data_out[-5] & !K1L12)));
 
---C1L20 is uart:uart_unit|fifo:fifo_rx|r_fifo_count[2]~9
-C1L20 = ((C1_r_fifo_count[2] $ (C1L10 $ (C1L18)))) # (GND);
 
---C1L21 is uart:uart_unit|fifo:fifo_rx|r_fifo_count[2]~10
-C1L21 = CARRY((C1_r_fifo_count[2] & ((!C1L18) # (!C1L10))) # (!C1_r_fifo_count[2] & (!C1L10 & !C1L18)));
+--K1L15 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~14
+K1L15 = (K1L95 & ((K1_r_data_out[-4] & (K1L14 & VCC)) # (!K1_r_data_out[-4] & (!K1L14)))) # (!K1L95 & ((K1_r_data_out[-4] & (!K1L14)) # (!K1_r_data_out[-4] & ((K1L14) # (GND)))));
 
+--K1L16 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~15
+K1L16 = CARRY((K1L95 & (!K1_r_data_out[-4] & !K1L14)) # (!K1L95 & ((!K1L14) # (!K1_r_data_out[-4]))));
 
---C1L24 is uart:uart_unit|fifo:fifo_rx|r_fifo_count[3]~11
-C1L24 = (C1_r_fifo_count[3] & ((C1L10 & (!C1L21)) # (!C1L10 & (C1L21 & VCC)))) # (!C1_r_fifo_count[3] & ((C1L10 & ((C1L21) # (GND))) # (!C1L10 & (!C1L21))));
 
---C1L25 is uart:uart_unit|fifo:fifo_rx|r_fifo_count[3]~12
-C1L25 = CARRY((C1_r_fifo_count[3] & (C1L10 & !C1L21)) # (!C1_r_fifo_count[3] & ((C1L10) # (!C1L21))));
+--K1L17 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~16
+K1L17 = ((K1L93 $ (K1_r_data_out[-3] $ (!K1L16)))) # (GND);
 
+--K1L18 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~17
+K1L18 = CARRY((K1L93 & ((K1_r_data_out[-3]) # (!K1L16))) # (!K1L93 & (K1_r_data_out[-3] & !K1L16)));
 
---C1L27 is uart:uart_unit|fifo:fifo_rx|r_fifo_count[4]~14
-C1L27 = C1_r_fifo_count[4] $ (C1L10 $ (C1L25));
 
+--K1L19 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~18
+K1L19 = (K1L91 & ((K1_r_data_out[-2] & (K1L18 & VCC)) # (!K1_r_data_out[-2] & (!K1L18)))) # (!K1L91 & ((K1_r_data_out[-2] & (!K1L18)) # (!K1_r_data_out[-2] & ((K1L18) # (GND)))));
 
---C2L13 is uart:uart_unit|fifo:fifo_tx|r_fifo_count[0]~5
-C2L13 = C2_r_fifo_count[0] $ (VCC);
+--K1L20 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~19
+K1L20 = CARRY((K1L91 & (!K1_r_data_out[-2] & !K1L18)) # (!K1L91 & ((!K1L18) # (!K1_r_data_out[-2]))));
 
---C2L14 is uart:uart_unit|fifo:fifo_tx|r_fifo_count[0]~6
-C2L14 = CARRY(C2_r_fifo_count[0]);
 
+--K1L21 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~20
+K1L21 = ((K1L89 $ (K1_r_data_out[-1] $ (!K1L20)))) # (GND);
 
---C2L16 is uart:uart_unit|fifo:fifo_tx|r_fifo_count[1]~7
-C2L16 = (C2_r_fifo_count[1] & ((C2L10 & (!C2L14)) # (!C2L10 & (C2L14 & VCC)))) # (!C2_r_fifo_count[1] & ((C2L10 & ((C2L14) # (GND))) # (!C2L10 & (!C2L14))));
+--K1L22 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~21
+K1L22 = CARRY((K1L89 & ((K1_r_data_out[-1]) # (!K1L20))) # (!K1L89 & (K1_r_data_out[-1] & !K1L20)));
 
---C2L17 is uart:uart_unit|fifo:fifo_tx|r_fifo_count[1]~8
-C2L17 = CARRY((C2_r_fifo_count[1] & (C2L10 & !C2L14)) # (!C2_r_fifo_count[1] & ((C2L10) # (!C2L14))));
 
+--K1L23 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~22
+K1L23 = (K1L111 & ((K1_r_data_out[0] & (K1L22 & VCC)) # (!K1_r_data_out[0] & (!K1L22)))) # (!K1L111 & ((K1_r_data_out[0] & (!K1L22)) # (!K1_r_data_out[0] & ((K1L22) # (GND)))));
 
---C2L19 is uart:uart_unit|fifo:fifo_tx|r_fifo_count[2]~9
-C2L19 = ((C2_r_fifo_count[2] $ (C2L10 $ (C2L17)))) # (GND);
+--K1L24 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~23
+K1L24 = CARRY((K1L111 & (!K1_r_data_out[0] & !K1L22)) # (!K1L111 & ((!K1L22) # (!K1_r_data_out[0]))));
 
---C2L20 is uart:uart_unit|fifo:fifo_tx|r_fifo_count[2]~10
-C2L20 = CARRY((C2_r_fifo_count[2] & ((!C2L17) # (!C2L10))) # (!C2_r_fifo_count[2] & (!C2L10 & !C2L17)));
 
+--K1L25 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~24
+K1L25 = ((K1L113 $ (K1_r_data_out[1] $ (!K1L24)))) # (GND);
 
---C2L23 is uart:uart_unit|fifo:fifo_tx|r_fifo_count[3]~11
-C2L23 = (C2_r_fifo_count[3] & ((C2L10 & (!C2L20)) # (!C2L10 & (C2L20 & VCC)))) # (!C2_r_fifo_count[3] & ((C2L10 & ((C2L20) # (GND))) # (!C2L10 & (!C2L20))));
+--K1L26 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~25
+K1L26 = CARRY((K1L113 & ((K1_r_data_out[1]) # (!K1L24))) # (!K1L113 & (K1_r_data_out[1] & !K1L24)));
 
---C2L24 is uart:uart_unit|fifo:fifo_tx|r_fifo_count[3]~12
-C2L24 = CARRY((C2_r_fifo_count[3] & (C2L10 & !C2L20)) # (!C2_r_fifo_count[3] & ((C2L10) # (!C2L20))));
 
+--K1L27 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~26
+K1L27 = (K1L115 & ((K1_r_data_out[2] & (K1L26 & VCC)) # (!K1_r_data_out[2] & (!K1L26)))) # (!K1L115 & ((K1_r_data_out[2] & (!K1L26)) # (!K1_r_data_out[2] & ((K1L26) # (GND)))));
 
---C2L26 is uart:uart_unit|fifo:fifo_tx|r_fifo_count[4]~14
-C2L26 = C2_r_fifo_count[4] $ (C2L10 $ (C2L24));
+--K1L28 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~27
+K1L28 = CARRY((K1L115 & (!K1_r_data_out[2] & !K1L26)) # (!K1L115 & ((!K1L26) # (!K1_r_data_out[2]))));
 
 
---D1_r_clk_count[12] is uart:uart_unit|uart_rx:receiver|r_clk_count[12]
+--K1L29 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~28
+K1L29 = ((K1L119 $ (K1_r_data_out[3] $ (!K1L28)))) # (GND);
+
+--K1L30 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~29
+K1L30 = CARRY((K1L119 & ((K1_r_data_out[3]) # (!K1L28))) # (!K1L119 & (K1_r_data_out[3] & !K1L28)));
+
+
+--K1L31 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~30
+K1L31 = (K1L120 & ((K1_r_data_out[4] & (K1L30 & VCC)) # (!K1_r_data_out[4] & (!K1L30)))) # (!K1L120 & ((K1_r_data_out[4] & (!K1L30)) # (!K1_r_data_out[4] & ((K1L30) # (GND)))));
+
+--K1L32 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~31
+K1L32 = CARRY((K1L120 & (!K1_r_data_out[4] & !K1L30)) # (!K1L120 & ((!K1L30) # (!K1_r_data_out[4]))));
+
+
+--K1L33 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|Add0~32
+K1L33 = K1L120 $ (K1_r_data_out[4] $ (K1L32));
+
+
+--C1_r_sinapse_count[21] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[21]
 --register power-up is low
 
-D1_r_clk_count[12] = DFFEAS(D1L63, i_clk,  ,  , D1L58,  ,  , D1L57,  );
+C1_r_sinapse_count[21] = DFFEAS(C1L152, i_clk,  ,  ,  , C1L224,  ,  , !C1_r_sm.s_get_weight);
 
 
---D1_r_clk_count[3] is uart:uart_unit|uart_rx:receiver|r_clk_count[3]
+--C1_r_sinapse_count[22] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[22]
 --register power-up is low
 
-D1_r_clk_count[3] = DFFEAS(D1L32, i_clk,  ,  , D1L58,  ,  , D1L57,  );
+C1_r_sinapse_count[22] = DFFEAS(C1L155, i_clk,  ,  ,  , C1L223,  ,  , !C1_r_sm.s_get_weight);
 
 
---D1_r_clk_count[4] is uart:uart_unit|uart_rx:receiver|r_clk_count[4]
+--C1_r_sinapse_count[23] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[23]
 --register power-up is low
 
-D1_r_clk_count[4] = DFFEAS(D1L35, i_clk,  ,  , D1L58,  ,  , D1L57,  );
+C1_r_sinapse_count[23] = DFFEAS(C1L158, i_clk,  ,  ,  , C1L222,  ,  , !C1_r_sm.s_get_weight);
 
 
---D1_r_clk_count[5] is uart:uart_unit|uart_rx:receiver|r_clk_count[5]
+--C1_r_sinapse_count[24] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[24]
 --register power-up is low
 
-D1_r_clk_count[5] = DFFEAS(D1L38, i_clk,  ,  , D1L58,  ,  , D1L57,  );
+C1_r_sinapse_count[24] = DFFEAS(C1L161, i_clk,  ,  ,  , C1L221,  ,  , !C1_r_sm.s_get_weight);
 
 
---D1_r_clk_count[6] is uart:uart_unit|uart_rx:receiver|r_clk_count[6]
+--C1_r_sinapse_count[31] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[31]
 --register power-up is low
 
-D1_r_clk_count[6] = DFFEAS(D1L41, i_clk,  ,  , D1L58,  ,  , D1L57,  );
+C1_r_sinapse_count[31] = DFFEAS(C1L182, i_clk,  ,  ,  , C1L214,  ,  , !C1_r_sm.s_get_weight);
 
 
---D1_r_clk_count[11] is uart:uart_unit|uart_rx:receiver|r_clk_count[11]
+--C1_r_sinapse_count[1] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[1]
 --register power-up is low
 
-D1_r_clk_count[11] = DFFEAS(D1L60, i_clk,  ,  , D1L58,  ,  , D1L57,  );
+C1_r_sinapse_count[1] = DFFEAS(C1L92, i_clk,  ,  ,  , C1L244,  ,  , !C1_r_sm.s_get_weight);
 
 
---D1_r_clk_count[7] is uart:uart_unit|uart_rx:receiver|r_clk_count[7]
+--C1_r_sinapse_count[2] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[2]
 --register power-up is low
 
-D1_r_clk_count[7] = DFFEAS(D1L44, i_clk,  ,  , D1L58,  ,  , D1L57,  );
+C1_r_sinapse_count[2] = DFFEAS(C1L95, i_clk,  ,  ,  , C1L243,  ,  , !C1_r_sm.s_get_weight);
 
 
---D1_r_clk_count[8] is uart:uart_unit|uart_rx:receiver|r_clk_count[8]
+--C1_r_sinapse_count[3] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[3]
 --register power-up is low
 
-D1_r_clk_count[8] = DFFEAS(D1L47, i_clk,  ,  , D1L58,  ,  , D1L57,  );
+C1_r_sinapse_count[3] = DFFEAS(C1L98, i_clk,  ,  ,  , C1L242,  ,  , !C1_r_sm.s_get_weight);
 
 
---D1_r_clk_count[9] is uart:uart_unit|uart_rx:receiver|r_clk_count[9]
+--C1_r_sinapse_count[4] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[4]
 --register power-up is low
 
-D1_r_clk_count[9] = DFFEAS(D1L50, i_clk,  ,  , D1L58,  ,  , D1L57,  );
+C1_r_sinapse_count[4] = DFFEAS(C1L101, i_clk,  ,  ,  , C1L241,  ,  , !C1_r_sm.s_get_weight);
 
 
---D1_r_clk_count[10] is uart:uart_unit|uart_rx:receiver|r_clk_count[10]
+--C1_r_sinapse_count[5] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[5]
 --register power-up is low
 
-D1_r_clk_count[10] = DFFEAS(D1L53, i_clk,  ,  , D1L58,  ,  , D1L57,  );
+C1_r_sinapse_count[5] = DFFEAS(C1L104, i_clk,  ,  ,  , C1L240,  ,  , !C1_r_sm.s_get_weight);
 
+
+--C1_r_sinapse_count[6] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[6]
+--register power-up is low
 
---G2_ram_block1a6 is uart:uart_unit|fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_r8g1:auto_generated|ram_block1a6
---RAM Block Operation Mode: Simple Dual-Port
---Port A Depth: 10, Port A Width: 1, Port B Depth: 10, Port B Width: 1
---Port A Logical Depth: 10, Port A Logical Width: 8, Port B Logical Depth: 10, Port B Logical Width: 8
---Port A Input: Registered, Port B Input: Registered, Port B Output: Un-registered
-G2_ram_block1a6_PORT_A_data_in = r_tx_data[6];
-G2_ram_block1a6_PORT_A_data_in_reg = DFFE(G2_ram_block1a6_PORT_A_data_in, G2_ram_block1a6_clock_0, , , );
-G2_ram_block1a6_PORT_A_address = BUS(C2_r_wr_index[0], C2_r_wr_index[1], C2_r_wr_index[2], C2_r_wr_index[3]);
-G2_ram_block1a6_PORT_A_address_reg = DFFE(G2_ram_block1a6_PORT_A_address, G2_ram_block1a6_clock_0, , , );
-G2_ram_block1a6_PORT_B_address = BUS(C2L71, C2L74, C2L76, C2L77);
-G2_ram_block1a6_PORT_B_address_reg = DFFE(G2_ram_block1a6_PORT_B_address, G2_ram_block1a6_clock_0, , , );
-G2_ram_block1a6_PORT_A_write_enable = C2L65;
-G2_ram_block1a6_PORT_A_write_enable_reg = DFFE(G2_ram_block1a6_PORT_A_write_enable, G2_ram_block1a6_clock_0, , , );
-G2_ram_block1a6_PORT_B_read_enable = VCC;
-G2_ram_block1a6_PORT_B_read_enable_reg = DFFE(G2_ram_block1a6_PORT_B_read_enable, G2_ram_block1a6_clock_0, , , );
-G2_ram_block1a6_clock_0 = i_clk;
-G2_ram_block1a6_PORT_B_data_out = MEMORY(G2_ram_block1a6_PORT_A_data_in_reg, , G2_ram_block1a6_PORT_A_address_reg, G2_ram_block1a6_PORT_B_address_reg, G2_ram_block1a6_PORT_A_write_enable_reg, , , G2_ram_block1a6_PORT_B_read_enable_reg, , , G2_ram_block1a6_clock_0, , , , , , , );
-G2_ram_block1a6 = G2_ram_block1a6_PORT_B_data_out[0];
+C1_r_sinapse_count[6] = DFFEAS(C1L107, i_clk,  ,  ,  , C1L239,  ,  , !C1_r_sm.s_get_weight);
 
 
---E1_r_clk_count[10] is uart:uart_unit|uart_tx:transmitter|r_clk_count[10]
+--C1_r_sinapse_count[7] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[7]
 --register power-up is low
 
-E1_r_clk_count[10] = DFFEAS(E1L47, i_clk,  ,  , !E1_r_sm_main.s_cleanup,  ,  , E1L39,  );
+C1_r_sinapse_count[7] = DFFEAS(C1L110, i_clk,  ,  ,  , C1L238,  ,  , !C1_r_sm.s_get_weight);
 
 
---E1_r_clk_count[11] is uart:uart_unit|uart_tx:transmitter|r_clk_count[11]
+--C1_r_sinapse_count[8] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[8]
 --register power-up is low
 
-E1_r_clk_count[11] = DFFEAS(E1L50, i_clk,  ,  , !E1_r_sm_main.s_cleanup,  ,  , E1L39,  );
+C1_r_sinapse_count[8] = DFFEAS(C1L113, i_clk,  ,  ,  , C1L237,  ,  , !C1_r_sm.s_get_weight);
 
 
---E1_r_clk_count[3] is uart:uart_unit|uart_tx:transmitter|r_clk_count[3]
+--C1_r_sinapse_count[9] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[9]
 --register power-up is low
 
-E1_r_clk_count[3] = DFFEAS(E1L25, i_clk,  ,  , !E1_r_sm_main.s_cleanup,  ,  , E1L39,  );
+C1_r_sinapse_count[9] = DFFEAS(C1L116, i_clk,  ,  ,  , C1L236,  ,  , !C1_r_sm.s_get_weight);
 
 
---E1_r_clk_count[4] is uart:uart_unit|uart_tx:transmitter|r_clk_count[4]
+--C1_r_sinapse_count[10] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[10]
 --register power-up is low
 
-E1_r_clk_count[4] = DFFEAS(E1L28, i_clk,  ,  , !E1_r_sm_main.s_cleanup,  ,  , E1L39,  );
+C1_r_sinapse_count[10] = DFFEAS(C1L119, i_clk,  ,  ,  , C1L235,  ,  , !C1_r_sm.s_get_weight);
 
 
---E1_r_clk_count[5] is uart:uart_unit|uart_tx:transmitter|r_clk_count[5]
+--C1_r_sinapse_count[11] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[11]
 --register power-up is low
 
-E1_r_clk_count[5] = DFFEAS(E1L31, i_clk,  ,  , !E1_r_sm_main.s_cleanup,  ,  , E1L39,  );
+C1_r_sinapse_count[11] = DFFEAS(C1L122, i_clk,  ,  ,  , C1L234,  ,  , !C1_r_sm.s_get_weight);
 
 
---E1_r_clk_count[6] is uart:uart_unit|uart_tx:transmitter|r_clk_count[6]
+--C1_r_sinapse_count[12] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[12]
 --register power-up is low
 
-E1_r_clk_count[6] = DFFEAS(E1L34, i_clk,  ,  , !E1_r_sm_main.s_cleanup,  ,  , E1L39,  );
+C1_r_sinapse_count[12] = DFFEAS(C1L125, i_clk,  ,  ,  , C1L233,  ,  , !C1_r_sm.s_get_weight);
 
 
---E1_r_clk_count[7] is uart:uart_unit|uart_tx:transmitter|r_clk_count[7]
+--C1_r_sinapse_count[13] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[13]
 --register power-up is low
 
-E1_r_clk_count[7] = DFFEAS(E1L37, i_clk,  ,  , !E1_r_sm_main.s_cleanup,  ,  , E1L39,  );
+C1_r_sinapse_count[13] = DFFEAS(C1L128, i_clk,  ,  ,  , C1L232,  ,  , !C1_r_sm.s_get_weight);
 
 
---E1_r_clk_count[8] is uart:uart_unit|uart_tx:transmitter|r_clk_count[8]
+--C1_r_sinapse_count[14] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[14]
 --register power-up is low
 
-E1_r_clk_count[8] = DFFEAS(E1L41, i_clk,  ,  , !E1_r_sm_main.s_cleanup,  ,  , E1L39,  );
+C1_r_sinapse_count[14] = DFFEAS(C1L131, i_clk,  ,  ,  , C1L231,  ,  , !C1_r_sm.s_get_weight);
 
 
---E1_r_clk_count[9] is uart:uart_unit|uart_tx:transmitter|r_clk_count[9]
+--C1_r_sinapse_count[15] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[15]
 --register power-up is low
 
-E1_r_clk_count[9] = DFFEAS(E1L44, i_clk,  ,  , !E1_r_sm_main.s_cleanup,  ,  , E1L39,  );
+C1_r_sinapse_count[15] = DFFEAS(C1L134, i_clk,  ,  ,  , C1L230,  ,  , !C1_r_sm.s_get_weight);
 
 
---E1_r_clk_count[12] is uart:uart_unit|uart_tx:transmitter|r_clk_count[12]
+--C1_r_sinapse_count[16] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[16]
 --register power-up is low
 
-E1_r_clk_count[12] = DFFEAS(E1L53, i_clk,  ,  , !E1_r_sm_main.s_cleanup,  ,  , E1L39,  );
+C1_r_sinapse_count[16] = DFFEAS(C1L137, i_clk,  ,  ,  , C1L229,  ,  , !C1_r_sm.s_get_weight);
 
 
---G2_ram_block1a5 is uart:uart_unit|fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_r8g1:auto_generated|ram_block1a5
---RAM Block Operation Mode: Simple Dual-Port
---Port A Depth: 10, Port A Width: 1, Port B Depth: 10, Port B Width: 1
---Port A Logical Depth: 10, Port A Logical Width: 8, Port B Logical Depth: 10, Port B Logical Width: 8
---Port A Input: Registered, Port B Input: Registered, Port B Output: Un-registered
-G2_ram_block1a5_PORT_A_data_in = r_tx_data[5];
-G2_ram_block1a5_PORT_A_data_in_reg = DFFE(G2_ram_block1a5_PORT_A_data_in, G2_ram_block1a5_clock_0, , , );
-G2_ram_block1a5_PORT_A_address = BUS(C2_r_wr_index[0], C2_r_wr_index[1], C2_r_wr_index[2], C2_r_wr_index[3]);
-G2_ram_block1a5_PORT_A_address_reg = DFFE(G2_ram_block1a5_PORT_A_address, G2_ram_block1a5_clock_0, , , );
-G2_ram_block1a5_PORT_B_address = BUS(C2L71, C2L74, C2L76, C2L77);
-G2_ram_block1a5_PORT_B_address_reg = DFFE(G2_ram_block1a5_PORT_B_address, G2_ram_block1a5_clock_0, , , );
-G2_ram_block1a5_PORT_A_write_enable = C2L65;
-G2_ram_block1a5_PORT_A_write_enable_reg = DFFE(G2_ram_block1a5_PORT_A_write_enable, G2_ram_block1a5_clock_0, , , );
-G2_ram_block1a5_PORT_B_read_enable = VCC;
-G2_ram_block1a5_PORT_B_read_enable_reg = DFFE(G2_ram_block1a5_PORT_B_read_enable, G2_ram_block1a5_clock_0, , , );
-G2_ram_block1a5_clock_0 = i_clk;
-G2_ram_block1a5_PORT_B_data_out = MEMORY(G2_ram_block1a5_PORT_A_data_in_reg, , G2_ram_block1a5_PORT_A_address_reg, G2_ram_block1a5_PORT_B_address_reg, G2_ram_block1a5_PORT_A_write_enable_reg, , , G2_ram_block1a5_PORT_B_read_enable_reg, , , G2_ram_block1a5_clock_0, , , , , , , );
-G2_ram_block1a5 = G2_ram_block1a5_PORT_B_data_out[0];
+--C1_r_sinapse_count[19] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[19]
+--register power-up is low
+
+C1_r_sinapse_count[19] = DFFEAS(C1L146, i_clk,  ,  ,  , C1L226,  ,  , !C1_r_sm.s_get_weight);
 
 
---G2_ram_block1a4 is uart:uart_unit|fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_r8g1:auto_generated|ram_block1a4
---RAM Block Operation Mode: Simple Dual-Port
---Port A Depth: 10, Port A Width: 1, Port B Depth: 10, Port B Width: 1
---Port A Logical Depth: 10, Port A Logical Width: 8, Port B Logical Depth: 10, Port B Logical Width: 8
---Port A Input: Registered, Port B Input: Registered, Port B Output: Un-registered
-G2_ram_block1a4_PORT_A_data_in = r_tx_data[4];
-G2_ram_block1a4_PORT_A_data_in_reg = DFFE(G2_ram_block1a4_PORT_A_data_in, G2_ram_block1a4_clock_0, , , );
-G2_ram_block1a4_PORT_A_address = BUS(C2_r_wr_index[0], C2_r_wr_index[1], C2_r_wr_index[2], C2_r_wr_index[3]);
-G2_ram_block1a4_PORT_A_address_reg = DFFE(G2_ram_block1a4_PORT_A_address, G2_ram_block1a4_clock_0, , , );
-G2_ram_block1a4_PORT_B_address = BUS(C2L71, C2L74, C2L76, C2L77);
-G2_ram_block1a4_PORT_B_address_reg = DFFE(G2_ram_block1a4_PORT_B_address, G2_ram_block1a4_clock_0, , , );
-G2_ram_block1a4_PORT_A_write_enable = C2L65;
-G2_ram_block1a4_PORT_A_write_enable_reg = DFFE(G2_ram_block1a4_PORT_A_write_enable, G2_ram_block1a4_clock_0, , , );
-G2_ram_block1a4_PORT_B_read_enable = VCC;
-G2_ram_block1a4_PORT_B_read_enable_reg = DFFE(G2_ram_block1a4_PORT_B_read_enable, G2_ram_block1a4_clock_0, , , );
-G2_ram_block1a4_clock_0 = i_clk;
-G2_ram_block1a4_PORT_B_data_out = MEMORY(G2_ram_block1a4_PORT_A_data_in_reg, , G2_ram_block1a4_PORT_A_address_reg, G2_ram_block1a4_PORT_B_address_reg, G2_ram_block1a4_PORT_A_write_enable_reg, , , G2_ram_block1a4_PORT_B_read_enable_reg, , , G2_ram_block1a4_clock_0, , , , , , , );
-G2_ram_block1a4 = G2_ram_block1a4_PORT_B_data_out[0];
+--C1_r_sinapse_count[18] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[18]
+--register power-up is low
 
+C1_r_sinapse_count[18] = DFFEAS(C1L143, i_clk,  ,  ,  , C1L227,  ,  , !C1_r_sm.s_get_weight);
 
---G2_ram_block1a7 is uart:uart_unit|fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_r8g1:auto_generated|ram_block1a7
---RAM Block Operation Mode: Simple Dual-Port
---Port A Depth: 10, Port A Width: 1, Port B Depth: 10, Port B Width: 1
---Port A Logical Depth: 10, Port A Logical Width: 8, Port B Logical Depth: 10, Port B Logical Width: 8
---Port A Input: Registered, Port B Input: Registered, Port B Output: Un-registered
-G2_ram_block1a7_PORT_A_data_in = r_tx_data[7];
-G2_ram_block1a7_PORT_A_data_in_reg = DFFE(G2_ram_block1a7_PORT_A_data_in, G2_ram_block1a7_clock_0, , , );
-G2_ram_block1a7_PORT_A_address = BUS(C2_r_wr_index[0], C2_r_wr_index[1], C2_r_wr_index[2], C2_r_wr_index[3]);
-G2_ram_block1a7_PORT_A_address_reg = DFFE(G2_ram_block1a7_PORT_A_address, G2_ram_block1a7_clock_0, , , );
-G2_ram_block1a7_PORT_B_address = BUS(C2L71, C2L74, C2L76, C2L77);
-G2_ram_block1a7_PORT_B_address_reg = DFFE(G2_ram_block1a7_PORT_B_address, G2_ram_block1a7_clock_0, , , );
-G2_ram_block1a7_PORT_A_write_enable = C2L65;
-G2_ram_block1a7_PORT_A_write_enable_reg = DFFE(G2_ram_block1a7_PORT_A_write_enable, G2_ram_block1a7_clock_0, , , );
-G2_ram_block1a7_PORT_B_read_enable = VCC;
-G2_ram_block1a7_PORT_B_read_enable_reg = DFFE(G2_ram_block1a7_PORT_B_read_enable, G2_ram_block1a7_clock_0, , , );
-G2_ram_block1a7_clock_0 = i_clk;
-G2_ram_block1a7_PORT_B_data_out = MEMORY(G2_ram_block1a7_PORT_A_data_in_reg, , G2_ram_block1a7_PORT_A_address_reg, G2_ram_block1a7_PORT_B_address_reg, G2_ram_block1a7_PORT_A_write_enable_reg, , , G2_ram_block1a7_PORT_B_read_enable_reg, , , G2_ram_block1a7_clock_0, , , , , , , );
-G2_ram_block1a7 = G2_ram_block1a7_PORT_B_data_out[0];
 
+--C1_r_sinapse_count[25] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[25]
+--register power-up is low
 
---G2_ram_block1a2 is uart:uart_unit|fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_r8g1:auto_generated|ram_block1a2
---RAM Block Operation Mode: Simple Dual-Port
---Port A Depth: 10, Port A Width: 1, Port B Depth: 10, Port B Width: 1
---Port A Logical Depth: 10, Port A Logical Width: 8, Port B Logical Depth: 10, Port B Logical Width: 8
---Port A Input: Registered, Port B Input: Registered, Port B Output: Un-registered
-G2_ram_block1a2_PORT_A_data_in = r_tx_data[2];
-G2_ram_block1a2_PORT_A_data_in_reg = DFFE(G2_ram_block1a2_PORT_A_data_in, G2_ram_block1a2_clock_0, , , );
-G2_ram_block1a2_PORT_A_address = BUS(C2_r_wr_index[0], C2_r_wr_index[1], C2_r_wr_index[2], C2_r_wr_index[3]);
-G2_ram_block1a2_PORT_A_address_reg = DFFE(G2_ram_block1a2_PORT_A_address, G2_ram_block1a2_clock_0, , , );
-G2_ram_block1a2_PORT_B_address = BUS(C2L71, C2L74, C2L76, C2L77);
-G2_ram_block1a2_PORT_B_address_reg = DFFE(G2_ram_block1a2_PORT_B_address, G2_ram_block1a2_clock_0, , , );
-G2_ram_block1a2_PORT_A_write_enable = C2L65;
-G2_ram_block1a2_PORT_A_write_enable_reg = DFFE(G2_ram_block1a2_PORT_A_write_enable, G2_ram_block1a2_clock_0, , , );
-G2_ram_block1a2_PORT_B_read_enable = VCC;
-G2_ram_block1a2_PORT_B_read_enable_reg = DFFE(G2_ram_block1a2_PORT_B_read_enable, G2_ram_block1a2_clock_0, , , );
-G2_ram_block1a2_clock_0 = i_clk;
-G2_ram_block1a2_PORT_B_data_out = MEMORY(G2_ram_block1a2_PORT_A_data_in_reg, , G2_ram_block1a2_PORT_A_address_reg, G2_ram_block1a2_PORT_B_address_reg, G2_ram_block1a2_PORT_A_write_enable_reg, , , G2_ram_block1a2_PORT_B_read_enable_reg, , , G2_ram_block1a2_clock_0, , , , , , , );
-G2_ram_block1a2 = G2_ram_block1a2_PORT_B_data_out[0];
+C1_r_sinapse_count[25] = DFFEAS(C1L164, i_clk,  ,  ,  , C1L220,  ,  , !C1_r_sm.s_get_weight);
 
 
---G2_ram_block1a1 is uart:uart_unit|fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_r8g1:auto_generated|ram_block1a1
---RAM Block Operation Mode: Simple Dual-Port
---Port A Depth: 10, Port A Width: 1, Port B Depth: 10, Port B Width: 1
---Port A Logical Depth: 10, Port A Logical Width: 8, Port B Logical Depth: 10, Port B Logical Width: 8
---Port A Input: Registered, Port B Input: Registered, Port B Output: Un-registered
-G2_ram_block1a1_PORT_A_data_in = r_tx_data[1];
-G2_ram_block1a1_PORT_A_data_in_reg = DFFE(G2_ram_block1a1_PORT_A_data_in, G2_ram_block1a1_clock_0, , , );
-G2_ram_block1a1_PORT_A_address = BUS(C2_r_wr_index[0], C2_r_wr_index[1], C2_r_wr_index[2], C2_r_wr_index[3]);
-G2_ram_block1a1_PORT_A_address_reg = DFFE(G2_ram_block1a1_PORT_A_address, G2_ram_block1a1_clock_0, , , );
-G2_ram_block1a1_PORT_B_address = BUS(C2L71, C2L74, C2L76, C2L77);
-G2_ram_block1a1_PORT_B_address_reg = DFFE(G2_ram_block1a1_PORT_B_address, G2_ram_block1a1_clock_0, , , );
-G2_ram_block1a1_PORT_A_write_enable = C2L65;
-G2_ram_block1a1_PORT_A_write_enable_reg = DFFE(G2_ram_block1a1_PORT_A_write_enable, G2_ram_block1a1_clock_0, , , );
-G2_ram_block1a1_PORT_B_read_enable = VCC;
-G2_ram_block1a1_PORT_B_read_enable_reg = DFFE(G2_ram_block1a1_PORT_B_read_enable, G2_ram_block1a1_clock_0, , , );
-G2_ram_block1a1_clock_0 = i_clk;
-G2_ram_block1a1_PORT_B_data_out = MEMORY(G2_ram_block1a1_PORT_A_data_in_reg, , G2_ram_block1a1_PORT_A_address_reg, G2_ram_block1a1_PORT_B_address_reg, G2_ram_block1a1_PORT_A_write_enable_reg, , , G2_ram_block1a1_PORT_B_read_enable_reg, , , G2_ram_block1a1_clock_0, , , , , , , );
-G2_ram_block1a1 = G2_ram_block1a1_PORT_B_data_out[0];
+--C1_r_sinapse_count[26] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[26]
+--register power-up is low
 
+C1_r_sinapse_count[26] = DFFEAS(C1L167, i_clk,  ,  ,  , C1L219,  ,  , !C1_r_sm.s_get_weight);
 
---G2_ram_block1a0 is uart:uart_unit|fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_r8g1:auto_generated|ram_block1a0
---RAM Block Operation Mode: Simple Dual-Port
---Port A Depth: 10, Port A Width: 1, Port B Depth: 10, Port B Width: 1
---Port A Logical Depth: 10, Port A Logical Width: 8, Port B Logical Depth: 10, Port B Logical Width: 8
---Port A Input: Registered, Port B Input: Registered, Port B Output: Un-registered
-G2_ram_block1a0_PORT_A_data_in = r_tx_data[0];
-G2_ram_block1a0_PORT_A_data_in_reg = DFFE(G2_ram_block1a0_PORT_A_data_in, G2_ram_block1a0_clock_0, , , );
-G2_ram_block1a0_PORT_A_address = BUS(C2_r_wr_index[0], C2_r_wr_index[1], C2_r_wr_index[2], C2_r_wr_index[3]);
-G2_ram_block1a0_PORT_A_address_reg = DFFE(G2_ram_block1a0_PORT_A_address, G2_ram_block1a0_clock_0, , , );
-G2_ram_block1a0_PORT_B_address = BUS(C2L71, C2L74, C2L76, C2L77);
-G2_ram_block1a0_PORT_B_address_reg = DFFE(G2_ram_block1a0_PORT_B_address, G2_ram_block1a0_clock_0, , , );
-G2_ram_block1a0_PORT_A_write_enable = C2L65;
-G2_ram_block1a0_PORT_A_write_enable_reg = DFFE(G2_ram_block1a0_PORT_A_write_enable, G2_ram_block1a0_clock_0, , , );
-G2_ram_block1a0_PORT_B_read_enable = VCC;
-G2_ram_block1a0_PORT_B_read_enable_reg = DFFE(G2_ram_block1a0_PORT_B_read_enable, G2_ram_block1a0_clock_0, , , );
-G2_ram_block1a0_clock_0 = i_clk;
-G2_ram_block1a0_PORT_B_data_out = MEMORY(G2_ram_block1a0_PORT_A_data_in_reg, , G2_ram_block1a0_PORT_A_address_reg, G2_ram_block1a0_PORT_B_address_reg, G2_ram_block1a0_PORT_A_write_enable_reg, , , G2_ram_block1a0_PORT_B_read_enable_reg, , , G2_ram_block1a0_clock_0, , , , , , , );
-G2_ram_block1a0 = G2_ram_block1a0_PORT_B_data_out[0];
 
+--C1_r_sinapse_count[27] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[27]
+--register power-up is low
 
---G2_ram_block1a3 is uart:uart_unit|fifo:fifo_tx|altsyncram:r_fifo_data_rtl_0|altsyncram_r8g1:auto_generated|ram_block1a3
---RAM Block Operation Mode: Simple Dual-Port
---Port A Depth: 10, Port A Width: 1, Port B Depth: 10, Port B Width: 1
---Port A Logical Depth: 10, Port A Logical Width: 8, Port B Logical Depth: 10, Port B Logical Width: 8
---Port A Input: Registered, Port B Input: Registered, Port B Output: Un-registered
-G2_ram_block1a3_PORT_A_data_in = r_tx_data[3];
-G2_ram_block1a3_PORT_A_data_in_reg = DFFE(G2_ram_block1a3_PORT_A_data_in, G2_ram_block1a3_clock_0, , , );
-G2_ram_block1a3_PORT_A_address = BUS(C2_r_wr_index[0], C2_r_wr_index[1], C2_r_wr_index[2], C2_r_wr_index[3]);
-G2_ram_block1a3_PORT_A_address_reg = DFFE(G2_ram_block1a3_PORT_A_address, G2_ram_block1a3_clock_0, , , );
-G2_ram_block1a3_PORT_B_address = BUS(C2L71, C2L74, C2L76, C2L77);
-G2_ram_block1a3_PORT_B_address_reg = DFFE(G2_ram_block1a3_PORT_B_address, G2_ram_block1a3_clock_0, , , );
-G2_ram_block1a3_PORT_A_write_enable = C2L65;
-G2_ram_block1a3_PORT_A_write_enable_reg = DFFE(G2_ram_block1a3_PORT_A_write_enable, G2_ram_block1a3_clock_0, , , );
-G2_ram_block1a3_PORT_B_read_enable = VCC;
-G2_ram_block1a3_PORT_B_read_enable_reg = DFFE(G2_ram_block1a3_PORT_B_read_enable, G2_ram_block1a3_clock_0, , , );
-G2_ram_block1a3_clock_0 = i_clk;
-G2_ram_block1a3_PORT_B_data_out = MEMORY(G2_ram_block1a3_PORT_A_data_in_reg, , G2_ram_block1a3_PORT_A_address_reg, G2_ram_block1a3_PORT_B_address_reg, G2_ram_block1a3_PORT_A_write_enable_reg, , , G2_ram_block1a3_PORT_B_read_enable_reg, , , G2_ram_block1a3_clock_0, , , , , , , );
-G2_ram_block1a3 = G2_ram_block1a3_PORT_B_data_out[0];
+C1_r_sinapse_count[27] = DFFEAS(C1L170, i_clk,  ,  ,  , C1L218,  ,  , !C1_r_sm.s_get_weight);
 
 
---D1_r_clk_count[2] is uart:uart_unit|uart_rx:receiver|r_clk_count[2]
+--C1_r_sinapse_count[28] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[28]
 --register power-up is low
 
-D1_r_clk_count[2] = DFFEAS(D1L29, i_clk,  ,  , D1L58,  ,  , D1L57,  );
+C1_r_sinapse_count[28] = DFFEAS(C1L173, i_clk,  ,  ,  , C1L217,  ,  , !C1_r_sm.s_get_weight);
 
 
---D1_r_clk_count[1] is uart:uart_unit|uart_rx:receiver|r_clk_count[1]
+--C1_r_sinapse_count[20] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[20]
 --register power-up is low
 
-D1_r_clk_count[1] = DFFEAS(D1L26, i_clk,  ,  , D1L58,  ,  , D1L57,  );
+C1_r_sinapse_count[20] = DFFEAS(C1L149, i_clk,  ,  ,  , C1L225,  ,  , !C1_r_sm.s_get_weight);
 
 
---D1_r_clk_count[0] is uart:uart_unit|uart_rx:receiver|r_clk_count[0]
+--C1_r_sinapse_count[17] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[17]
 --register power-up is low
+
+C1_r_sinapse_count[17] = DFFEAS(C1L140, i_clk,  ,  ,  , C1L228,  ,  , !C1_r_sm.s_get_weight);
 
-D1_r_clk_count[0] = DFFEAS(D1L23, i_clk,  ,  , D1L58,  ,  , D1L57,  );
 
+--C1_r_sinapse_count[29] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[29]
+--register power-up is low
 
---D1L23 is uart:uart_unit|uart_rx:receiver|r_clk_count[0]~13
-D1L23 = D1_r_clk_count[0] $ (VCC);
+C1_r_sinapse_count[29] = DFFEAS(C1L176, i_clk,  ,  ,  , C1L216,  ,  , !C1_r_sm.s_get_weight);
 
---D1L24 is uart:uart_unit|uart_rx:receiver|r_clk_count[0]~14
-D1L24 = CARRY(D1_r_clk_count[0]);
 
+--C1_r_sinapse_count[30] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[30]
+--register power-up is low
 
---D1L26 is uart:uart_unit|uart_rx:receiver|r_clk_count[1]~15
-D1L26 = (D1_r_clk_count[1] & (!D1L24)) # (!D1_r_clk_count[1] & ((D1L24) # (GND)));
+C1_r_sinapse_count[30] = DFFEAS(C1L179, i_clk,  ,  ,  , C1L215,  ,  , !C1_r_sm.s_get_weight);
 
---D1L27 is uart:uart_unit|uart_rx:receiver|r_clk_count[1]~16
-D1L27 = CARRY((!D1L24) # (!D1_r_clk_count[1]));
 
+--N1_mac_mult1 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1
+--DSP Block Multiplier Base Width: 18-bits
+N1_mac_mult1_a_data = DATA(Q1_ram_block1a15, Q1_ram_block1a14, Q1_ram_block1a13, Q1_ram_block1a12, Q1_ram_block1a11, Q1_ram_block1a10, Q1_ram_block1a9, Q1_ram_block1a8, Q1_ram_block1a7, Q1_ram_block1a6, Q1_ram_block1a5, Q1_ram_block1a4, Q1_ram_block1a3, Q1_ram_block1a2, Q1_ram_block1a1, Q1_ram_block1a0);
+N1_mac_mult1_a_rep = SIGNED(N1_mac_mult1_a_data);
+N1_mac_mult1_b_data = DATA(i_ft_0[15], i_ft_0[14], i_ft_0[13], i_ft_0[12], i_ft_0[11], i_ft_0[10], i_ft_0[9], i_ft_0[8], i_ft_0[7], i_ft_0[6], i_ft_0[5], i_ft_0[4], i_ft_0[3], i_ft_0[2], i_ft_0[1], i_ft_0[0]);
+N1_mac_mult1_b_rep = SIGNED(N1_mac_mult1_b_data);
+N1_mac_mult1_result = N1_mac_mult1_a_rep * N1_mac_mult1_b_rep;
+N1_mac_mult1 = N1_mac_mult1_result[0];
 
---D1L29 is uart:uart_unit|uart_rx:receiver|r_clk_count[2]~17
-D1L29 = (D1_r_clk_count[2] & (D1L27 $ (GND))) # (!D1_r_clk_count[2] & (!D1L27 & VCC));
+--N1L2 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT1
+N1L2 = N1_mac_mult1_result[1];
 
---D1L30 is uart:uart_unit|uart_rx:receiver|r_clk_count[2]~18
-D1L30 = CARRY((D1_r_clk_count[2] & !D1L27));
+--N1L3 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT2
+N1L3 = N1_mac_mult1_result[2];
 
+--N1L4 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT3
+N1L4 = N1_mac_mult1_result[3];
 
---D1L32 is uart:uart_unit|uart_rx:receiver|r_clk_count[3]~19
-D1L32 = (D1_r_clk_count[3] & (!D1L30)) # (!D1_r_clk_count[3] & ((D1L30) # (GND)));
+--N1L5 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT4
+N1L5 = N1_mac_mult1_result[4];
 
---D1L33 is uart:uart_unit|uart_rx:receiver|r_clk_count[3]~20
-D1L33 = CARRY((!D1L30) # (!D1_r_clk_count[3]));
+--N1L6 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT5
+N1L6 = N1_mac_mult1_result[5];
 
+--N1L7 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT6
+N1L7 = N1_mac_mult1_result[6];
 
---D1L35 is uart:uart_unit|uart_rx:receiver|r_clk_count[4]~21
-D1L35 = (D1_r_clk_count[4] & (D1L33 $ (GND))) # (!D1_r_clk_count[4] & (!D1L33 & VCC));
+--N1L8 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT7
+N1L8 = N1_mac_mult1_result[7];
 
---D1L36 is uart:uart_unit|uart_rx:receiver|r_clk_count[4]~22
-D1L36 = CARRY((D1_r_clk_count[4] & !D1L33));
+--N1L9 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT8
+N1L9 = N1_mac_mult1_result[8];
 
+--N1L10 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT9
+N1L10 = N1_mac_mult1_result[9];
 
---D1L38 is uart:uart_unit|uart_rx:receiver|r_clk_count[5]~23
-D1L38 = (D1_r_clk_count[5] & (!D1L36)) # (!D1_r_clk_count[5] & ((D1L36) # (GND)));
+--N1L11 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT10
+N1L11 = N1_mac_mult1_result[10];
 
---D1L39 is uart:uart_unit|uart_rx:receiver|r_clk_count[5]~24
-D1L39 = CARRY((!D1L36) # (!D1_r_clk_count[5]));
+--N1L12 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT11
+N1L12 = N1_mac_mult1_result[11];
 
+--N1L13 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT12
+N1L13 = N1_mac_mult1_result[12];
 
---D1L41 is uart:uart_unit|uart_rx:receiver|r_clk_count[6]~25
-D1L41 = (D1_r_clk_count[6] & (D1L39 $ (GND))) # (!D1_r_clk_count[6] & (!D1L39 & VCC));
+--N1L14 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT13
+N1L14 = N1_mac_mult1_result[13];
 
---D1L42 is uart:uart_unit|uart_rx:receiver|r_clk_count[6]~26
-D1L42 = CARRY((D1_r_clk_count[6] & !D1L39));
+--N1L15 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT14
+N1L15 = N1_mac_mult1_result[14];
 
+--N1L16 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT15
+N1L16 = N1_mac_mult1_result[15];
 
---D1L44 is uart:uart_unit|uart_rx:receiver|r_clk_count[7]~27
-D1L44 = (D1_r_clk_count[7] & (!D1L42)) # (!D1_r_clk_count[7] & ((D1L42) # (GND)));
+--N1L17 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT16
+N1L17 = N1_mac_mult1_result[16];
 
---D1L45 is uart:uart_unit|uart_rx:receiver|r_clk_count[7]~28
-D1L45 = CARRY((!D1L42) # (!D1_r_clk_count[7]));
+--N1L18 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT17
+N1L18 = N1_mac_mult1_result[17];
 
+--N1L19 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT18
+N1L19 = N1_mac_mult1_result[18];
 
---D1L47 is uart:uart_unit|uart_rx:receiver|r_clk_count[8]~29
-D1L47 = (D1_r_clk_count[8] & (D1L45 $ (GND))) # (!D1_r_clk_count[8] & (!D1L45 & VCC));
+--N1L20 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT19
+N1L20 = N1_mac_mult1_result[19];
 
---D1L48 is uart:uart_unit|uart_rx:receiver|r_clk_count[8]~30
-D1L48 = CARRY((D1_r_clk_count[8] & !D1L45));
+--N1L21 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT20
+N1L21 = N1_mac_mult1_result[20];
 
+--N1L22 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT21
+N1L22 = N1_mac_mult1_result[21];
 
---D1L50 is uart:uart_unit|uart_rx:receiver|r_clk_count[9]~31
-D1L50 = (D1_r_clk_count[9] & (!D1L48)) # (!D1_r_clk_count[9] & ((D1L48) # (GND)));
+--N1L23 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT22
+N1L23 = N1_mac_mult1_result[22];
 
---D1L51 is uart:uart_unit|uart_rx:receiver|r_clk_count[9]~32
-D1L51 = CARRY((!D1L48) # (!D1_r_clk_count[9]));
+--N1L24 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT23
+N1L24 = N1_mac_mult1_result[23];
 
+--N1L25 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT24
+N1L25 = N1_mac_mult1_result[24];
 
---D1L53 is uart:uart_unit|uart_rx:receiver|r_clk_count[10]~33
-D1L53 = (D1_r_clk_count[10] & (D1L51 $ (GND))) # (!D1_r_clk_count[10] & (!D1L51 & VCC));
+--N1L26 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT25
+N1L26 = N1_mac_mult1_result[25];
 
---D1L54 is uart:uart_unit|uart_rx:receiver|r_clk_count[10]~34
-D1L54 = CARRY((D1_r_clk_count[10] & !D1L51));
+--N1L27 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT26
+N1L27 = N1_mac_mult1_result[26];
 
+--N1L28 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT27
+N1L28 = N1_mac_mult1_result[27];
 
---D1L60 is uart:uart_unit|uart_rx:receiver|r_clk_count[11]~35
-D1L60 = (D1_r_clk_count[11] & (!D1L54)) # (!D1_r_clk_count[11] & ((D1L54) # (GND)));
+--N1L29 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT28
+N1L29 = N1_mac_mult1_result[28];
 
---D1L61 is uart:uart_unit|uart_rx:receiver|r_clk_count[11]~36
-D1L61 = CARRY((!D1L54) # (!D1_r_clk_count[11]));
+--N1L30 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT29
+N1L30 = N1_mac_mult1_result[29];
 
+--N1L31 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT30
+N1L31 = N1_mac_mult1_result[30];
 
---D1L63 is uart:uart_unit|uart_rx:receiver|r_clk_count[12]~37
-D1L63 = D1_r_clk_count[12] $ (!D1L61);
+--N1L32 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|lpm_mult:Mult0|mult_36t:auto_generated|mac_mult1~DATAOUT31
+N1L32 = N1_mac_mult1_result[31];
 
 
---E1_r_clk_count[2] is uart:uart_unit|uart_tx:transmitter|r_clk_count[2]
+--C1_r_sinapse_count[0] is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[0]
 --register power-up is low
 
-E1_r_clk_count[2] = DFFEAS(E1L22, i_clk,  ,  , !E1_r_sm_main.s_cleanup,  ,  , E1L39,  );
+C1_r_sinapse_count[0] = DFFEAS(C1L89, i_clk,  ,  ,  , C1L245,  ,  , !C1_r_sm.s_get_weight);
 
 
---E1_r_clk_count[1] is uart:uart_unit|uart_tx:transmitter|r_clk_count[1]
---register power-up is low
+--C1L89 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[0]~32
+C1L89 = C1_r_sinapse_count[0] $ (VCC);
 
-E1_r_clk_count[1] = DFFEAS(E1L19, i_clk,  ,  , !E1_r_sm_main.s_cleanup,  ,  , E1L39,  );
+--C1L90 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[0]~33
+C1L90 = CARRY(C1_r_sinapse_count[0]);
 
 
---E1_r_clk_count[0] is uart:uart_unit|uart_tx:transmitter|r_clk_count[0]
---register power-up is low
+--C1L92 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[1]~34
+C1L92 = (C1_r_sinapse_count[1] & (!C1L90)) # (!C1_r_sinapse_count[1] & ((C1L90) # (GND)));
 
-E1_r_clk_count[0] = DFFEAS(E1L16, i_clk,  ,  , !E1_r_sm_main.s_cleanup,  ,  , E1L39,  );
+--C1L93 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[1]~35
+C1L93 = CARRY((!C1L90) # (!C1_r_sinapse_count[1]));
 
 
---E1L16 is uart:uart_unit|uart_tx:transmitter|r_clk_count[0]~13
-E1L16 = E1_r_clk_count[0] $ (VCC);
+--C1L95 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[2]~36
+C1L95 = (C1_r_sinapse_count[2] & (C1L93 $ (GND))) # (!C1_r_sinapse_count[2] & (!C1L93 & VCC));
 
---E1L17 is uart:uart_unit|uart_tx:transmitter|r_clk_count[0]~14
-E1L17 = CARRY(E1_r_clk_count[0]);
+--C1L96 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[2]~37
+C1L96 = CARRY((C1_r_sinapse_count[2] & !C1L93));
 
 
---E1L19 is uart:uart_unit|uart_tx:transmitter|r_clk_count[1]~15
-E1L19 = (E1_r_clk_count[1] & (!E1L17)) # (!E1_r_clk_count[1] & ((E1L17) # (GND)));
+--C1L98 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[3]~38
+C1L98 = (C1_r_sinapse_count[3] & (!C1L96)) # (!C1_r_sinapse_count[3] & ((C1L96) # (GND)));
 
---E1L20 is uart:uart_unit|uart_tx:transmitter|r_clk_count[1]~16
-E1L20 = CARRY((!E1L17) # (!E1_r_clk_count[1]));
+--C1L99 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[3]~39
+C1L99 = CARRY((!C1L96) # (!C1_r_sinapse_count[3]));
 
 
---E1L22 is uart:uart_unit|uart_tx:transmitter|r_clk_count[2]~17
-E1L22 = (E1_r_clk_count[2] & (E1L20 $ (GND))) # (!E1_r_clk_count[2] & (!E1L20 & VCC));
+--C1L101 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[4]~40
+C1L101 = (C1_r_sinapse_count[4] & (C1L99 $ (GND))) # (!C1_r_sinapse_count[4] & (!C1L99 & VCC));
 
---E1L23 is uart:uart_unit|uart_tx:transmitter|r_clk_count[2]~18
-E1L23 = CARRY((E1_r_clk_count[2] & !E1L20));
+--C1L102 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[4]~41
+C1L102 = CARRY((C1_r_sinapse_count[4] & !C1L99));
 
 
---E1L25 is uart:uart_unit|uart_tx:transmitter|r_clk_count[3]~19
-E1L25 = (E1_r_clk_count[3] & (!E1L23)) # (!E1_r_clk_count[3] & ((E1L23) # (GND)));
+--C1L104 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[5]~42
+C1L104 = (C1_r_sinapse_count[5] & (!C1L102)) # (!C1_r_sinapse_count[5] & ((C1L102) # (GND)));
 
---E1L26 is uart:uart_unit|uart_tx:transmitter|r_clk_count[3]~20
-E1L26 = CARRY((!E1L23) # (!E1_r_clk_count[3]));
+--C1L105 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[5]~43
+C1L105 = CARRY((!C1L102) # (!C1_r_sinapse_count[5]));
 
 
---E1L28 is uart:uart_unit|uart_tx:transmitter|r_clk_count[4]~21
-E1L28 = (E1_r_clk_count[4] & (E1L26 $ (GND))) # (!E1_r_clk_count[4] & (!E1L26 & VCC));
+--C1L107 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[6]~44
+C1L107 = (C1_r_sinapse_count[6] & (C1L105 $ (GND))) # (!C1_r_sinapse_count[6] & (!C1L105 & VCC));
 
---E1L29 is uart:uart_unit|uart_tx:transmitter|r_clk_count[4]~22
-E1L29 = CARRY((E1_r_clk_count[4] & !E1L26));
+--C1L108 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[6]~45
+C1L108 = CARRY((C1_r_sinapse_count[6] & !C1L105));
 
 
---E1L31 is uart:uart_unit|uart_tx:transmitter|r_clk_count[5]~23
-E1L31 = (E1_r_clk_count[5] & (!E1L29)) # (!E1_r_clk_count[5] & ((E1L29) # (GND)));
+--C1L110 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[7]~46
+C1L110 = (C1_r_sinapse_count[7] & (!C1L108)) # (!C1_r_sinapse_count[7] & ((C1L108) # (GND)));
 
---E1L32 is uart:uart_unit|uart_tx:transmitter|r_clk_count[5]~24
-E1L32 = CARRY((!E1L29) # (!E1_r_clk_count[5]));
+--C1L111 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[7]~47
+C1L111 = CARRY((!C1L108) # (!C1_r_sinapse_count[7]));
 
 
---E1L34 is uart:uart_unit|uart_tx:transmitter|r_clk_count[6]~25
-E1L34 = (E1_r_clk_count[6] & (E1L32 $ (GND))) # (!E1_r_clk_count[6] & (!E1L32 & VCC));
+--C1L113 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[8]~48
+C1L113 = (C1_r_sinapse_count[8] & (C1L111 $ (GND))) # (!C1_r_sinapse_count[8] & (!C1L111 & VCC));
 
---E1L35 is uart:uart_unit|uart_tx:transmitter|r_clk_count[6]~26
-E1L35 = CARRY((E1_r_clk_count[6] & !E1L32));
+--C1L114 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[8]~49
+C1L114 = CARRY((C1_r_sinapse_count[8] & !C1L111));
 
 
---E1L37 is uart:uart_unit|uart_tx:transmitter|r_clk_count[7]~27
-E1L37 = (E1_r_clk_count[7] & (!E1L35)) # (!E1_r_clk_count[7] & ((E1L35) # (GND)));
+--C1L116 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[9]~50
+C1L116 = (C1_r_sinapse_count[9] & (!C1L114)) # (!C1_r_sinapse_count[9] & ((C1L114) # (GND)));
 
---E1L38 is uart:uart_unit|uart_tx:transmitter|r_clk_count[7]~28
-E1L38 = CARRY((!E1L35) # (!E1_r_clk_count[7]));
+--C1L117 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[9]~51
+C1L117 = CARRY((!C1L114) # (!C1_r_sinapse_count[9]));
 
 
---E1L41 is uart:uart_unit|uart_tx:transmitter|r_clk_count[8]~29
-E1L41 = (E1_r_clk_count[8] & (E1L38 $ (GND))) # (!E1_r_clk_count[8] & (!E1L38 & VCC));
+--C1L119 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[10]~52
+C1L119 = (C1_r_sinapse_count[10] & (C1L117 $ (GND))) # (!C1_r_sinapse_count[10] & (!C1L117 & VCC));
 
---E1L42 is uart:uart_unit|uart_tx:transmitter|r_clk_count[8]~30
-E1L42 = CARRY((E1_r_clk_count[8] & !E1L38));
+--C1L120 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[10]~53
+C1L120 = CARRY((C1_r_sinapse_count[10] & !C1L117));
 
 
---E1L44 is uart:uart_unit|uart_tx:transmitter|r_clk_count[9]~31
-E1L44 = (E1_r_clk_count[9] & (!E1L42)) # (!E1_r_clk_count[9] & ((E1L42) # (GND)));
+--C1L122 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[11]~54
+C1L122 = (C1_r_sinapse_count[11] & (!C1L120)) # (!C1_r_sinapse_count[11] & ((C1L120) # (GND)));
 
---E1L45 is uart:uart_unit|uart_tx:transmitter|r_clk_count[9]~32
-E1L45 = CARRY((!E1L42) # (!E1_r_clk_count[9]));
+--C1L123 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[11]~55
+C1L123 = CARRY((!C1L120) # (!C1_r_sinapse_count[11]));
 
 
---E1L47 is uart:uart_unit|uart_tx:transmitter|r_clk_count[10]~33
-E1L47 = (E1_r_clk_count[10] & (E1L45 $ (GND))) # (!E1_r_clk_count[10] & (!E1L45 & VCC));
+--C1L125 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[12]~56
+C1L125 = (C1_r_sinapse_count[12] & (C1L123 $ (GND))) # (!C1_r_sinapse_count[12] & (!C1L123 & VCC));
 
---E1L48 is uart:uart_unit|uart_tx:transmitter|r_clk_count[10]~34
-E1L48 = CARRY((E1_r_clk_count[10] & !E1L45));
+--C1L126 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[12]~57
+C1L126 = CARRY((C1_r_sinapse_count[12] & !C1L123));
 
 
---E1L50 is uart:uart_unit|uart_tx:transmitter|r_clk_count[11]~36
-E1L50 = (E1_r_clk_count[11] & (!E1L48)) # (!E1_r_clk_count[11] & ((E1L48) # (GND)));
+--C1L128 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[13]~58
+C1L128 = (C1_r_sinapse_count[13] & (!C1L126)) # (!C1_r_sinapse_count[13] & ((C1L126) # (GND)));
 
---E1L51 is uart:uart_unit|uart_tx:transmitter|r_clk_count[11]~37
-E1L51 = CARRY((!E1L48) # (!E1_r_clk_count[11]));
+--C1L129 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[13]~59
+C1L129 = CARRY((!C1L126) # (!C1_r_sinapse_count[13]));
 
 
---E1L53 is uart:uart_unit|uart_tx:transmitter|r_clk_count[12]~38
-E1L53 = E1_r_clk_count[12] $ (!E1L51);
+--C1L131 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[14]~60
+C1L131 = (C1_r_sinapse_count[14] & (C1L129 $ (GND))) # (!C1_r_sinapse_count[14] & (!C1L129 & VCC));
 
+--C1L132 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[14]~61
+C1L132 = CARRY((C1_r_sinapse_count[14] & !C1L129));
 
---r_data[6] is r_data[6]
---register power-up is low
 
-r_data[6] = DFFEAS(A1L39, i_clk, i_rst,  , A1L68, C1L64,  ,  , !r_sm_main.s_calculus);
+--C1L134 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[15]~62
+C1L134 = (C1_r_sinapse_count[15] & (!C1L132)) # (!C1_r_sinapse_count[15] & ((C1L132) # (GND)));
 
+--C1L135 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[15]~63
+C1L135 = CARRY((!C1L132) # (!C1_r_sinapse_count[15]));
 
---r_data[5] is r_data[5]
---register power-up is low
 
-r_data[5] = DFFEAS(A1L36, i_clk, i_rst,  , A1L68, C1L63,  ,  , !r_sm_main.s_calculus);
+--C1L137 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[16]~64
+C1L137 = (C1_r_sinapse_count[16] & (C1L135 $ (GND))) # (!C1_r_sinapse_count[16] & (!C1L135 & VCC));
 
+--C1L138 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[16]~65
+C1L138 = CARRY((C1_r_sinapse_count[16] & !C1L135));
 
---r_data[4] is r_data[4]
---register power-up is low
 
-r_data[4] = DFFEAS(A1L33, i_clk, i_rst,  , A1L68, C1L62,  ,  , !r_sm_main.s_calculus);
+--C1L140 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[17]~66
+C1L140 = (C1_r_sinapse_count[17] & (!C1L138)) # (!C1_r_sinapse_count[17] & ((C1L138) # (GND)));
 
+--C1L141 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[17]~67
+C1L141 = CARRY((!C1L138) # (!C1_r_sinapse_count[17]));
 
---r_data[7] is r_data[7]
---register power-up is low
 
-r_data[7] = DFFEAS(A1L42, i_clk, i_rst,  , A1L68, C1L65,  ,  , !r_sm_main.s_calculus);
+--C1L143 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[18]~68
+C1L143 = (C1_r_sinapse_count[18] & (C1L141 $ (GND))) # (!C1_r_sinapse_count[18] & (!C1L141 & VCC));
 
+--C1L144 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[18]~69
+C1L144 = CARRY((C1_r_sinapse_count[18] & !C1L141));
 
---r_data[2] is r_data[2]
---register power-up is low
 
-r_data[2] = DFFEAS(A1L27, i_clk, i_rst,  , A1L68, C1L60,  ,  , !r_sm_main.s_calculus);
+--C1L146 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[19]~70
+C1L146 = (C1_r_sinapse_count[19] & (!C1L144)) # (!C1_r_sinapse_count[19] & ((C1L144) # (GND)));
 
+--C1L147 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[19]~71
+C1L147 = CARRY((!C1L144) # (!C1_r_sinapse_count[19]));
 
---r_data[1] is r_data[1]
---register power-up is low
 
-r_data[1] = DFFEAS(A1L24, i_clk, i_rst,  , A1L68, C1L59,  ,  , !r_sm_main.s_calculus);
+--C1L149 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[20]~72
+C1L149 = (C1_r_sinapse_count[20] & (C1L147 $ (GND))) # (!C1_r_sinapse_count[20] & (!C1L147 & VCC));
 
+--C1L150 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[20]~73
+C1L150 = CARRY((C1_r_sinapse_count[20] & !C1L147));
 
---r_data[0] is r_data[0]
---register power-up is low
 
-r_data[0] = DFFEAS(A1L21, i_clk, i_rst,  , A1L68, C1L58,  ,  , !r_sm_main.s_calculus);
+--C1L152 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[21]~74
+C1L152 = (C1_r_sinapse_count[21] & (!C1L150)) # (!C1_r_sinapse_count[21] & ((C1L150) # (GND)));
 
+--C1L153 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[21]~75
+C1L153 = CARRY((!C1L150) # (!C1_r_sinapse_count[21]));
 
---r_data[3] is r_data[3]
---register power-up is low
 
-r_data[3] = DFFEAS(A1L30, i_clk, i_rst,  , A1L68, C1L61,  ,  , !r_sm_main.s_calculus);
+--C1L155 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[22]~76
+C1L155 = (C1_r_sinapse_count[22] & (C1L153 $ (GND))) # (!C1_r_sinapse_count[22] & (!C1L153 & VCC));
 
+--C1L156 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[22]~77
+C1L156 = CARRY((C1_r_sinapse_count[22] & !C1L153));
 
---A1L21 is r_data[0]~8
-A1L21 = r_data[0] $ (VCC);
 
---A1L22 is r_data[0]~9
-A1L22 = CARRY(r_data[0]);
+--C1L158 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[23]~78
+C1L158 = (C1_r_sinapse_count[23] & (!C1L156)) # (!C1_r_sinapse_count[23] & ((C1L156) # (GND)));
 
+--C1L159 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[23]~79
+C1L159 = CARRY((!C1L156) # (!C1_r_sinapse_count[23]));
 
---A1L24 is r_data[1]~10
-A1L24 = (r_data[1] & (!A1L22)) # (!r_data[1] & ((A1L22) # (GND)));
 
---A1L25 is r_data[1]~11
-A1L25 = CARRY((!A1L22) # (!r_data[1]));
+--C1L161 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[24]~80
+C1L161 = (C1_r_sinapse_count[24] & (C1L159 $ (GND))) # (!C1_r_sinapse_count[24] & (!C1L159 & VCC));
 
+--C1L162 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[24]~81
+C1L162 = CARRY((C1_r_sinapse_count[24] & !C1L159));
 
---A1L27 is r_data[2]~12
-A1L27 = (r_data[2] & (A1L25 $ (GND))) # (!r_data[2] & (!A1L25 & VCC));
 
---A1L28 is r_data[2]~13
-A1L28 = CARRY((r_data[2] & !A1L25));
+--C1L164 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[25]~82
+C1L164 = (C1_r_sinapse_count[25] & (!C1L162)) # (!C1_r_sinapse_count[25] & ((C1L162) # (GND)));
 
+--C1L165 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[25]~83
+C1L165 = CARRY((!C1L162) # (!C1_r_sinapse_count[25]));
 
---A1L30 is r_data[3]~14
-A1L30 = (r_data[3] & (!A1L28)) # (!r_data[3] & ((A1L28) # (GND)));
 
---A1L31 is r_data[3]~15
-A1L31 = CARRY((!A1L28) # (!r_data[3]));
+--C1L167 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[26]~84
+C1L167 = (C1_r_sinapse_count[26] & (C1L165 $ (GND))) # (!C1_r_sinapse_count[26] & (!C1L165 & VCC));
 
+--C1L168 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[26]~85
+C1L168 = CARRY((C1_r_sinapse_count[26] & !C1L165));
 
---A1L33 is r_data[4]~16
-A1L33 = (r_data[4] & (A1L31 $ (GND))) # (!r_data[4] & (!A1L31 & VCC));
 
---A1L34 is r_data[4]~17
-A1L34 = CARRY((r_data[4] & !A1L31));
+--C1L170 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[27]~86
+C1L170 = (C1_r_sinapse_count[27] & (!C1L168)) # (!C1_r_sinapse_count[27] & ((C1L168) # (GND)));
 
+--C1L171 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[27]~87
+C1L171 = CARRY((!C1L168) # (!C1_r_sinapse_count[27]));
 
---A1L36 is r_data[5]~18
-A1L36 = (r_data[5] & (!A1L34)) # (!r_data[5] & ((A1L34) # (GND)));
 
---A1L37 is r_data[5]~19
-A1L37 = CARRY((!A1L34) # (!r_data[5]));
+--C1L173 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[28]~88
+C1L173 = (C1_r_sinapse_count[28] & (C1L171 $ (GND))) # (!C1_r_sinapse_count[28] & (!C1L171 & VCC));
 
+--C1L174 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[28]~89
+C1L174 = CARRY((C1_r_sinapse_count[28] & !C1L171));
 
---A1L39 is r_data[6]~20
-A1L39 = (r_data[6] & (A1L37 $ (GND))) # (!r_data[6] & (!A1L37 & VCC));
 
---A1L40 is r_data[6]~21
-A1L40 = CARRY((r_data[6] & !A1L37));
+--C1L176 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[29]~90
+C1L176 = (C1_r_sinapse_count[29] & (!C1L174)) # (!C1_r_sinapse_count[29] & ((C1L174) # (GND)));
 
+--C1L177 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[29]~91
+C1L177 = CARRY((!C1L174) # (!C1_r_sinapse_count[29]));
 
---A1L42 is r_data[7]~22
-A1L42 = r_data[7] $ (A1L40);
 
+--C1L179 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[30]~92
+C1L179 = (C1_r_sinapse_count[30] & (C1L177 $ (GND))) # (!C1_r_sinapse_count[30] & (!C1L177 & VCC));
 
---o_rx_full is o_rx_full
-o_rx_full = OUTPUT(C1L7);
+--C1L180 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[30]~93
+C1L180 = CARRY((C1_r_sinapse_count[30] & !C1L177));
 
 
---o_rx_empty is o_rx_empty
-o_rx_empty = OUTPUT(C1L9);
+--C1L182 is layer_0:layer0|neuron_l1_n0:n0|r_sinapse_count[31]~94
+C1L182 = C1_r_sinapse_count[31] $ (C1L180);
 
 
---o_tx is o_tx
-o_tx = OUTPUT(E1_o_tx_serial);
+--Q1_ram_block1a0 is layer_0:layer0|neuron_l1_n0:n0|ram_l1_n0:ram_n1|altsyncram:r_mem_rtl_0|altsyncram_3h61:auto_generated|ram_block1a0
+--RAM Block Operation Mode: ROM
+--Port A Depth: 32, Port A Width: 1
+--Port A Logical Depth: 50, Port A Logical Width: 16
+--Port A Input: Registered, Port A Output: Un-registered
+Q1_ram_block1a0_PORT_A_address = BUS(C1_r_addr[0], C1_r_addr[1], C1_r_addr[2], C1_r_addr[3], C1_r_addr[4]);
+Q1_ram_block1a0_PORT_A_address_reg = DFFE(Q1_ram_block1a0_PORT_A_address, Q1_ram_block1a0_clock_0, , , );
+Q1_ram_block1a0_PORT_A_read_enable = VCC;
+Q1_ram_block1a0_PORT_A_read_enable_reg = DFFE(Q1_ram_block1a0_PORT_A_read_enable, Q1_ram_block1a0_clock_0, , , );
+Q1_ram_block1a0_clock_0 = i_clk;
+Q1_ram_block1a0_PORT_A_data_out = MEMORY(, , Q1_ram_block1a0_PORT_A_address_reg, , , Q1_ram_block1a0_PORT_A_read_enable_reg, , , , , Q1_ram_block1a0_clock_0, , , , , , , );
+Q1_ram_block1a0 = Q1_ram_block1a0_PORT_A_data_out[0];
 
 
---o_tx_full is o_tx_full
-o_tx_full = OUTPUT(C2L7);
+--Q1_ram_block1a1 is layer_0:layer0|neuron_l1_n0:n0|ram_l1_n0:ram_n1|altsyncram:r_mem_rtl_0|altsyncram_3h61:auto_generated|ram_block1a1
+--RAM Block Operation Mode: ROM
+--Port A Depth: 32, Port A Width: 1
+--Port A Logical Depth: 50, Port A Logical Width: 16
+--Port A Input: Registered, Port A Output: Un-registered
+Q1_ram_block1a1_PORT_A_address = BUS(C1_r_addr[0], C1_r_addr[1], C1_r_addr[2], C1_r_addr[3], C1_r_addr[4]);
+Q1_ram_block1a1_PORT_A_address_reg = DFFE(Q1_ram_block1a1_PORT_A_address, Q1_ram_block1a1_clock_0, , , );
+Q1_ram_block1a1_PORT_A_read_enable = VCC;
+Q1_ram_block1a1_PORT_A_read_enable_reg = DFFE(Q1_ram_block1a1_PORT_A_read_enable, Q1_ram_block1a1_clock_0, , , );
+Q1_ram_block1a1_clock_0 = i_clk;
+Q1_ram_block1a1_PORT_A_data_out = MEMORY(, , Q1_ram_block1a1_PORT_A_address_reg, , , Q1_ram_block1a1_PORT_A_read_enable_reg, , , , , Q1_ram_block1a1_clock_0, , , , , , , );
+Q1_ram_block1a1 = Q1_ram_block1a1_PORT_A_data_out[0];
 
 
---o_tx_empty is o_tx_empty
-o_tx_empty = OUTPUT(C2L9);
+--Q1_ram_block1a2 is layer_0:layer0|neuron_l1_n0:n0|ram_l1_n0:ram_n1|altsyncram:r_mem_rtl_0|altsyncram_3h61:auto_generated|ram_block1a2
+--RAM Block Operation Mode: ROM
+--Port A Depth: 32, Port A Width: 1
+--Port A Logical Depth: 50, Port A Logical Width: 16
+--Port A Input: Registered, Port A Output: Un-registered
+Q1_ram_block1a2_PORT_A_address = BUS(C1_r_addr[0], C1_r_addr[1], C1_r_addr[2], C1_r_addr[3], C1_r_addr[4]);
+Q1_ram_block1a2_PORT_A_address_reg = DFFE(Q1_ram_block1a2_PORT_A_address, Q1_ram_block1a2_clock_0, , , );
+Q1_ram_block1a2_PORT_A_read_enable = VCC;
+Q1_ram_block1a2_PORT_A_read_enable_reg = DFFE(Q1_ram_block1a2_PORT_A_read_enable, Q1_ram_block1a2_clock_0, , , );
+Q1_ram_block1a2_clock_0 = i_clk;
+Q1_ram_block1a2_PORT_A_data_out = MEMORY(, , Q1_ram_block1a2_PORT_A_address_reg, , , Q1_ram_block1a2_PORT_A_read_enable_reg, , , , , Q1_ram_block1a2_clock_0, , , , , , , );
+Q1_ram_block1a2 = Q1_ram_block1a2_PORT_A_data_out[0];
 
 
---o_data[0] is o_data[0]
-o_data[0] = OUTPUT(C1L58);
+--Q1_ram_block1a3 is layer_0:layer0|neuron_l1_n0:n0|ram_l1_n0:ram_n1|altsyncram:r_mem_rtl_0|altsyncram_3h61:auto_generated|ram_block1a3
+--RAM Block Operation Mode: ROM
+--Port A Depth: 32, Port A Width: 1
+--Port A Logical Depth: 50, Port A Logical Width: 16
+--Port A Input: Registered, Port A Output: Un-registered
+Q1_ram_block1a3_PORT_A_address = BUS(C1_r_addr[0], C1_r_addr[1], C1_r_addr[2], C1_r_addr[3], C1_r_addr[4]);
+Q1_ram_block1a3_PORT_A_address_reg = DFFE(Q1_ram_block1a3_PORT_A_address, Q1_ram_block1a3_clock_0, , , );
+Q1_ram_block1a3_PORT_A_read_enable = VCC;
+Q1_ram_block1a3_PORT_A_read_enable_reg = DFFE(Q1_ram_block1a3_PORT_A_read_enable, Q1_ram_block1a3_clock_0, , , );
+Q1_ram_block1a3_clock_0 = i_clk;
+Q1_ram_block1a3_PORT_A_data_out = MEMORY(, , Q1_ram_block1a3_PORT_A_address_reg, , , Q1_ram_block1a3_PORT_A_read_enable_reg, , , , , Q1_ram_block1a3_clock_0, , , , , , , );
+Q1_ram_block1a3 = Q1_ram_block1a3_PORT_A_data_out[0];
 
 
---o_data[1] is o_data[1]
-o_data[1] = OUTPUT(C1L59);
+--Q1_ram_block1a4 is layer_0:layer0|neuron_l1_n0:n0|ram_l1_n0:ram_n1|altsyncram:r_mem_rtl_0|altsyncram_3h61:auto_generated|ram_block1a4
+--RAM Block Operation Mode: ROM
+--Port A Depth: 32, Port A Width: 1
+--Port A Logical Depth: 50, Port A Logical Width: 16
+--Port A Input: Registered, Port A Output: Un-registered
+Q1_ram_block1a4_PORT_A_address = BUS(C1_r_addr[0], C1_r_addr[1], C1_r_addr[2], C1_r_addr[3], C1_r_addr[4]);
+Q1_ram_block1a4_PORT_A_address_reg = DFFE(Q1_ram_block1a4_PORT_A_address, Q1_ram_block1a4_clock_0, , , );
+Q1_ram_block1a4_PORT_A_read_enable = VCC;
+Q1_ram_block1a4_PORT_A_read_enable_reg = DFFE(Q1_ram_block1a4_PORT_A_read_enable, Q1_ram_block1a4_clock_0, , , );
+Q1_ram_block1a4_clock_0 = i_clk;
+Q1_ram_block1a4_PORT_A_data_out = MEMORY(, , Q1_ram_block1a4_PORT_A_address_reg, , , Q1_ram_block1a4_PORT_A_read_enable_reg, , , , , Q1_ram_block1a4_clock_0, , , , , , , );
+Q1_ram_block1a4 = Q1_ram_block1a4_PORT_A_data_out[0];
 
 
---o_data[2] is o_data[2]
-o_data[2] = OUTPUT(C1L60);
+--Q1_ram_block1a5 is layer_0:layer0|neuron_l1_n0:n0|ram_l1_n0:ram_n1|altsyncram:r_mem_rtl_0|altsyncram_3h61:auto_generated|ram_block1a5
+--RAM Block Operation Mode: ROM
+--Port A Depth: 32, Port A Width: 1
+--Port A Logical Depth: 50, Port A Logical Width: 16
+--Port A Input: Registered, Port A Output: Un-registered
+Q1_ram_block1a5_PORT_A_address = BUS(C1_r_addr[0], C1_r_addr[1], C1_r_addr[2], C1_r_addr[3], C1_r_addr[4]);
+Q1_ram_block1a5_PORT_A_address_reg = DFFE(Q1_ram_block1a5_PORT_A_address, Q1_ram_block1a5_clock_0, , , );
+Q1_ram_block1a5_PORT_A_read_enable = VCC;
+Q1_ram_block1a5_PORT_A_read_enable_reg = DFFE(Q1_ram_block1a5_PORT_A_read_enable, Q1_ram_block1a5_clock_0, , , );
+Q1_ram_block1a5_clock_0 = i_clk;
+Q1_ram_block1a5_PORT_A_data_out = MEMORY(, , Q1_ram_block1a5_PORT_A_address_reg, , , Q1_ram_block1a5_PORT_A_read_enable_reg, , , , , Q1_ram_block1a5_clock_0, , , , , , , );
+Q1_ram_block1a5 = Q1_ram_block1a5_PORT_A_data_out[0];
 
 
---o_data[3] is o_data[3]
-o_data[3] = OUTPUT(C1L61);
+--Q1_ram_block1a6 is layer_0:layer0|neuron_l1_n0:n0|ram_l1_n0:ram_n1|altsyncram:r_mem_rtl_0|altsyncram_3h61:auto_generated|ram_block1a6
+--RAM Block Operation Mode: ROM
+--Port A Depth: 32, Port A Width: 1
+--Port A Logical Depth: 50, Port A Logical Width: 16
+--Port A Input: Registered, Port A Output: Un-registered
+Q1_ram_block1a6_PORT_A_address = BUS(C1_r_addr[0], C1_r_addr[1], C1_r_addr[2], C1_r_addr[3], C1_r_addr[4]);
+Q1_ram_block1a6_PORT_A_address_reg = DFFE(Q1_ram_block1a6_PORT_A_address, Q1_ram_block1a6_clock_0, , , );
+Q1_ram_block1a6_PORT_A_read_enable = VCC;
+Q1_ram_block1a6_PORT_A_read_enable_reg = DFFE(Q1_ram_block1a6_PORT_A_read_enable, Q1_ram_block1a6_clock_0, , , );
+Q1_ram_block1a6_clock_0 = i_clk;
+Q1_ram_block1a6_PORT_A_data_out = MEMORY(, , Q1_ram_block1a6_PORT_A_address_reg, , , Q1_ram_block1a6_PORT_A_read_enable_reg, , , , , Q1_ram_block1a6_clock_0, , , , , , , );
+Q1_ram_block1a6 = Q1_ram_block1a6_PORT_A_data_out[0];
 
 
---o_data[4] is o_data[4]
-o_data[4] = OUTPUT(C1L62);
+--Q1_ram_block1a7 is layer_0:layer0|neuron_l1_n0:n0|ram_l1_n0:ram_n1|altsyncram:r_mem_rtl_0|altsyncram_3h61:auto_generated|ram_block1a7
+--RAM Block Operation Mode: ROM
+--Port A Depth: 32, Port A Width: 1
+--Port A Logical Depth: 50, Port A Logical Width: 16
+--Port A Input: Registered, Port A Output: Un-registered
+Q1_ram_block1a7_PORT_A_address = BUS(C1_r_addr[0], C1_r_addr[1], C1_r_addr[2], C1_r_addr[3], C1_r_addr[4]);
+Q1_ram_block1a7_PORT_A_address_reg = DFFE(Q1_ram_block1a7_PORT_A_address, Q1_ram_block1a7_clock_0, , , );
+Q1_ram_block1a7_PORT_A_read_enable = VCC;
+Q1_ram_block1a7_PORT_A_read_enable_reg = DFFE(Q1_ram_block1a7_PORT_A_read_enable, Q1_ram_block1a7_clock_0, , , );
+Q1_ram_block1a7_clock_0 = i_clk;
+Q1_ram_block1a7_PORT_A_data_out = MEMORY(, , Q1_ram_block1a7_PORT_A_address_reg, , , Q1_ram_block1a7_PORT_A_read_enable_reg, , , , , Q1_ram_block1a7_clock_0, , , , , , , );
+Q1_ram_block1a7 = Q1_ram_block1a7_PORT_A_data_out[0];
 
 
---o_data[5] is o_data[5]
-o_data[5] = OUTPUT(C1L63);
+--Q1_ram_block1a8 is layer_0:layer0|neuron_l1_n0:n0|ram_l1_n0:ram_n1|altsyncram:r_mem_rtl_0|altsyncram_3h61:auto_generated|ram_block1a8
+--RAM Block Operation Mode: ROM
+--Port A Depth: 32, Port A Width: 1
+--Port A Logical Depth: 50, Port A Logical Width: 16
+--Port A Input: Registered, Port A Output: Un-registered
+Q1_ram_block1a8_PORT_A_address = BUS(C1_r_addr[0], C1_r_addr[1], C1_r_addr[2], C1_r_addr[3], C1_r_addr[4]);
+Q1_ram_block1a8_PORT_A_address_reg = DFFE(Q1_ram_block1a8_PORT_A_address, Q1_ram_block1a8_clock_0, , , );
+Q1_ram_block1a8_PORT_A_read_enable = VCC;
+Q1_ram_block1a8_PORT_A_read_enable_reg = DFFE(Q1_ram_block1a8_PORT_A_read_enable, Q1_ram_block1a8_clock_0, , , );
+Q1_ram_block1a8_clock_0 = i_clk;
+Q1_ram_block1a8_PORT_A_data_out = MEMORY(, , Q1_ram_block1a8_PORT_A_address_reg, , , Q1_ram_block1a8_PORT_A_read_enable_reg, , , , , Q1_ram_block1a8_clock_0, , , , , , , );
+Q1_ram_block1a8 = Q1_ram_block1a8_PORT_A_data_out[0];
 
 
---o_data[6] is o_data[6]
-o_data[6] = OUTPUT(C1L64);
+--Q1_ram_block1a9 is layer_0:layer0|neuron_l1_n0:n0|ram_l1_n0:ram_n1|altsyncram:r_mem_rtl_0|altsyncram_3h61:auto_generated|ram_block1a9
+--RAM Block Operation Mode: ROM
+--Port A Depth: 32, Port A Width: 1
+--Port A Logical Depth: 50, Port A Logical Width: 16
+--Port A Input: Registered, Port A Output: Un-registered
+Q1_ram_block1a9_PORT_A_address = BUS(C1_r_addr[0], C1_r_addr[1], C1_r_addr[2], C1_r_addr[3], C1_r_addr[4]);
+Q1_ram_block1a9_PORT_A_address_reg = DFFE(Q1_ram_block1a9_PORT_A_address, Q1_ram_block1a9_clock_0, , , );
+Q1_ram_block1a9_PORT_A_read_enable = VCC;
+Q1_ram_block1a9_PORT_A_read_enable_reg = DFFE(Q1_ram_block1a9_PORT_A_read_enable, Q1_ram_block1a9_clock_0, , , );
+Q1_ram_block1a9_clock_0 = i_clk;
+Q1_ram_block1a9_PORT_A_data_out = MEMORY(, , Q1_ram_block1a9_PORT_A_address_reg, , , Q1_ram_block1a9_PORT_A_read_enable_reg, , , , , Q1_ram_block1a9_clock_0, , , , , , , );
+Q1_ram_block1a9 = Q1_ram_block1a9_PORT_A_data_out[0];
 
 
---o_data[7] is o_data[7]
-o_data[7] = OUTPUT(C1L65);
+--Q1_ram_block1a10 is layer_0:layer0|neuron_l1_n0:n0|ram_l1_n0:ram_n1|altsyncram:r_mem_rtl_0|altsyncram_3h61:auto_generated|ram_block1a10
+--RAM Block Operation Mode: ROM
+--Port A Depth: 32, Port A Width: 1
+--Port A Logical Depth: 50, Port A Logical Width: 16
+--Port A Input: Registered, Port A Output: Un-registered
+Q1_ram_block1a10_PORT_A_address = BUS(C1_r_addr[0], C1_r_addr[1], C1_r_addr[2], C1_r_addr[3], C1_r_addr[4]);
+Q1_ram_block1a10_PORT_A_address_reg = DFFE(Q1_ram_block1a10_PORT_A_address, Q1_ram_block1a10_clock_0, , , );
+Q1_ram_block1a10_PORT_A_read_enable = VCC;
+Q1_ram_block1a10_PORT_A_read_enable_reg = DFFE(Q1_ram_block1a10_PORT_A_read_enable, Q1_ram_block1a10_clock_0, , , );
+Q1_ram_block1a10_clock_0 = i_clk;
+Q1_ram_block1a10_PORT_A_data_out = MEMORY(, , Q1_ram_block1a10_PORT_A_address_reg, , , Q1_ram_block1a10_PORT_A_read_enable_reg, , , , , Q1_ram_block1a10_clock_0, , , , , , , );
+Q1_ram_block1a10 = Q1_ram_block1a10_PORT_A_data_out[0];
 
 
---C1L6 is uart:uart_unit|fifo:fifo_rx|Equal2~0
-C1L6 = (!C1_r_fifo_count[0] & (!C1_r_fifo_count[2] & !C1_r_fifo_count[4]));
+--Q1_ram_block1a11 is layer_0:layer0|neuron_l1_n0:n0|ram_l1_n0:ram_n1|altsyncram:r_mem_rtl_0|altsyncram_3h61:auto_generated|ram_block1a11
+--RAM Block Operation Mode: ROM
+--Port A Depth: 32, Port A Width: 1
+--Port A Logical Depth: 50, Port A Logical Width: 16
+--Port A Input: Registered, Port A Output: Un-registered
+Q1_ram_block1a11_PORT_A_address = BUS(C1_r_addr[0], C1_r_addr[1], C1_r_addr[2], C1_r_addr[3], C1_r_addr[4]);
+Q1_ram_block1a11_PORT_A_address_reg = DFFE(Q1_ram_block1a11_PORT_A_address, Q1_ram_block1a11_clock_0, , , );
+Q1_ram_block1a11_PORT_A_read_enable = VCC;
+Q1_ram_block1a11_PORT_A_read_enable_reg = DFFE(Q1_ram_block1a11_PORT_A_read_enable, Q1_ram_block1a11_clock_0, , , );
+Q1_ram_block1a11_clock_0 = i_clk;
+Q1_ram_block1a11_PORT_A_data_out = MEMORY(, , Q1_ram_block1a11_PORT_A_address_reg, , , Q1_ram_block1a11_PORT_A_read_enable_reg, , , , , Q1_ram_block1a11_clock_0, , , , , , , );
+Q1_ram_block1a11 = Q1_ram_block1a11_PORT_A_data_out[0];
 
 
---C1L7 is uart:uart_unit|fifo:fifo_rx|Equal2~1
-C1L7 = (C1_r_fifo_count[3] & (C1_r_fifo_count[1] & C1L6));
+--Q1_ram_block1a12 is layer_0:layer0|neuron_l1_n0:n0|ram_l1_n0:ram_n1|altsyncram:r_mem_rtl_0|altsyncram_3h61:auto_generated|ram_block1a12
+--RAM Block Operation Mode: ROM
+--Port A Depth: 32, Port A Width: 1
+--Port A Logical Depth: 50, Port A Logical Width: 16
+--Port A Input: Registered, Port A Output: Un-registered
+Q1_ram_block1a12_PORT_A_address = BUS(C1_r_addr[0], C1_r_addr[1], C1_r_addr[2], C1_r_addr[3], C1_r_addr[4]);
+Q1_ram_block1a12_PORT_A_address_reg = DFFE(Q1_ram_block1a12_PORT_A_address, Q1_ram_block1a12_clock_0, , , );
+Q1_ram_block1a12_PORT_A_read_enable = VCC;
+Q1_ram_block1a12_PORT_A_read_enable_reg = DFFE(Q1_ram_block1a12_PORT_A_read_enable, Q1_ram_block1a12_clock_0, , , );
+Q1_ram_block1a12_clock_0 = i_clk;
+Q1_ram_block1a12_PORT_A_data_out = MEMORY(, , Q1_ram_block1a12_PORT_A_address_reg, , , Q1_ram_block1a12_PORT_A_read_enable_reg, , , , , Q1_ram_block1a12_clock_0, , , , , , , );
+Q1_ram_block1a12 = Q1_ram_block1a12_PORT_A_data_out[0];
 
 
---C1L8 is uart:uart_unit|fifo:fifo_rx|Equal3~0
-C1L8 = (C1_r_fifo_count[3]) # ((C1_r_fifo_count[1]) # (!C1L6));
+--Q1_ram_block1a13 is layer_0:layer0|neuron_l1_n0:n0|ram_l1_n0:ram_n1|altsyncram:r_mem_rtl_0|altsyncram_3h61:auto_generated|ram_block1a13
+--RAM Block Operation Mode: ROM
+--Port A Depth: 32, Port A Width: 1
+--Port A Logical Depth: 50, Port A Logical Width: 16
+--Port A Input: Registered, Port A Output: Un-registered
+Q1_ram_block1a13_PORT_A_address = BUS(C1_r_addr[0], C1_r_addr[1], C1_r_addr[2], C1_r_addr[3], C1_r_addr[4]);
+Q1_ram_block1a13_PORT_A_address_reg = DFFE(Q1_ram_block1a13_PORT_A_address, Q1_ram_block1a13_clock_0, , , );
+Q1_ram_block1a13_PORT_A_read_enable = VCC;
+Q1_ram_block1a13_PORT_A_read_enable_reg = DFFE(Q1_ram_block1a13_PORT_A_read_enable, Q1_ram_block1a13_clock_0, , , );
+Q1_ram_block1a13_clock_0 = i_clk;
+Q1_ram_block1a13_PORT_A_data_out = MEMORY(, , Q1_ram_block1a13_PORT_A_address_reg, , , Q1_ram_block1a13_PORT_A_read_enable_reg, , , , , Q1_ram_block1a13_clock_0, , , , , , , );
+Q1_ram_block1a13 = Q1_ram_block1a13_PORT_A_data_out[0];
 
 
---E1_o_tx_serial is uart:uart_unit|uart_tx:transmitter|o_tx_serial
---register power-up is low
+--Q1_ram_block1a14 is layer_0:layer0|neuron_l1_n0:n0|ram_l1_n0:ram_n1|altsyncram:r_mem_rtl_0|altsyncram_3h61:auto_generated|ram_block1a14
+--RAM Block Operation Mode: ROM
+--Port A Depth: 32, Port A Width: 1
+--Port A Logical Depth: 50, Port A Logical Width: 16
+--Port A Input: Registered, Port A Output: Un-registered
+Q1_ram_block1a14_PORT_A_address = BUS(C1_r_addr[0], C1_r_addr[1], C1_r_addr[2], C1_r_addr[3], C1_r_addr[4]);
+Q1_ram_block1a14_PORT_A_address_reg = DFFE(Q1_ram_block1a14_PORT_A_address, Q1_ram_block1a14_clock_0, , , );
+Q1_ram_block1a14_PORT_A_read_enable = VCC;
+Q1_ram_block1a14_PORT_A_read_enable_reg = DFFE(Q1_ram_block1a14_PORT_A_read_enable, Q1_ram_block1a14_clock_0, , , );
+Q1_ram_block1a14_clock_0 = i_clk;
+Q1_ram_block1a14_PORT_A_data_out = MEMORY(, , Q1_ram_block1a14_PORT_A_address_reg, , , Q1_ram_block1a14_PORT_A_read_enable_reg, , , , , Q1_ram_block1a14_clock_0, , , , , , , );
+Q1_ram_block1a14 = Q1_ram_block1a14_PORT_A_data_out[0];
 
-E1_o_tx_serial = DFFEAS(E1L75, i_clk,  ,  ,  ,  ,  ,  ,  );
 
+--Q1_ram_block1a15 is layer_0:layer0|neuron_l1_n0:n0|ram_l1_n0:ram_n1|altsyncram:r_mem_rtl_0|altsyncram_3h61:auto_generated|ram_block1a15
+--RAM Block Operation Mode: ROM
+--Port A Depth: 32, Port A Width: 1
+--Port A Logical Depth: 50, Port A Logical Width: 16
+--Port A Input: Registered, Port A Output: Un-registered
+Q1_ram_block1a15_PORT_A_address = BUS(C1_r_addr[0], C1_r_addr[1], C1_r_addr[2], C1_r_addr[3], C1_r_addr[4]);
+Q1_ram_block1a15_PORT_A_address_reg = DFFE(Q1_ram_block1a15_PORT_A_address, Q1_ram_block1a15_clock_0, , , );
+Q1_ram_block1a15_PORT_A_read_enable = VCC;
+Q1_ram_block1a15_PORT_A_read_enable_reg = DFFE(Q1_ram_block1a15_PORT_A_read_enable, Q1_ram_block1a15_clock_0, , , );
+Q1_ram_block1a15_clock_0 = i_clk;
+Q1_ram_block1a15_PORT_A_data_out = MEMORY(, , Q1_ram_block1a15_PORT_A_address_reg, , , Q1_ram_block1a15_PORT_A_read_enable_reg, , , , , Q1_ram_block1a15_clock_0, , , , , , , );
+Q1_ram_block1a15 = Q1_ram_block1a15_PORT_A_data_out[0];
 
---C2L8 is uart:uart_unit|fifo:fifo_tx|Equal3~0
-C2L8 = (!C2_r_fifo_count[0] & (!C2_r_fifo_count[2] & !C2_r_fifo_count[4]));
 
+--i_ft_1[0] is i_ft_1[0]
+i_ft_1[0] = INPUT();
 
---C2L6 is uart:uart_unit|fifo:fifo_tx|Equal2~0
-C2L6 = ((!C2L8) # (!C2_r_fifo_count[1])) # (!C2_r_fifo_count[3]);
 
+--i_ft_1[1] is i_ft_1[1]
+i_ft_1[1] = INPUT();
 
---C2L9 is uart:uart_unit|fifo:fifo_tx|Equal3~1
-C2L9 = (C2L8 & (!C2_r_fifo_count[3] & !C2_r_fifo_count[1]));
 
+--i_ft_1[2] is i_ft_1[2]
+i_ft_1[2] = INPUT();
 
---C1L39Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[9]
---register power-up is low
 
-C1L39Q = DFFEAS(D1_r_rx_byte[0], i_clk,  ,  ,  ,  ,  ,  ,  );
+--i_ft_1[3] is i_ft_1[3]
+i_ft_1[3] = INPUT();
 
 
---C1L40Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[10]
---register power-up is low
+--i_ft_1[4] is i_ft_1[4]
+i_ft_1[4] = INPUT();
 
-C1L40Q = DFFEAS(VCC, i_clk,  ,  ,  ,  ,  ,  ,  );
 
+--i_ft_1[5] is i_ft_1[5]
+i_ft_1[5] = INPUT();
 
---C1L31Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[1]
---register power-up is low
 
-C1L31Q = DFFEAS(C1_r_wr_index[0], i_clk,  ,  ,  ,  ,  ,  ,  );
+--i_ft_1[6] is i_ft_1[6]
+i_ft_1[6] = INPUT();
 
 
---C1L33Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[3]
---register power-up is low
+--i_ft_1[7] is i_ft_1[7]
+i_ft_1[7] = INPUT();
 
-C1L33Q = DFFEAS(C1_r_wr_index[1], i_clk,  ,  ,  ,  ,  ,  ,  );
 
+--i_ft_1[8] is i_ft_1[8]
+i_ft_1[8] = INPUT();
 
---C1L34Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[4]
---register power-up is low
 
-C1L34Q = DFFEAS(C1L75, i_clk,  ,  ,  ,  ,  ,  ,  );
+--i_ft_1[9] is i_ft_1[9]
+i_ft_1[9] = INPUT();
 
 
---C1L32Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[2]
---register power-up is low
+--i_ft_1[10] is i_ft_1[10]
+i_ft_1[10] = INPUT();
 
-C1L32Q = DFFEAS(C1L72, i_clk,  ,  ,  ,  ,  ,  ,  );
 
+--i_ft_1[11] is i_ft_1[11]
+i_ft_1[11] = INPUT();
 
---C1L55 is uart:uart_unit|fifo:fifo_rx|r_fifo_data~13
-C1L55 = (C1L31Q & (C1L32Q & (C1L33Q $ (!C1L34Q)))) # (!C1L31Q & (!C1L32Q & (C1L33Q $ (!C1L34Q))));
 
+--i_ft_1[12] is i_ft_1[12]
+i_ft_1[12] = INPUT();
 
---C1L30Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[0]
---register power-up is low
 
-C1L30Q = DFFEAS(C1L66, i_clk,  ,  ,  ,  ,  ,  ,  );
+--i_ft_1[13] is i_ft_1[13]
+i_ft_1[13] = INPUT();
 
 
---C1L35Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[5]
---register power-up is low
+--i_ft_1[14] is i_ft_1[14]
+i_ft_1[14] = INPUT();
 
-C1L35Q = DFFEAS(C1_r_wr_index[2], i_clk,  ,  ,  ,  ,  ,  ,  );
 
+--i_ft_1[15] is i_ft_1[15]
+i_ft_1[15] = INPUT();
 
---C1L37Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[7]
---register power-up is low
 
-C1L37Q = DFFEAS(C1_r_wr_index[3], i_clk,  ,  ,  ,  ,  ,  ,  );
+--i_ft_2[0] is i_ft_2[0]
+i_ft_2[0] = INPUT();
 
 
---C1L38Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[8]
---register power-up is low
+--i_ft_2[1] is i_ft_2[1]
+i_ft_2[1] = INPUT();
 
-C1L38Q = DFFEAS(C1L77, i_clk,  ,  ,  ,  ,  ,  ,  );
 
+--i_ft_2[2] is i_ft_2[2]
+i_ft_2[2] = INPUT();
 
---C1L36Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[6]
---register power-up is low
 
-C1L36Q = DFFEAS(C1L76, i_clk,  ,  ,  ,  ,  ,  ,  );
+--i_ft_2[3] is i_ft_2[3]
+i_ft_2[3] = INPUT();
 
 
---C1L56 is uart:uart_unit|fifo:fifo_rx|r_fifo_data~14
-C1L56 = (C1L35Q & (C1L36Q & (C1L37Q $ (!C1L38Q)))) # (!C1L35Q & (!C1L36Q & (C1L37Q $ (!C1L38Q))));
+--i_ft_2[4] is i_ft_2[4]
+i_ft_2[4] = INPUT();
 
 
---C1L57 is uart:uart_unit|fifo:fifo_rx|r_fifo_data~15
-C1L57 = (C1L55 & (C1L30Q & C1L56));
+--i_ft_2[5] is i_ft_2[5]
+i_ft_2[5] = INPUT();
 
 
---C1L58 is uart:uart_unit|fifo:fifo_rx|r_fifo_data~16
-C1L58 = (C1L40Q & ((C1L57 & (C1L39Q)) # (!C1L57 & ((G1_ram_block1a0))))) # (!C1L40Q & (C1L39Q));
+--i_ft_2[6] is i_ft_2[6]
+i_ft_2[6] = INPUT();
 
 
---C1L41Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[11]
---register power-up is low
+--i_ft_2[7] is i_ft_2[7]
+i_ft_2[7] = INPUT();
 
-C1L41Q = DFFEAS(D1_r_rx_byte[1], i_clk,  ,  ,  ,  ,  ,  ,  );
 
+--i_ft_2[8] is i_ft_2[8]
+i_ft_2[8] = INPUT();
 
---C1L42Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[12]
---register power-up is low
+
+--i_ft_2[9] is i_ft_2[9]
+i_ft_2[9] = INPUT();
+
+
+--i_ft_2[10] is i_ft_2[10]
+i_ft_2[10] = INPUT();
+
+
+--i_ft_2[11] is i_ft_2[11]
+i_ft_2[11] = INPUT();
+
+
+--i_ft_2[12] is i_ft_2[12]
+i_ft_2[12] = INPUT();
+
+
+--i_ft_2[13] is i_ft_2[13]
+i_ft_2[13] = INPUT();
+
+
+--i_ft_2[14] is i_ft_2[14]
+i_ft_2[14] = INPUT();
+
+
+--i_ft_2[15] is i_ft_2[15]
+i_ft_2[15] = INPUT();
+
+
+--i_ft_3[0] is i_ft_3[0]
+i_ft_3[0] = INPUT();
+
+
+--i_ft_3[1] is i_ft_3[1]
+i_ft_3[1] = INPUT();
+
+
+--i_ft_3[2] is i_ft_3[2]
+i_ft_3[2] = INPUT();
+
+
+--i_ft_3[3] is i_ft_3[3]
+i_ft_3[3] = INPUT();
+
+
+--i_ft_3[4] is i_ft_3[4]
+i_ft_3[4] = INPUT();
+
+
+--i_ft_3[5] is i_ft_3[5]
+i_ft_3[5] = INPUT();
+
+
+--i_ft_3[6] is i_ft_3[6]
+i_ft_3[6] = INPUT();
+
+
+--i_ft_3[7] is i_ft_3[7]
+i_ft_3[7] = INPUT();
+
+
+--i_ft_3[8] is i_ft_3[8]
+i_ft_3[8] = INPUT();
+
+
+--i_ft_3[9] is i_ft_3[9]
+i_ft_3[9] = INPUT();
+
+
+--i_ft_3[10] is i_ft_3[10]
+i_ft_3[10] = INPUT();
+
+
+--i_ft_3[11] is i_ft_3[11]
+i_ft_3[11] = INPUT();
+
+
+--i_ft_3[12] is i_ft_3[12]
+i_ft_3[12] = INPUT();
+
+
+--i_ft_3[13] is i_ft_3[13]
+i_ft_3[13] = INPUT();
+
+
+--i_ft_3[14] is i_ft_3[14]
+i_ft_3[14] = INPUT();
+
+
+--i_ft_3[15] is i_ft_3[15]
+i_ft_3[15] = INPUT();
+
+
+--i_ft_4[0] is i_ft_4[0]
+i_ft_4[0] = INPUT();
+
+
+--i_ft_4[1] is i_ft_4[1]
+i_ft_4[1] = INPUT();
+
+
+--i_ft_4[2] is i_ft_4[2]
+i_ft_4[2] = INPUT();
+
+
+--i_ft_4[3] is i_ft_4[3]
+i_ft_4[3] = INPUT();
+
+
+--i_ft_4[4] is i_ft_4[4]
+i_ft_4[4] = INPUT();
+
+
+--i_ft_4[5] is i_ft_4[5]
+i_ft_4[5] = INPUT();
+
+
+--i_ft_4[6] is i_ft_4[6]
+i_ft_4[6] = INPUT();
+
+
+--i_ft_4[7] is i_ft_4[7]
+i_ft_4[7] = INPUT();
+
+
+--i_ft_4[8] is i_ft_4[8]
+i_ft_4[8] = INPUT();
+
+
+--i_ft_4[9] is i_ft_4[9]
+i_ft_4[9] = INPUT();
+
+
+--i_ft_4[10] is i_ft_4[10]
+i_ft_4[10] = INPUT();
+
+
+--i_ft_4[11] is i_ft_4[11]
+i_ft_4[11] = INPUT();
+
+
+--i_ft_4[12] is i_ft_4[12]
+i_ft_4[12] = INPUT();
+
+
+--i_ft_4[13] is i_ft_4[13]
+i_ft_4[13] = INPUT();
+
 
-C1L42Q = DFFEAS(VCC, i_clk,  ,  ,  ,  ,  ,  ,  );
+--i_ft_4[14] is i_ft_4[14]
+i_ft_4[14] = INPUT();
 
 
---C1L59 is uart:uart_unit|fifo:fifo_rx|r_fifo_data~17
-C1L59 = (C1L42Q & ((C1L57 & (C1L41Q)) # (!C1L57 & ((G1_ram_block1a1))))) # (!C1L42Q & (C1L41Q));
+--i_ft_4[15] is i_ft_4[15]
+i_ft_4[15] = INPUT();
 
 
---C1L43Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[13]
+--i_ft_5[0] is i_ft_5[0]
+i_ft_5[0] = INPUT();
+
+
+--i_ft_5[1] is i_ft_5[1]
+i_ft_5[1] = INPUT();
+
+
+--i_ft_5[2] is i_ft_5[2]
+i_ft_5[2] = INPUT();
+
+
+--i_ft_5[3] is i_ft_5[3]
+i_ft_5[3] = INPUT();
+
+
+--i_ft_5[4] is i_ft_5[4]
+i_ft_5[4] = INPUT();
+
+
+--i_ft_5[5] is i_ft_5[5]
+i_ft_5[5] = INPUT();
+
+
+--i_ft_5[6] is i_ft_5[6]
+i_ft_5[6] = INPUT();
+
+
+--i_ft_5[7] is i_ft_5[7]
+i_ft_5[7] = INPUT();
+
+
+--i_ft_5[8] is i_ft_5[8]
+i_ft_5[8] = INPUT();
+
+
+--i_ft_5[9] is i_ft_5[9]
+i_ft_5[9] = INPUT();
+
+
+--i_ft_5[10] is i_ft_5[10]
+i_ft_5[10] = INPUT();
+
+
+--i_ft_5[11] is i_ft_5[11]
+i_ft_5[11] = INPUT();
+
+
+--i_ft_5[12] is i_ft_5[12]
+i_ft_5[12] = INPUT();
+
+
+--i_ft_5[13] is i_ft_5[13]
+i_ft_5[13] = INPUT();
+
+
+--i_ft_5[14] is i_ft_5[14]
+i_ft_5[14] = INPUT();
+
+
+--i_ft_5[15] is i_ft_5[15]
+i_ft_5[15] = INPUT();
+
+
+--o_class_0[0] is o_class_0[0]
+o_class_0[0] = OUTPUT(J1_r_out[0]);
+
+
+--o_class_0[1] is o_class_0[1]
+o_class_0[1] = OUTPUT(J1_r_out[1]);
+
+
+--o_class_0[2] is o_class_0[2]
+o_class_0[2] = OUTPUT(J1_r_out[2]);
+
+
+--o_class_0[3] is o_class_0[3]
+o_class_0[3] = OUTPUT(J1_r_out[3]);
+
+
+--o_class_0[4] is o_class_0[4]
+o_class_0[4] = OUTPUT(J1_r_out[4]);
+
+
+--o_class_0[5] is o_class_0[5]
+o_class_0[5] = OUTPUT(J1_r_out[5]);
+
+
+--o_class_0[6] is o_class_0[6]
+o_class_0[6] = OUTPUT(J1_r_out[6]);
+
+
+--o_class_0[7] is o_class_0[7]
+o_class_0[7] = OUTPUT(J1_r_out[7]);
+
+
+--o_class_0[8] is o_class_0[8]
+o_class_0[8] = OUTPUT(J1_r_out[8]);
+
+
+--o_class_0[9] is o_class_0[9]
+o_class_0[9] = OUTPUT(J1_r_out[9]);
+
+
+--o_class_0[10] is o_class_0[10]
+o_class_0[10] = OUTPUT(J1_r_out[10]);
+
+
+--o_class_0[11] is o_class_0[11]
+o_class_0[11] = OUTPUT(J1_r_out[11]);
+
+
+--o_class_0[12] is o_class_0[12]
+o_class_0[12] = OUTPUT(J1_r_out[12]);
+
+
+--o_class_0[13] is o_class_0[13]
+o_class_0[13] = OUTPUT(J1_r_out[13]);
+
+
+--o_class_0[14] is o_class_0[14]
+o_class_0[14] = OUTPUT(J1_r_out[14]);
+
+
+--o_class_0[15] is o_class_0[15]
+o_class_0[15] = OUTPUT(A1L208);
+
+
+--o_class_1[0] is o_class_1[0]
+o_class_1[0] = OUTPUT(A1L208);
+
+
+--o_class_1[1] is o_class_1[1]
+o_class_1[1] = OUTPUT(A1L208);
+
+
+--o_class_1[2] is o_class_1[2]
+o_class_1[2] = OUTPUT(A1L208);
+
+
+--o_class_1[3] is o_class_1[3]
+o_class_1[3] = OUTPUT(A1L208);
+
+
+--o_class_1[4] is o_class_1[4]
+o_class_1[4] = OUTPUT(A1L208);
+
+
+--o_class_1[5] is o_class_1[5]
+o_class_1[5] = OUTPUT(A1L208);
+
+
+--o_class_1[6] is o_class_1[6]
+o_class_1[6] = OUTPUT(A1L208);
+
+
+--o_class_1[7] is o_class_1[7]
+o_class_1[7] = OUTPUT(A1L208);
+
+
+--o_class_1[8] is o_class_1[8]
+o_class_1[8] = OUTPUT(A1L208);
+
+
+--o_class_1[9] is o_class_1[9]
+o_class_1[9] = OUTPUT(A1L208);
+
+
+--o_class_1[10] is o_class_1[10]
+o_class_1[10] = OUTPUT(A1L208);
+
+
+--o_class_1[11] is o_class_1[11]
+o_class_1[11] = OUTPUT(A1L208);
+
+
+--o_class_1[12] is o_class_1[12]
+o_class_1[12] = OUTPUT(A1L208);
+
+
+--o_class_1[13] is o_class_1[13]
+o_class_1[13] = OUTPUT(A1L208);
+
+
+--o_class_1[14] is o_class_1[14]
+o_class_1[14] = OUTPUT(A1L208);
+
+
+--o_class_1[15] is o_class_1[15]
+o_class_1[15] = OUTPUT(A1L208);
+
+
+--o_class_2[0] is o_class_2[0]
+o_class_2[0] = OUTPUT(A1L208);
+
+
+--o_class_2[1] is o_class_2[1]
+o_class_2[1] = OUTPUT(A1L208);
+
+
+--o_class_2[2] is o_class_2[2]
+o_class_2[2] = OUTPUT(A1L208);
+
+
+--o_class_2[3] is o_class_2[3]
+o_class_2[3] = OUTPUT(A1L208);
+
+
+--o_class_2[4] is o_class_2[4]
+o_class_2[4] = OUTPUT(A1L208);
+
+
+--o_class_2[5] is o_class_2[5]
+o_class_2[5] = OUTPUT(A1L208);
+
+
+--o_class_2[6] is o_class_2[6]
+o_class_2[6] = OUTPUT(A1L208);
+
+
+--o_class_2[7] is o_class_2[7]
+o_class_2[7] = OUTPUT(A1L208);
+
+
+--o_class_2[8] is o_class_2[8]
+o_class_2[8] = OUTPUT(A1L208);
+
+
+--o_class_2[9] is o_class_2[9]
+o_class_2[9] = OUTPUT(A1L208);
+
+
+--o_class_2[10] is o_class_2[10]
+o_class_2[10] = OUTPUT(A1L208);
+
+
+--o_class_2[11] is o_class_2[11]
+o_class_2[11] = OUTPUT(A1L208);
+
+
+--o_class_2[12] is o_class_2[12]
+o_class_2[12] = OUTPUT(A1L208);
+
+
+--o_class_2[13] is o_class_2[13]
+o_class_2[13] = OUTPUT(A1L208);
+
+
+--o_class_2[14] is o_class_2[14]
+o_class_2[14] = OUTPUT(A1L208);
+
+
+--o_class_2[15] is o_class_2[15]
+o_class_2[15] = OUTPUT(A1L208);
+
+
+--o_class_3[0] is o_class_3[0]
+o_class_3[0] = OUTPUT(A1L208);
+
+
+--o_class_3[1] is o_class_3[1]
+o_class_3[1] = OUTPUT(A1L208);
+
+
+--o_class_3[2] is o_class_3[2]
+o_class_3[2] = OUTPUT(A1L208);
+
+
+--o_class_3[3] is o_class_3[3]
+o_class_3[3] = OUTPUT(A1L208);
+
+
+--o_class_3[4] is o_class_3[4]
+o_class_3[4] = OUTPUT(A1L208);
+
+
+--o_class_3[5] is o_class_3[5]
+o_class_3[5] = OUTPUT(A1L208);
+
+
+--o_class_3[6] is o_class_3[6]
+o_class_3[6] = OUTPUT(A1L208);
+
+
+--o_class_3[7] is o_class_3[7]
+o_class_3[7] = OUTPUT(A1L208);
+
+
+--o_class_3[8] is o_class_3[8]
+o_class_3[8] = OUTPUT(A1L208);
+
+
+--o_class_3[9] is o_class_3[9]
+o_class_3[9] = OUTPUT(A1L208);
+
+
+--o_class_3[10] is o_class_3[10]
+o_class_3[10] = OUTPUT(A1L208);
+
+
+--o_class_3[11] is o_class_3[11]
+o_class_3[11] = OUTPUT(A1L208);
+
+
+--o_class_3[12] is o_class_3[12]
+o_class_3[12] = OUTPUT(A1L208);
+
+
+--o_class_3[13] is o_class_3[13]
+o_class_3[13] = OUTPUT(A1L208);
+
+
+--o_class_3[14] is o_class_3[14]
+o_class_3[14] = OUTPUT(A1L208);
+
+
+--o_class_3[15] is o_class_3[15]
+o_class_3[15] = OUTPUT(A1L208);
+
+
+--o_class_4[0] is o_class_4[0]
+o_class_4[0] = OUTPUT(A1L208);
+
+
+--o_class_4[1] is o_class_4[1]
+o_class_4[1] = OUTPUT(A1L208);
+
+
+--o_class_4[2] is o_class_4[2]
+o_class_4[2] = OUTPUT(A1L208);
+
+
+--o_class_4[3] is o_class_4[3]
+o_class_4[3] = OUTPUT(A1L208);
+
+
+--o_class_4[4] is o_class_4[4]
+o_class_4[4] = OUTPUT(A1L208);
+
+
+--o_class_4[5] is o_class_4[5]
+o_class_4[5] = OUTPUT(A1L208);
+
+
+--o_class_4[6] is o_class_4[6]
+o_class_4[6] = OUTPUT(A1L208);
+
+
+--o_class_4[7] is o_class_4[7]
+o_class_4[7] = OUTPUT(A1L208);
+
+
+--o_class_4[8] is o_class_4[8]
+o_class_4[8] = OUTPUT(A1L208);
+
+
+--o_class_4[9] is o_class_4[9]
+o_class_4[9] = OUTPUT(A1L208);
+
+
+--o_class_4[10] is o_class_4[10]
+o_class_4[10] = OUTPUT(A1L208);
+
+
+--o_class_4[11] is o_class_4[11]
+o_class_4[11] = OUTPUT(A1L208);
+
+
+--o_class_4[12] is o_class_4[12]
+o_class_4[12] = OUTPUT(A1L208);
+
+
+--o_class_4[13] is o_class_4[13]
+o_class_4[13] = OUTPUT(A1L208);
+
+
+--o_class_4[14] is o_class_4[14]
+o_class_4[14] = OUTPUT(A1L208);
+
+
+--o_class_4[15] is o_class_4[15]
+o_class_4[15] = OUTPUT(A1L208);
+
+
+--o_class_5[0] is o_class_5[0]
+o_class_5[0] = OUTPUT(A1L208);
+
+
+--o_class_5[1] is o_class_5[1]
+o_class_5[1] = OUTPUT(A1L208);
+
+
+--o_class_5[2] is o_class_5[2]
+o_class_5[2] = OUTPUT(A1L208);
+
+
+--o_class_5[3] is o_class_5[3]
+o_class_5[3] = OUTPUT(A1L208);
+
+
+--o_class_5[4] is o_class_5[4]
+o_class_5[4] = OUTPUT(A1L208);
+
+
+--o_class_5[5] is o_class_5[5]
+o_class_5[5] = OUTPUT(A1L208);
+
+
+--o_class_5[6] is o_class_5[6]
+o_class_5[6] = OUTPUT(A1L208);
+
+
+--o_class_5[7] is o_class_5[7]
+o_class_5[7] = OUTPUT(A1L208);
+
+
+--o_class_5[8] is o_class_5[8]
+o_class_5[8] = OUTPUT(A1L208);
+
+
+--o_class_5[9] is o_class_5[9]
+o_class_5[9] = OUTPUT(A1L208);
+
+
+--o_class_5[10] is o_class_5[10]
+o_class_5[10] = OUTPUT(A1L208);
+
+
+--o_class_5[11] is o_class_5[11]
+o_class_5[11] = OUTPUT(A1L208);
+
+
+--o_class_5[12] is o_class_5[12]
+o_class_5[12] = OUTPUT(A1L208);
+
+
+--o_class_5[13] is o_class_5[13]
+o_class_5[13] = OUTPUT(A1L208);
+
+
+--o_class_5[14] is o_class_5[14]
+o_class_5[14] = OUTPUT(A1L208);
+
+
+--o_class_5[15] is o_class_5[15]
+o_class_5[15] = OUTPUT(A1L208);
+
+
+--J1_r_out[0] is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out[0]
 --register power-up is low
 
-C1L43Q = DFFEAS(D1_r_rx_byte[2], i_clk,  ,  ,  ,  ,  ,  ,  );
+J1_r_out[0] = DFFEAS(J1L17, i_clk,  ,  , C1_r_relu_enable,  ,  ,  ,  );
 
 
---C1L44Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[14]
+--J1_r_out[1] is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out[1]
 --register power-up is low
 
-C1L44Q = DFFEAS(VCC, i_clk,  ,  ,  ,  ,  ,  ,  );
+J1_r_out[1] = DFFEAS(J1L18, i_clk,  ,  , C1_r_relu_enable,  ,  ,  ,  );
 
+
+--J1_r_out[2] is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out[2]
+--register power-up is low
 
---C1L60 is uart:uart_unit|fifo:fifo_rx|r_fifo_data~18
-C1L60 = (C1L44Q & ((C1L57 & (C1L43Q)) # (!C1L57 & ((G1_ram_block1a2))))) # (!C1L44Q & (C1L43Q));
+J1_r_out[2] = DFFEAS(J1L19, i_clk,  ,  , C1_r_relu_enable,  ,  ,  ,  );
 
 
---C1L45Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[15]
+--J1_r_out[3] is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out[3]
 --register power-up is low
 
-C1L45Q = DFFEAS(D1_r_rx_byte[3], i_clk,  ,  ,  ,  ,  ,  ,  );
+J1_r_out[3] = DFFEAS(J1L20, i_clk,  ,  , C1_r_relu_enable,  ,  ,  ,  );
 
 
---C1L46Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[16]
+--J1_r_out[4] is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out[4]
 --register power-up is low
 
-C1L46Q = DFFEAS(VCC, i_clk,  ,  ,  ,  ,  ,  ,  );
+J1_r_out[4] = DFFEAS(J1L21, i_clk,  ,  , C1_r_relu_enable,  ,  ,  ,  );
 
 
---C1L61 is uart:uart_unit|fifo:fifo_rx|r_fifo_data~19
-C1L61 = (C1L46Q & ((C1L57 & (C1L45Q)) # (!C1L57 & ((G1_ram_block1a3))))) # (!C1L46Q & (C1L45Q));
+--J1_r_out[5] is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out[5]
+--register power-up is low
+
+J1_r_out[5] = DFFEAS(J1L22, i_clk,  ,  , C1_r_relu_enable,  ,  ,  ,  );
 
 
---C1L47Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[17]
+--J1_r_out[6] is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out[6]
 --register power-up is low
 
-C1L47Q = DFFEAS(D1_r_rx_byte[4], i_clk,  ,  ,  ,  ,  ,  ,  );
+J1_r_out[6] = DFFEAS(J1L23, i_clk,  ,  , C1_r_relu_enable,  ,  ,  ,  );
 
 
---C1L48Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[18]
+--J1_r_out[7] is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out[7]
 --register power-up is low
 
-C1L48Q = DFFEAS(VCC, i_clk,  ,  ,  ,  ,  ,  ,  );
+J1_r_out[7] = DFFEAS(J1L24, i_clk,  ,  , C1_r_relu_enable,  ,  ,  ,  );
 
+
+--J1_r_out[8] is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out[8]
+--register power-up is low
 
---C1L62 is uart:uart_unit|fifo:fifo_rx|r_fifo_data~20
-C1L62 = (C1L48Q & ((C1L57 & (C1L47Q)) # (!C1L57 & ((G1_ram_block1a4))))) # (!C1L48Q & (C1L47Q));
+J1_r_out[8] = DFFEAS(J1L25, i_clk,  ,  , C1_r_relu_enable,  ,  ,  ,  );
 
 
---C1L49Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[19]
+--J1_r_out[9] is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out[9]
 --register power-up is low
 
-C1L49Q = DFFEAS(D1_r_rx_byte[5], i_clk,  ,  ,  ,  ,  ,  ,  );
+J1_r_out[9] = DFFEAS(J1L26, i_clk,  ,  , C1_r_relu_enable,  ,  ,  ,  );
 
 
---C1L50Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[20]
+--J1_r_out[10] is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out[10]
 --register power-up is low
 
-C1L50Q = DFFEAS(VCC, i_clk,  ,  ,  ,  ,  ,  ,  );
+J1_r_out[10] = DFFEAS(J1L27, i_clk,  ,  , C1_r_relu_enable,  ,  ,  ,  );
 
 
---C1L63 is uart:uart_unit|fifo:fifo_rx|r_fifo_data~21
-C1L63 = (C1L50Q & ((C1L57 & (C1L49Q)) # (!C1L57 & ((G1_ram_block1a5))))) # (!C1L50Q & (C1L49Q));
+--J1_r_out[11] is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out[11]
+--register power-up is low
+
+J1_r_out[11] = DFFEAS(J1L28, i_clk,  ,  , C1_r_relu_enable,  ,  ,  ,  );
 
 
---C1L51Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[21]
+--J1_r_out[12] is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out[12]
 --register power-up is low
 
-C1L51Q = DFFEAS(D1_r_rx_byte[6], i_clk,  ,  ,  ,  ,  ,  ,  );
+J1_r_out[12] = DFFEAS(J1L29, i_clk,  ,  , C1_r_relu_enable,  ,  ,  ,  );
 
 
---C1L52Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[22]
+--J1_r_out[13] is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out[13]
 --register power-up is low
 
-C1L52Q = DFFEAS(VCC, i_clk,  ,  ,  ,  ,  ,  ,  );
+J1_r_out[13] = DFFEAS(J1L30, i_clk,  ,  , C1_r_relu_enable,  ,  ,  ,  );
 
+
+--J1_r_out[14] is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out[14]
+--register power-up is low
 
---C1L64 is uart:uart_unit|fifo:fifo_rx|r_fifo_data~22
-C1L64 = (C1L52Q & ((C1L57 & (C1L51Q)) # (!C1L57 & ((G1_ram_block1a6))))) # (!C1L52Q & (C1L51Q));
+J1_r_out[14] = DFFEAS(J1L31, i_clk,  ,  , C1_r_relu_enable,  ,  ,  ,  );
 
 
---C1L53Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[23]
+--C1_r_relu_in[0] is layer_0:layer0|neuron_l1_n0:n0|r_relu_in[0]
 --register power-up is low
 
-C1L53Q = DFFEAS(D1_r_rx_byte[7], i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_relu_in[0] = DFFEAS(C1_r_bias[0], i_clk,  ,  , C1_r_sm.s_relu,  ,  ,  ,  );
 
 
---C1L54Q is uart:uart_unit|fifo:fifo_rx|r_fifo_data_rtl_0_bypass[24]
+--C1_r_relu_in[15] is layer_0:layer0|neuron_l1_n0:n0|r_relu_in[15]
 --register power-up is low
 
-C1L54Q = DFFEAS(VCC, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_relu_in[15] = DFFEAS(C1_r_bias[15], i_clk,  ,  , C1_r_sm.s_relu,  ,  ,  ,  );
 
 
---C1L65 is uart:uart_unit|fifo:fifo_rx|r_fifo_data~23
-C1L65 = (C1L54Q & ((C1L57 & (C1L53Q)) # (!C1L57 & ((G1_ram_block1a7))))) # (!C1L54Q & (C1L53Q));
+--J1L17 is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out~0
+J1L17 = (C1_r_relu_in[0] & !C1_r_relu_in[15]);
 
 
 --i_clk is i_clk
 i_clk = INPUT();
 
 
---D1_r_rx_dv is uart:uart_unit|uart_rx:receiver|r_rx_dv
+--C1_r_relu_enable is layer_0:layer0|neuron_l1_n0:n0|r_relu_enable
 --register power-up is low
 
-D1_r_rx_dv = DFFEAS(D1L93, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_relu_enable = DFFEAS(C1L248, i_clk,  ,  ,  ,  ,  ,  ,  );
 
 
---r_rd_rx is r_rd_rx
+--C1_r_relu_in[1] is layer_0:layer0|neuron_l1_n0:n0|r_relu_in[1]
 --register power-up is low
 
-r_rd_rx = DFFEAS(A1L63, i_clk, i_rst,  ,  ,  ,  ,  ,  );
+C1_r_relu_in[1] = DFFEAS(C1_r_bias[1], i_clk,  ,  , C1_r_sm.s_relu,  ,  ,  ,  );
 
 
---C1L10 is uart:uart_unit|fifo:fifo_rx|p_control~0
-C1L10 = (D1_r_rx_dv & !r_rd_rx);
+--J1L18 is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out~1
+J1L18 = (C1_r_relu_in[1] & !C1_r_relu_in[15]);
 
 
---i_rst_sync is i_rst_sync
-i_rst_sync = INPUT();
-
-
---C1L22 is uart:uart_unit|fifo:fifo_rx|r_fifo_count[2]~13
-C1L22 = (r_rd_rx $ (D1_r_rx_dv)) # (!i_rst_sync);
-
-
---E1_r_tx_data[6] is uart:uart_unit|uart_tx:transmitter|r_tx_data[6]
+--C1_r_relu_in[2] is layer_0:layer0|neuron_l1_n0:n0|r_relu_in[2]
 --register power-up is low
 
-E1_r_tx_data[6] = DFFEAS(C2L57, i_clk,  ,  , E1L85,  ,  ,  ,  );
+C1_r_relu_in[2] = DFFEAS(C1_r_bias[2], i_clk,  ,  , C1_r_sm.s_relu,  ,  ,  ,  );
 
 
---E1_r_bit_index[1] is uart:uart_unit|uart_tx:transmitter|r_bit_index[1]
+--J1L19 is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out~2
+J1L19 = (C1_r_relu_in[2] & !C1_r_relu_in[15]);
+
+
+--C1_r_relu_in[3] is layer_0:layer0|neuron_l1_n0:n0|r_relu_in[3]
 --register power-up is low
 
-E1_r_bit_index[1] = DFFEAS(E1L81, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_relu_in[3] = DFFEAS(C1_r_bias[3], i_clk,  ,  , C1_r_sm.s_relu,  ,  ,  ,  );
 
 
---E1_r_tx_data[5] is uart:uart_unit|uart_tx:transmitter|r_tx_data[5]
+--J1L20 is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out~3
+J1L20 = (C1_r_relu_in[3] & !C1_r_relu_in[15]);
+
+
+--C1_r_relu_in[4] is layer_0:layer0|neuron_l1_n0:n0|r_relu_in[4]
 --register power-up is low
 
-E1_r_tx_data[5] = DFFEAS(C2L58, i_clk,  ,  , E1L85,  ,  ,  ,  );
+C1_r_relu_in[4] = DFFEAS(C1_r_bias[4], i_clk,  ,  , C1_r_sm.s_relu,  ,  ,  ,  );
 
 
---E1_r_bit_index[0] is uart:uart_unit|uart_tx:transmitter|r_bit_index[0]
+--J1L21 is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out~4
+J1L21 = (C1_r_relu_in[4] & !C1_r_relu_in[15]);
+
+
+--C1_r_relu_in[5] is layer_0:layer0|neuron_l1_n0:n0|r_relu_in[5]
 --register power-up is low
 
-E1_r_bit_index[0] = DFFEAS(E1L83, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_relu_in[5] = DFFEAS(C1_r_bias[5], i_clk,  ,  , C1_r_sm.s_relu,  ,  ,  ,  );
 
 
---E1_r_tx_data[4] is uart:uart_unit|uart_tx:transmitter|r_tx_data[4]
+--J1L22 is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out~5
+J1L22 = (C1_r_relu_in[5] & !C1_r_relu_in[15]);
+
+
+--C1_r_relu_in[6] is layer_0:layer0|neuron_l1_n0:n0|r_relu_in[6]
 --register power-up is low
 
-E1_r_tx_data[4] = DFFEAS(C2L59, i_clk,  ,  , E1L85,  ,  ,  ,  );
+C1_r_relu_in[6] = DFFEAS(C1_r_bias[6], i_clk,  ,  , C1_r_sm.s_relu,  ,  ,  ,  );
 
 
---E1L5 is uart:uart_unit|uart_tx:transmitter|Mux0~0
-E1L5 = (E1_r_bit_index[1] & (((E1_r_bit_index[0])))) # (!E1_r_bit_index[1] & ((E1_r_bit_index[0] & (E1_r_tx_data[5])) # (!E1_r_bit_index[0] & ((E1_r_tx_data[4])))));
+--J1L23 is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out~6
+J1L23 = (C1_r_relu_in[6] & !C1_r_relu_in[15]);
 
 
---E1_r_tx_data[7] is uart:uart_unit|uart_tx:transmitter|r_tx_data[7]
+--C1_r_relu_in[7] is layer_0:layer0|neuron_l1_n0:n0|r_relu_in[7]
 --register power-up is low
 
-E1_r_tx_data[7] = DFFEAS(C2L60, i_clk,  ,  , E1L85,  ,  ,  ,  );
+C1_r_relu_in[7] = DFFEAS(C1_r_bias[7], i_clk,  ,  , C1_r_sm.s_relu,  ,  ,  ,  );
 
 
---E1L6 is uart:uart_unit|uart_tx:transmitter|Mux0~1
-E1L6 = (E1_r_bit_index[1] & ((E1L5 & ((E1_r_tx_data[7]))) # (!E1L5 & (E1_r_tx_data[6])))) # (!E1_r_bit_index[1] & (((E1L5))));
+--J1L24 is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out~7
+J1L24 = (C1_r_relu_in[7] & !C1_r_relu_in[15]);
 
 
---E1_r_bit_index[2] is uart:uart_unit|uart_tx:transmitter|r_bit_index[2]
+--C1_r_relu_in[8] is layer_0:layer0|neuron_l1_n0:n0|r_relu_in[8]
 --register power-up is low
 
-E1_r_bit_index[2] = DFFEAS(E1L79, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_relu_in[8] = DFFEAS(C1_r_bias[8], i_clk,  ,  , C1_r_sm.s_relu,  ,  ,  ,  );
 
 
---E1_r_sm_main.s_tx_data_bits is uart:uart_unit|uart_tx:transmitter|r_sm_main.s_tx_data_bits
+--J1L25 is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out~8
+J1L25 = (C1_r_relu_in[8] & !C1_r_relu_in[15]);
+
+
+--C1_r_relu_in[9] is layer_0:layer0|neuron_l1_n0:n0|r_relu_in[9]
 --register power-up is low
 
-E1_r_sm_main.s_tx_data_bits = DFFEAS(E1L87, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_relu_in[9] = DFFEAS(C1_r_bias[9], i_clk,  ,  , C1_r_sm.s_relu,  ,  ,  ,  );
 
 
---E1_r_sm_main.s_idle is uart:uart_unit|uart_tx:transmitter|r_sm_main.s_idle
+--J1L26 is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out~9
+J1L26 = (C1_r_relu_in[9] & !C1_r_relu_in[15]);
+
+
+--C1_r_relu_in[10] is layer_0:layer0|neuron_l1_n0:n0|r_relu_in[10]
 --register power-up is low
 
-E1_r_sm_main.s_idle = DFFEAS(E1L84, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_relu_in[10] = DFFEAS(C1_r_bias[10], i_clk,  ,  , C1_r_sm.s_relu,  ,  ,  ,  );
 
 
---E1L73 is uart:uart_unit|uart_tx:transmitter|Selector1~0
-E1L73 = ((E1L6 & (E1_r_bit_index[2] & E1_r_sm_main.s_tx_data_bits))) # (!E1_r_sm_main.s_idle);
+--J1L27 is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out~10
+J1L27 = (C1_r_relu_in[10] & !C1_r_relu_in[15]);
 
 
---E1_r_sm_main.s_tx_stop_bit is uart:uart_unit|uart_tx:transmitter|r_sm_main.s_tx_stop_bit
+--C1_r_relu_in[11] is layer_0:layer0|neuron_l1_n0:n0|r_relu_in[11]
 --register power-up is low
 
-E1_r_sm_main.s_tx_stop_bit = DFFEAS(E1L61, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_relu_in[11] = DFFEAS(C1_r_bias[11], i_clk,  ,  , C1_r_sm.s_relu,  ,  ,  ,  );
 
 
---E1_r_tx_data[2] is uart:uart_unit|uart_tx:transmitter|r_tx_data[2]
+--J1L28 is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out~11
+J1L28 = (C1_r_relu_in[11] & !C1_r_relu_in[15]);
+
+
+--C1_r_relu_in[12] is layer_0:layer0|neuron_l1_n0:n0|r_relu_in[12]
 --register power-up is low
 
-E1_r_tx_data[2] = DFFEAS(C2L61, i_clk,  ,  , E1L85,  ,  ,  ,  );
+C1_r_relu_in[12] = DFFEAS(C1_r_bias[12], i_clk,  ,  , C1_r_sm.s_relu,  ,  ,  ,  );
 
 
---E1_r_tx_data[1] is uart:uart_unit|uart_tx:transmitter|r_tx_data[1]
+--J1L29 is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out~12
+J1L29 = (C1_r_relu_in[12] & !C1_r_relu_in[15]);
+
+
+--C1_r_relu_in[13] is layer_0:layer0|neuron_l1_n0:n0|r_relu_in[13]
 --register power-up is low
 
-E1_r_tx_data[1] = DFFEAS(C2L62, i_clk,  ,  , E1L85,  ,  ,  ,  );
+C1_r_relu_in[13] = DFFEAS(C1_r_bias[13], i_clk,  ,  , C1_r_sm.s_relu,  ,  ,  ,  );
 
 
---E1_r_tx_data[0] is uart:uart_unit|uart_tx:transmitter|r_tx_data[0]
+--J1L30 is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out~13
+J1L30 = (C1_r_relu_in[13] & !C1_r_relu_in[15]);
+
+
+--C1_r_relu_in[14] is layer_0:layer0|neuron_l1_n0:n0|r_relu_in[14]
 --register power-up is low
 
-E1_r_tx_data[0] = DFFEAS(C2L63, i_clk,  ,  , E1L85,  ,  ,  ,  );
+C1_r_relu_in[14] = DFFEAS(C1_r_bias[14], i_clk,  ,  , C1_r_sm.s_relu,  ,  ,  ,  );
 
 
---E1L7 is uart:uart_unit|uart_tx:transmitter|Mux0~2
-E1L7 = (E1_r_bit_index[1] & (((E1_r_bit_index[0])))) # (!E1_r_bit_index[1] & ((E1_r_bit_index[0] & (E1_r_tx_data[1])) # (!E1_r_bit_index[0] & ((E1_r_tx_data[0])))));
+--J1L31 is layer_0:layer0|neuron_l1_n0:n0|lut_relu:act_relu|r_out~14
+J1L31 = (C1_r_relu_in[14] & !C1_r_relu_in[15]);
 
 
---E1_r_tx_data[3] is uart:uart_unit|uart_tx:transmitter|r_tx_data[3]
+--C1_r_bias[0] is layer_0:layer0|neuron_l1_n0:n0|r_bias[0]
 --register power-up is low
 
-E1_r_tx_data[3] = DFFEAS(C2L64, i_clk,  ,  , E1L85,  ,  ,  ,  );
+C1_r_bias[0] = DFFEAS(C1L195, i_clk,  ,  , C1_r_sm.s_bias,  ,  ,  ,  );
 
 
---E1L8 is uart:uart_unit|uart_tx:transmitter|Mux0~3
-E1L8 = (E1_r_bit_index[1] & ((E1L7 & ((E1_r_tx_data[3]))) # (!E1L7 & (E1_r_tx_data[2])))) # (!E1_r_bit_index[1] & (((E1L7))));
-
-
---E1L74 is uart:uart_unit|uart_tx:transmitter|Selector1~1
-E1L74 = (E1_r_sm_main.s_tx_stop_bit) # ((E1_r_sm_main.s_tx_data_bits & (E1L8 & !E1_r_bit_index[2])));
-
-
---E1_r_sm_main.s_cleanup is uart:uart_unit|uart_tx:transmitter|r_sm_main.s_cleanup
+--C1_r_sm.s_relu is layer_0:layer0|neuron_l1_n0:n0|r_sm.s_relu
 --register power-up is low
 
-E1_r_sm_main.s_cleanup = DFFEAS(E1L62, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_sm.s_relu = DFFEAS(C1_r_sm.s_bias, i_clk,  ,  ,  ,  ,  ,  ,  );
 
 
---E1L75 is uart:uart_unit|uart_tx:transmitter|Selector1~2
-E1L75 = (E1L73) # ((E1L74) # ((E1_o_tx_serial & E1_r_sm_main.s_cleanup)));
-
-
---r_wr_tx is r_wr_tx
+--C1_r_bias[15] is layer_0:layer0|neuron_l1_n0:n0|r_bias[15]
 --register power-up is low
 
-r_wr_tx = DFFEAS(A1L67, i_clk, i_rst,  ,  ,  ,  ,  ,  );
+C1_r_bias[15] = DFFEAS(C1L66, i_clk,  ,  , C1_r_sm.s_bias,  ,  ,  ,  );
 
 
---E1_r_tx_done is uart:uart_unit|uart_tx:transmitter|r_tx_done
+--C1_r_sm.s_wait_relu is layer_0:layer0|neuron_l1_n0:n0|r_sm.s_wait_relu
 --register power-up is low
 
-E1_r_tx_done = DFFEAS(E1L77, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_sm.s_wait_relu = DFFEAS(C1_r_sm.s_relu, i_clk,  ,  ,  ,  ,  ,  ,  );
 
 
---C2L10 is uart:uart_unit|fifo:fifo_tx|p_control~0
-C2L10 = (r_wr_tx & !E1_r_tx_done);
+--C1L248 is layer_0:layer0|neuron_l1_n0:n0|Selector36~0
+C1L248 = (C1_r_sm.s_relu) # ((C1_r_relu_enable & !C1_r_sm.s_wait_relu));
 
 
---C2L21 is uart:uart_unit|fifo:fifo_tx|r_fifo_count[2]~13
-C2L21 = (r_wr_tx $ (E1_r_tx_done)) # (!i_rst_sync);
-
-
---D1_r_rx_byte[0] is uart:uart_unit|uart_rx:receiver|r_rx_byte[0]
+--C1_r_bias[1] is layer_0:layer0|neuron_l1_n0:n0|r_bias[1]
 --register power-up is low
 
-D1_r_rx_byte[0] = DFFEAS(D1L67, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_bias[1] = DFFEAS(C1L196, i_clk,  ,  , C1_r_sm.s_bias,  ,  ,  ,  );
 
 
---C1L66 is uart:uart_unit|fifo:fifo_rx|r_fifo_data~24
-C1L66 = (D1_r_rx_dv & i_rst_sync);
-
-
---C1_r_wr_index[0] is uart:uart_unit|fifo:fifo_rx|r_wr_index[0]
+--C1_r_bias[2] is layer_0:layer0|neuron_l1_n0:n0|r_bias[2]
 --register power-up is low
 
-C1_r_wr_index[0] = DFFEAS(C1L86, i_clk,  ,  , C1L82,  ,  ,  ,  );
+C1_r_bias[2] = DFFEAS(C1L197, i_clk,  ,  , C1_r_sm.s_bias,  ,  ,  ,  );
 
 
---C1_r_wr_index[1] is uart:uart_unit|fifo:fifo_rx|r_wr_index[1]
+--C1_r_bias[3] is layer_0:layer0|neuron_l1_n0:n0|r_bias[3]
 --register power-up is low
 
-C1_r_wr_index[1] = DFFEAS(C1L87, i_clk,  ,  , C1L82,  ,  ,  ,  );
+C1_r_bias[3] = DFFEAS(C1L198, i_clk,  ,  , C1_r_sm.s_bias,  ,  ,  ,  );
 
 
---C1_r_wr_index[2] is uart:uart_unit|fifo:fifo_rx|r_wr_index[2]
+--C1_r_bias[4] is layer_0:layer0|neuron_l1_n0:n0|r_bias[4]
 --register power-up is low
 
-C1_r_wr_index[2] = DFFEAS(C1L88, i_clk,  ,  , C1L82,  ,  ,  ,  );
+C1_r_bias[4] = DFFEAS(C1L199, i_clk,  ,  , C1_r_sm.s_bias,  ,  ,  ,  );
 
 
---C1_r_wr_index[3] is uart:uart_unit|fifo:fifo_rx|r_wr_index[3]
+--C1_r_bias[5] is layer_0:layer0|neuron_l1_n0:n0|r_bias[5]
 --register power-up is low
 
-C1_r_wr_index[3] = DFFEAS(C1L89, i_clk,  ,  , C1L82,  ,  ,  ,  );
+C1_r_bias[5] = DFFEAS(C1L200, i_clk,  ,  , C1_r_sm.s_bias,  ,  ,  ,  );
 
 
---C1_r_rd_index[0] is uart:uart_unit|fifo:fifo_rx|r_rd_index[0]
+--C1_r_bias[6] is layer_0:layer0|neuron_l1_n0:n0|r_bias[6]
 --register power-up is low
 
-C1_r_rd_index[0] = DFFEAS(C1L72, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_bias[6] = DFFEAS(C1L201, i_clk,  ,  , C1_r_sm.s_bias,  ,  ,  ,  );
 
 
---C1L72 is uart:uart_unit|fifo:fifo_rx|r_rd_index~0
-C1L72 = (i_rst_sync & (C1_r_rd_index[0] $ (((C1L8 & r_rd_rx)))));
-
-
---C1L73 is uart:uart_unit|fifo:fifo_rx|r_rd_index~1
-C1L73 = (i_rst_sync & ((!r_rd_rx) # (!C1L8)));
-
-
---C1_r_rd_index[3] is uart:uart_unit|fifo:fifo_rx|r_rd_index[3]
+--C1_r_bias[7] is layer_0:layer0|neuron_l1_n0:n0|r_bias[7]
 --register power-up is low
 
-C1_r_rd_index[3] = DFFEAS(C1L77, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_bias[7] = DFFEAS(C1L202, i_clk,  ,  , C1_r_sm.s_bias,  ,  ,  ,  );
 
 
---C1_r_rd_index[1] is uart:uart_unit|fifo:fifo_rx|r_rd_index[1]
+--C1_r_bias[8] is layer_0:layer0|neuron_l1_n0:n0|r_bias[8]
 --register power-up is low
 
-C1_r_rd_index[1] = DFFEAS(C1L75, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_bias[8] = DFFEAS(C1L203, i_clk,  ,  , C1_r_sm.s_bias,  ,  ,  ,  );
 
 
---C1_r_rd_index[2] is uart:uart_unit|fifo:fifo_rx|r_rd_index[2]
+--C1_r_bias[9] is layer_0:layer0|neuron_l1_n0:n0|r_bias[9]
 --register power-up is low
 
-C1_r_rd_index[2] = DFFEAS(C1L76, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_bias[9] = DFFEAS(C1L204, i_clk,  ,  , C1_r_sm.s_bias,  ,  ,  ,  );
 
 
---C1L5 is uart:uart_unit|fifo:fifo_rx|Equal1~0
-C1L5 = (C1_r_rd_index[0] & (C1_r_rd_index[3] & (!C1_r_rd_index[1] & !C1_r_rd_index[2])));
-
-
---C1L74 is uart:uart_unit|fifo:fifo_rx|r_rd_index~2
-C1L74 = (C1L8 & (r_rd_rx & (i_rst_sync & !C1L5)));
-
-
---C1L75 is uart:uart_unit|fifo:fifo_rx|r_rd_index~3
-C1L75 = (C1_r_rd_index[1] & ((C1L73) # ((C1L74 & !C1_r_rd_index[0])))) # (!C1_r_rd_index[1] & (((C1L74 & C1_r_rd_index[0]))));
-
-
---C1L3 is uart:uart_unit|fifo:fifo_rx|Add3~0
-C1L3 = C1_r_rd_index[2] $ (((C1_r_rd_index[0] & C1_r_rd_index[1])));
-
-
---C1L11 is uart:uart_unit|fifo:fifo_rx|p_control~1
-C1L11 = (r_rd_rx & ((C1_r_fifo_count[3]) # ((C1_r_fifo_count[1]) # (!C1L6))));
-
-
---C1L76 is uart:uart_unit|fifo:fifo_rx|r_rd_index~4
-C1L76 = (i_rst_sync & ((C1L11 & (C1L3)) # (!C1L11 & ((C1_r_rd_index[2])))));
-
-
---C1L4 is uart:uart_unit|fifo:fifo_rx|Add3~1
-C1L4 = C1_r_rd_index[3] $ (((C1_r_rd_index[0] & (C1_r_rd_index[1] & C1_r_rd_index[2]))));
-
-
---C1L77 is uart:uart_unit|fifo:fifo_rx|r_rd_index~5
-C1L77 = (C1_r_rd_index[3] & ((C1L73) # ((C1L74 & C1L4)))) # (!C1_r_rd_index[3] & (C1L74 & (C1L4)));
-
-
---D1_r_rx_byte[1] is uart:uart_unit|uart_rx:receiver|r_rx_byte[1]
+--C1_r_bias[10] is layer_0:layer0|neuron_l1_n0:n0|r_bias[10]
 --register power-up is low
 
-D1_r_rx_byte[1] = DFFEAS(D1L69, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_bias[10] = DFFEAS(C1L205, i_clk,  ,  , C1_r_sm.s_bias,  ,  ,  ,  );
 
 
---D1_r_rx_byte[2] is uart:uart_unit|uart_rx:receiver|r_rx_byte[2]
+--C1_r_bias[11] is layer_0:layer0|neuron_l1_n0:n0|r_bias[11]
 --register power-up is low
 
-D1_r_rx_byte[2] = DFFEAS(D1L71, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_bias[11] = DFFEAS(C1L206, i_clk,  ,  , C1_r_sm.s_bias,  ,  ,  ,  );
 
 
---D1_r_rx_byte[3] is uart:uart_unit|uart_rx:receiver|r_rx_byte[3]
+--C1_r_bias[12] is layer_0:layer0|neuron_l1_n0:n0|r_bias[12]
 --register power-up is low
 
-D1_r_rx_byte[3] = DFFEAS(D1L73, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_bias[12] = DFFEAS(C1L207, i_clk,  ,  , C1_r_sm.s_bias,  ,  ,  ,  );
 
 
---D1_r_rx_byte[4] is uart:uart_unit|uart_rx:receiver|r_rx_byte[4]
+--C1_r_bias[13] is layer_0:layer0|neuron_l1_n0:n0|r_bias[13]
 --register power-up is low
 
-D1_r_rx_byte[4] = DFFEAS(D1L75, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_bias[13] = DFFEAS(C1L208, i_clk,  ,  , C1_r_sm.s_bias,  ,  ,  ,  );
 
 
---D1_r_rx_byte[5] is uart:uart_unit|uart_rx:receiver|r_rx_byte[5]
+--C1_r_bias[14] is layer_0:layer0|neuron_l1_n0:n0|r_bias[14]
 --register power-up is low
 
-D1_r_rx_byte[5] = DFFEAS(D1L77, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_bias[14] = DFFEAS(C1L209, i_clk,  ,  , C1_r_sm.s_bias,  ,  ,  ,  );
 
 
---D1_r_rx_byte[6] is uart:uart_unit|uart_rx:receiver|r_rx_byte[6]
+--K1_r_data_out[-11] is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_data_out[-11]
 --register power-up is low
 
-D1_r_rx_byte[6] = DFFEAS(D1L79, i_clk,  ,  ,  ,  ,  ,  ,  );
+K1_r_data_out[-11] = DFFEAS(K1L144, i_clk, !i_rst,  , C1_r_mac_enable,  ,  ,  ,  );
 
 
---D1_r_rx_byte[7] is uart:uart_unit|uart_rx:receiver|r_rx_byte[7]
+--K1_r_data_out[4] is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_data_out[4]
 --register power-up is low
 
-D1_r_rx_byte[7] = DFFEAS(D1L81, i_clk,  ,  ,  ,  ,  ,  ,  );
+K1_r_data_out[4] = DFFEAS(K1L87, i_clk, !i_rst,  , C1_r_mac_enable,  ,  ,  ,  );
 
 
---D1L14 is uart:uart_unit|uart_rx:receiver|LessThan1~0
-D1L14 = ((!D1_r_clk_count[5] & ((!D1_r_clk_count[4]) # (!D1_r_clk_count[3])))) # (!D1_r_clk_count[6]);
-
-
---D1_r_sm_main.s_rx_stop_bit is uart:uart_unit|uart_rx:receiver|r_sm_main.s_rx_stop_bit
+--K1_r_data_out[3] is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_data_out[3]
 --register power-up is low
 
-D1_r_sm_main.s_rx_stop_bit = DFFEAS(D1L90, i_clk,  ,  ,  ,  ,  ,  ,  );
+K1_r_data_out[3] = DFFEAS(K1L145, i_clk, !i_rst,  , C1_r_mac_enable,  ,  ,  ,  );
 
 
---D1L91 is uart:uart_unit|uart_rx:receiver|r_sm_main~7
-D1L91 = (D1L16 & D1_r_sm_main.s_rx_stop_bit);
-
-
---D1_r_sm_main.s_rx_start_bit is uart:uart_unit|uart_rx:receiver|r_sm_main.s_rx_start_bit
+--K1_r_data_out[2] is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_data_out[2]
 --register power-up is low
 
-D1_r_sm_main.s_rx_start_bit = DFFEAS(D1L102, i_clk,  ,  ,  ,  ,  ,  ,  );
+K1_r_data_out[2] = DFFEAS(K1L146, i_clk, !i_rst,  , C1_r_mac_enable,  ,  ,  ,  );
 
 
---D1_r_sm_main.s_rx_data_bits is uart:uart_unit|uart_rx:receiver|r_sm_main.s_rx_data_bits
+--K1_r_data_out[1] is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_data_out[1]
 --register power-up is low
 
-D1_r_sm_main.s_rx_data_bits = DFFEAS(D1L104, i_clk,  ,  ,  ,  ,  ,  ,  );
+K1_r_data_out[1] = DFFEAS(K1L147, i_clk, !i_rst,  , C1_r_mac_enable,  ,  ,  ,  );
 
 
---D1L92 is uart:uart_unit|uart_rx:receiver|Selector0~0
-D1L92 = (!D1_r_sm_main.s_rx_stop_bit & !D1_r_sm_main.s_rx_data_bits);
-
-
---D1L93 is uart:uart_unit|uart_rx:receiver|Selector0~1
-D1L93 = (D1L91) # ((D1_r_rx_dv & ((D1_r_sm_main.s_rx_start_bit) # (!D1L92))));
-
-
---r_sm_main.s_idle is r_sm_main.s_idle
+--K1_r_data_out[0] is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_data_out[0]
 --register power-up is low
 
-r_sm_main.s_idle = DFFEAS(A1L65, i_clk, i_rst,  ,  ,  ,  ,  ,  );
+K1_r_data_out[0] = DFFEAS(K1L148, i_clk, !i_rst,  , C1_r_mac_enable,  ,  ,  ,  );
 
 
---r_sm_main.s_get_fifo_data is r_sm_main.s_get_fifo_data
+--K1_r_data_out[-1] is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_data_out[-1]
 --register power-up is low
 
-r_sm_main.s_get_fifo_data = DFFEAS(A1L64, i_clk, i_rst,  ,  ,  ,  ,  ,  );
+K1_r_data_out[-1] = DFFEAS(K1L149, i_clk, !i_rst,  , C1_r_mac_enable,  ,  ,  ,  );
 
 
---A1L63 is Selector0~0
-A1L63 = (r_sm_main.s_idle & (((r_rd_rx & !r_sm_main.s_get_fifo_data)))) # (!r_sm_main.s_idle & (C1L8));
+--K1_r_data_out[-2] is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_data_out[-2]
+--register power-up is low
+
+K1_r_data_out[-2] = DFFEAS(K1L150, i_clk, !i_rst,  , C1_r_mac_enable,  ,  ,  ,  );
+
+
+--K1_r_data_out[-3] is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_data_out[-3]
+--register power-up is low
+
+K1_r_data_out[-3] = DFFEAS(K1L151, i_clk, !i_rst,  , C1_r_mac_enable,  ,  ,  ,  );
+
+
+--K1_r_data_out[-4] is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_data_out[-4]
+--register power-up is low
+
+K1_r_data_out[-4] = DFFEAS(K1L152, i_clk, !i_rst,  , C1_r_mac_enable,  ,  ,  ,  );
+
+
+--K1_r_data_out[-5] is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_data_out[-5]
+--register power-up is low
+
+K1_r_data_out[-5] = DFFEAS(K1L153, i_clk, !i_rst,  , C1_r_mac_enable,  ,  ,  ,  );
+
+
+--K1_r_data_out[-6] is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_data_out[-6]
+--register power-up is low
+
+K1_r_data_out[-6] = DFFEAS(K1L154, i_clk, !i_rst,  , C1_r_mac_enable,  ,  ,  ,  );
+
+
+--K1_r_data_out[-7] is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_data_out[-7]
+--register power-up is low
+
+K1_r_data_out[-7] = DFFEAS(K1L155, i_clk, !i_rst,  , C1_r_mac_enable,  ,  ,  ,  );
+
+
+--K1_r_data_out[-8] is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_data_out[-8]
+--register power-up is low
+
+K1_r_data_out[-8] = DFFEAS(K1L156, i_clk, !i_rst,  , C1_r_mac_enable,  ,  ,  ,  );
+
+
+--K1_r_data_out[-9] is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_data_out[-9]
+--register power-up is low
+
+K1_r_data_out[-9] = DFFEAS(K1L157, i_clk, !i_rst,  , C1_r_mac_enable,  ,  ,  ,  );
+
+
+--K1_r_data_out[-10] is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_data_out[-10]
+--register power-up is low
+
+K1_r_data_out[-10] = DFFEAS(K1L158, i_clk, !i_rst,  , C1_r_mac_enable,  ,  ,  ,  );
+
+
+--C1L195 is layer_0:layer0|neuron_l1_n0:n0|result~0
+C1L195 = (K1_r_data_out[-11] & ((C1L29) # (C1L31))) # (!K1_r_data_out[-11] & (C1L29 & C1L31));
+
+
+--C1_r_sm.s_bias is layer_0:layer0|neuron_l1_n0:n0|r_sm.s_bias
+--register power-up is low
+
+C1_r_sm.s_bias = DFFEAS(C1L194, i_clk,  ,  ,  ,  ,  ,  ,  );
+
+
+--C1L196 is layer_0:layer0|neuron_l1_n0:n0|result~1
+C1L196 = (C1L1 & ((C1L29) # (C1L31))) # (!C1L1 & (C1L29 & C1L31));
+
+
+--C1L197 is layer_0:layer0|neuron_l1_n0:n0|result~2
+C1L197 = (C1L3 & ((C1L29) # (C1L31))) # (!C1L3 & (C1L29 & C1L31));
+
+
+--C1L198 is layer_0:layer0|neuron_l1_n0:n0|result~3
+C1L198 = (C1L5 & ((C1L29) # (C1L31))) # (!C1L5 & (C1L29 & C1L31));
+
+
+--C1L199 is layer_0:layer0|neuron_l1_n0:n0|result~4
+C1L199 = (C1L7 & ((C1L29) # (C1L31))) # (!C1L7 & (C1L29 & C1L31));
+
+
+--C1L200 is layer_0:layer0|neuron_l1_n0:n0|result~5
+C1L200 = (C1L9 & ((C1L29) # (C1L31))) # (!C1L9 & (C1L29 & C1L31));
+
+
+--C1L201 is layer_0:layer0|neuron_l1_n0:n0|result~6
+C1L201 = (C1L11 & ((C1L29) # (C1L31))) # (!C1L11 & (C1L29 & C1L31));
+
+
+--C1L202 is layer_0:layer0|neuron_l1_n0:n0|result~7
+C1L202 = (C1L13 & ((C1L29) # (C1L31))) # (!C1L13 & (C1L29 & C1L31));
+
+
+--C1L203 is layer_0:layer0|neuron_l1_n0:n0|result~8
+C1L203 = (C1L15 & ((C1L29) # (C1L31))) # (!C1L15 & (C1L29 & C1L31));
+
+
+--C1L204 is layer_0:layer0|neuron_l1_n0:n0|result~9
+C1L204 = (C1L17 & ((C1L29) # (C1L31))) # (!C1L17 & (C1L29 & C1L31));
+
+
+--C1L205 is layer_0:layer0|neuron_l1_n0:n0|result~10
+C1L205 = (C1L19 & ((C1L29) # (C1L31))) # (!C1L19 & (C1L29 & C1L31));
+
+
+--C1L206 is layer_0:layer0|neuron_l1_n0:n0|result~11
+C1L206 = (C1L21 & ((C1L29) # (C1L31))) # (!C1L21 & (C1L29 & C1L31));
+
+
+--C1L207 is layer_0:layer0|neuron_l1_n0:n0|result~12
+C1L207 = (C1L23 & ((C1L29) # (C1L31))) # (!C1L23 & (C1L29 & C1L31));
+
+
+--C1L208 is layer_0:layer0|neuron_l1_n0:n0|result~13
+C1L208 = (C1L25 & ((C1L29) # (C1L31))) # (!C1L25 & (C1L29 & C1L31));
+
+
+--C1L209 is layer_0:layer0|neuron_l1_n0:n0|result~14
+C1L209 = (C1L27 & ((C1L29) # (C1L31))) # (!C1L27 & (C1L29 & C1L31));
+
+
+--K1L122 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~0
+K1L122 = (N1L60 & (N1L64 & (N1L59 & N1L63))) # (!N1L60 & ((N1L64) # ((N1L59) # (N1L63))));
+
+
+--K1L123 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~1
+K1L123 = (N1L61 & (N1L62 & (N1L60 & K1L122))) # (!N1L61 & (!N1L62 & (!N1L60 & !K1L122)));
+
+
+--K1L124 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~2
+K1L124 = (K1L123 & (N1L44)) # (!K1L123 & ((!N1L64)));
+
+
+--K1L161 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|rounds~0
+K1L161 = (N1_mac_out2) # ((N1L35) # ((N1L38) # (N1L39)));
+
+
+--K1L162 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|rounds~1
+K1L162 = (N1L34) # ((N1L36) # ((N1L40) # (N1L41)));
+
+
+--K1L163 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|rounds~2
+K1L163 = (N1L37) # ((N1L42) # ((K1L161) # (K1L162)));
+
+
+--K1L159 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|round_overflow~0
+K1L159 = (N1L43 & ((K1L124) # (K1L163)));
+
+
+--K1L108 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[-11]~0
+K1L108 = (K1L123 & ((K1L159 & (K1L35)) # (!K1L159 & ((N1L44))))) # (!K1L123 & (((N1L44))));
+
+
+--K1L125 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~3
+K1L125 = (K1L123 & (N1L58)) # (!K1L123 & ((!N1L64)));
+
+
+--K1L126 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~4
+K1L126 = (K1L123 & (N1L57)) # (!K1L123 & ((!N1L64)));
+
+
+--K1L127 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~5
+K1L127 = (K1L123 & (N1L56)) # (!K1L123 & ((!N1L64)));
+
+
+--K1L128 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~6
+K1L128 = (K1L123 & (N1L55)) # (!K1L123 & ((!N1L64)));
+
+
+--K1L129 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~7
+K1L129 = (K1L123 & (N1L54)) # (!K1L123 & ((!N1L64)));
+
+
+--K1L130 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~8
+K1L130 = (K1L123 & (N1L53)) # (!K1L123 & ((!N1L64)));
+
+
+--K1L131 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~9
+K1L131 = (K1L123 & (N1L52)) # (!K1L123 & ((!N1L64)));
+
+
+--K1L132 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~10
+K1L132 = (K1L123 & (N1L51)) # (!K1L123 & ((!N1L64)));
+
+
+--K1L133 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~11
+K1L133 = (K1L123 & (N1L50)) # (!K1L123 & ((!N1L64)));
+
+
+--K1L134 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~12
+K1L134 = (K1L123 & (N1L49)) # (!K1L123 & ((!N1L64)));
+
+
+--K1L135 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~13
+K1L135 = (K1L123 & (N1L48)) # (!K1L123 & ((!N1L64)));
+
+
+--K1L136 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~14
+K1L136 = (K1L123 & (N1L47)) # (!K1L123 & ((!N1L64)));
+
+
+--K1L137 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~15
+K1L137 = (K1L123 & (N1L46)) # (!K1L123 & ((!N1L64)));
+
+
+--K1L138 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~16
+K1L138 = (K1L123 & (N1L45)) # (!K1L123 & ((!N1L64)));
+
+
+--K1L139 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~17
+K1L139 = (K1L35) # ((K1L37) # ((K1L39) # (K1L65)));
+
+
+--K1L140 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~18
+K1L140 = (K1L41) # ((K1L43) # ((K1L45) # (K1L47)));
+
+
+--K1L141 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~19
+K1L141 = (K1L49) # ((K1L51) # ((K1L53) # (K1L55)));
+
+
+--K1L142 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~20
+K1L142 = (K1L57) # ((K1L59) # ((K1L61) # (K1L63)));
+
+
+--K1L143 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~21
+K1L143 = (K1L139) # ((K1L140) # ((K1L141) # (K1L142)));
+
+
+--K1L160 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|round_overflow~1
+K1L160 = (K1L67 & ((N1L64 $ (K1L65)))) # (!K1L67 & (K1L143 & (N1L64 $ (K1L65))));
+
+
+--K1L116 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[3]~1
+K1L116 = (K1L123 & ((!K1L160) # (!K1L159)));
+
+
+--K1L109 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[-11]~2
+K1L109 = (K1L116 & (K1L108)) # (!K1L116 & ((!N1L64)));
+
+
+--K1L117 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[3]~3
+K1L117 = (K1L123 & (K1L159 & !K1L160));
+
+
+--K1L120 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[4]~4
+K1L120 = (K1L117 & (K1L65)) # (!K1L117 & ((N1L64)));
+
+
+--K1L121 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[4]~5
+K1L121 = (N1L43 & (K1L123 & ((K1L124) # (K1L163))));
+
+
+--K1L118 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[3]~6
+K1L118 = (K1L121 & (K1L63)) # (!K1L121 & ((N1L58)));
+
+
+--K1L119 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[3]~7
+K1L119 = (K1L116 & (K1L118)) # (!K1L116 & ((!N1L64)));
+
+
+--K1L114 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[2]~8
+K1L114 = (K1L121 & (K1L61)) # (!K1L121 & ((N1L57)));
+
+
+--K1L115 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[2]~9
+K1L115 = (K1L116 & (K1L114)) # (!K1L116 & ((!N1L64)));
+
+
+--K1L112 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[1]~10
+K1L112 = (K1L121 & (K1L59)) # (!K1L121 & ((N1L56)));
+
+
+--K1L113 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[1]~11
+K1L113 = (K1L116 & (K1L112)) # (!K1L116 & ((!N1L64)));
+
+
+--K1L110 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[0]~12
+K1L110 = (K1L121 & (K1L57)) # (!K1L121 & ((N1L55)));
+
+
+--K1L111 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[0]~13
+K1L111 = (K1L116 & (K1L110)) # (!K1L116 & ((!N1L64)));
+
+
+--K1L88 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[-1]~14
+K1L88 = (K1L121 & (K1L55)) # (!K1L121 & ((N1L54)));
+
+
+--K1L89 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[-1]~15
+K1L89 = (K1L116 & (K1L88)) # (!K1L116 & ((!N1L64)));
+
+
+--K1L90 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[-2]~16
+K1L90 = (K1L121 & (K1L53)) # (!K1L121 & ((N1L53)));
+
+
+--K1L91 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[-2]~17
+K1L91 = (K1L116 & (K1L90)) # (!K1L116 & ((!N1L64)));
+
+
+--K1L92 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[-3]~18
+K1L92 = (K1L121 & (K1L51)) # (!K1L121 & ((N1L52)));
+
+
+--K1L93 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[-3]~19
+K1L93 = (K1L116 & (K1L92)) # (!K1L116 & ((!N1L64)));
+
+
+--K1L94 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[-4]~20
+K1L94 = (K1L121 & (K1L49)) # (!K1L121 & ((N1L51)));
+
+
+--K1L95 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[-4]~21
+K1L95 = (K1L116 & (K1L94)) # (!K1L116 & ((!N1L64)));
+
+
+--K1L96 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[-5]~22
+K1L96 = (K1L121 & (K1L47)) # (!K1L121 & ((N1L50)));
+
+
+--K1L97 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[-5]~23
+K1L97 = (K1L116 & (K1L96)) # (!K1L116 & ((!N1L64)));
+
+
+--K1L98 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[-6]~24
+K1L98 = (K1L121 & (K1L45)) # (!K1L121 & ((N1L49)));
+
+
+--K1L99 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[-6]~25
+K1L99 = (K1L116 & (K1L98)) # (!K1L116 & ((!N1L64)));
+
+
+--K1L100 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[-7]~26
+K1L100 = (K1L123 & ((K1L159 & (K1L43)) # (!K1L159 & ((N1L48))))) # (!K1L123 & (((N1L48))));
+
+
+--K1L101 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[-7]~27
+K1L101 = (K1L116 & (K1L100)) # (!K1L116 & ((!N1L64)));
+
+
+--K1L102 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[-8]~28
+K1L102 = (K1L123 & ((K1L159 & (K1L41)) # (!K1L159 & ((N1L47))))) # (!K1L123 & (((N1L47))));
+
+
+--K1L103 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[-8]~29
+K1L103 = (K1L116 & (K1L102)) # (!K1L116 & ((!N1L64)));
+
+
+--K1L104 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[-9]~30
+K1L104 = (K1L123 & ((K1L159 & (K1L39)) # (!K1L159 & ((N1L46))))) # (!K1L123 & (((N1L46))));
+
+
+--K1L105 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[-9]~31
+K1L105 = (K1L116 & (K1L104)) # (!K1L116 & ((!N1L64)));
+
+
+--K1L106 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[-10]~32
+K1L106 = (K1L123 & ((K1L159 & (K1L37)) # (!K1L159 & ((N1L45))))) # (!K1L123 & (((N1L45))));
+
+
+--K1L107 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_mult[-10]~33
+K1L107 = (K1L116 & (K1L106)) # (!K1L116 & ((!N1L64)));
+
+
+--K1L144 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~22
+K1L144 = (K1L1 & ((K1L31) # (K1L33))) # (!K1L1 & (K1L31 & K1L33));
 
 
 --i_rst is i_rst
 i_rst = INPUT();
 
 
---C2L50Q is uart:uart_unit|fifo:fifo_tx|r_fifo_data_rtl_0_bypass[21]
+--C1_r_mac_enable is layer_0:layer0|neuron_l1_n0:n0|r_mac_enable
 --register power-up is low
 
-C2L50Q = DFFEAS(r_tx_data[6], i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_mac_enable = DFFEAS(C1L247, i_clk,  ,  ,  ,  ,  ,  ,  );
 
 
---C2L51Q is uart:uart_unit|fifo:fifo_tx|r_fifo_data_rtl_0_bypass[22]
+--K1L145 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~23
+K1L145 = (K1L29 & ((K1L31) # (K1L33))) # (!K1L29 & (K1L31 & K1L33));
+
+
+--K1L146 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~24
+K1L146 = (K1L27 & ((K1L31) # (K1L33))) # (!K1L27 & (K1L31 & K1L33));
+
+
+--K1L147 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~25
+K1L147 = (K1L25 & ((K1L31) # (K1L33))) # (!K1L25 & (K1L31 & K1L33));
+
+
+--K1L148 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~26
+K1L148 = (K1L23 & ((K1L31) # (K1L33))) # (!K1L23 & (K1L31 & K1L33));
+
+
+--K1L149 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~27
+K1L149 = (K1L21 & ((K1L31) # (K1L33))) # (!K1L21 & (K1L31 & K1L33));
+
+
+--K1L150 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~28
+K1L150 = (K1L19 & ((K1L31) # (K1L33))) # (!K1L19 & (K1L31 & K1L33));
+
+
+--K1L151 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~29
+K1L151 = (K1L17 & ((K1L31) # (K1L33))) # (!K1L17 & (K1L31 & K1L33));
+
+
+--K1L152 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~30
+K1L152 = (K1L15 & ((K1L31) # (K1L33))) # (!K1L15 & (K1L31 & K1L33));
+
+
+--K1L153 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~31
+K1L153 = (K1L13 & ((K1L31) # (K1L33))) # (!K1L13 & (K1L31 & K1L33));
+
+
+--K1L154 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~32
+K1L154 = (K1L11 & ((K1L31) # (K1L33))) # (!K1L11 & (K1L31 & K1L33));
+
+
+--K1L155 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~33
+K1L155 = (K1L9 & ((K1L31) # (K1L33))) # (!K1L9 & (K1L31 & K1L33));
+
+
+--K1L156 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~34
+K1L156 = (K1L7 & ((K1L31) # (K1L33))) # (!K1L7 & (K1L31 & K1L33));
+
+
+--K1L157 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~35
+K1L157 = (K1L5 & ((K1L31) # (K1L33))) # (!K1L5 & (K1L31 & K1L33));
+
+
+--K1L158 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|result~36
+K1L158 = (K1L3 & ((K1L31) # (K1L33))) # (!K1L3 & (K1L31 & K1L33));
+
+
+--C1L33 is layer_0:layer0|neuron_l1_n0:n0|LessThan0~0
+C1L33 = (!C1_r_sinapse_count[21] & (!C1_r_sinapse_count[22] & (!C1_r_sinapse_count[23] & !C1_r_sinapse_count[24])));
+
+
+--C1L34 is layer_0:layer0|neuron_l1_n0:n0|LessThan0~1
+C1L34 = (!C1_r_sinapse_count[3] & (!C1_r_sinapse_count[4] & ((!C1_r_sinapse_count[2]) # (!C1_r_sinapse_count[1]))));
+
+
+--C1L35 is layer_0:layer0|neuron_l1_n0:n0|LessThan0~2
+C1L35 = (!C1_r_sinapse_count[5] & (!C1_r_sinapse_count[6] & (!C1_r_sinapse_count[7] & !C1_r_sinapse_count[8])));
+
+
+--C1L36 is layer_0:layer0|neuron_l1_n0:n0|LessThan0~3
+C1L36 = (!C1_r_sinapse_count[9] & (!C1_r_sinapse_count[10] & (!C1_r_sinapse_count[11] & !C1_r_sinapse_count[12])));
+
+
+--C1L37 is layer_0:layer0|neuron_l1_n0:n0|LessThan0~4
+C1L37 = (!C1_r_sinapse_count[13] & (!C1_r_sinapse_count[14] & (!C1_r_sinapse_count[15] & !C1_r_sinapse_count[16])));
+
+
+--C1L38 is layer_0:layer0|neuron_l1_n0:n0|LessThan0~5
+C1L38 = (C1L34 & (C1L35 & (C1L36 & C1L37)));
+
+
+--C1L39 is layer_0:layer0|neuron_l1_n0:n0|LessThan0~6
+C1L39 = (!C1_r_sinapse_count[25] & (!C1_r_sinapse_count[26] & (!C1_r_sinapse_count[27] & !C1_r_sinapse_count[28])));
+
+
+--C1L40 is layer_0:layer0|neuron_l1_n0:n0|LessThan0~7
+C1L40 = (C1_r_sinapse_count[20]) # ((C1_r_sinapse_count[17]) # ((C1_r_sinapse_count[29]) # (C1_r_sinapse_count[30])));
+
+
+--C1L41 is layer_0:layer0|neuron_l1_n0:n0|LessThan0~8
+C1L41 = (!C1_r_sinapse_count[19] & (!C1_r_sinapse_count[18] & (C1L39 & !C1L40)));
+
+
+--C1L42 is layer_0:layer0|neuron_l1_n0:n0|LessThan0~9
+C1L42 = (C1_r_sinapse_count[31]) # ((C1L33 & (C1L38 & C1L41)));
+
+
+--K1_o_done is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|o_done
 --register power-up is low
 
-C2L51Q = DFFEAS(VCC, i_clk,  ,  ,  ,  ,  ,  ,  );
+K1_o_done = DFFEAS(C1_r_mac_enable, i_clk,  ,  , !i_rst,  ,  ,  ,  );
 
 
---C2L30Q is uart:uart_unit|fifo:fifo_tx|r_fifo_data_rtl_0_bypass[1]
+--C1_r_sm.s_mac_result is layer_0:layer0|neuron_l1_n0:n0|r_sm.s_mac_result
 --register power-up is low
 
-C2L30Q = DFFEAS(C2_r_wr_index[0], i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_sm.s_mac_result = DFFEAS(C1_r_sm.s_wait_mac, i_clk,  ,  ,  ,  ,  ,  ,  );
 
 
---C2L32Q is uart:uart_unit|fifo:fifo_tx|r_fifo_data_rtl_0_bypass[3]
+--C1L211 is layer_0:layer0|neuron_l1_n0:n0|Selector1~0
+C1L211 = (K1_o_done & C1_r_sm.s_mac_result);
+
+
+--C1_r_sm.s_mac is layer_0:layer0|neuron_l1_n0:n0|r_sm.s_mac
 --register power-up is low
 
-C2L32Q = DFFEAS(C2_r_wr_index[1], i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_sm.s_mac = DFFEAS(C1L213, i_clk,  ,  ,  ,  ,  ,  ,  );
 
 
---C2L33Q is uart:uart_unit|fifo:fifo_tx|r_fifo_data_rtl_0_bypass[4]
+--C1_r_sm.s_wait_mac is layer_0:layer0|neuron_l1_n0:n0|r_sm.s_wait_mac
 --register power-up is low
 
-C2L33Q = DFFEAS(C2L74, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_sm.s_wait_mac = DFFEAS(C1_r_sm.s_mac, i_clk,  ,  ,  ,  ,  ,  ,  );
 
 
---C2L31Q is uart:uart_unit|fifo:fifo_tx|r_fifo_data_rtl_0_bypass[2]
+--C1_r_sm.s_clear is layer_0:layer0|neuron_l1_n0:n0|r_sm.s_clear
 --register power-up is low
 
-C2L31Q = DFFEAS(C2L71, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_sm.s_clear = DFFEAS(C1_r_sm.s_wait_relu, i_clk,  ,  ,  ,  ,  ,  ,  );
 
 
---C2L54 is uart:uart_unit|fifo:fifo_tx|r_fifo_data~13
-C2L54 = (C2L30Q & (C2L31Q & (C2L32Q $ (!C2L33Q)))) # (!C2L30Q & (!C2L31Q & (C2L32Q $ (!C2L33Q))));
+--C1L246 is layer_0:layer0|neuron_l1_n0:n0|Selector35~0
+C1L246 = (C1_r_mac_enable & (!C1_r_sm.s_relu & (!C1_r_sm.s_wait_mac & !C1_r_sm.s_clear)));
 
 
---C2L29Q is uart:uart_unit|fifo:fifo_tx|r_fifo_data_rtl_0_bypass[0]
+--C1L247 is layer_0:layer0|neuron_l1_n0:n0|Selector35~1
+C1L247 = (C1_r_sm.s_mac) # (C1L246);
+
+
+--C1L224 is layer_0:layer0|neuron_l1_n0:n0|Selector13~0
+C1L224 = (C1_r_sinapse_count[21] & !C1_r_sm.s_clear);
+
+
+--C1_r_sm.s_get_weight is layer_0:layer0|neuron_l1_n0:n0|r_sm.s_get_weight
 --register power-up is low
 
-C2L29Q = DFFEAS(C2L65, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_sm.s_get_weight = DFFEAS(C1L212, i_clk,  ,  ,  ,  ,  ,  ,  );
 
 
---C2L34Q is uart:uart_unit|fifo:fifo_tx|r_fifo_data_rtl_0_bypass[5]
+--C1L223 is layer_0:layer0|neuron_l1_n0:n0|Selector12~0
+C1L223 = (C1_r_sinapse_count[22] & !C1_r_sm.s_clear);
+
+
+--C1L222 is layer_0:layer0|neuron_l1_n0:n0|Selector11~0
+C1L222 = (C1_r_sinapse_count[23] & !C1_r_sm.s_clear);
+
+
+--C1L221 is layer_0:layer0|neuron_l1_n0:n0|Selector10~0
+C1L221 = (C1_r_sinapse_count[24] & !C1_r_sm.s_clear);
+
+
+--C1L214 is layer_0:layer0|neuron_l1_n0:n0|Selector3~0
+C1L214 = (C1_r_sinapse_count[31] & !C1_r_sm.s_clear);
+
+
+--C1L244 is layer_0:layer0|neuron_l1_n0:n0|Selector33~0
+C1L244 = (C1_r_sinapse_count[1] & !C1_r_sm.s_clear);
+
+
+--C1L243 is layer_0:layer0|neuron_l1_n0:n0|Selector32~0
+C1L243 = (C1_r_sinapse_count[2] & !C1_r_sm.s_clear);
+
+
+--C1L242 is layer_0:layer0|neuron_l1_n0:n0|Selector31~0
+C1L242 = (C1_r_sinapse_count[3] & !C1_r_sm.s_clear);
+
+
+--C1L241 is layer_0:layer0|neuron_l1_n0:n0|Selector30~0
+C1L241 = (C1_r_sinapse_count[4] & !C1_r_sm.s_clear);
+
+
+--C1L240 is layer_0:layer0|neuron_l1_n0:n0|Selector29~0
+C1L240 = (C1_r_sinapse_count[5] & !C1_r_sm.s_clear);
+
+
+--C1L239 is layer_0:layer0|neuron_l1_n0:n0|Selector28~0
+C1L239 = (C1_r_sinapse_count[6] & !C1_r_sm.s_clear);
+
+
+--C1L238 is layer_0:layer0|neuron_l1_n0:n0|Selector27~0
+C1L238 = (C1_r_sinapse_count[7] & !C1_r_sm.s_clear);
+
+
+--C1L237 is layer_0:layer0|neuron_l1_n0:n0|Selector26~0
+C1L237 = (C1_r_sinapse_count[8] & !C1_r_sm.s_clear);
+
+
+--C1L236 is layer_0:layer0|neuron_l1_n0:n0|Selector25~0
+C1L236 = (C1_r_sinapse_count[9] & !C1_r_sm.s_clear);
+
+
+--C1L235 is layer_0:layer0|neuron_l1_n0:n0|Selector24~0
+C1L235 = (C1_r_sinapse_count[10] & !C1_r_sm.s_clear);
+
+
+--C1L234 is layer_0:layer0|neuron_l1_n0:n0|Selector23~0
+C1L234 = (C1_r_sinapse_count[11] & !C1_r_sm.s_clear);
+
+
+--C1L233 is layer_0:layer0|neuron_l1_n0:n0|Selector22~0
+C1L233 = (C1_r_sinapse_count[12] & !C1_r_sm.s_clear);
+
+
+--C1L232 is layer_0:layer0|neuron_l1_n0:n0|Selector21~0
+C1L232 = (C1_r_sinapse_count[13] & !C1_r_sm.s_clear);
+
+
+--C1L231 is layer_0:layer0|neuron_l1_n0:n0|Selector20~0
+C1L231 = (C1_r_sinapse_count[14] & !C1_r_sm.s_clear);
+
+
+--C1L230 is layer_0:layer0|neuron_l1_n0:n0|Selector19~0
+C1L230 = (C1_r_sinapse_count[15] & !C1_r_sm.s_clear);
+
+
+--C1L229 is layer_0:layer0|neuron_l1_n0:n0|Selector18~0
+C1L229 = (C1_r_sinapse_count[16] & !C1_r_sm.s_clear);
+
+
+--C1L226 is layer_0:layer0|neuron_l1_n0:n0|Selector15~0
+C1L226 = (C1_r_sinapse_count[19] & !C1_r_sm.s_clear);
+
+
+--C1L227 is layer_0:layer0|neuron_l1_n0:n0|Selector16~0
+C1L227 = (C1_r_sinapse_count[18] & !C1_r_sm.s_clear);
+
+
+--C1L220 is layer_0:layer0|neuron_l1_n0:n0|Selector9~0
+C1L220 = (C1_r_sinapse_count[25] & !C1_r_sm.s_clear);
+
+
+--C1L219 is layer_0:layer0|neuron_l1_n0:n0|Selector8~0
+C1L219 = (C1_r_sinapse_count[26] & !C1_r_sm.s_clear);
+
+
+--C1L218 is layer_0:layer0|neuron_l1_n0:n0|Selector7~0
+C1L218 = (C1_r_sinapse_count[27] & !C1_r_sm.s_clear);
+
+
+--C1L217 is layer_0:layer0|neuron_l1_n0:n0|Selector6~0
+C1L217 = (C1_r_sinapse_count[28] & !C1_r_sm.s_clear);
+
+
+--C1L225 is layer_0:layer0|neuron_l1_n0:n0|Selector14~0
+C1L225 = (C1_r_sinapse_count[20] & !C1_r_sm.s_clear);
+
+
+--C1L228 is layer_0:layer0|neuron_l1_n0:n0|Selector17~0
+C1L228 = (C1_r_sinapse_count[17] & !C1_r_sm.s_clear);
+
+
+--C1L216 is layer_0:layer0|neuron_l1_n0:n0|Selector5~0
+C1L216 = (C1_r_sinapse_count[29] & !C1_r_sm.s_clear);
+
+
+--C1L215 is layer_0:layer0|neuron_l1_n0:n0|Selector4~0
+C1L215 = (C1_r_sinapse_count[30] & !C1_r_sm.s_clear);
+
+
+--i_ft_0[0] is i_ft_0[0]
+i_ft_0[0] = INPUT();
+
+
+--i_ft_0[1] is i_ft_0[1]
+i_ft_0[1] = INPUT();
+
+
+--i_ft_0[2] is i_ft_0[2]
+i_ft_0[2] = INPUT();
+
+
+--i_ft_0[3] is i_ft_0[3]
+i_ft_0[3] = INPUT();
+
+
+--i_ft_0[4] is i_ft_0[4]
+i_ft_0[4] = INPUT();
+
+
+--i_ft_0[5] is i_ft_0[5]
+i_ft_0[5] = INPUT();
+
+
+--i_ft_0[6] is i_ft_0[6]
+i_ft_0[6] = INPUT();
+
+
+--i_ft_0[7] is i_ft_0[7]
+i_ft_0[7] = INPUT();
+
+
+--i_ft_0[8] is i_ft_0[8]
+i_ft_0[8] = INPUT();
+
+
+--i_ft_0[9] is i_ft_0[9]
+i_ft_0[9] = INPUT();
+
+
+--i_ft_0[10] is i_ft_0[10]
+i_ft_0[10] = INPUT();
+
+
+--i_ft_0[11] is i_ft_0[11]
+i_ft_0[11] = INPUT();
+
+
+--i_ft_0[12] is i_ft_0[12]
+i_ft_0[12] = INPUT();
+
+
+--i_ft_0[13] is i_ft_0[13]
+i_ft_0[13] = INPUT();
+
+
+--i_ft_0[14] is i_ft_0[14]
+i_ft_0[14] = INPUT();
+
+
+--i_ft_0[15] is i_ft_0[15]
+i_ft_0[15] = INPUT();
+
+
+--C1_r_sm.s_wait_weight is layer_0:layer0|neuron_l1_n0:n0|r_sm.s_wait_weight
 --register power-up is low
 
-C2L34Q = DFFEAS(C2_r_wr_index[2], i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_sm.s_wait_weight = DFFEAS(C1_r_sm.s_get_weight, i_clk,  ,  ,  ,  ,  ,  ,  );
 
 
---C2L36Q is uart:uart_unit|fifo:fifo_tx|r_fifo_data_rtl_0_bypass[7]
+--C1L213 is layer_0:layer0|neuron_l1_n0:n0|Selector2~0
+C1L213 = (C1_r_sm.s_wait_weight) # ((C1_r_sm.s_mac_result & !K1_o_done));
+
+
+--C1L245 is layer_0:layer0|neuron_l1_n0:n0|Selector34~0
+C1L245 = (C1_r_sinapse_count[0] & !C1_r_sm.s_clear);
+
+
+--B1_r_enable_n0 is layer_0:layer0|r_enable_n0
 --register power-up is low
 
-C2L36Q = DFFEAS(C2_r_wr_index[3], i_clk,  ,  ,  ,  ,  ,  ,  );
+B1_r_enable_n0 = DFFEAS(B1L19, i_clk,  ,  ,  ,  ,  ,  ,  );
 
 
---C2L37Q is uart:uart_unit|fifo:fifo_tx|r_fifo_data_rtl_0_bypass[8]
+--C1_r_sm.s_idle is layer_0:layer0|neuron_l1_n0:n0|r_sm.s_idle
 --register power-up is low
 
-C2L37Q = DFFEAS(C2L77, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_sm.s_idle = DFFEAS(C1L210, i_clk,  ,  ,  ,  ,  ,  ,  );
 
 
---C2L35Q is uart:uart_unit|fifo:fifo_tx|r_fifo_data_rtl_0_bypass[6]
+--C1L212 is layer_0:layer0|neuron_l1_n0:n0|Selector1~1
+C1L212 = (C1L42 & ((C1L211) # ((B1_r_enable_n0 & !C1_r_sm.s_idle)))) # (!C1L42 & (((B1_r_enable_n0 & !C1_r_sm.s_idle))));
+
+
+--C1_r_addr[0] is layer_0:layer0|neuron_l1_n0:n0|r_addr[0]
 --register power-up is low
 
-C2L35Q = DFFEAS(C2L76, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_addr[0] = DFFEAS(C1_r_sinapse_count[0], i_clk,  ,  , C1_r_sm.s_get_weight,  ,  ,  ,  );
 
 
---C2L55 is uart:uart_unit|fifo:fifo_tx|r_fifo_data~14
-C2L55 = (C2L34Q & (C2L35Q & (C2L36Q $ (!C2L37Q)))) # (!C2L34Q & (!C2L35Q & (C2L36Q $ (!C2L37Q))));
-
-
---C2L56 is uart:uart_unit|fifo:fifo_tx|r_fifo_data~15
-C2L56 = (C2L54 & (C2L29Q & C2L55));
-
-
---C2L57 is uart:uart_unit|fifo:fifo_tx|r_fifo_data~16
-C2L57 = (C2L51Q & ((C2L56 & (C2L50Q)) # (!C2L56 & ((G2_ram_block1a6))))) # (!C2L51Q & (C2L50Q));
-
-
---E1L85 is uart:uart_unit|uart_tx:transmitter|Selector20~0
-E1L85 = (!E1_r_sm_main.s_idle & (((C2_r_fifo_count[3]) # (C2_r_fifo_count[1])) # (!C2L8)));
-
-
---E1L1 is uart:uart_unit|uart_tx:transmitter|LessThan1~0
-E1L1 = (!E1_r_clk_count[10] & !E1_r_clk_count[11]);
-
-
---E1L2 is uart:uart_unit|uart_tx:transmitter|LessThan1~1
-E1L2 = ((!E1_r_clk_count[5] & ((!E1_r_clk_count[4]) # (!E1_r_clk_count[3])))) # (!E1_r_clk_count[6]);
-
-
---E1L3 is uart:uart_unit|uart_tx:transmitter|LessThan1~2
-E1L3 = (!E1_r_clk_count[11] & (!E1_r_clk_count[7] & (!E1_r_clk_count[8] & !E1_r_clk_count[9])));
-
-
---E1L4 is uart:uart_unit|uart_tx:transmitter|LessThan1~3
-E1L4 = (E1L1) # (((E1L2 & E1L3)) # (!E1_r_clk_count[12]));
-
-
---E1L80 is uart:uart_unit|uart_tx:transmitter|Selector17~0
-E1L80 = (E1_r_sm_main.s_tx_data_bits & (E1_r_bit_index[0])) # (!E1_r_sm_main.s_tx_data_bits & ((E1_r_sm_main.s_idle)));
-
-
---E1L81 is uart:uart_unit|uart_tx:transmitter|Selector17~1
-E1L81 = (E1_r_sm_main.s_tx_data_bits & (E1_r_bit_index[1] $ (((!E1L4 & E1L80))))) # (!E1_r_sm_main.s_tx_data_bits & (E1_r_bit_index[1] & ((E1L80))));
-
-
---C2L48Q is uart:uart_unit|fifo:fifo_tx|r_fifo_data_rtl_0_bypass[19]
+--C1_r_addr[1] is layer_0:layer0|neuron_l1_n0:n0|r_addr[1]
 --register power-up is low
 
-C2L48Q = DFFEAS(r_tx_data[5], i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_addr[1] = DFFEAS(C1_r_sinapse_count[1], i_clk,  ,  , C1_r_sm.s_get_weight,  ,  ,  ,  );
 
 
---C2L49Q is uart:uart_unit|fifo:fifo_tx|r_fifo_data_rtl_0_bypass[20]
+--C1_r_addr[2] is layer_0:layer0|neuron_l1_n0:n0|r_addr[2]
 --register power-up is low
 
-C2L49Q = DFFEAS(VCC, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_addr[2] = DFFEAS(C1_r_sinapse_count[2], i_clk,  ,  , C1_r_sm.s_get_weight,  ,  ,  ,  );
 
 
---C2L58 is uart:uart_unit|fifo:fifo_tx|r_fifo_data~17
-C2L58 = (C2L49Q & ((C2L56 & (C2L48Q)) # (!C2L56 & ((G2_ram_block1a5))))) # (!C2L49Q & (C2L48Q));
-
-
---E1L82 is uart:uart_unit|uart_tx:transmitter|Selector18~0
-E1L82 = (E1_r_clk_count[12] & (!E1L1 & ((!E1L3) # (!E1L2))));
-
-
---E1L83 is uart:uart_unit|uart_tx:transmitter|Selector18~1
-E1L83 = (E1_r_sm_main.s_tx_data_bits & (E1_r_bit_index[0] $ (((E1L82))))) # (!E1_r_sm_main.s_tx_data_bits & (E1_r_bit_index[0] & (E1_r_sm_main.s_idle)));
-
-
---C2L46Q is uart:uart_unit|fifo:fifo_tx|r_fifo_data_rtl_0_bypass[17]
+--C1_r_addr[3] is layer_0:layer0|neuron_l1_n0:n0|r_addr[3]
 --register power-up is low
 
-C2L46Q = DFFEAS(r_tx_data[4], i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_addr[3] = DFFEAS(C1_r_sinapse_count[3], i_clk,  ,  , C1_r_sm.s_get_weight,  ,  ,  ,  );
 
 
---C2L47Q is uart:uart_unit|fifo:fifo_tx|r_fifo_data_rtl_0_bypass[18]
+--C1_r_addr[4] is layer_0:layer0|neuron_l1_n0:n0|r_addr[4]
 --register power-up is low
 
-C2L47Q = DFFEAS(VCC, i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_addr[4] = DFFEAS(C1_r_sinapse_count[4], i_clk,  ,  , C1_r_sm.s_get_weight,  ,  ,  ,  );
 
 
---C2L59 is uart:uart_unit|fifo:fifo_tx|r_fifo_data~18
-C2L59 = (C2L47Q & ((C2L56 & (C2L46Q)) # (!C2L56 & ((G2_ram_block1a4))))) # (!C2L47Q & (C2L46Q));
-
-
---C2L52Q is uart:uart_unit|fifo:fifo_tx|r_fifo_data_rtl_0_bypass[23]
+--B1_r_sm.s_sinapse is layer_0:layer0|r_sm.s_sinapse
 --register power-up is low
 
-C2L52Q = DFFEAS(r_tx_data[7], i_clk,  ,  ,  ,  ,  ,  ,  );
+B1_r_sm.s_sinapse = DFFEAS(B1_r_sm.s_get_data, i_clk,  ,  ,  ,  ,  ,  ,  );
 
 
---C2L53Q is uart:uart_unit|fifo:fifo_tx|r_fifo_data_rtl_0_bypass[24]
+--B1_r_sm.s_clear is layer_0:layer0|r_sm.s_clear
 --register power-up is low
 
-C2L53Q = DFFEAS(VCC, i_clk,  ,  ,  ,  ,  ,  ,  );
+B1_r_sm.s_clear = DFFEAS(B1L12, i_clk,  ,  ,  ,  ,  ,  ,  );
 
 
---C2L60 is uart:uart_unit|fifo:fifo_tx|r_fifo_data~19
-C2L60 = (C2L53Q & ((C2L56 & (C2L52Q)) # (!C2L56 & ((G2_ram_block1a7))))) # (!C2L53Q & (C2L52Q));
+--B1L19 is layer_0:layer0|Selector5~0
+B1L19 = (B1_r_sm.s_sinapse) # ((B1_r_enable_n0 & !B1_r_sm.s_clear));
 
 
---E1L78 is uart:uart_unit|uart_tx:transmitter|Selector16~0
-E1L78 = (E1_r_bit_index[0] & (!E1L4 & E1_r_bit_index[1]));
+--C1L210 is layer_0:layer0|neuron_l1_n0:n0|Selector0~0
+C1L210 = (!C1_r_sm.s_clear & ((B1_r_enable_n0) # (C1_r_sm.s_idle)));
 
 
---E1L79 is uart:uart_unit|uart_tx:transmitter|Selector16~1
-E1L79 = (E1_r_sm_main.s_tx_data_bits & (E1_r_bit_index[2] $ (((E1L78))))) # (!E1_r_sm_main.s_tx_data_bits & (E1_r_bit_index[2] & (E1_r_sm_main.s_idle)));
-
-
---E1_r_sm_main.s_tx_start_bit is uart:uart_unit|uart_tx:transmitter|r_sm_main.s_tx_start_bit
+--B1_r_sm.s_get_data is layer_0:layer0|r_sm.s_get_data
 --register power-up is low
 
-E1_r_sm_main.s_tx_start_bit = DFFEAS(E1L86, i_clk,  ,  ,  ,  ,  ,  ,  );
+B1_r_sm.s_get_data = DFFEAS(B1L15, i_clk,  ,  ,  ,  ,  ,  ,  );
 
 
---E1L60 is uart:uart_unit|uart_tx:transmitter|r_sm_main.s_tx_stop_bit~0
-E1L60 = (E1_r_bit_index[1] & (E1_r_bit_index[0] & (E1_r_bit_index[2] & !E1L4)));
-
-
---E1L87 is uart:uart_unit|uart_tx:transmitter|Selector21~0
-E1L87 = (E1_r_sm_main.s_tx_data_bits & (((E1_r_sm_main.s_tx_start_bit & !E1L4)) # (!E1L60))) # (!E1_r_sm_main.s_tx_data_bits & (E1_r_sm_main.s_tx_start_bit & ((!E1L4))));
-
-
---E1L84 is uart:uart_unit|uart_tx:transmitter|Selector19~0
-E1L84 = (!E1_r_sm_main.s_cleanup & ((E1_r_sm_main.s_idle) # (!C2L9)));
-
-
---E1L61 is uart:uart_unit|uart_tx:transmitter|r_sm_main.s_tx_stop_bit~1
-E1L61 = (E1_r_sm_main.s_tx_data_bits & ((E1L60) # ((E1_r_sm_main.s_tx_stop_bit & E1L4)))) # (!E1_r_sm_main.s_tx_data_bits & (E1_r_sm_main.s_tx_stop_bit & (E1L4)));
-
-
---C2L42Q is uart:uart_unit|fifo:fifo_tx|r_fifo_data_rtl_0_bypass[13]
+--C1_r_done is layer_0:layer0|neuron_l1_n0:n0|r_done
 --register power-up is low
 
-C2L42Q = DFFEAS(r_tx_data[2], i_clk,  ,  ,  ,  ,  ,  ,  );
+C1_r_done = DFFEAS(C1L249, i_clk,  ,  ,  ,  ,  ,  ,  );
 
 
---C2L43Q is uart:uart_unit|fifo:fifo_tx|r_fifo_data_rtl_0_bypass[14]
+--B1_r_sm.s_wait_activation is layer_0:layer0|r_sm.s_wait_activation
 --register power-up is low
 
-C2L43Q = DFFEAS(VCC, i_clk,  ,  ,  ,  ,  ,  ,  );
+B1_r_sm.s_wait_activation = DFFEAS(B1L18, i_clk,  ,  ,  ,  ,  ,  ,  );
 
 
---C2L61 is uart:uart_unit|fifo:fifo_tx|r_fifo_data~20
-C2L61 = (C2L43Q & ((C2L56 & (C2L42Q)) # (!C2L56 & ((G2_ram_block1a2))))) # (!C2L43Q & (C2L42Q));
+--B1L12 is layer_0:layer0|r_sm~8
+B1L12 = (C1_r_done & B1_r_sm.s_wait_activation);
 
 
---C2L40Q is uart:uart_unit|fifo:fifo_tx|r_fifo_data_rtl_0_bypass[11]
+--B1_r_sm.s_wait_sinapse is layer_0:layer0|r_sm.s_wait_sinapse
 --register power-up is low
 
-C2L40Q = DFFEAS(r_tx_data[1], i_clk,  ,  ,  ,  ,  ,  ,  );
+B1_r_sm.s_wait_sinapse = DFFEAS(B1L16, i_clk,  ,  ,  ,  ,  ,  ,  );
 
 
---C2L41Q is uart:uart_unit|fifo:fifo_tx|r_fifo_data_rtl_0_bypass[12]
+--B1_r_sinapse[1] is layer_0:layer0|r_sinapse[1]
 --register power-up is low
 
-C2L41Q = DFFEAS(VCC, i_clk,  ,  ,  ,  ,  ,  ,  );
+B1_r_sinapse[1] = DFFEAS(B1L22, i_clk,  ,  ,  ,  ,  ,  ,  );
 
 
---C2L62 is uart:uart_unit|fifo:fifo_tx|r_fifo_data~21
-C2L62 = (C2L41Q & ((C2L56 & (C2L40Q)) # (!C2L56 & ((G2_ram_block1a1))))) # (!C2L41Q & (C2L40Q));
-
-
---C2L38Q is uart:uart_unit|fifo:fifo_tx|r_fifo_data_rtl_0_bypass[9]
+--B1_r_sinapse[2] is layer_0:layer0|r_sinapse[2]
 --register power-up is low
 
-C2L38Q = DFFEAS(r_tx_data[0], i_clk,  ,  ,  ,  ,  ,  ,  );
+B1_r_sinapse[2] = DFFEAS(B1L21, i_clk,  ,  ,  ,  ,  ,  ,  );
 
 
---C2L39Q is uart:uart_unit|fifo:fifo_tx|r_fifo_data_rtl_0_bypass[10]
+--B1L14 is layer_0:layer0|Selector1~0
+B1L14 = (K1_o_done & (B1_r_sm.s_wait_sinapse & ((!B1_r_sinapse[2]) # (!B1_r_sinapse[1]))));
+
+
+--i_enable is i_enable
+i_enable = INPUT();
+
+
+--B1_r_sm.s_idle is layer_0:layer0|r_sm.s_idle
 --register power-up is low
 
-C2L39Q = DFFEAS(VCC, i_clk,  ,  ,  ,  ,  ,  ,  );
+B1_r_sm.s_idle = DFFEAS(B1L13, i_clk,  ,  ,  ,  ,  ,  ,  );
 
 
---C2L63 is uart:uart_unit|fifo:fifo_tx|r_fifo_data~22
-C2L63 = (C2L39Q & ((C2L56 & (C2L38Q)) # (!C2L56 & ((G2_ram_block1a0))))) # (!C2L39Q & (C2L38Q));
+--B1L15 is layer_0:layer0|Selector1~1
+B1L15 = (B1L14) # ((i_enable & !B1_r_sm.s_idle));
 
 
---C2L44Q is uart:uart_unit|fifo:fifo_tx|r_fifo_data_rtl_0_bypass[15]
+--C1L249 is layer_0:layer0|neuron_l1_n0:n0|Selector37~0
+C1L249 = (C1_r_sm.s_wait_relu) # ((C1_r_done & !C1_r_sm.s_clear));
+
+
+--B1L17 is layer_0:layer0|Selector3~0
+B1L17 = (K1_o_done & (B1_r_sinapse[1] & (B1_r_sinapse[2] & B1_r_sm.s_wait_sinapse)));
+
+
+--B1L18 is layer_0:layer0|Selector3~1
+B1L18 = (B1L17) # ((B1_r_sm.s_wait_activation & !C1_r_done));
+
+
+--B1L16 is layer_0:layer0|Selector2~0
+B1L16 = (B1_r_sm.s_sinapse) # ((B1_r_sm.s_wait_sinapse & !K1_o_done));
+
+
+--B1_r_sinapse[0] is layer_0:layer0|r_sinapse[0]
 --register power-up is low
 
-C2L44Q = DFFEAS(r_tx_data[3], i_clk,  ,  ,  ,  ,  ,  ,  );
+B1_r_sinapse[0] = DFFEAS(B1L23, i_clk,  ,  ,  ,  ,  ,  ,  );
 
 
---C2L45Q is uart:uart_unit|fifo:fifo_tx|r_fifo_data_rtl_0_bypass[16]
---register power-up is low
+--B1L22 is layer_0:layer0|Selector12~0
+B1L22 = (B1_r_sm.s_sinapse & ((B1_r_sinapse[1] $ (B1_r_sinapse[0])))) # (!B1_r_sm.s_sinapse & (!B1_r_sm.s_clear & (B1_r_sinapse[1])));
 
-C2L45Q = DFFEAS(VCC, i_clk,  ,  ,  ,  ,  ,  ,  );
 
+--B1L20 is layer_0:layer0|Selector11~0
+B1L20 = (B1_r_sm.s_sinapse & (B1_r_sinapse[2] $ (((B1_r_sinapse[1] & B1_r_sinapse[0])))));
 
---C2L64 is uart:uart_unit|fifo:fifo_tx|r_fifo_data~23
-C2L64 = (C2L45Q & ((C2L56 & (C2L44Q)) # (!C2L56 & ((G2_ram_block1a3))))) # (!C2L45Q & (C2L44Q));
 
+--B1L21 is layer_0:layer0|Selector11~1
+B1L21 = (B1L20) # ((B1_r_sinapse[2] & (!B1_r_sm.s_clear & !B1_r_sm.s_sinapse)));
 
---E1L62 is uart:uart_unit|uart_tx:transmitter|r_sm_main~7
-E1L62 = (!E1L4 & E1_r_sm_main.s_tx_stop_bit);
 
+--B1L13 is layer_0:layer0|Selector0~0
+B1L13 = (!B1_r_sm.s_clear & ((i_enable) # (B1_r_sm.s_idle)));
 
---r_sm_main.s_put_fifo_data is r_sm_main.s_put_fifo_data
---register power-up is low
 
-r_sm_main.s_put_fifo_data = DFFEAS(A1L66, i_clk, i_rst,  ,  ,  ,  ,  ,  );
+--B1L23 is layer_0:layer0|Selector13~0
+B1L23 = (B1_r_sm.s_sinapse & ((!B1_r_sinapse[0]))) # (!B1_r_sm.s_sinapse & (!B1_r_sm.s_clear & B1_r_sinapse[0]));
 
 
---A1L52 is r_tx_data[0]~0
-A1L52 = (r_sm_main.s_put_fifo_data & (((!C2L8) # (!C2_r_fifo_count[1])) # (!C2_r_fifo_count[3])));
+--C1L194 is layer_0:layer0|neuron_l1_n0:n0|r_sm~14
+C1L194 = (K1_o_done & (C1_r_sm.s_mac_result & !C1L42));
 
 
---r_sm_main.s_clear is r_sm_main.s_clear
---register power-up is low
+--C1L66 is layer_0:layer0|neuron_l1_n0:n0|r_bias[15]~0
+C1L66 = !C1L31;
 
-r_sm_main.s_clear = DFFEAS(A1L52, i_clk, i_rst,  ,  ,  ,  ,  ,  );
 
+--K1L87 is layer_0:layer0|neuron_l1_n0:n0|mac:mac_n1|r_data_out[4]~0
+K1L87 = !K1L33;
 
---A1L67 is Selector11~0
-A1L67 = (A1L52) # ((r_wr_tx & ((r_sm_main.s_put_fifo_data) # (!r_sm_main.s_clear))));
 
-
---E1L76 is uart:uart_unit|uart_tx:transmitter|Selector2~0
-E1L76 = (E1_r_tx_done & ((E1_r_sm_main.s_tx_data_bits) # ((E1_r_sm_main.s_tx_stop_bit) # (E1_r_sm_main.s_tx_start_bit))));
-
-
---E1L77 is uart:uart_unit|uart_tx:transmitter|Selector2~1
-E1L77 = (E1L76) # ((E1_r_sm_main.s_tx_stop_bit & !E1L4));
-
-
---D1_r_rx_data is uart:uart_unit|uart_rx:receiver|r_rx_data
---register power-up is low
-
-D1_r_rx_data = DFFEAS(D1_r_rx_data_r, i_clk,  ,  ,  ,  ,  ,  ,  );
-
-
---D1_r_bit_index[0] is uart:uart_unit|uart_rx:receiver|r_bit_index[0]
---register power-up is low
-
-D1_r_bit_index[0] = DFFEAS(D1L100, i_clk,  ,  ,  ,  ,  ,  ,  );
-
-
---D1_r_bit_index[1] is uart:uart_unit|uart_rx:receiver|r_bit_index[1]
---register power-up is low
-
-D1_r_bit_index[1] = DFFEAS(D1L99, i_clk,  ,  ,  ,  ,  ,  ,  );
-
-
---D1_r_bit_index[2] is uart:uart_unit|uart_rx:receiver|r_bit_index[2]
---register power-up is low
-
-D1_r_bit_index[2] = DFFEAS(D1L97, i_clk,  ,  ,  ,  ,  ,  ,  );
-
-
---D1L1 is uart:uart_unit|uart_rx:receiver|Decoder0~0
-D1L1 = (D1L16 & D1_r_sm_main.s_rx_data_bits);
-
-
---D1L2 is uart:uart_unit|uart_rx:receiver|Decoder0~1
-D1L2 = (!D1_r_bit_index[0] & (!D1_r_bit_index[1] & (!D1_r_bit_index[2] & D1L1)));
-
-
---D1L67 is uart:uart_unit|uart_rx:receiver|r_rx_byte[0]~0
-D1L67 = (D1L2 & (D1_r_rx_data)) # (!D1L2 & ((D1_r_rx_byte[0])));
-
-
---C1L86 is uart:uart_unit|fifo:fifo_rx|r_wr_index~0
-C1L86 = (!C1_r_wr_index[0] & i_rst_sync);
-
-
---C1L81 is uart:uart_unit|fifo:fifo_rx|r_wr_index[1]~1
-C1L81 = (i_rst_sync & ((C1_r_fifo_count[3]) # (!D1_r_rx_dv)));
-
-
---C1L82 is uart:uart_unit|fifo:fifo_rx|r_wr_index[1]~2
-C1L82 = ((D1_r_rx_dv & ((!C1L6) # (!C1_r_fifo_count[1])))) # (!C1L81);
-
-
---C1L83 is uart:uart_unit|fifo:fifo_rx|r_wr_index[1]~3
-C1L83 = (C1_r_wr_index[1]) # ((C1_r_wr_index[2]) # ((!C1_r_wr_index[3]) # (!C1_r_wr_index[0])));
-
-
---C1L87 is uart:uart_unit|fifo:fifo_rx|r_wr_index~4
-C1L87 = (i_rst_sync & (C1L83 & (C1_r_wr_index[0] $ (C1_r_wr_index[1]))));
-
-
---C1L1 is uart:uart_unit|fifo:fifo_rx|Add2~0
-C1L1 = C1_r_wr_index[2] $ (((C1_r_wr_index[0] & C1_r_wr_index[1])));
-
-
---C1L88 is uart:uart_unit|fifo:fifo_rx|r_wr_index~5
-C1L88 = (i_rst_sync & (C1L83 & C1L1));
-
-
---C1L2 is uart:uart_unit|fifo:fifo_rx|Add2~1
-C1L2 = C1_r_wr_index[3] $ (((C1_r_wr_index[0] & (C1_r_wr_index[1] & C1_r_wr_index[2]))));
-
-
---C1L89 is uart:uart_unit|fifo:fifo_rx|r_wr_index~6
-C1L89 = (i_rst_sync & (C1L83 & C1L2));
-
-
---D1L3 is uart:uart_unit|uart_rx:receiver|Decoder0~2
-D1L3 = (D1_r_bit_index[0] & (!D1_r_bit_index[1] & (!D1_r_bit_index[2] & D1L1)));
-
-
---D1L69 is uart:uart_unit|uart_rx:receiver|r_rx_byte[1]~1
-D1L69 = (D1L3 & (D1_r_rx_data)) # (!D1L3 & ((D1_r_rx_byte[1])));
-
-
---D1L4 is uart:uart_unit|uart_rx:receiver|Decoder0~3
-D1L4 = (!D1_r_bit_index[0] & (D1_r_bit_index[1] & (!D1_r_bit_index[2] & D1L1)));
-
-
---D1L71 is uart:uart_unit|uart_rx:receiver|r_rx_byte[2]~2
-D1L71 = (D1L4 & (D1_r_rx_data)) # (!D1L4 & ((D1_r_rx_byte[2])));
-
-
---D1L5 is uart:uart_unit|uart_rx:receiver|Decoder0~4
-D1L5 = (D1_r_bit_index[0] & (D1_r_bit_index[1] & (!D1_r_bit_index[2] & D1L1)));
-
-
---D1L73 is uart:uart_unit|uart_rx:receiver|r_rx_byte[3]~3
-D1L73 = (D1L5 & (D1_r_rx_data)) # (!D1L5 & ((D1_r_rx_byte[3])));
-
-
---D1L6 is uart:uart_unit|uart_rx:receiver|Decoder0~5
-D1L6 = (!D1_r_bit_index[0] & (!D1_r_bit_index[1] & (D1_r_bit_index[2] & D1L1)));
-
-
---D1L75 is uart:uart_unit|uart_rx:receiver|r_rx_byte[4]~4
-D1L75 = (D1L6 & (D1_r_rx_data)) # (!D1L6 & ((D1_r_rx_byte[4])));
-
-
---D1L7 is uart:uart_unit|uart_rx:receiver|Decoder0~6
-D1L7 = (D1_r_bit_index[0] & (!D1_r_bit_index[1] & (D1_r_bit_index[2] & D1L1)));
-
-
---D1L77 is uart:uart_unit|uart_rx:receiver|r_rx_byte[5]~5
-D1L77 = (D1L7 & (D1_r_rx_data)) # (!D1L7 & ((D1_r_rx_byte[5])));
-
-
---D1L8 is uart:uart_unit|uart_rx:receiver|Decoder0~7
-D1L8 = (!D1_r_bit_index[0] & (D1_r_bit_index[1] & (D1_r_bit_index[2] & D1L1)));
-
-
---D1L79 is uart:uart_unit|uart_rx:receiver|r_rx_byte[6]~6
-D1L79 = (D1L8 & (D1_r_rx_data)) # (!D1L8 & ((D1_r_rx_byte[6])));
-
-
---D1L9 is uart:uart_unit|uart_rx:receiver|Decoder0~8
-D1L9 = (D1_r_bit_index[0] & (D1_r_bit_index[1] & (D1_r_bit_index[2] & D1L1)));
-
-
---D1L81 is uart:uart_unit|uart_rx:receiver|r_rx_byte[7]~7
-D1L81 = (D1L9 & (D1_r_rx_data)) # (!D1L9 & ((D1_r_rx_byte[7])));
-
-
---D1L10 is uart:uart_unit|uart_rx:receiver|Equal0~0
-D1L10 = (D1_r_clk_count[3] & (!D1_r_clk_count[4] & (!D1_r_clk_count[7] & !D1_r_clk_count[8])));
-
-
---D1L11 is uart:uart_unit|uart_rx:receiver|Equal0~1
-D1L11 = (D1_r_clk_count[5] & (D1_r_clk_count[9] & (!D1_r_clk_count[10] & !D1_r_clk_count[6])));
-
-
---D1L12 is uart:uart_unit|uart_rx:receiver|Equal0~2
-D1L12 = (D1_r_clk_count[11] & (!D1_r_clk_count[12] & (!D1_r_clk_count[1] & !D1_r_clk_count[0])));
-
-
---D1L55 is uart:uart_unit|uart_rx:receiver|r_clk_count[10]~39
-D1L55 = (D1_r_sm_main.s_rx_start_bit & D1_r_clk_count[2]);
-
-
---D1L56 is uart:uart_unit|uart_rx:receiver|r_clk_count[10]~40
-D1L56 = (D1L10 & (D1L11 & (D1L12 & D1L55)));
-
-
---D1_r_sm_main.s_idle is uart:uart_unit|uart_rx:receiver|r_sm_main.s_idle
---register power-up is low
-
-D1_r_sm_main.s_idle = DFFEAS(D1L101, i_clk,  ,  ,  ,  ,  ,  ,  );
-
-
---D1L57 is uart:uart_unit|uart_rx:receiver|r_clk_count[10]~41
-D1L57 = (D1L56) # (((D1L16 & !D1L92)) # (!D1_r_sm_main.s_idle));
-
-
---D1L13 is uart:uart_unit|uart_rx:receiver|Equal0~3
-D1L13 = (D1_r_clk_count[2] & (D1L10 & (D1L11 & D1L12)));
-
-
---D1_r_sm_main.s_cleanup is uart:uart_unit|uart_rx:receiver|r_sm_main.s_cleanup
---register power-up is low
-
-D1_r_sm_main.s_cleanup = DFFEAS(D1L91, i_clk,  ,  ,  ,  ,  ,  ,  );
-
-
---D1L58 is uart:uart_unit|uart_rx:receiver|r_clk_count[10]~42
-D1L58 = (!D1_r_sm_main.s_cleanup & (((!D1L13) # (!D1_r_rx_data)) # (!D1_r_sm_main.s_rx_start_bit)));
-
-
---D1L90 is uart:uart_unit|uart_rx:receiver|r_sm_main.s_rx_stop_bit~0
-D1L90 = (D1L9) # ((D1_r_sm_main.s_rx_stop_bit & !D1L16));
-
-
---D1L102 is uart:uart_unit|uart_rx:receiver|Selector18~0
-D1L102 = (D1_r_sm_main.s_rx_start_bit & (((!D1_r_rx_data & !D1_r_sm_main.s_idle)) # (!D1L13))) # (!D1_r_sm_main.s_rx_start_bit & (!D1_r_rx_data & (!D1_r_sm_main.s_idle)));
-
-
---D1L103 is uart:uart_unit|uart_rx:receiver|Selector19~0
-D1L103 = (D1L16 & (D1_r_bit_index[0] & (D1_r_bit_index[1] & D1_r_bit_index[2])));
-
-
---D1L104 is uart:uart_unit|uart_rx:receiver|Selector19~1
-D1L104 = (D1_r_sm_main.s_rx_data_bits & (((D1L56 & !D1_r_rx_data)) # (!D1L103))) # (!D1_r_sm_main.s_rx_data_bits & (D1L56 & (!D1_r_rx_data)));
-
-
---A1L65 is Selector1~0
-A1L65 = (!r_sm_main.s_clear & ((C1L8) # (r_sm_main.s_idle)));
-
-
---A1L64 is Selector0~1
-A1L64 = (!r_sm_main.s_idle & ((C1_r_fifo_count[3]) # ((C1_r_fifo_count[1]) # (!C1L6))));
-
-
---r_tx_data[6] is r_tx_data[6]
---register power-up is low
-
-r_tx_data[6] = DFFEAS(r_data[6], i_clk,  ,  , A1L54,  ,  ,  ,  );
-
-
---C2L65 is uart:uart_unit|fifo:fifo_tx|r_fifo_data~24
-C2L65 = (i_rst_sync & r_wr_tx);
-
-
---C2_r_wr_index[0] is uart:uart_unit|fifo:fifo_tx|r_wr_index[0]
---register power-up is low
-
-C2_r_wr_index[0] = DFFEAS(C2L85, i_clk,  ,  , C2L83,  ,  ,  ,  );
-
-
---C2_r_wr_index[1] is uart:uart_unit|fifo:fifo_tx|r_wr_index[1]
---register power-up is low
-
-C2_r_wr_index[1] = DFFEAS(C2L86, i_clk,  ,  , C2L83,  ,  ,  ,  );
-
-
---C2_r_wr_index[2] is uart:uart_unit|fifo:fifo_tx|r_wr_index[2]
---register power-up is low
-
-C2_r_wr_index[2] = DFFEAS(C2L87, i_clk,  ,  , C2L83,  ,  ,  ,  );
-
-
---C2_r_wr_index[3] is uart:uart_unit|fifo:fifo_tx|r_wr_index[3]
---register power-up is low
-
-C2_r_wr_index[3] = DFFEAS(C2L88, i_clk,  ,  , C2L83,  ,  ,  ,  );
-
-
---C2_r_rd_index[0] is uart:uart_unit|fifo:fifo_tx|r_rd_index[0]
---register power-up is low
-
-C2_r_rd_index[0] = DFFEAS(C2L71, i_clk,  ,  ,  ,  ,  ,  ,  );
-
-
---C2L71 is uart:uart_unit|fifo:fifo_tx|r_rd_index~0
-C2L71 = (i_rst_sync & (C2_r_rd_index[0] $ (((!C2L9 & E1_r_tx_done)))));
-
-
---C2L72 is uart:uart_unit|fifo:fifo_tx|r_rd_index~1
-C2L72 = (i_rst_sync & ((C2L9) # (!E1_r_tx_done)));
-
-
---C2_r_rd_index[3] is uart:uart_unit|fifo:fifo_tx|r_rd_index[3]
---register power-up is low
-
-C2_r_rd_index[3] = DFFEAS(C2L77, i_clk,  ,  ,  ,  ,  ,  ,  );
-
-
---C2_r_rd_index[1] is uart:uart_unit|fifo:fifo_tx|r_rd_index[1]
---register power-up is low
-
-C2_r_rd_index[1] = DFFEAS(C2L74, i_clk,  ,  ,  ,  ,  ,  ,  );
-
-
---C2_r_rd_index[2] is uart:uart_unit|fifo:fifo_tx|r_rd_index[2]
---register power-up is low
-
-C2_r_rd_index[2] = DFFEAS(C2L76, i_clk,  ,  ,  ,  ,  ,  ,  );
-
-
---C2L5 is uart:uart_unit|fifo:fifo_tx|Equal1~0
-C2L5 = (C2_r_rd_index[0] & (C2_r_rd_index[3] & (!C2_r_rd_index[1] & !C2_r_rd_index[2])));
-
-
---C2L73 is uart:uart_unit|fifo:fifo_tx|r_rd_index~2
-C2L73 = (i_rst_sync & (E1_r_tx_done & (!C2L9 & !C2L5)));
-
-
---C2L74 is uart:uart_unit|fifo:fifo_tx|r_rd_index~3
-C2L74 = (C2_r_rd_index[1] & ((C2L72) # ((C2L73 & !C2_r_rd_index[0])))) # (!C2_r_rd_index[1] & (((C2L73 & C2_r_rd_index[0]))));
-
-
---C2L75 is uart:uart_unit|fifo:fifo_tx|r_rd_index~4
-C2L75 = (i_rst_sync & (E1_r_tx_done & !C2L9));
-
-
---C2L3 is uart:uart_unit|fifo:fifo_tx|Add3~0
-C2L3 = C2_r_rd_index[2] $ (((C2_r_rd_index[0] & C2_r_rd_index[1])));
-
-
---C2L76 is uart:uart_unit|fifo:fifo_tx|r_rd_index~5
-C2L76 = (C2L75 & ((C2L3) # ((C2_r_rd_index[2] & C2L72)))) # (!C2L75 & (C2_r_rd_index[2] & (C2L72)));
-
-
---C2L4 is uart:uart_unit|fifo:fifo_tx|Add3~1
-C2L4 = C2_r_rd_index[3] $ (((C2_r_rd_index[0] & (C2_r_rd_index[1] & C2_r_rd_index[2]))));
-
-
---C2L77 is uart:uart_unit|fifo:fifo_tx|r_rd_index~6
-C2L77 = (C2_r_rd_index[3] & ((C2L72) # ((C2L73 & C2L4)))) # (!C2_r_rd_index[3] & (C2L73 & (C2L4)));
-
-
---E1L39 is uart:uart_unit|uart_tx:transmitter|r_clk_count[7]~35
-E1L39 = (!E1L4) # (!E1_r_sm_main.s_idle);
-
-
---r_tx_data[5] is r_tx_data[5]
---register power-up is low
-
-r_tx_data[5] = DFFEAS(r_data[5], i_clk,  ,  , A1L54,  ,  ,  ,  );
-
-
---r_tx_data[4] is r_tx_data[4]
---register power-up is low
-
-r_tx_data[4] = DFFEAS(r_data[4], i_clk,  ,  , A1L54,  ,  ,  ,  );
-
-
---r_tx_data[7] is r_tx_data[7]
---register power-up is low
-
-r_tx_data[7] = DFFEAS(r_data[7], i_clk,  ,  , A1L54,  ,  ,  ,  );
-
-
---E1L86 is uart:uart_unit|uart_tx:transmitter|Selector20~1
-E1L86 = (E1L4 & ((E1_r_sm_main.s_tx_start_bit) # ((!C2L9 & !E1_r_sm_main.s_idle)))) # (!E1L4 & (((!C2L9 & !E1_r_sm_main.s_idle))));
-
-
---r_tx_data[2] is r_tx_data[2]
---register power-up is low
-
-r_tx_data[2] = DFFEAS(r_data[2], i_clk,  ,  , A1L54,  ,  ,  ,  );
-
-
---r_tx_data[1] is r_tx_data[1]
---register power-up is low
-
-r_tx_data[1] = DFFEAS(r_data[1], i_clk,  ,  , A1L54,  ,  ,  ,  );
-
-
---r_tx_data[0] is r_tx_data[0]
---register power-up is low
-
-r_tx_data[0] = DFFEAS(r_data[0], i_clk,  ,  , A1L54,  ,  ,  ,  );
-
-
---r_tx_data[3] is r_tx_data[3]
---register power-up is low
-
-r_tx_data[3] = DFFEAS(r_data[3], i_clk,  ,  , A1L54,  ,  ,  ,  );
-
-
---r_sm_main.s_calculus is r_sm_main.s_calculus
---register power-up is low
-
-r_sm_main.s_calculus = DFFEAS(r_sm_main.s_get_fifo_data, i_clk, i_rst,  ,  ,  ,  ,  ,  );
-
-
---A1L66 is Selector2~0
-A1L66 = (r_sm_main.s_calculus) # ((r_sm_main.s_put_fifo_data & !C2L6));
-
-
---D1_r_rx_data_r is uart:uart_unit|uart_rx:receiver|r_rx_data_r
---register power-up is low
-
-D1_r_rx_data_r = DFFEAS(i_rx, i_clk,  ,  ,  ,  ,  ,  ,  );
-
-
---D1L100 is uart:uart_unit|uart_rx:receiver|Selector16~0
-D1L100 = (D1_r_sm_main.s_rx_data_bits & (D1_r_bit_index[0] $ (((D1L16))))) # (!D1_r_sm_main.s_rx_data_bits & (D1_r_bit_index[0] & (D1_r_sm_main.s_idle)));
-
-
---D1L98 is uart:uart_unit|uart_rx:receiver|Selector15~2
-D1L98 = (D1_r_sm_main.s_rx_data_bits & (D1_r_bit_index[1] $ (((D1L16 & D1_r_bit_index[0])))));
-
-
---D1L94 is uart:uart_unit|uart_rx:receiver|Selector14~0
-D1L94 = (D1_r_sm_main.s_idle & !D1_r_sm_main.s_rx_data_bits);
-
-
---D1L95 is uart:uart_unit|uart_rx:receiver|Selector14~1
-D1L95 = (D1_r_bit_index[0] & (D1L1 & (D1_r_bit_index[1] $ (D1_r_bit_index[2]))));
-
-
---D1L96 is uart:uart_unit|uart_rx:receiver|Selector14~2
-D1L96 = (D1_r_sm_main.s_rx_data_bits & (D1_r_bit_index[2] & ((!D1_r_bit_index[0]) # (!D1L16))));
-
-
---D1L97 is uart:uart_unit|uart_rx:receiver|Selector14~3
-D1L97 = (D1L95) # ((D1L96) # ((D1_r_bit_index[2] & D1L94)));
-
-
---D1L101 is uart:uart_unit|uart_rx:receiver|Selector17~0
-D1L101 = (!D1_r_sm_main.s_cleanup & (((!D1L56 & D1_r_sm_main.s_idle)) # (!D1_r_rx_data)));
-
-
---A1L53 is r_tx_data[0]~1
-A1L53 = (!C2_r_fifo_count[1]) # (!C2_r_fifo_count[3]);
-
-
---A1L54 is r_tx_data[0]~2
-A1L54 = (i_rst & (r_sm_main.s_put_fifo_data & ((A1L53) # (!C2L8))));
-
-
---C2L85 is uart:uart_unit|fifo:fifo_tx|r_wr_index~0
-C2L85 = (!C2_r_wr_index[0] & i_rst_sync);
-
-
---C2L83 is uart:uart_unit|fifo:fifo_tx|r_wr_index[3]~1
-C2L83 = ((C2L6 & r_wr_tx)) # (!i_rst_sync);
-
-
---C2L84 is uart:uart_unit|fifo:fifo_tx|r_wr_index[3]~2
-C2L84 = (C2_r_wr_index[1]) # ((C2_r_wr_index[2]) # ((!C2_r_wr_index[3]) # (!C2_r_wr_index[0])));
-
-
---C2L86 is uart:uart_unit|fifo:fifo_tx|r_wr_index~3
-C2L86 = (i_rst_sync & (C2L84 & (C2_r_wr_index[0] $ (C2_r_wr_index[1]))));
-
-
---C2L1 is uart:uart_unit|fifo:fifo_tx|Add2~0
-C2L1 = C2_r_wr_index[2] $ (((C2_r_wr_index[0] & C2_r_wr_index[1])));
-
-
---C2L87 is uart:uart_unit|fifo:fifo_tx|r_wr_index~4
-C2L87 = (i_rst_sync & (C2L84 & C2L1));
-
-
---C2L2 is uart:uart_unit|fifo:fifo_tx|Add2~1
-C2L2 = C2_r_wr_index[3] $ (((C2_r_wr_index[0] & (C2_r_wr_index[1] & C2_r_wr_index[2]))));
-
-
---C2L88 is uart:uart_unit|fifo:fifo_tx|r_wr_index~5
-C2L88 = (i_rst_sync & (C2L84 & C2L2));
-
-
---i_rx is i_rx
-i_rx = INPUT();
-
-
---A1L68 is WideOr3~0
-A1L68 = (r_sm_main.s_get_fifo_data) # (r_sm_main.s_calculus);
-
-
---D1L99 is uart:uart_unit|uart_rx:receiver|Selector15~3
-D1L99 = (D1L98) # ((D1_r_sm_main.s_idle & (!D1_r_sm_main.s_rx_data_bits & D1_r_bit_index[1])));
-
-
---D1L15 is uart:uart_unit|uart_rx:receiver|LessThan1~1
-D1L15 = (D1_r_clk_count[9]) # ((D1_r_clk_count[8]) # ((D1_r_clk_count[7]) # (!D1L14)));
-
-
---D1L16 is uart:uart_unit|uart_rx:receiver|LessThan1~2
-D1L16 = (D1_r_clk_count[12] & ((D1_r_clk_count[11]) # ((D1_r_clk_count[10] & D1L15))));
-
-
---C1L9 is uart:uart_unit|fifo:fifo_rx|Equal3~0_wirecell
-C1L9 = !C1L8;
-
-
---C2L7 is uart:uart_unit|fifo:fifo_tx|Equal2~0_wirecell
-C2L7 = !C2L6;
+--A1L208 is ~GND
+A1L208 = GND;
 
 
