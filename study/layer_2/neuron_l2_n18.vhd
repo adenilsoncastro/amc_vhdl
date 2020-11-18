@@ -28,7 +28,7 @@ architecture bhv of neuron_l2_n18 is
 	signal r_sinapse_count	: integer := 0;
 	signal r_done			: std_logic := '0';
 	constant c_bias			: std_logic_vector(g_bits-1 downto 0) := "1111111101000001";
-	constant c_inputs		: natural := 24;
+	constant c_inputs		: natural := 30;
 
 	--RAM Signals
 	signal r_wr				: std_logic							 		:= '0';

@@ -150,8 +150,8 @@ architecture bhv of layer_l2 is
 	signal r_result_n22 : std_logic_vector(g_bits-1 downto 0) := (others => '0');
 	signal r_result_n23 : std_logic_vector(g_bits-1 downto 0) := (others => '0');
 
-	signal r_sinapse : integer range 0 to 23 := 0;
-	constant c_inputs         : natural := 23;
+	signal r_sinapse : integer range 0 to 30 := 0;
+	constant c_inputs         : natural := 30;
 
 	component neuron_l2_n0 is
 		generic(

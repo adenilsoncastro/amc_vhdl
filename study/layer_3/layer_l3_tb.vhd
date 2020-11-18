@@ -1,4 +1,4 @@
- library ieee;
+  library ieee;
  use ieee.std_logic_1164.all;
  use ieee.std_logic_textio.all;
  use ieee.numeric_std.all;
@@ -6,10 +6,10 @@
  library std;
  use std.textio.all;
  
- entity layer_l2_tb is
- end layer_l2_tb;
+ entity layer_l3_tb is
+ end layer_l3_tb;
  
- architecture bhv of layer_l2_tb is
+ architecture bhv of layer_l3_tb is
  
  signal r_clk		: std_logic := '0';
  signal r_rst		: std_logic := '0';
@@ -37,14 +37,10 @@
  signal r_fxp_n17	: std_logic_vector(15 downto 0)	:= (others => '0');
  signal r_fxp_n18	: std_logic_vector(15 downto 0)	:= (others => '0');
  signal r_fxp_n19	: std_logic_vector(15 downto 0)	:= (others => '0');
- signal r_fxp_n20	: std_logic_vector(15 downto 0)	:= (others => '0');
- signal r_fxp_n21	: std_logic_vector(15 downto 0)	:= (others => '0');
- signal r_fxp_n22	: std_logic_vector(15 downto 0)	:= (others => '0');
- signal r_fxp_n23	: std_logic_vector(15 downto 0)	:= (others => '0');
 
  file f_result : text open write_mode is "result.txt";
  
- component layer_l2 is
+ component layer_l3 is
 	generic(
 		g_bits           : natural := 16;
 		g_fxp_high 	   : natural := 4;
@@ -75,20 +71,17 @@
 		o_fxp_n16 : out std_logic_vector(g_bits-1 downto 0);
 		o_fxp_n17 : out std_logic_vector(g_bits-1 downto 0);
 		o_fxp_n18 : out std_logic_vector(g_bits-1 downto 0);
-		o_fxp_n19 : out std_logic_vector(g_bits-1 downto 0);
-		o_fxp_n20 : out std_logic_vector(g_bits-1 downto 0);
-		o_fxp_n21 : out std_logic_vector(g_bits-1 downto 0);
-		o_fxp_n22 : out std_logic_vector(g_bits-1 downto 0);
-		o_fxp_n23 : out std_logic_vector(g_bits-1 downto 0));
+		o_fxp_n19 : out std_logic_vector(g_bits-1 downto 0));
  end component;
  
  begin
 
- dut : layer_l2 port map(r_clk, r_rst, r_enable, r_fxp_in, r_mac_done, r_done,
-										r_fxp_n0, r_fxp_n1, r_fxp_n2, r_fxp_n3, r_fxp_n4, r_fxp_n5,
-										r_fxp_n6, r_fxp_n7, r_fxp_n8, r_fxp_n9, r_fxp_n10, r_fxp_n11,
-										r_fxp_n12, r_fxp_n13, r_fxp_n14, r_fxp_n15, r_fxp_n16,r_fxp_n17, 
-										r_fxp_n18, r_fxp_n19, r_fxp_n20, r_fxp_n21, r_fxp_n22, r_fxp_n23);
+ dut : layer_l3 port map(r_clk, r_rst, r_enable, r_fxp_in, r_mac_done, r_done,
+										r_fxp_n0, r_fxp_n1, r_fxp_n2, r_fxp_n3, 
+										r_fxp_n4, r_fxp_n5, r_fxp_n6, r_fxp_n7, 
+										r_fxp_n8, r_fxp_n9, r_fxp_n10, r_fxp_n11,
+										r_fxp_n12, r_fxp_n13, r_fxp_n14, r_fxp_n15, 
+										r_fxp_n16, r_fxp_n17, r_fxp_n18, r_fxp_n19);
  
  r_clk <= not r_clk after 20 ns;
  
@@ -96,126 +89,102 @@
 	variable v_line : line;
 	begin	
 		r_enable <= '1';
-		r_fxp_in <= "1111111100001110"; 
+		r_fxp_in <= "0000011011100011"; 
 		wait until r_mac_done = '1';
 		wait until rising_edge(r_clk);
 		
-		r_fxp_in <= "1111111101111011";
+		r_fxp_in <= "1111101100110110";
 		wait until r_mac_done = '1';
 		wait until rising_edge(r_clk);
 		
-		r_fxp_in <= "1111111001000100";
+		r_fxp_in <= "0000011000111111";
 		wait until r_mac_done = '1';
 		wait until rising_edge(r_clk);
 		
-		r_fxp_in <= "0000000010000010";
+		r_fxp_in <= "0000011111100111";
 		wait until r_mac_done = '1';
 		wait until rising_edge(r_clk);
 		
-		r_fxp_in <= "0000000010001010";
+		r_fxp_in <= "1111100110110011";
 		wait until r_mac_done = '1';
 		wait until rising_edge(r_clk);
 		
-		r_fxp_in <= "0000000100110101";
+		r_fxp_in <= "1111110110110101";
 		wait until r_mac_done = '1';
 		wait until rising_edge(r_clk);
 
-		r_fxp_in <= "0000000110010011";
+		r_fxp_in <= "1111100110100001";
 		wait until r_mac_done = '1';
 		wait until rising_edge(r_clk);
 
-		r_fxp_in <= "1111111110010111";
+		r_fxp_in <= "0000011111001110";
 		wait until r_mac_done = '1';
 		wait until rising_edge(r_clk);
 
-		r_fxp_in <= "0000000010001100";
+		r_fxp_in <= "1111110010100101";
 		wait until r_mac_done = '1';
 		wait until rising_edge(r_clk);
 
-		r_fxp_in <= "0000000010010110";
+		r_fxp_in <= "0000011011000100";
 		wait until r_mac_done = '1';
 		wait until rising_edge(r_clk);
 
-		r_fxp_in <= "1111111100101110";
+		r_fxp_in <= "0000010011000101";
 		wait until r_mac_done = '1';
 		wait until rising_edge(r_clk);
 
-		r_fxp_in <= "0000000011011011";
+		r_fxp_in <= "0000001000000011";
 		wait until r_mac_done = '1';
 		wait until rising_edge(r_clk);
 
-		r_fxp_in <= "1111111111010010";
+		r_fxp_in <= "1111101101001011";
 		wait until r_mac_done = '1';
 		wait until rising_edge(r_clk);
 
-		r_fxp_in <= "0000000101111000";
+		r_fxp_in <= "1111100000000011";
 		wait until r_mac_done = '1';
 		wait until rising_edge(r_clk);
 
-		r_fxp_in <= "0000000101110111";
+		r_fxp_in <= "1111100011110000";
 		wait until r_mac_done = '1';
 		wait until rising_edge(r_clk);
 
-		r_fxp_in <= "1111111101011110";
+		r_fxp_in <= "0000001011000010";
 		wait until r_mac_done = '1';
 		wait until rising_edge(r_clk);
 
-		r_fxp_in <= "0000000111010110";
+		r_fxp_in <= "1111111101010111";
 		wait until r_mac_done = '1';
 		wait until rising_edge(r_clk);
 
-		r_fxp_in <= "1111111101100101";
+		r_fxp_in <= "0000010001101100";
 		wait until r_mac_done = '1';
 		wait until rising_edge(r_clk);
 
-		r_fxp_in <= "0000000010110111";
+		r_fxp_in <= "1111100000001110";
 		wait until r_mac_done = '1';
 		wait until rising_edge(r_clk);
 
-		r_fxp_in <= "0000000010010001";
+		r_fxp_in <= "0000011000110100";
 		wait until r_mac_done = '1';
 		wait until rising_edge(r_clk);
 
-		r_fxp_in <= "1111111001111100";
+		r_fxp_in <= "0000011010100011";
 		wait until r_mac_done = '1';
 		wait until rising_edge(r_clk);
 
-		r_fxp_in <= "1111111110000100";
+		r_fxp_in <= "0000000101011101";
 		wait until r_mac_done = '1';
 		wait until rising_edge(r_clk);
 
-		r_fxp_in <= "1111111101000001";
+		r_fxp_in <= "1111100000010011";
 		wait until r_mac_done = '1';
 		wait until rising_edge(r_clk);
 
-		r_fxp_in <= "1111111101010101";
+		r_fxp_in <= "1111110011010000";
 		wait until r_mac_done = '1';
 		wait until rising_edge(r_clk);
 
-		r_fxp_in <= "0000000010011011";
-		wait until r_mac_done = '1';
-		wait until rising_edge(r_clk);
-
-		r_fxp_in <= "0000000010010110";
-		wait until r_mac_done = '1';
-		wait until rising_edge(r_clk);
-
-		r_fxp_in <= "1111111101100001";
-		wait until r_mac_done = '1';
-		wait until rising_edge(r_clk);
-
-		r_fxp_in <= "1111111000100111";
-		wait until r_mac_done = '1';
-		wait until rising_edge(r_clk);
-
-		r_fxp_in <= "1111111110100010";
-		wait until r_mac_done = '1';
-		wait until rising_edge(r_clk);
-
-		r_fxp_in <= "1111111100111100";
-		wait until r_mac_done = '1';
-		wait until rising_edge(r_clk);
-		
 		wait until r_done = '1';
 		wait until rising_edge(r_clk);
 		r_rst <= '1';
@@ -264,14 +233,6 @@
 		write(v_line, r_fxp_n18);
 		write(v_line, string'(","));
 		write(v_line, r_fxp_n19);
-		write(v_line, string'(","));
-		write(v_line, r_fxp_n20);
-		write(v_line, string'(","));
-		write(v_line, r_fxp_n21);
-		write(v_line, string'(","));
-		write(v_line, r_fxp_n22);
-		write(v_line, string'(","));
-		write(v_line, r_fxp_n23);
 		write(v_line, string'("]"));
 		writeline(f_result, v_line);
 		file_close(f_result);
