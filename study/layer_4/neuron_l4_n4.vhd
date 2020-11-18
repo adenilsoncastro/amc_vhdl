@@ -23,12 +23,12 @@ end neuron_l4_n4;
 architecture bhv of neuron_l4_n4 is
 
 	--Control FSM signals
-	type t_sm is (s_idle, s_get_weight, s_wait_weight, s_mac, s_wait_mac, s_mac_result, s_bias, s_relu, s_wait_relu, s_clear);
+	type t_sm is (s_idle, s_get_weight, s_wait_weight, s_mac, s_wait_mac, s_mac_result, s_bias, s_wait_bias, s_clear);
 	signal r_sm             : t_sm := s_idle;
 	signal r_sinapse_count	: integer := 0;
 	signal r_done			: std_logic := '0';
 	constant c_bias			: std_logic_vector(g_bits-1 downto 0) := "1111011110100010";
-	constant c_inputs		: natural := 5;
+	constant c_inputs		: natural := 20;
 
 	--RAM Signals
 	signal r_wr				: std_logic							 		:= '0';
@@ -44,11 +44,8 @@ architecture bhv of neuron_l4_n4 is
 	--Bias Signal
 	signal r_bias			: std_logic_vector(g_bits-1 downto 0)	:= (others => '0');
 
-	--ReLu Signals
-	signal r_relu_enable	: std_logic									:= '0';
-	signal r_relu_in		: std_logic_vector(g_bits-1 downto 0)	:= (others => '0');
-	signal r_relu_out		: std_logic_vector(g_bits-1 downto 0)	:= (others => '0');
-
+	--Activation Function Signals
+--Last layer neurons have no activation functions inside them.
 component ram_l4_n4 is
 	generic(
 		g_width       : natural := 16;
@@ -77,23 +74,11 @@ component mac is
 		o_data		: out std_logic_vector(g_bits-1 downto 0));
 end component;
 
-component lut_relu is
-	generic(
-		g_bits        : natural := 16;
-		g_fxp_high    : natural := 4;
-		g_fxp_low     : integer :=-11);
-	port(
-		i_clk         : in std_logic;
-		i_enable      : in std_logic;
-		i_value		: in std_logic_vector(g_bits-1 downto 0);
-		o_result 	: out std_logic_vector(g_bits-1 downto 0));
-end component;
 
 begin
 
 	ram_n4 : ram_l4_n4 port map(i_clk, r_wr, r_addr, r_data_in_ram, r_data_out_ram);
 	mac_n4 : mac port map(i_clk, i_rst, r_mac_enable, i_fxp_data, r_data_out_ram, r_mac_done, r_mac_out);
-	act_relu	: lut_relu port map(i_clk, r_relu_enable, r_relu_in, r_relu_out);
 
 	p_neuron : process(i_clk, i_enable, r_mac_done)
 	begin
@@ -134,19 +119,10 @@ begin
 					end if;
 				when s_bias =>
 					r_bias <= to_slv(resize(to_sfixed(r_mac_out, g_fxp_high, g_fxp_low) + to_sfixed(c_bias, g_fxp_high, g_fxp_low), g_fxp_high, g_fxp_low));
-					r_sm   <= s_relu;
+				r_sm <= s_wait_bias;
 
-				when s_relu =>
-					r_mac_enable	<= '0';
-					r_relu_enable 	<= '1';
-					r_relu_in		<= r_bias;
-					r_sm 			<= s_wait_relu;
-
-				when s_wait_relu =>
-					r_relu_enable 	<= '0';
-					r_done			<= '1';
-					r_sm 			<= s_clear;
-
+				when s_wait_bias => 
+					r_done <= '1';					r_sm <= s_clear;
 				when s_clear =>
 					r_done 			<= '0';
 					r_sinapse_count <= 0;
@@ -162,6 +138,6 @@ begin
 
 	o_mac_done	<= r_mac_done;
 	o_done		<= r_done;
-	o_fxp_data 	<= r_relu_out;
+	o_fxp_data 	<= r_bias;
 
 end bhv;

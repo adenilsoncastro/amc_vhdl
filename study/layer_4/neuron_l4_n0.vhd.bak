@@ -23,7 +23,7 @@ end neuron_l4_n0;
 architecture bhv of neuron_l4_n0 is
 
 	--Control FSM signals
-	type t_sm is (s_idle, s_get_weight, s_wait_weight, s_mac, s_wait_mac, s_mac_result, s_bias, s_wait_bias, s_clear);
+	type t_sm is (s_idle, s_get_weight, s_wait_weight, s_mac, s_wait_mac, s_mac_result, s_bias, s_max, s_wait_max, s_clear);
 	signal r_sm             : t_sm := s_idle;
 	signal r_sinapse_count	: integer := 0;
 	signal r_done			: std_logic := '0';
@@ -117,15 +117,9 @@ begin
 					else
 						r_sm <= s_mac;
 					end if;
-
 				when s_bias =>
 					r_bias <= to_slv(resize(to_sfixed(r_mac_out, g_fxp_high, g_fxp_low) + to_sfixed(c_bias, g_fxp_high, g_fxp_low), g_fxp_high, g_fxp_low));
-					r_sm <= s_wait_bias;
 
-				when s_wait_bias => 
-					r_done <= '1';
-										r_sm <= s_clear;
-										
 				when s_clear =>
 					r_done 			<= '0';
 					r_sinapse_count <= 0;
@@ -141,6 +135,4 @@ begin
 
 	o_mac_done	<= r_mac_done;
 	o_done		<= r_done;
-	o_fxp_data 	<= r_bias;
 
-end bhv;

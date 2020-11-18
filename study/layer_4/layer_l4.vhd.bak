@@ -17,12 +17,16 @@ entity layer_l4 is
 		i_fxp         : in std_logic_vector(g_bits-1 downto 0);
 		o_mac_done    : out std_logic;
 		o_done        : out std_logic;
-		o_result			: out std_logic_vector(6 downto 0));
+		o_fxp_n0 : out std_logic_vector(g_bits-1 downto 0);
+		o_fxp_n1 : out std_logic_vector(g_bits-1 downto 0);
+		o_fxp_n2 : out std_logic_vector(g_bits-1 downto 0);
+		o_fxp_n3 : out std_logic_vector(g_bits-1 downto 0);
+		o_fxp_n4 : out std_logic_vector(g_bits-1 downto 0);
 end layer_l4;
 
 architecture bhv of layer_l4 is
 
-	type t_sm is (s_idle, s_get_data, s_sinapse, s_wait_sinapse, s_max, s_wait_max, s_clear);
+	type t_sm is (s_idle, s_get_data, s_sinapse, s_wait_sinapse, s_wait_activation, s_clear);
 	signal r_sm : t_sm := s_idle;
 
 	signal r_enable_n0 : std_logic := '0';
@@ -53,24 +57,6 @@ architecture bhv of layer_l4 is
 
 	signal r_sinapse : integer range 0 to 20 := 0;
 	constant c_inputs         : natural := 20;
-
-	signal r_max_enable : std_logic := '0';
-	signal r_max_result	: std_logic_vector(6 downto 0);
-
-	component max is
-		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
-		port(
-			i_enable    : in std_logic;
-			i_neuron_1  : in std_logic_vector(g_bits-1 downto 0);
-			i_neuron_2  : in std_logic_vector(g_bits-1 downto 0);
-			i_neuron_3  : in std_logic_vector(g_bits-1 downto 0);
-			i_neuron_4  : in std_logic_vector(g_bits-1 downto 0);
-			i_neuron_5  : in std_logic_vector(g_bits-1 downto 0);
-			o_result    : out std_logic_vector(6 downto 0));
-	end component;
 
 	component neuron_l4_n0 is
 		generic(
@@ -148,7 +134,6 @@ architecture bhv of layer_l4 is
 	end component;
 
 begin
-	act_max	: maX port map(r_max_enable, r_result_n0, r_result_n1, r_result_n2, r_result_n3, r_result_n4, r_max_result);
 	n0 : neuron_l4_n0 port map(i_clk, i_rst, r_enable_n0, r_mac_n0, r_done_n0, i_fxp, r_result_n0);
 	n1 : neuron_l4_n1 port map(i_clk, i_rst, r_enable_n1, r_mac_n1, r_done_n1, i_fxp, r_result_n1);
 	n2 : neuron_l4_n2 port map(i_clk, i_rst, r_enable_n2, r_mac_n2, r_done_n2, i_fxp, r_result_n2);
@@ -180,35 +165,29 @@ begin
 					r_sm        <= s_wait_sinapse;
 
 				when s_wait_sinapse =>
-					if (r_mac_n0 = '1') and (r_mac_n1 = '1') and (r_mac_n2 = '1') and (r_mac_n3 = '1') and (r_mac_n4 = '1') then
+					if (r_mac_n0 = '1') and (r_mac_n1 = '1') and (r_mac_n2 = '1') and (r_mac_n3 = '1') and (r_mac_n4 = '1') and then
 						r_mac_done <= '1';
 						if r_sinapse < c_inputs then
 							r_sm <= s_get_data;
 						else
-							r_sm <= s_max;
+							r_sm <= s_wait_activation;
 						end if;
 					else
 						r_sm <= s_wait_sinapse;
-				end if;
-
-				when s_max =>
-					r_mac_done <= '0';
-					if (r_done_n0 = '1') and (r_done_n1 = '1') and (r_done_n2 = '1') and (r_done_n3 = '1') and (r_done_n4 = '1') then 
-						r_max_enable <= '1';
-						r_sm <= s_wait_max;
-					else
-						r_sm <= s_max;
-						r_max_enable <= '0';
 					end if;
 
-				when s_wait_max =>
-					r_max_enable <= '0';
-					r_done <= '1';
-					r_sm <= s_clear;
+				when s_wait_activation =>
+					r_mac_done <= '0';
+					if (r_done_n0 = '1') and (r_done_n1 = '1') and (r_done_n2 = '1') and (r_done_n3 = '1') and (r_done_n4 = '1') and then
+						r_done <= '1';
+						r_sm   <= s_clear;
+					else
+						r_sm <= s_wait_activation;
+						r_done <= '0';
+					end if;
 
 				when s_clear =>
 					r_mac_done <= '0';
-					r_max_enable <= '0';
 					r_enable_n0 <= '0';
 					r_enable_n1 <= '0';
 					r_enable_n2 <= '0';
@@ -226,5 +205,10 @@ begin
 
 	o_done      <= r_done;
 	o_mac_done  <= r_mac_done;
-	o_result <= r_max_result;
+	o_fxp_n0 <= r_result_n0;
+	o_fxp_n1 <= r_result_n1;
+	o_fxp_n2 <= r_result_n2;
+	o_fxp_n3 <= r_result_n3;
+	o_fxp_n4 <= r_result_n4;
+
 end bhv;
