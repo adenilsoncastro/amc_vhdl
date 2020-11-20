@@ -111,7 +111,7 @@ package fixed_pkg is
 
   ----------------------------------------------------------------------------
   -- In these routines the "real" or "natural" (integer)
-  -- are converted into a fixed point number and then the operation is
+  -- are converted into a fixed point number then the operation is
   -- performed.  It is assumed that the array will be large enough.
   -- If the input is "real" then the real number is converted into a fixed of
   -- the same size as the fixed point input.  If the number is an "integer"

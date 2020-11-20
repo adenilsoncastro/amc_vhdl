@@ -495,7 +495,7 @@ begin
 					r_sm        <= s_wait_sinapse;
 
 				when s_wait_sinapse =>
-					if (r_mac_n0 = '1') and (r_mac_n1 = '1') and (r_mac_n2 = '1') and (r_mac_n3 = '1') and (r_mac_n4 = '1') and (r_mac_n5 = '1') and (r_mac_n6 = '1') and (r_mac_n7 = '1') and (r_mac_n8 = '1') and (r_mac_n9 = '1') and (r_mac_n10 = '1') and (r_mac_n11 = '1') and (r_mac_n12 = '1') and (r_mac_n13 = '1') and (r_mac_n14 = '1') and (r_mac_n15 = '1') and (r_mac_n16 = '1') and (r_mac_n17 = '1') and (r_mac_n18 = '1') and (r_mac_n19 = '1') and then
+					if (r_mac_n0 = '1') and (r_mac_n1 = '1') and (r_mac_n2 = '1') and (r_mac_n3 = '1') and (r_mac_n4 = '1') and (r_mac_n5 = '1') and (r_mac_n6 = '1') and (r_mac_n7 = '1') and (r_mac_n8 = '1') and (r_mac_n9 = '1') and (r_mac_n10 = '1') and (r_mac_n11 = '1') and (r_mac_n12 = '1') and (r_mac_n13 = '1') and (r_mac_n14 = '1') and (r_mac_n15 = '1') and (r_mac_n16 = '1') and (r_mac_n17 = '1') and (r_mac_n18 = '1') and (r_mac_n19 = '1') then
 						r_mac_done <= '1';
 						if r_sinapse < c_inputs then
 							r_sm <= s_get_data;
@@ -508,7 +508,7 @@ begin
 
 				when s_wait_activation =>
 					r_mac_done <= '0';
-					if (r_done_n0 = '1') and (r_done_n1 = '1') and (r_done_n2 = '1') and (r_done_n3 = '1') and (r_done_n4 = '1') and (r_done_n5 = '1') and (r_done_n6 = '1') and (r_done_n7 = '1') and (r_done_n8 = '1') and (r_done_n9 = '1') and (r_done_n10 = '1') and (r_done_n11 = '1') and (r_done_n12 = '1') and (r_done_n13 = '1') and (r_done_n14 = '1') and (r_done_n15 = '1') and (r_done_n16 = '1') and (r_done_n17 = '1') and (r_done_n18 = '1') and (r_done_n19 = '1') and then
+					if (r_done_n0 = '1') and (r_done_n1 = '1') and (r_done_n2 = '1') and (r_done_n3 = '1') and (r_done_n4 = '1') and (r_done_n5 = '1') and (r_done_n6 = '1') and (r_done_n7 = '1') and (r_done_n8 = '1') and (r_done_n9 = '1') and (r_done_n10 = '1') and (r_done_n11 = '1') and (r_done_n12 = '1') and (r_done_n13 = '1') and (r_done_n14 = '1') and (r_done_n15 = '1') and (r_done_n16 = '1') and (r_done_n17 = '1') and (r_done_n18 = '1') and (r_done_n19 = '1') then
 						r_done <= '1';
 						r_sm   <= s_clear;
 					else
