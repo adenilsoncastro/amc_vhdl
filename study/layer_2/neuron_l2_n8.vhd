@@ -5,11 +5,14 @@ use ieee.numeric_std.all;
 library ieee_proposed;
 use ieee_proposed.fixed_pkg.all;
 
+library amc_library;
+use amc_library.data_types_pkg.all;
+
 entity neuron_l2_n8 is
 	generic(
-		g_bits        : natural := 16;
-		g_fxp_high    : natural := 4;
-		g_fxp_low     : integer :=-11);
+		g_bits        : natural := c_bits;
+		g_fxp_high    : natural := c_fxp_high;
+		g_fxp_low     : integer := c_fxp_low);
 	port(
 		i_clk           : in std_logic;
 		i_rst           : in std_logic;
@@ -50,7 +53,7 @@ architecture bhv of neuron_l2_n8 is
 
 component ram_l2_n8 is
 	generic(
-		g_width       : natural := 16;
+		g_width       : natural := c_bits;
 		g_depth       : natural := 50;
 		g_addr_bits   : natural := 6);
 	port(
@@ -63,9 +66,9 @@ end component;
 
 component mac is
 	generic(
-		g_bits        : natural := 16;
-		g_fxp_high    : natural := 4;
-		g_fxp_low     : integer :=-11);
+		g_bits        : natural := c_bits;
+		g_fxp_high    : natural := c_fxp_high;
+		g_fxp_low     : integer := c_fxp_low);
 	port(
 		i_clk         : in std_logic;
 		i_rst         : in std_logic;
@@ -78,9 +81,9 @@ end component;
 
 component lut_tanh is
 	generic(
-		g_bits        : natural := 16;
-		g_fxp_high    : natural := 4;
-		g_fxp_low     : integer := -11);
+		g_bits        : natural := c_bits;
+		g_fxp_high    : natural := c_fxp_high;
+		g_fxp_low     : integer := c_fxp_low);
 	port(
 		i_address     : in std_logic_vector(g_bits-1 downto 0);
 		o_output      : out std_logic_vector(g_bits-1 downto 0));
@@ -90,8 +93,8 @@ begin
 
 	ram_n8 : ram_l2_n8 port map(i_clk, r_wr, r_addr, r_data_in_ram, r_data_out_ram);
 	mac_n8 : mac port map(i_clk, i_rst, r_mac_enable, i_fxp_data, r_data_out_ram, r_mac_done, r_mac_out);
-	act_lut_tanh : lut_tanh port map(r_tanh_in, r_tanh_result)
-;
+	act_lut_tanh : lut_tanh port map(r_tanh_in, r_tanh_result);
+
 	p_neuron : process(i_clk, i_enable, r_mac_done)
 	begin
 		if rising_edge(i_clk) then
@@ -129,6 +132,7 @@ begin
 					else
 						r_sm <= s_mac;
 					end if;
+
 				when s_bias =>
 					r_bias <= to_slv(resize(to_sfixed(r_mac_out, g_fxp_high, g_fxp_low) + to_sfixed(c_bias, g_fxp_high, g_fxp_low), g_fxp_high, g_fxp_low));
 					r_sm   <= s_lut_tanh;

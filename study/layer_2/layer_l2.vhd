@@ -5,11 +5,14 @@ use ieee.numeric_std.all;
 library ieee_proposed;
 use ieee_proposed.fixed_pkg.all;
 
+library amc_library;
+use amc_library.data_types_pkg.all;
+
 entity layer_l2 is
 	generic(
-		g_bits           : natural := 16;
-		g_fxp_high 	   : natural := 4;
-		g_fxp_low        : integer := -11);
+		g_bits           : natural := c_bits;
+		g_fxp_high 	   : natural := c_fxp_high;
+		g_fxp_low        : integer := c_fxp_low);
 	port(
 		i_clk			: in std_logic;
 		i_rst         : in std_logic;
@@ -155,9 +158,9 @@ architecture bhv of layer_l2 is
 
 	component neuron_l2_n0 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -170,9 +173,9 @@ architecture bhv of layer_l2 is
 
 	component neuron_l2_n1 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -185,9 +188,9 @@ architecture bhv of layer_l2 is
 
 	component neuron_l2_n2 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -200,9 +203,9 @@ architecture bhv of layer_l2 is
 
 	component neuron_l2_n3 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -215,9 +218,9 @@ architecture bhv of layer_l2 is
 
 	component neuron_l2_n4 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -230,9 +233,9 @@ architecture bhv of layer_l2 is
 
 	component neuron_l2_n5 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -245,9 +248,9 @@ architecture bhv of layer_l2 is
 
 	component neuron_l2_n6 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -260,9 +263,9 @@ architecture bhv of layer_l2 is
 
 	component neuron_l2_n7 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -275,9 +278,9 @@ architecture bhv of layer_l2 is
 
 	component neuron_l2_n8 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -290,9 +293,9 @@ architecture bhv of layer_l2 is
 
 	component neuron_l2_n9 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -305,9 +308,9 @@ architecture bhv of layer_l2 is
 
 	component neuron_l2_n10 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -320,9 +323,9 @@ architecture bhv of layer_l2 is
 
 	component neuron_l2_n11 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -335,9 +338,9 @@ architecture bhv of layer_l2 is
 
 	component neuron_l2_n12 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -350,9 +353,9 @@ architecture bhv of layer_l2 is
 
 	component neuron_l2_n13 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -365,9 +368,9 @@ architecture bhv of layer_l2 is
 
 	component neuron_l2_n14 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -380,9 +383,9 @@ architecture bhv of layer_l2 is
 
 	component neuron_l2_n15 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -395,9 +398,9 @@ architecture bhv of layer_l2 is
 
 	component neuron_l2_n16 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -410,9 +413,9 @@ architecture bhv of layer_l2 is
 
 	component neuron_l2_n17 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -425,9 +428,9 @@ architecture bhv of layer_l2 is
 
 	component neuron_l2_n18 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -440,9 +443,9 @@ architecture bhv of layer_l2 is
 
 	component neuron_l2_n19 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -455,9 +458,9 @@ architecture bhv of layer_l2 is
 
 	component neuron_l2_n20 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -470,9 +473,9 @@ architecture bhv of layer_l2 is
 
 	component neuron_l2_n21 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -485,9 +488,9 @@ architecture bhv of layer_l2 is
 
 	component neuron_l2_n22 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -500,9 +503,9 @@ architecture bhv of layer_l2 is
 
 	component neuron_l2_n23 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;

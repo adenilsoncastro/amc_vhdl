@@ -5,11 +5,14 @@ use ieee.numeric_std.all;
 library ieee_proposed;
 use ieee_proposed.fixed_pkg.all;
 
+library amc_library;
+use amc_library.data_types_pkg.all;
+
 entity layer_l0 is
 	generic(
-		g_bits           : natural := 16;
-		g_fxp_high 	   : natural := 4;
-		g_fxp_low        : integer := -11);
+		g_bits           : natural := c_bits;
+		g_fxp_high 	   : natural := c_fxp_high;
+		g_fxp_low        : integer := c_fxp_low);
 	port(
 		i_clk			: in std_logic;
 		i_rst         : in std_logic;
@@ -22,7 +25,7 @@ entity layer_l0 is
 		o_fxp_n2 : out std_logic_vector(g_bits-1 downto 0);
 		o_fxp_n3 : out std_logic_vector(g_bits-1 downto 0);
 		o_fxp_n4 : out std_logic_vector(g_bits-1 downto 0);
-		o_fxp_n5 : out std_logic_vector(g_bits-1 downto 0);
+		o_fxp_n5 : out std_logic_vector(g_bits-1 downto 0));
 end layer_l0;
 
 architecture bhv of layer_l0 is
@@ -65,9 +68,9 @@ architecture bhv of layer_l0 is
 
 	component neuron_l0_n0 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -80,9 +83,9 @@ architecture bhv of layer_l0 is
 
 	component neuron_l0_n1 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -95,9 +98,9 @@ architecture bhv of layer_l0 is
 
 	component neuron_l0_n2 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -110,9 +113,9 @@ architecture bhv of layer_l0 is
 
 	component neuron_l0_n3 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -125,9 +128,9 @@ architecture bhv of layer_l0 is
 
 	component neuron_l0_n4 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -140,9 +143,9 @@ architecture bhv of layer_l0 is
 
 	component neuron_l0_n5 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -155,11 +158,11 @@ architecture bhv of layer_l0 is
 
 begin
 	n0 : neuron_l0_n0 port map(i_clk, i_rst, r_enable_n0, r_mac_n0, r_done_n0, i_fxp, r_result_n0);
-	n1 : neuron_l0_n1 port map(i_clk, i_rst, r_enable_n1, r_mac_n1, r_done_n0, i_fxp, r_result_n1);
-	n2 : neuron_l0_n2 port map(i_clk, i_rst, r_enable_n2, r_mac_n2, r_done_n0, i_fxp, r_result_n2);
-	n3 : neuron_l0_n3 port map(i_clk, i_rst, r_enable_n3, r_mac_n3, r_done_n0, i_fxp, r_result_n3);
-	n4 : neuron_l0_n4 port map(i_clk, i_rst, r_enable_n4, r_mac_n4, r_done_n0, i_fxp, r_result_n4);
-	n5 : neuron_l0_n5 port map(i_clk, i_rst, r_enable_n5, r_mac_n5, r_done_n0, i_fxp, r_result_n5);
+	n1 : neuron_l0_n1 port map(i_clk, i_rst, r_enable_n1, r_mac_n1, r_done_n1, i_fxp, r_result_n1);
+	n2 : neuron_l0_n2 port map(i_clk, i_rst, r_enable_n2, r_mac_n2, r_done_n2, i_fxp, r_result_n2);
+	n3 : neuron_l0_n3 port map(i_clk, i_rst, r_enable_n3, r_mac_n3, r_done_n3, i_fxp, r_result_n3);
+	n4 : neuron_l0_n4 port map(i_clk, i_rst, r_enable_n4, r_mac_n4, r_done_n4, i_fxp, r_result_n4);
+	n5 : neuron_l0_n5 port map(i_clk, i_rst, r_enable_n5, r_mac_n5, r_done_n5, i_fxp, r_result_n5);
 
 	p_layer : process(i_clk, i_enable)
 	begin

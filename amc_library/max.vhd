@@ -46,8 +46,6 @@ begin
            else
                r_result <= "1010";
            end if;
-       else
-           r_result <= "1111";
        end if;
    end process p_evaluate;
    

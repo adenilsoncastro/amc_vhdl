@@ -5,11 +5,14 @@ use ieee.numeric_std.all;
 library ieee_proposed;
 use ieee_proposed.fixed_pkg.all;
 
+library amc_library;
+use amc_library.data_types_pkg.all;
+
 entity layer_l4 is
 	generic(
-		g_bits           : natural := 16;
-		g_fxp_high 	   : natural := 4;
-		g_fxp_low        : integer := -11);
+		g_bits           : natural := c_bits;
+		g_fxp_high 	   : natural := c_fxp_high;
+		g_fxp_low        : integer := c_fxp_low);
 	port(
 		i_clk			: in std_logic;
 		i_rst         : in std_logic;
@@ -59,9 +62,9 @@ architecture bhv of layer_l4 is
 
 	component max is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_enable    : in std_logic;
 			i_neuron_1  : in std_logic_vector(g_bits-1 downto 0);
@@ -74,9 +77,9 @@ architecture bhv of layer_l4 is
 
 	component neuron_l4_n0 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -89,9 +92,9 @@ architecture bhv of layer_l4 is
 
 	component neuron_l4_n1 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -104,9 +107,9 @@ architecture bhv of layer_l4 is
 
 	component neuron_l4_n2 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -119,9 +122,9 @@ architecture bhv of layer_l4 is
 
 	component neuron_l4_n3 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -134,9 +137,9 @@ architecture bhv of layer_l4 is
 
 	component neuron_l4_n4 is
 		generic(
-			g_bits        : natural := 16;
-			g_fxp_high    : natural := 4;
-			g_fxp_low     : integer :=-11);
+			g_bits        : natural := c_bits;
+			g_fxp_high    : natural := c_fxp_high;
+			g_fxp_low     : integer := c_fxp_low);
 		port(
 			i_clk         : in std_logic;
 			i_rst         : in std_logic;
@@ -180,7 +183,7 @@ begin
 					r_sm        <= s_wait_sinapse;
 
 				when s_wait_sinapse =>
-					if (r_mac_n0 = '1') and (r_mac_n1 = '1') and (r_mac_n2 = '1') and (r_mac_n3 = '1') and (r_mac_n4 = '1') then
+					if (r_mac_n0 = '1') and (r_mac_n1 = '1') and (r_mac_n2 = '1') and (r_mac_n3 = '1') and (r_mac_n4 = '1') and then
 						r_mac_done <= '1';
 						if r_sinapse < c_inputs then
 							r_sm <= s_get_data;
@@ -193,7 +196,7 @@ begin
 
 				when s_max =>
 					r_mac_done <= '0';
-					if (r_done_n0 = '1') and (r_done_n1 = '1') and (r_done_n2 = '1') and (r_done_n3 = '1') and (r_done_n4 = '1') then 
+					if (r_done_n0 = '1') and (r_done_n1 = '1') and (r_done_n2 = '1') and (r_done_n3 = '1') and (r_done_n4 = '1') and then 
 						r_max_enable <= '1';
 						r_sm <= s_wait_max;
 					else

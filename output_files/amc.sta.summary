@@ -3,39 +3,75 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'i_clk'
-Slack : -28.036
-TNS   : -32746.667
+Slack : -28.007
+TNS   : -43848.138
+
+Type  : Slow 1200mV 85C Model Setup 'layer_l4:ol|r_max_enable'
+Slack : -5.487
+TNS   : -21.321
 
 Type  : Slow 1200mV 85C Model Hold 'i_clk'
-Slack : 0.369
+Slack : 0.359
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'layer_l4:ol|r_max_enable'
+Slack : 2.255
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'i_clk'
 Slack : -3.000
-TNS   : -4617.516
+TNS   : -5825.115
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'layer_l4:ol|r_max_enable'
+Slack : 0.381
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'i_clk'
-Slack : -25.537
-TNS   : -29426.690
+Slack : -25.376
+TNS   : -39500.138
+
+Type  : Slow 1200mV 0C Model Setup 'layer_l4:ol|r_max_enable'
+Slack : -5.050
+TNS   : -19.503
 
 Type  : Slow 1200mV 0C Model Hold 'i_clk'
-Slack : 0.338
+Slack : 0.352
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'layer_l4:ol|r_max_enable'
+Slack : 2.170
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'i_clk'
 Slack : -3.000
-TNS   : -4616.108
+TNS   : -5823.355
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'layer_l4:ol|r_max_enable'
+Slack : 0.447
+TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'i_clk'
-Slack : -13.617
-TNS   : -14837.216
+Slack : -13.496
+TNS   : -19971.870
+
+Type  : Fast 1200mV 0C Model Setup 'layer_l4:ol|r_max_enable'
+Slack : -2.374
+TNS   : -9.167
 
 Type  : Fast 1200mV 0C Model Hold 'i_clk'
 Slack : 0.146
 TNS   : 0.000
 
+Type  : Fast 1200mV 0C Model Hold 'layer_l4:ol|r_max_enable'
+Slack : 1.161
+TNS   : 0.000
+
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'i_clk'
 Slack : -3.000
-TNS   : -3787.483
+TNS   : -4782.542
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'layer_l4:ol|r_max_enable'
+Slack : 0.328
+TNS   : 0.000
 
 ------------------------------------------------------------

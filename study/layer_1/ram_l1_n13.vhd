@@ -2,9 +2,12 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+library amc_library;
+use amc_library.data_types_pkg.all;
+
 entity ram_l1_n13 is
 	generic(
-		g_width   : natural := 16;
+		g_width   : natural := c_bits;
 		g_depth 	: natural := 50;
 		g_addr_bits : natural := 5);
 	port(

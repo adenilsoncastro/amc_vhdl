@@ -5,11 +5,14 @@ use ieee.numeric_std.all;
 library ieee_proposed;
 use ieee_proposed.fixed_pkg.all;
 
+library amc_library;
+use amc_library.data_types_pkg.all;
+
 entity neuron_l4_n4 is
 	generic(
-		g_bits        : natural := 16;
-		g_fxp_high    : natural := 4;
-		g_fxp_low     : integer :=-11);
+		g_bits        : natural := c_bits;
+		g_fxp_high    : natural := c_fxp_high;
+		g_fxp_low     : integer := c_fxp_low);
 	port(
 		i_clk           : in std_logic;
 		i_rst           : in std_logic;
@@ -45,10 +48,10 @@ architecture bhv of neuron_l4_n4 is
 	signal r_bias			: std_logic_vector(g_bits-1 downto 0)	:= (others => '0');
 
 	--Activation Function Signals
---Last layer neurons have no activation functions inside them.
+	--Last layer neurons have no activation functions inside them.
 component ram_l4_n4 is
 	generic(
-		g_width       : natural := 16;
+		g_width       : natural := c_bits;
 		g_depth       : natural := 50;
 		g_addr_bits   : natural := 6);
 	port(
@@ -61,9 +64,9 @@ end component;
 
 component mac is
 	generic(
-		g_bits        : natural := 16;
-		g_fxp_high    : natural := 4;
-		g_fxp_low     : integer :=-11);
+		g_bits        : natural := c_bits;
+		g_fxp_high    : natural := c_fxp_high;
+		g_fxp_low     : integer := c_fxp_low);
 	port(
 		i_clk         : in std_logic;
 		i_rst         : in std_logic;
@@ -117,12 +120,15 @@ begin
 					else
 						r_sm <= s_mac;
 					end if;
+
 				when s_bias =>
 					r_bias <= to_slv(resize(to_sfixed(r_mac_out, g_fxp_high, g_fxp_low) + to_sfixed(c_bias, g_fxp_high, g_fxp_low), g_fxp_high, g_fxp_low));
-				r_sm <= s_wait_bias;
+					r_sm <= s_wait_bias;
 
 				when s_wait_bias => 
-					r_done <= '1';					r_sm <= s_clear;
+					r_done <= '1';
+					r_sm <= s_clear;
+
 				when s_clear =>
 					r_done 			<= '0';
 					r_sinapse_count <= 0;

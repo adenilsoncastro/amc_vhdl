@@ -41,6 +41,13 @@
  constant c_ol		: natural 	:= 20;
  signal r_done		: std_logic := '0';
  
+ --Enable signal of each layer
+ signal r_enable_il	: std_logic := '0';
+ signal r_enable_hl1 : std_logic := '0';
+ signal r_enable_hl2	: std_logic := '0';
+ signal r_enable_hl3	: std_logic := '0';
+ signal r_enable_ol	: std_logic := '0';
+ 
  --Counter signals to control each sinapse
  signal r_count_il	: natural range 0 to c_il := 0;
  signal r_count_hl_1 : natural range 0 to c_hl_1 := 0;
@@ -164,11 +171,11 @@
  
  
  begin
- il	: layer_l0 port map(i_clk, i_rst, i_enable, r_input_il, r_mac_done_il, r_il_done, r_result_il_n0, r_result_il_n1, r_result_il_n2, r_result_il_n3, r_result_il_n4, r_result_il_n5);
- hl1	: layer_l1 port map(i_clk, i_rst, i_enable, r_input_hl1, r_mac_done_hl1, r_hl_1_done, r_result_hl1_n0, r_result_hl1_n1, r_result_hl1_n2, r_result_hl1_n3, r_result_hl1_n4, r_result_hl1_n5, r_result_hl1_n6, r_result_hl1_n7, r_result_hl1_n8, r_result_hl1_n9, r_result_hl1_n10, r_result_hl1_n11, r_result_hl1_n12, r_result_hl1_n13, r_result_hl1_n14, r_result_hl1_n15, r_result_hl1_n16, r_result_hl1_n17, r_result_hl1_n18, r_result_hl1_n19, r_result_hl1_n20, r_result_hl1_n21, r_result_hl1_n22, r_result_hl1_n23, r_result_hl1_n24, r_result_hl1_n25, r_result_hl1_n26, r_result_hl1_n27, r_result_hl1_n28, r_result_hl1_n29);
- hl2	: layer_l2 port map(i_clk, i_rst, i_enable, r_input_hl2, r_mac_done_hl2, r_hl_2_done, r_result_hl2_n0, r_result_hl2_n1, r_result_hl2_n2, r_result_hl2_n3, r_result_hl2_n4, r_result_hl2_n5, r_result_hl2_n6, r_result_hl2_n7, r_result_hl2_n8, r_result_hl2_n9, r_result_hl2_n10, r_result_hl2_n11, r_result_hl2_n12, r_result_hl2_n13, r_result_hl2_n14, r_result_hl2_n15, r_result_hl2_n16, r_result_hl2_n17, r_result_hl2_n18, r_result_hl2_n19, r_result_hl2_n20, r_result_hl2_n21, r_result_hl2_n22, r_result_hl2_n23);
- hl3	: layer_l3 port map(i_clk, i_rst, i_enable, r_input_hl3, r_mac_done_hl3, r_hl_3_done, r_result_hl3_n0, r_result_hl3_n1, r_result_hl3_n2, r_result_hl3_n3, r_result_hl3_n4, r_result_hl3_n5, r_result_hl3_n6, r_result_hl3_n7, r_result_hl3_n8, r_result_hl3_n9, r_result_hl3_n10, r_result_hl3_n11, r_result_hl3_n12, r_result_hl3_n13, r_result_hl3_n14, r_result_hl3_n15, r_result_hl3_n16, r_result_hl3_n17, r_result_hl3_n18, r_result_hl3_n19);
- ol	: layer_l4 port map(i_clk, i_rst, i_enable, r_input_ol, r_mac_done_ol, r_ol_done, r_result_ol);
+ il	: layer_l0 port map(i_clk, i_rst, r_enable_il, r_input_il, r_mac_done_il, r_il_done, r_result_il_n0, r_result_il_n1, r_result_il_n2, r_result_il_n3, r_result_il_n4, r_result_il_n5);
+ hl1	: layer_l1 port map(i_clk, i_rst, r_enable_hl1, r_input_hl1, r_mac_done_hl1, r_hl_1_done, r_result_hl1_n0, r_result_hl1_n1, r_result_hl1_n2, r_result_hl1_n3, r_result_hl1_n4, r_result_hl1_n5, r_result_hl1_n6, r_result_hl1_n7, r_result_hl1_n8, r_result_hl1_n9, r_result_hl1_n10, r_result_hl1_n11, r_result_hl1_n12, r_result_hl1_n13, r_result_hl1_n14, r_result_hl1_n15, r_result_hl1_n16, r_result_hl1_n17, r_result_hl1_n18, r_result_hl1_n19, r_result_hl1_n20, r_result_hl1_n21, r_result_hl1_n22, r_result_hl1_n23, r_result_hl1_n24, r_result_hl1_n25, r_result_hl1_n26, r_result_hl1_n27, r_result_hl1_n28, r_result_hl1_n29);
+ hl2	: layer_l2 port map(i_clk, i_rst, r_enable_hl2, r_input_hl2, r_mac_done_hl2, r_hl_2_done, r_result_hl2_n0, r_result_hl2_n1, r_result_hl2_n2, r_result_hl2_n3, r_result_hl2_n4, r_result_hl2_n5, r_result_hl2_n6, r_result_hl2_n7, r_result_hl2_n8, r_result_hl2_n9, r_result_hl2_n10, r_result_hl2_n11, r_result_hl2_n12, r_result_hl2_n13, r_result_hl2_n14, r_result_hl2_n15, r_result_hl2_n16, r_result_hl2_n17, r_result_hl2_n18, r_result_hl2_n19, r_result_hl2_n20, r_result_hl2_n21, r_result_hl2_n22, r_result_hl2_n23);
+ hl3	: layer_l3 port map(i_clk, i_rst, r_enable_hl3, r_input_hl3, r_mac_done_hl3, r_hl_3_done, r_result_hl3_n0, r_result_hl3_n1, r_result_hl3_n2, r_result_hl3_n3, r_result_hl3_n4, r_result_hl3_n5, r_result_hl3_n6, r_result_hl3_n7, r_result_hl3_n8, r_result_hl3_n9, r_result_hl3_n10, r_result_hl3_n11, r_result_hl3_n12, r_result_hl3_n13, r_result_hl3_n14, r_result_hl3_n15, r_result_hl3_n16, r_result_hl3_n17, r_result_hl3_n18, r_result_hl3_n19);
+ ol	: layer_l4 port map(i_clk, i_rst, r_enable_ol, r_input_ol, r_mac_done_ol, r_ol_done, r_result_ol);
  
  
  p_amc : process(i_clk)
@@ -180,7 +187,8 @@
 			case r_sm is
 				when s_idle =>
 					if i_enable = '1' then
-						r_sm <= s_input_layer;
+						r_sm 			<= s_input_layer;
+						r_enable_il <= '1';
 					else
 						r_sm <= s_idle;
 					end if;	
@@ -190,9 +198,11 @@
 						if r_count_il < c_il then
 							r_count_il <= r_count_il + 1;
 							r_sm <= s_input_layer;
-						elsif r_il_done = '1' then						
-							r_sm <= s_hl_1;
 						end if;
+					elsif r_il_done = '1' then						
+						r_sm <= s_hl_1;
+						r_enable_il  <= '0';
+						r_enable_hl1 <= '1';
 					else
 						r_sm <= s_input_layer;
 					end if;
@@ -201,9 +211,11 @@
 					if r_mac_done_hl1 = '1' then
 						if r_count_hl_1 < c_hl_1 then
 							r_count_hl_1 <= r_count_hl_1 + 1;
-						elsif r_hl_1_done = '1' then
-							r_sm <= s_hl_2;
 						end if;
+					elsif r_hl_1_done = '1' then
+						r_sm <= s_hl_2;
+						r_enable_hl1 <= '0';
+						r_enable_hl2 <= '1';					
 					else
 						r_sm <= s_hl_1;
 					end if;
@@ -212,9 +224,11 @@
 					if r_mac_done_hl2 = '1' then
 						if r_count_hl_2 < c_hl_2 then
 							r_count_hl_2 <= r_count_hl_2 + 1;
-						elsif r_hl_2_done = '1' then
-							r_sm <= s_hl_3;
 						end if;
+					elsif r_hl_2_done = '1' then
+						r_sm <= s_hl_3;
+						r_enable_hl2 <= '0';
+						r_enable_hl3 <= '1';						
 					else
 						r_sm <= s_hl_2;
 					end if;
@@ -223,17 +237,24 @@
 					if r_mac_done_hl3 = '1' then
 						if r_count_hl_3 < c_hl_3 then
 							r_count_hl_3 <= r_count_hl_3 + 1;
-						elsif r_hl_3_done = '1' then
-							r_sm <= s_output_layer;
 						end if;
+					elsif r_hl_3_done = '1' then
+						r_sm <= s_output_layer;
+						r_enable_hl3 <= '0';
+						r_enable_ol <= '1';						
 					else
 						r_sm <= s_hl_3;
 					end if;					
 				
 				when s_output_layer =>
-					if r_ol_done = '1' then 
+					if r_mac_done_ol = '1' then
+						if r_count_ol < c_ol then
+							r_count_ol <= r_count_ol + 1;
+						end if;
+					elsif r_ol_done = '1' then
 						r_done <= '1';
 						r_sm <= s_clear;
+						r_enable_ol <= '0';
 					else 
 						r_sm <= s_output_layer;
 					end if;
@@ -245,6 +266,11 @@
 					r_count_hl_3	<= 0;
 				   r_count_ol		<= 0;
 					r_done			<= '0';
+					r_enable_il		<= '0';
+					r_enable_hl1 	<= '0';
+					r_enable_hl2	<= '0';
+					r_enable_hl3	<= '0';
+					r_enable_ol		<= '0';
 					r_sm 				<= s_idle;
 				
 				when others =>
@@ -261,7 +287,7 @@
 					  i_ft_2 when 2,
 					  i_ft_3 when 3,
 					  i_ft_4 when 4,
-					  i_ft_4 when 5,
+					  i_ft_5 when 5,
 					  (others => '0') when others;
  
  with r_count_hl_1 select

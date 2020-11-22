@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Thu Nov 19 21:51:57 2020
+Analysis & Synthesis Status : Successful - Sat Nov 21 21:43:32 2020
 Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : amc
 Top-level Entity Name : amc
 Family : Cyclone IV E
-Total logic elements : 29,413
-    Total combinational functions : 28,367
-    Dedicated logic registers : 3,524
-Total registers : 3524
+Total logic elements : 38,682
+    Total combinational functions : 37,332
+    Dedicated logic registers : 4,447
+Total registers : 4447
 Total pins : 107
 Total virtual pins : 0
-Total memory bits : 52,800
-Embedded Multiplier 9-bit elements : 132
+Total memory bits : 68,000
+Embedded Multiplier 9-bit elements : 170
 Total PLLs : 0
