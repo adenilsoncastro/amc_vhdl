@@ -17,6 +17,7 @@
 	port(
 		i_clk		: in std_logic;
 		i_enable	: in std_logic;
+		i_rst		: in std_logic;
 		i_input	: in std_logic_vector(g_bits-1 downto 0);
 		o_result	: out std_logic_vector(g_bits-1 downto 0);
 		o_done	: out std_logic);
@@ -38,35 +39,43 @@
 	p_calculate : process(i_clk)
 	begin
 		if rising_edge(i_clk) then
-			case r_sm is
-				when s_idle =>
-					if i_enable = '1' then
-						r_sm <= s_add;
-					else
-						r_sm <= s_idle;
-					end if;
-				
-				when s_add =>
-					if r_index < g_frame_size then
-						r_acc 	<= resize(r_acc + to_sfixed(i_input, g_fxp_high, g_fxp_low), r_acc'high, r_acc'low);
-						r_index 	<= r_index + 1;
-						r_sm 		<= s_add;						
-					else
-						r_sm		<= s_divide;
-					end if;
+			if i_rst = '1' then
+				r_sm 		<= s_idle;
+				r_acc		<= (others => '0');
+				r_index  <= 0;
+				r_result <= (others => '0');
+				r_done	<= '0';
+			else				
+				case r_sm is
+					when s_idle =>
+						if i_enable = '1' then
+							r_sm <= s_add;
+						else
+							r_sm <= s_idle;
+						end if;
 					
-				when s_divide =>
-					r_result <= resize(r_acc / g_frame_size, r_result'high, r_result'low);
-					r_done 	<= '1';
-					r_sm 		<= s_clean;					
-					
-				when s_clean =>
-					r_index	<= 0;
-					r_done 	<='0';
-					r_acc		<= (others => '0');
-					r_sm		<= s_idle;
-					
-			end case;
+					when s_add =>
+						if r_index < g_frame_size then
+							r_acc 	<= resize(r_acc + to_sfixed(i_input, g_fxp_high, g_fxp_low), r_acc'high, r_acc'low);
+							r_index 	<= r_index + 1;
+							r_sm 		<= s_add;						
+						else
+							r_sm		<= s_divide;
+						end if;
+						
+					when s_divide =>
+						r_result <= resize(r_acc / g_frame_size, r_result'high, r_result'low);
+						r_done 	<= '1';
+						r_sm 		<= s_clean;					
+						
+					when s_clean =>
+						r_index	<= 0;
+						r_done 	<='0';
+						r_acc		<= (others => '0');
+						r_sm		<= s_idle;
+						
+				end case;
+			end if;
 		end if;	
 	end process p_calculate;
  
