@@ -161,17 +161,17 @@ package data_types_pkg is
 	--Layer 4
 	component layer_l4 is
 		generic(
-		g_bits           : natural := c_bits;
-		g_fxp_high 	   : natural := c_fxp_high;
-		g_fxp_low        : integer := c_fxp_low);
+		g_bits		: natural := c_bits;
+		g_fxp_high	: natural := c_fxp_high;
+		g_fxp_low   : integer := c_fxp_low);
 	port(
 		i_clk			: in std_logic;
-		i_rst         : in std_logic;
-		i_enable      : in std_logic;
-		i_fxp         : in std_logic_vector(g_bits-1 downto 0);
-		o_mac_done    : out std_logic;
-		o_done        : out std_logic;
-		o_result			: out std_logic_vector(6 downto 0));
+		i_rst       : in std_logic;
+		i_enable    : in std_logic;
+		i_fxp       : in std_logic_vector(g_bits-1 downto 0);
+		o_mac_done  : out std_logic;
+		o_done      : out std_logic;
+		o_result		: out std_logic_vector(6 downto 0));
 	end component;
 	
 end package data_types_pkg;

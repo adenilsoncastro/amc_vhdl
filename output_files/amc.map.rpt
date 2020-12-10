@@ -1,5 +1,5 @@
 Analysis & Synthesis report for amc
-Sat Nov 21 21:43:33 2020
+Tue Dec 08 11:58:37 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -825,7 +825,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Nov 21 21:43:32 2020       ;
+; Analysis & Synthesis Status        ; Successful - Tue Dec 08 11:58:37 2020       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; amc                                         ;
 ; Top-level Entity Name              ; amc                                         ;
@@ -24069,7 +24069,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:11:07     ;
+; Top            ; 00:11:40     ;
 +----------------+--------------+
 
 
@@ -24085,7 +24085,7 @@ The equations can be found in C:/Users/adeni/Documents/Mestrado/amc_vhdl/output_
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Sat Nov 21 21:32:09 2020
+    Info: Processing started: Tue Dec 08 11:46:34 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off amc -c amc
 Info (20032): Parallel compilation is enabled and will use up to 6 processors
 Info (12021): Found 2 design units, including 0 entities, in source file ieee_proposed/fixed_pkg_c.vhdl
@@ -24500,9 +24500,6 @@ Warning (12125): Using design file amc_library/layer_l2.vhd, which is not specif
     Info (12022): Found design unit 1: layer_l2-bhv File: c:/users/adeni/documents/mestrado/amc_vhdl/amc_library/layer_l2.vhd Line: 49
     Info (12023): Found entity 1: layer_l2 File: c:/users/adeni/documents/mestrado/amc_vhdl/amc_library/layer_l2.vhd Line: 11
 Info (12128): Elaborating entity "layer_l2" for hierarchy "layer_l2:hl2" File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/amc.vhd Line: 176
-Warning (10445): VHDL Subtype or Type Declaration warning at fixed_pkg_c.vhdl(1470): subtype or type has null range File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/ieee_proposed/fixed_pkg_c.vhdl Line: 1470
-Warning (10445): VHDL Subtype or Type Declaration warning at fixed_pkg_c.vhdl(1471): subtype or type has null range File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/ieee_proposed/fixed_pkg_c.vhdl Line: 1471
-Warning (10445): VHDL Subtype or Type Declaration warning at fixed_pkg_c.vhdl(1472): subtype or type has null range File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/ieee_proposed/fixed_pkg_c.vhdl Line: 1472
 Warning (12125): Using design file amc_library/neuron_l2_n0.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
     Info (12022): Found design unit 1: neuron_l2_n0-bhv File: c:/users/adeni/documents/mestrado/amc_vhdl/amc_library/neuron_l2_n0.vhd Line: 26
     Info (12023): Found entity 1: neuron_l2_n0 File: c:/users/adeni/documents/mestrado/amc_vhdl/amc_library/neuron_l2_n0.vhd Line: 11
@@ -26138,9 +26135,6 @@ Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n1:n1|ram_l3_n1:
     Info (12134): Parameter "INIT_FILE" = "db/amc.ram0_ram_l3_n1_4f877ee8.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_bj61.tdf
     Info (12023): Found entity 1: altsyncram_bj61 File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/altsyncram_bj61.tdf Line: 28
-Warning (113028): 14 out of 64 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n1_4f877ee8.hdl.mif Line: 1
-    Warning (113027): Addresses ranging from 50 to 63 are not initialized File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n1_4f877ee8.hdl.mif Line: 1
-Critical Warning (127004): Memory depth (50) in the design file differs from memory depth (64) in the Memory Initialization File "C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n1_4f877ee8.hdl.mif" -- truncated remaining initial content value to fit RAM File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12130): Elaborated megafunction instantiation "layer_l3:hl3|neuron_l3_n2:n2|ram_l3_n2:ram_n2|altsyncram:r_mem_rtl_0"
 Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n2:n2|ram_l3_n2:ram_n2|altsyncram:r_mem_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "ROM"
@@ -26155,9 +26149,6 @@ Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n2:n2|ram_l3_n2:
     Info (12134): Parameter "INIT_FILE" = "db/amc.ram0_ram_l3_n2_e584355.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ce61.tdf
     Info (12023): Found entity 1: altsyncram_ce61 File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/altsyncram_ce61.tdf Line: 28
-Warning (113028): 14 out of 64 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n2_e584355.hdl.mif Line: 1
-    Warning (113027): Addresses ranging from 50 to 63 are not initialized File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n2_e584355.hdl.mif Line: 1
-Critical Warning (127004): Memory depth (50) in the design file differs from memory depth (64) in the Memory Initialization File "C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n2_e584355.hdl.mif" -- truncated remaining initial content value to fit RAM File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12130): Elaborated megafunction instantiation "layer_l3:hl3|neuron_l3_n3:n3|ram_l3_n3:ram_n3|altsyncram:r_mem_rtl_0"
 Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n3:n3|ram_l3_n3:ram_n3|altsyncram:r_mem_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "ROM"
@@ -26172,9 +26163,6 @@ Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n3:n3|ram_l3_n3:
     Info (12134): Parameter "INIT_FILE" = "db/amc.ram0_ram_l3_n3_5fb2527f.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ti61.tdf
     Info (12023): Found entity 1: altsyncram_ti61 File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/altsyncram_ti61.tdf Line: 28
-Warning (113028): 14 out of 64 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n3_5fb2527f.hdl.mif Line: 1
-    Warning (113027): Addresses ranging from 50 to 63 are not initialized File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n3_5fb2527f.hdl.mif Line: 1
-Critical Warning (127004): Memory depth (50) in the design file differs from memory depth (64) in the Memory Initialization File "C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n3_5fb2527f.hdl.mif" -- truncated remaining initial content value to fit RAM File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12130): Elaborated megafunction instantiation "layer_l3:hl3|neuron_l3_n4:n4|ram_l3_n4:ram_n4|altsyncram:r_mem_rtl_0"
 Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n4:n4|ram_l3_n4:ram_n4|altsyncram:r_mem_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "ROM"
@@ -26189,9 +26177,6 @@ Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n4:n4|ram_l3_n4:
     Info (12134): Parameter "INIT_FILE" = "db/amc.ram0_ram_l3_n4_8d471aad.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_9k61.tdf
     Info (12023): Found entity 1: altsyncram_9k61 File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/altsyncram_9k61.tdf Line: 28
-Warning (113028): 14 out of 64 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n4_8d471aad.hdl.mif Line: 1
-    Warning (113027): Addresses ranging from 50 to 63 are not initialized File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n4_8d471aad.hdl.mif Line: 1
-Critical Warning (127004): Memory depth (50) in the design file differs from memory depth (64) in the Memory Initialization File "C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n4_8d471aad.hdl.mif" -- truncated remaining initial content value to fit RAM File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12130): Elaborated megafunction instantiation "layer_l3:hl3|neuron_l3_n5:n5|ram_l3_n5:ram_n5|altsyncram:r_mem_rtl_0"
 Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n5:n5|ram_l3_n5:ram_n5|altsyncram:r_mem_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "ROM"
@@ -26206,9 +26191,6 @@ Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n5:n5|ram_l3_n5:
     Info (12134): Parameter "INIT_FILE" = "db/amc.ram0_ram_l3_n5_2a34b9bb.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_8k61.tdf
     Info (12023): Found entity 1: altsyncram_8k61 File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/altsyncram_8k61.tdf Line: 28
-Warning (113028): 14 out of 64 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n5_2a34b9bb.hdl.mif Line: 1
-    Warning (113027): Addresses ranging from 50 to 63 are not initialized File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n5_2a34b9bb.hdl.mif Line: 1
-Critical Warning (127004): Memory depth (50) in the design file differs from memory depth (64) in the Memory Initialization File "C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n5_2a34b9bb.hdl.mif" -- truncated remaining initial content value to fit RAM File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12130): Elaborated megafunction instantiation "layer_l3:hl3|neuron_l3_n6:n6|ram_l3_n6:ram_n6|altsyncram:r_mem_rtl_0"
 Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n6:n6|ram_l3_n6:ram_n6|altsyncram:r_mem_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "ROM"
@@ -26223,9 +26205,6 @@ Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n6:n6|ram_l3_n6:
     Info (12134): Parameter "INIT_FILE" = "db/amc.ram0_ram_l3_n6_750a214e.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_6h61.tdf
     Info (12023): Found entity 1: altsyncram_6h61 File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/altsyncram_6h61.tdf Line: 28
-Warning (113028): 14 out of 64 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n6_750a214e.hdl.mif Line: 1
-    Warning (113027): Addresses ranging from 50 to 63 are not initialized File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n6_750a214e.hdl.mif Line: 1
-Critical Warning (127004): Memory depth (50) in the design file differs from memory depth (64) in the Memory Initialization File "C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n6_750a214e.hdl.mif" -- truncated remaining initial content value to fit RAM File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12130): Elaborated megafunction instantiation "layer_l3:hl3|neuron_l3_n7:n7|ram_l3_n7:ram_n7|altsyncram:r_mem_rtl_0"
 Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n7:n7|ram_l3_n7:ram_n7|altsyncram:r_mem_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "ROM"
@@ -26240,9 +26219,6 @@ Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n7:n7|ram_l3_n7:
     Info (12134): Parameter "INIT_FILE" = "db/amc.ram0_ram_l3_n7_14087c57.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_1g61.tdf
     Info (12023): Found entity 1: altsyncram_1g61 File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/altsyncram_1g61.tdf Line: 28
-Warning (113028): 14 out of 64 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n7_14087c57.hdl.mif Line: 1
-    Warning (113027): Addresses ranging from 50 to 63 are not initialized File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n7_14087c57.hdl.mif Line: 1
-Critical Warning (127004): Memory depth (50) in the design file differs from memory depth (64) in the Memory Initialization File "C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n7_14087c57.hdl.mif" -- truncated remaining initial content value to fit RAM File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12130): Elaborated megafunction instantiation "layer_l3:hl3|neuron_l3_n8:n8|ram_l3_n8:ram_n8|altsyncram:r_mem_rtl_0"
 Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n8:n8|ram_l3_n8:ram_n8|altsyncram:r_mem_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "ROM"
@@ -26257,9 +26233,6 @@ Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n8:n8|ram_l3_n8:
     Info (12134): Parameter "INIT_FILE" = "db/amc.ram0_ram_l3_n8_66b460aa.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_pi61.tdf
     Info (12023): Found entity 1: altsyncram_pi61 File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/altsyncram_pi61.tdf Line: 28
-Warning (113028): 14 out of 64 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n8_66b460aa.hdl.mif Line: 1
-    Warning (113027): Addresses ranging from 50 to 63 are not initialized File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n8_66b460aa.hdl.mif Line: 1
-Critical Warning (127004): Memory depth (50) in the design file differs from memory depth (64) in the Memory Initialization File "C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n8_66b460aa.hdl.mif" -- truncated remaining initial content value to fit RAM File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12130): Elaborated megafunction instantiation "layer_l3:hl3|neuron_l3_n9:n9|ram_l3_n9:ram_n9|altsyncram:r_mem_rtl_0"
 Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n9:n9|ram_l3_n9:ram_n9|altsyncram:r_mem_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "ROM"
@@ -26274,9 +26247,6 @@ Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n9:n9|ram_l3_n9:
     Info (12134): Parameter "INIT_FILE" = "db/amc.ram0_ram_l3_n9_c01dd03b.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_1k61.tdf
     Info (12023): Found entity 1: altsyncram_1k61 File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/altsyncram_1k61.tdf Line: 28
-Warning (113028): 14 out of 64 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n9_c01dd03b.hdl.mif Line: 1
-    Warning (113027): Addresses ranging from 50 to 63 are not initialized File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n9_c01dd03b.hdl.mif Line: 1
-Critical Warning (127004): Memory depth (50) in the design file differs from memory depth (64) in the Memory Initialization File "C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n9_c01dd03b.hdl.mif" -- truncated remaining initial content value to fit RAM File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12130): Elaborated megafunction instantiation "layer_l3:hl3|neuron_l3_n10:n10|ram_l3_n10:ram_n10|altsyncram:r_mem_rtl_0"
 Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n10:n10|ram_l3_n10:ram_n10|altsyncram:r_mem_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "ROM"
@@ -26291,9 +26261,6 @@ Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n10:n10|ram_l3_n
     Info (12134): Parameter "INIT_FILE" = "db/amc.ram0_ram_l3_n10_e6f343c5.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_fk61.tdf
     Info (12023): Found entity 1: altsyncram_fk61 File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/altsyncram_fk61.tdf Line: 28
-Warning (113028): 14 out of 64 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n10_e6f343c5.hdl.mif Line: 1
-    Warning (113027): Addresses ranging from 50 to 63 are not initialized File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n10_e6f343c5.hdl.mif Line: 1
-Critical Warning (127004): Memory depth (50) in the design file differs from memory depth (64) in the Memory Initialization File "C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n10_e6f343c5.hdl.mif" -- truncated remaining initial content value to fit RAM File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12130): Elaborated megafunction instantiation "layer_l3:hl3|neuron_l3_n11:n11|ram_l3_n11:ram_n11|altsyncram:r_mem_rtl_0"
 Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n11:n11|ram_l3_n11:ram_n11|altsyncram:r_mem_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "ROM"
@@ -26308,9 +26275,6 @@ Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n11:n11|ram_l3_n
     Info (12134): Parameter "INIT_FILE" = "db/amc.ram0_ram_l3_n11_4b512b6f.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_gk61.tdf
     Info (12023): Found entity 1: altsyncram_gk61 File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/altsyncram_gk61.tdf Line: 28
-Warning (113028): 14 out of 64 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n11_4b512b6f.hdl.mif Line: 1
-    Warning (113027): Addresses ranging from 50 to 63 are not initialized File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n11_4b512b6f.hdl.mif Line: 1
-Critical Warning (127004): Memory depth (50) in the design file differs from memory depth (64) in the Memory Initialization File "C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n11_4b512b6f.hdl.mif" -- truncated remaining initial content value to fit RAM File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12130): Elaborated megafunction instantiation "layer_l3:hl3|neuron_l3_n12:n12|ram_l3_n12:ram_n12|altsyncram:r_mem_rtl_0"
 Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n12:n12|ram_l3_n12:ram_n12|altsyncram:r_mem_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "ROM"
@@ -26325,9 +26289,6 @@ Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n12:n12|ram_l3_n
     Info (12134): Parameter "INIT_FILE" = "db/amc.ram0_ram_l3_n12_53dc34e0.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ik61.tdf
     Info (12023): Found entity 1: altsyncram_ik61 File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/altsyncram_ik61.tdf Line: 28
-Warning (113028): 14 out of 64 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n12_53dc34e0.hdl.mif Line: 1
-    Warning (113027): Addresses ranging from 50 to 63 are not initialized File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n12_53dc34e0.hdl.mif Line: 1
-Critical Warning (127004): Memory depth (50) in the design file differs from memory depth (64) in the Memory Initialization File "C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n12_53dc34e0.hdl.mif" -- truncated remaining initial content value to fit RAM File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12130): Elaborated megafunction instantiation "layer_l3:hl3|neuron_l3_n13:n13|ram_l3_n13:ram_n13|altsyncram:r_mem_rtl_0"
 Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n13:n13|ram_l3_n13:ram_n13|altsyncram:r_mem_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "ROM"
@@ -26342,9 +26303,6 @@ Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n13:n13|ram_l3_n
     Info (12134): Parameter "INIT_FILE" = "db/amc.ram0_ram_l3_n13_51a294a4.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_mi61.tdf
     Info (12023): Found entity 1: altsyncram_mi61 File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/altsyncram_mi61.tdf Line: 28
-Warning (113028): 14 out of 64 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n13_51a294a4.hdl.mif Line: 1
-    Warning (113027): Addresses ranging from 50 to 63 are not initialized File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n13_51a294a4.hdl.mif Line: 1
-Critical Warning (127004): Memory depth (50) in the design file differs from memory depth (64) in the Memory Initialization File "C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n13_51a294a4.hdl.mif" -- truncated remaining initial content value to fit RAM File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12130): Elaborated megafunction instantiation "layer_l3:hl3|neuron_l3_n14:n14|ram_l3_n14:ram_n14|altsyncram:r_mem_rtl_0"
 Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n14:n14|ram_l3_n14:ram_n14|altsyncram:r_mem_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "ROM"
@@ -26359,9 +26317,6 @@ Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n14:n14|ram_l3_n
     Info (12134): Parameter "INIT_FILE" = "db/amc.ram0_ram_l3_n14_1e5080c9.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_7j61.tdf
     Info (12023): Found entity 1: altsyncram_7j61 File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/altsyncram_7j61.tdf Line: 28
-Warning (113028): 14 out of 64 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n14_1e5080c9.hdl.mif Line: 1
-    Warning (113027): Addresses ranging from 50 to 63 are not initialized File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n14_1e5080c9.hdl.mif Line: 1
-Critical Warning (127004): Memory depth (50) in the design file differs from memory depth (64) in the Memory Initialization File "C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n14_1e5080c9.hdl.mif" -- truncated remaining initial content value to fit RAM File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12130): Elaborated megafunction instantiation "layer_l3:hl3|neuron_l3_n15:n15|ram_l3_n15:ram_n15|altsyncram:r_mem_rtl_0"
 Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n15:n15|ram_l3_n15:ram_n15|altsyncram:r_mem_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "ROM"
@@ -26376,9 +26331,6 @@ Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n15:n15|ram_l3_n
     Info (12134): Parameter "INIT_FILE" = "db/amc.ram0_ram_l3_n15_5b6856b2.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_8j61.tdf
     Info (12023): Found entity 1: altsyncram_8j61 File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/altsyncram_8j61.tdf Line: 28
-Warning (113028): 14 out of 64 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n15_5b6856b2.hdl.mif Line: 1
-    Warning (113027): Addresses ranging from 50 to 63 are not initialized File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n15_5b6856b2.hdl.mif Line: 1
-Critical Warning (127004): Memory depth (50) in the design file differs from memory depth (64) in the Memory Initialization File "C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n15_5b6856b2.hdl.mif" -- truncated remaining initial content value to fit RAM File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12130): Elaborated megafunction instantiation "layer_l3:hl3|neuron_l3_n16:n16|ram_l3_n16:ram_n16|altsyncram:r_mem_rtl_0"
 Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n16:n16|ram_l3_n16:ram_n16|altsyncram:r_mem_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "ROM"
@@ -26393,9 +26345,6 @@ Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n16:n16|ram_l3_n
     Info (12134): Parameter "INIT_FILE" = "db/amc.ram0_ram_l3_n16_cc8f4fe0.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_hn61.tdf
     Info (12023): Found entity 1: altsyncram_hn61 File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/altsyncram_hn61.tdf Line: 28
-Warning (113028): 14 out of 64 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n16_cc8f4fe0.hdl.mif Line: 1
-    Warning (113027): Addresses ranging from 50 to 63 are not initialized File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n16_cc8f4fe0.hdl.mif Line: 1
-Critical Warning (127004): Memory depth (50) in the design file differs from memory depth (64) in the Memory Initialization File "C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n16_cc8f4fe0.hdl.mif" -- truncated remaining initial content value to fit RAM File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12130): Elaborated megafunction instantiation "layer_l3:hl3|neuron_l3_n17:n17|ram_l3_n17:ram_n17|altsyncram:r_mem_rtl_0"
 Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n17:n17|ram_l3_n17:ram_n17|altsyncram:r_mem_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "ROM"
@@ -26410,9 +26359,6 @@ Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n17:n17|ram_l3_n
     Info (12134): Parameter "INIT_FILE" = "db/amc.ram0_ram_l3_n17_b451357b.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_9j61.tdf
     Info (12023): Found entity 1: altsyncram_9j61 File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/altsyncram_9j61.tdf Line: 28
-Warning (113028): 14 out of 64 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n17_b451357b.hdl.mif Line: 1
-    Warning (113027): Addresses ranging from 50 to 63 are not initialized File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n17_b451357b.hdl.mif Line: 1
-Critical Warning (127004): Memory depth (50) in the design file differs from memory depth (64) in the Memory Initialization File "C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n17_b451357b.hdl.mif" -- truncated remaining initial content value to fit RAM File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12130): Elaborated megafunction instantiation "layer_l3:hl3|neuron_l3_n18:n18|ram_l3_n18:ram_n18|altsyncram:r_mem_rtl_0"
 Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n18:n18|ram_l3_n18:ram_n18|altsyncram:r_mem_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "ROM"
@@ -26427,9 +26373,6 @@ Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n18:n18|ram_l3_n
     Info (12134): Parameter "INIT_FILE" = "db/amc.ram0_ram_l3_n18_93381c4.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_vf61.tdf
     Info (12023): Found entity 1: altsyncram_vf61 File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/altsyncram_vf61.tdf Line: 28
-Warning (113028): 14 out of 64 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n18_93381c4.hdl.mif Line: 1
-    Warning (113027): Addresses ranging from 50 to 63 are not initialized File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n18_93381c4.hdl.mif Line: 1
-Critical Warning (127004): Memory depth (50) in the design file differs from memory depth (64) in the Memory Initialization File "C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n18_93381c4.hdl.mif" -- truncated remaining initial content value to fit RAM File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12130): Elaborated megafunction instantiation "layer_l3:hl3|neuron_l3_n19:n19|ram_l3_n19:ram_n19|altsyncram:r_mem_rtl_0"
 Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n19:n19|ram_l3_n19:ram_n19|altsyncram:r_mem_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "ROM"
@@ -26444,9 +26387,6 @@ Info (12133): Instantiated megafunction "layer_l3:hl3|neuron_l3_n19:n19|ram_l3_n
     Info (12134): Parameter "INIT_FILE" = "db/amc.ram0_ram_l3_n19_81eddf69.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_cm61.tdf
     Info (12023): Found entity 1: altsyncram_cm61 File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/altsyncram_cm61.tdf Line: 28
-Warning (113028): 14 out of 64 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n19_81eddf69.hdl.mif Line: 1
-    Warning (113027): Addresses ranging from 50 to 63 are not initialized File: C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n19_81eddf69.hdl.mif Line: 1
-Critical Warning (127004): Memory depth (50) in the design file differs from memory depth (64) in the Memory Initialization File "C:/Users/adeni/Documents/Mestrado/amc_vhdl/db/amc.ram0_ram_l3_n19_81eddf69.hdl.mif" -- truncated remaining initial content value to fit RAM File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12130): Elaborated megafunction instantiation "layer_l2:hl2|neuron_l2_n0:n0|ram_l2_n0:ram_n0|altsyncram:r_mem_rtl_0"
 Info (12133): Instantiated megafunction "layer_l2:hl2|neuron_l2_n0:n0|ram_l2_n0:ram_n0|altsyncram:r_mem_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "ROM"
@@ -27344,10 +27284,10 @@ Info (21057): Implemented 40320 device resources after synthesis - the final res
     Info (21061): Implemented 38683 logic cells
     Info (21064): Implemented 1360 RAM segments
     Info (21062): Implemented 170 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 434 warnings
-    Info: Peak virtual memory: 5462 megabytes
-    Info: Processing ended: Sat Nov 21 21:43:33 2020
-    Info: Elapsed time: 00:11:24
-    Info: Total CPU time (on all processors): 00:11:34
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 374 warnings
+    Info: Peak virtual memory: 5452 megabytes
+    Info: Processing ended: Tue Dec 08 11:58:37 2020
+    Info: Elapsed time: 00:12:03
+    Info: Total CPU time (on all processors): 00:12:08
 
 
