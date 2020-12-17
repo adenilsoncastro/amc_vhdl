@@ -73,6 +73,9 @@
 						r_done 	<='0';
 						r_acc		<= (others => '0');
 						r_sm		<= s_idle;
+					
+					when others =>
+						r_sm <= s_idle;
 						
 				end case;
 			end if;
