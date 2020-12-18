@@ -19,6 +19,7 @@
 		i_enable	: in std_logic;
 		i_input	: in std_logic_vector(g_bits-1 downto 0);
 		i_mean	: in std_logic_vector(g_bits-1 downto 0);
+		o_pdone	: out std_logic;
 		o_result	: out std_logic_vector(g_bits-1 downto 0);
 		o_done	: out std_logic);	
  end standard_deviation;
@@ -31,7 +32,8 @@
 	signal r_index		: natural range 0 to g_frame_size := 0;
 	signal r_sub		: sfixed(4 downto -11)	:= (others => '0');
 	signal r_squared	: sfixed(4 downto -11)	:= (others => '0');
-	signal r_acc		: sfixed(15 downto -16) := (others => '0');	
+	signal r_acc		: sfixed(15 downto -16) := (others => '0');
+	signal r_pdone		: std_logic := '0';
 	signal r_result 	: sfixed(4 downto -11)	:= (others => '0');
 	signal r_done		: std_logic := '0';
 	
@@ -45,6 +47,7 @@
 				r_acc		<= (others => '0');
 				r_index	<= 0;
 				r_result	<= (others => '0');
+				r_pdone	<= '0';
 				r_done	<= '0';
 			else
 				case r_sm is
@@ -56,6 +59,7 @@
 						end if;
 						
 					when s_add =>
+						r_pdone <= '0';
 						if r_index < g_frame_size then
 							r_sub 	<= resize(to_sfixed(i_input, g_fxp_high, g_fxp_low) - to_sfixed(i_mean, g_fxp_high, g_fxp_low), r_sub'high, r_sub'low);
 							r_index 	<= r_index + 1;
@@ -69,8 +73,9 @@
 						r_sm 			<= s_acc;
 						
 					when s_acc => 
-						r_acc	<= resize(r_acc + r_squared, r_acc'high, r_acc'low);
-						r_sm	<= s_add;
+						r_acc		<= resize(r_acc + r_squared, r_acc'high, r_acc'low);
+						r_pdone	<= '1';
+						r_sm		<= s_add;
 						
 					when s_divide =>
 						-- verificar se o g_frame_size servirá para a feature 3						
@@ -80,6 +85,7 @@
 						
 					when s_clear =>
 						r_index		<= 0;
+						r_pdone		<= '0';
 						r_done		<= '0';
 						r_sub			<= (others => '0');
 						r_squared	<= (others => '0');
@@ -94,6 +100,7 @@
 		end if;	
 	end process p_calculate;
 	
+	o_pdone	<= r_pdone;
 	o_done 	<= r_done;
 	o_result	<= to_slv(r_result);
  

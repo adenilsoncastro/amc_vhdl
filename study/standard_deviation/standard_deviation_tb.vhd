@@ -22,6 +22,7 @@
 	signal r_input		: std_logic_vector(15 downto 0) := (others => '0');
 	signal r_mean		: std_logic_vector(15 downto 0) := (others => '0');
 	signal r_result	: std_logic_vector(15 downto 0) := (others => '0');
+	signal r_pdone		: std_logic := '0'; 
 	signal r_done		: std_logic := '0'; 
 	
 	file f_data	: text open read_mode is "QPSK_abs_complex_bin.txt";
@@ -38,13 +39,14 @@
 			i_enable	: in std_logic;
 			i_input	: in std_logic_vector(g_bits-1 downto 0);
 			i_mean	: in std_logic_vector(g_bits-1 downto 0);
+			o_pdone	: out std_logic;
 			o_result	: out std_logic_vector(g_bits-1 downto 0);
-			o_done	: out std_logic);	
+			o_done	: out std_logic);
 	end component;
 	
 	begin
 		
-		dut : standard_deviation port map(r_clk, r_rst, r_enable, r_input, r_mean, r_result, r_done);
+		dut : standard_deviation port map(r_clk, r_rst, r_enable, r_input, r_mean, r_pdone, r_result, r_done);
 		r_clk <= not r_clk after 20 ns;
 		
 		r_mean <= "0000011001101111";
@@ -63,7 +65,7 @@
 				read(v_line, v_data);
 				
 				r_input <= v_data;
-				wait until rising_edge(r_clk);
+				wait until r_pdone = '1';
 			end loop;
 			
 			wait until rising_edge(r_clk);			
