@@ -28,6 +28,8 @@
  end features;
  
  architecture bhv of features is
+ 
+	-- Memory arrays
 	type t_mem_real is array (0 to g_frame_size-1) of std_logic_vector(g_bits-1 downto 0);
 	type t_mem_img is array (0 to g_frame_size-1) of std_logic_vector(g_bits-1 downto 0);
 	type t_mem_abs is array (0 to g_frame_size-1) of std_logic_vector(g_bits-1 downto 0);
@@ -38,29 +40,73 @@
 	signal r_mem_abs	: t_mem_abs	 := (others => (others => '0'));
 	signal r_mem_mean : t_mem_mean := (others => (others => '0'));
 	
-	signal r_enable_abs	: std_logic := '0';
+	-- ABS signals
+	type t_abs_sm is (s_idle, s_process, s_write, s_done);
+	signal r_abs_sm		: t_abs_sm 	:= s_idle;
+	signal r_abs_enable	: std_logic := '0';
+	signal r_abs_index	: natural range 0 to g_frame_size := 0;
+	signal r_abs_done		: std_logic := '0';
+	signal r_abs_done_all: std_logic := '0';
 	signal r_abs_real 	: std_logic_vector(g_bits-1 downto 0) := (others => '0');
 	signal r_abs_img	 	: std_logic_vector(g_bits-1 downto 0) := (others => '0');
 	signal r_abs_result 	: std_logic_vector(g_bits-1 downto 0) := (others => '0');
 	
 	component abs_complex is
 		port(
-		i_clk				: in std_logic;
-		i_enable			: in std_logic;
-		i_real			: in std_logic_vector(g_bits-1 downto 0);
-		i_img				: in std_logic_vector(g_bits-1 downto 0);
-		o_complex		: out std_logic_vector(g_bits-1 downto 0));
+			i_clk				: in std_logic;
+			i_enable			: in std_logic;
+			i_real			: in std_logic_vector(g_bits-1 downto 0);
+			i_img				: in std_logic_vector(g_bits-1 downto 0);
+			o_done			: out std_logic;
+			o_complex		: out std_logic_vector(g_bits-1 downto 0));
 	end component;
 
  begin
 	
-	complex_abs : abs_complex port map(i_clk, r_enable_abs, r_abs_real, r_abs_img, r_abs_result);
+	complex_abs : abs_complex port map(i_clk, r_abs_enable, r_abs_real, r_abs_img, r_abs_done, r_abs_result);
 	
 	p_complex_abs : process(i_clk, i_enable)
 	begin
 		if rising_edge(i_clk) then
-			
+			case r_abs_sm is
+				when s_idle =>
+					if i_enable = '1' then
+						r_abs_sm <= s_process;
+					else
+						r_abs_sm <= s_idle;
+					end if;
+				
+				when s_process =>
+					if r_abs_index < g_frame_size then
+						if r_abs_done = '1' then
+							r_abs_sm <= s_write;
+						else
+							r_abs_real 	<= r_mem_real(r_abs_index);
+							r_abs_img	<= r_mem_img(r_abs_index);
+							r_abs_sm		<= s_process;
+						end if;
+					else
+						r_abs_done_all <= '1';
+						r_abs_sm 		<= s_done;
+					end if;
+					
+				when s_write =>
+					r_mem_abs(r_abs_index) <= r_abs_result;
+					r_abs_index	<= r_abs_index + 1;
+					r_abs_sm		<= s_process;
+				
+				when s_done =>
+					r_abs_index    <= 0;
+					r_abs_done_all <= '0';
+					r_abs_sm			<= s_idle;
+				
+				when others => 
+					r_abs_sm <= s_idle;
+					
+			end case;
 		end if;
 	end process p_complex_abs;
+	
+	o_done <= r_abs_done_all;
 	
  end bhv;
