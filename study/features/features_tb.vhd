@@ -1,11 +1,19 @@
  library ieee;
  use ieee.std_logic_1164.all;
+ use ieee.std_logic_textio.all;
+ use ieee.numeric_std.all;
+
+ library std;
+ use std.textio.all;
  
  library ieee_proposed;
  use ieee_proposed.fixed_pkg.all;
  
- library rna_library;
- use rna_library.data_types_pkg.all;
+ library amc_library;
+ use amc_library.data_types_pkg.all;
+
+ --library modelsim_lib;
+ --use modelsim_lib.util.all;
  
  entity features_tb is
  end features_tb;
@@ -23,6 +31,9 @@
  signal r_ft_4		: std_logic_vector(15 downto 0);
  signal r_ft_5		: std_logic_vector(15 downto 0);
  signal r_done		: std_logic := '0';
+
+ file f_abs_result : text open write_mode is "abs_complex_result.txt";
+ signal r_abs_result : std_logic_vector(15 downto 0);
  
  component features is
  	generic(
@@ -49,14 +60,30 @@
  dut : features port map(r_clk, r_rst, r_enable, r_input, r_ft_0, r_ft_1, r_ft_2, r_ft_3, r_ft_4, r_ft_5, r_done);
  r_clk <= not r_clk after 10 ns;
  
- p_test : process(r_clk)
+ p_test : process
  begin
 	wait until rising_edge(r_clk);
 	r_enable <= '1';
 	wait until r_done = '1';
 	wait until rising_edge(r_clk);
+
+	wait for 50 ns;
+	r_enable <= '0';
 	
- assert false report "Test finished" severity failure;
+ 	assert false report "Test finished" severity failure;
  end process p_test;
+
+ p_write_file : process (r_abs_result)
+ variable v_line : line;
+ begin
+	write(v_line, r_abs_result);
+	writeline(f_abs_result, v_line);
+ end process p_write_file;
+
+-- p_spy : process
+-- begin
+--	init_signal_spy("/features_tb/dut/r_abs_result", "/r_abs_result",1,1);
+--	wait;
+-- end process p_spy;
  
  end bhv;

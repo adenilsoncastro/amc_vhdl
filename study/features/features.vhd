@@ -71,6 +71,7 @@
 			case r_abs_sm is
 				when s_idle =>
 					if i_enable = '1' then
+						r_abs_enable <= '1';
 						r_abs_sm <= s_process;
 					else
 						r_abs_sm <= s_idle;
@@ -98,6 +99,7 @@
 				when s_done =>
 					r_abs_index    <= 0;
 					r_abs_done_all <= '0';
+					r_abs_enable <= '0';
 					r_abs_sm			<= s_idle;
 				
 				when others => 
