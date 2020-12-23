@@ -32,8 +32,10 @@
  signal r_ft_5		: std_logic_vector(15 downto 0);
  signal r_done		: std_logic := '0';
 
- file f_abs_result : text open write_mode is "abs_complex_result.txt";
- signal r_abs_result : std_logic_vector(15 downto 0);
+ file f_abs_result 		: text open write_mode is "abs_complex_result.txt";
+ file f_mean_result		: text open write_mode is "mean_result.txt";
+ signal r_abs_result 	: std_logic_vector(15 downto 0);
+ signal r_mean_result	: std_logic_vector(15 downto 0);
  
  component features is
  	generic(
@@ -73,16 +75,24 @@
  	assert false report "Test finished" severity failure;
  end process p_test;
 
- p_write_file : process (r_abs_result)
- variable v_line : line;
- begin
-	write(v_line, r_abs_result);
-	writeline(f_abs_result, v_line);
- end process p_write_file;
+ p_write_file_abs : process (r_abs_result)
+	variable v_line : line;
+	begin
+	   write(v_line, r_abs_result);
+	   writeline(f_abs_result, v_line);
+ end process p_write_file_abs;
+
+ p_write_file_mean : process(r_mean_result)
+	variable v_line : line;
+	begin
+		write(v_line, r_mean_result);
+		writeline(f_mean_result, v_line);
+ end process p_write_file_mean;
 
 -- p_spy : process
 -- begin
 --	init_signal_spy("/features_tb/dut/r_abs_result", "/r_abs_result",1,1);
+--	init_signal_spy("/features_tb/dut/r_mean_result", "/r_mean_result",1,1);
 --	wait;
 -- end process p_spy;
  
