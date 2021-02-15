@@ -27,7 +27,7 @@
  
  architecture bhv of amc is
  
- type t_sm is (s_idle, s_input_layer, s_hl_1, s_hl_2, s_hl_3, s_hl_4, s_output_layer, s_clear);
+ type t_sm is (s_idle, s_input_layer, s_hl_1, s_hl_2, s_hl_3, s_output_layer, s_clear);
  signal r_sm : t_sm := s_idle;
  
  --General constants and signals

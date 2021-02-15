@@ -18,7 +18,7 @@
 		i_clk		: in std_logic;
 		i_rst		: in std_logic;
 		i_enable	: in std_logic;
-		--i_input 	: in std_logic_vector(g_bits-1 downto 0);
+		i_input 	: in std_logic_vector(g_bits-1 downto 0);
 		o_ft_0	: out std_logic_vector(g_bits-1 downto 0);
 		o_ft_1	: out std_logic_vector(g_bits-1 downto 0);
 		o_ft_2	: out std_logic_vector(g_bits-1 downto 0);
@@ -97,7 +97,7 @@
 	end component;
 	
 	-- Standard Deviation of the Centered Normalized Instantaneous Amplitude signals
-	type t_std_cn_sm is (s_idle, s_divide, s_abs, s_std, s_done);
+	type t_std_cn_sm is (s_idle, s_divide, s_read_abs, s_abs, s_std, s_done);
 	signal r_std_cn_sm 			: t_std_cn_sm := s_idle;
 	signal r_std_cn_rst			: std_logic := '0';
 	signal r_std_cn_enable		: std_logic := '0';
@@ -109,6 +109,7 @@
 	signal r_std_cn_done_all	: std_logic := '0';
 	signal r_std_cn_index		: natural range 0 to g_frame_size := 0;
 	signal r_cn_abs				: sfixed(g_fxp_high downto g_fxp_low) := (others => '0');
+	signal r_temp_cb_abs			: std_logic_vector(g_bits-1 downto 0) := (others => '0');
 	
 	component standard_deviation is
 		generic(
@@ -220,7 +221,7 @@
 			case r_std_cn_sm is
 				when s_idle =>
 					r_std_cn_done_all	<= '0';
-					if r_ft_state(7 downto 6) = "11" then
+					if r_ft_state(1 downto 0) = "11" then
 						r_std_cn_enable <= '1';
 						r_std_cn_sm <= s_divide;
 					else
@@ -231,14 +232,19 @@
 					r_std_cn_enable <= '0';
 					if r_std_cn_index < g_frame_size then
 						r_mem_cn_abs(r_std_cn_index) <= to_slv(resize(to_sfixed(r_mem_abs(r_std_cn_index), g_fxp_high, g_fxp_low) / (to_sfixed(r_mean_result, g_fxp_high, g_fxp_low)-1), g_fxp_high, g_fxp_low));
-						r_std_cn_sm		<= s_abs;
+						r_std_cn_sm		<= s_read_abs;
 					else
 						r_std_cn_index <= 0;
 						r_std_cn_sm	<= s_std;
 					end if;
+					
+				when s_read_abs =>
+					-- Why is it necessary to use the quotes in abs function?
+					r_temp_cb_abs 	<= to_slv(resize("abs"(to_sfixed(r_mem_cn_abs(r_std_cn_index), g_fxp_high, g_fxp_low)), g_fxp_high, g_fxp_low));
+					r_std_cn_sm		<= s_abs;
 				
-				when s_abs =>
-					r_mem_cn_abs(r_std_cn_index) <= abs(to_sfixed(r_mem_cn_abs(r_std_cn_index), g_fxp_high, g_fxp_low));
+				when s_abs =>					
+					r_mem_cn_abs(r_std_cn_index) <= r_temp_cb_abs;
 					r_std_cn_index <= r_std_cn_index + 1;
 					r_std_cn_sm <= s_divide;
 					
@@ -267,6 +273,13 @@
 	end process p_std_cn_inst_amp;
 	
 	r_mean_enable <= r_abs_done_all;
-	o_done <= '0';
+	o_done <= r_std_cn_done_all;
+	
+	o_ft_0 <= (others => '1');
+	o_ft_1 <= (others => '1');
+	o_ft_2 <= r_std_cn_result;
+	o_ft_3 <= (others => '1');
+	o_ft_4 <= (others => '1');
+	o_ft_5 <= (others => '1');
 	
  end bhv;

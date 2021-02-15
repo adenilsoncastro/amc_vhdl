@@ -12,7 +12,7 @@
 		g_bits			: natural := c_bits;
 		g_fxp_high		: natural := c_fxp_high;
 		g_fxp_low		: integer := c_fxp_low;
-		g_frame_size	: natural := 10);
+		g_frame_size	: natural := c_frame_size);
 	port(
 		i_clk		: in std_logic;
 		i_rst		: in std_logic;

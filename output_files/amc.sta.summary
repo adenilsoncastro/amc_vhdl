@@ -3,19 +3,19 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'i_clk'
-Slack : -28.007
-TNS   : -43848.138
+Slack : -28.169
+TNS   : -44128.211
 
 Type  : Slow 1200mV 85C Model Setup 'layer_l4:ol|r_max_enable'
-Slack : -5.487
-TNS   : -21.321
+Slack : -5.357
+TNS   : -20.827
 
 Type  : Slow 1200mV 85C Model Hold 'i_clk'
-Slack : 0.359
+Slack : 0.383
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'layer_l4:ol|r_max_enable'
-Slack : 2.255
+Slack : 1.844
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'i_clk'
@@ -23,23 +23,23 @@ Slack : -3.000
 TNS   : -5825.115
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'layer_l4:ol|r_max_enable'
-Slack : 0.381
+Slack : 0.416
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'i_clk'
-Slack : -25.376
-TNS   : -39500.138
+Slack : -25.612
+TNS   : -39768.437
 
 Type  : Slow 1200mV 0C Model Setup 'layer_l4:ol|r_max_enable'
-Slack : -5.050
-TNS   : -19.503
+Slack : -4.935
+TNS   : -19.163
 
 Type  : Slow 1200mV 0C Model Hold 'i_clk'
-Slack : 0.352
+Slack : 0.338
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'layer_l4:ol|r_max_enable'
-Slack : 2.170
+Slack : 1.804
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'i_clk'
@@ -47,31 +47,31 @@ Slack : -3.000
 TNS   : -5823.355
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'layer_l4:ol|r_max_enable'
-Slack : 0.447
+Slack : 0.479
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'i_clk'
-Slack : -13.496
-TNS   : -19971.870
+Slack : -13.605
+TNS   : -20169.144
 
 Type  : Fast 1200mV 0C Model Setup 'layer_l4:ol|r_max_enable'
-Slack : -2.374
-TNS   : -9.167
+Slack : -2.312
+TNS   : -8.910
 
 Type  : Fast 1200mV 0C Model Hold 'i_clk'
-Slack : 0.146
+Slack : 0.149
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'layer_l4:ol|r_max_enable'
-Slack : 1.161
+Slack : 1.046
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'i_clk'
 Slack : -3.000
-TNS   : -4782.542
+TNS   : -4780.093
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'layer_l4:ol|r_max_enable'
-Slack : 0.328
+Slack : 0.336
 TNS   : 0.000
 
 ------------------------------------------------------------

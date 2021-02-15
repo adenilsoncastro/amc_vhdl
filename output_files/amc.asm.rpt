@@ -1,5 +1,5 @@
 Assembler report for amc
-Tue Dec 08 12:03:34 2020
+Wed Feb 10 14:34:47 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Tue Dec 08 12:03:34 2020 ;
+; Assembler Status      ; Successful - Wed Feb 10 14:34:47 2021 ;
 ; Revision Name         ; amc                                   ;
 ; Top-level Entity Name ; amc                                   ;
 ; Family                ; Cyclone IV E                          ;
@@ -67,8 +67,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------+--------------------------------------------------------------------------+
 ; Option         ; Setting                                                                  ;
 +----------------+--------------------------------------------------------------------------+
-; JTAG usercode  ; 0x01F26875                                                               ;
-; Checksum       ; 0x01F26875                                                               ;
+; JTAG usercode  ; 0x01F0A164                                                               ;
+; Checksum       ; 0x01F0A164                                                               ;
 +----------------+--------------------------------------------------------------------------+
 
 
@@ -78,14 +78,14 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Tue Dec 08 12:03:30 2020
+    Info: Processing started: Wed Feb 10 14:34:43 2021
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off amc -c amc
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 4800 megabytes
-    Info: Processing ended: Tue Dec 08 12:03:34 2020
-    Info: Elapsed time: 00:00:04
+    Info: Processing ended: Wed Feb 10 14:34:48 2021
+    Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:04
 
 
