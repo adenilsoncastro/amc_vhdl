@@ -110,6 +110,7 @@ def plot_metrics(report, acc):
     f1_score = []
 
     for mod in mod_bin:
+        plt.grid(b=True)
         plt.title('{} Performance'.format(modulations[mod_bin_dic[mod]]))
         plt.ylabel('Performance')
         plt.xlabel('SNR [dB]')
@@ -123,9 +124,9 @@ def plot_metrics(report, acc):
         for item in acc[mod_bin_dic[mod]]:
             accuracy.append(item)
 
-        plt.plot(accuracy, label='accuracy', linewidth=2)
+        plt.plot(accuracy, label='accuracy', linewidth=4)
         plt.plot(precision, label='precision', linewidth=2)
-        plt.plot(recall, label='recall', linewidth=2)
+        plt.plot(recall, label='recall', linewidth=2, linestyle='--', color='r')
         plt.plot(f1_score, label='f1-score', linewidth=2)
         plt.legend(loc='best')
         #plt.show()
